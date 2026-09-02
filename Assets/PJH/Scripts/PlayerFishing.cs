@@ -47,7 +47,6 @@ namespace PJH.Scripts
             {
                 Debug.Log("낚시 가능 구역");
                 canClick = true;
-                //미니게임 코드
             }
             
             else

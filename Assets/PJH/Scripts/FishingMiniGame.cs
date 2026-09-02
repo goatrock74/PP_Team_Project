@@ -1,52 +1,43 @@
 using System;
+using System.Reflection;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.InputSystem;
+using Random = UnityEngine.Random;
 
 namespace PJH.Scripts
 {
     public class FishingMiniGame : MonoBehaviour
     {
-        [Header("MiniGame UI")]
-        [SerializeField] private RectTransform minigamePanel;
-        [SerializeField] private float targetHeight = 530f;
-        [SerializeField] private float duration = 1.3f;
-        private Tween panelTween;
-        private bool isOpend;
-
-        public void Start()
-        {
-            SetPanelHeight(0f);
-        }
-
+        [SerializeField] private FishingMiniGameUI fishingMiniGameUI;
+        [SerializeField] private FishingSettingSO fishingSettingSo;
 
         private void Update()
         {
             if (Keyboard.current.fKey.wasPressedThisFrame)
             {
-                OpenPanel();
+                fishingMiniGameUI.OpenPanel();
             }
         }
 
-        public void OpenPanel()
+        private void OnEnable()
         {
-            panelTween?.Kill();
-            isOpend = true;
-            SetPanelHeight(0f);
-
-            panelTween = minigamePanel.DOSizeDelta(new Vector2(minigamePanel.sizeDelta.x, targetHeight), duration)
-                .SetEase(Ease.OutCubic)
-                .OnComplete(StartMiniGame);
+            fishingMiniGameUI.OnShowComplete += StartMiniGame;
         }
 
         private void StartMiniGame()
         {
-            Debug.Log("미니게임 시작");
+            Debug.Log("낚시게임 시작");
         }
 
-        private void SetPanelHeight(float height)
+        private float GetRandomBiteTime()
         {
-            minigamePanel.sizeDelta = new Vector2(minigamePanel.sizeDelta.x, height);
+            float min = fishingSettingSo.MinBiteTime;
+            float max = fishingSettingSo.MaxBiteTime;
+            return (
+                Random.Range(min, max) +
+                Random.Range(min, max) * 0.5f);
         }
+
     }
 }
