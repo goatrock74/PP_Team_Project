@@ -1,52 +1,52 @@
 fileFormatVersion: 2
-guid: 5327a9628114ab245a23a486be4a1839
+guid: 5dd28ff2a73805446a688448b86aa99a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1512569109626862820
-    second: terrain all_0
+      213: -2155779162585079897
+    second: StarFruits_0
   - first:
-      213: -6068444479414198911
-    second: terrain all_1
+      213: -4768503374628379683
+    second: StarFruits_1
   - first:
-      213: -8230549235400348265
-    second: terrain all_2
+      213: 1806482648524466094
+    second: StarFruits_2
   - first:
-      213: 8689136373363197988
-    second: terrain all_3
+      213: -55836324096021250
+    second: StarFruits_3
   - first:
-      213: -3951920475604467578
-    second: terrain all_4
+      213: -1554302302026560279
+    second: StarFruits_4
   - first:
-      213: -1991807558150783499
-    second: terrain all_5
+      213: 3739271722527865555
+    second: StarFruits_5
   - first:
-      213: -4531749993349245846
-    second: terrain all_6
+      213: -3350737170080836150
+    second: StarFruits_6
   - first:
-      213: -3678312067536746956
-    second: terrain all_7
+      213: 8632704892745448679
+    second: StarFruits_7
   - first:
-      213: -6798177639280918606
-    second: terrain all_8
+      213: 5762564104938207737
+    second: StarFruits_8
   - first:
-      213: 6919163772072899904
-    second: terrain all_9
+      213: -1409633353637570536
+    second: StarFruits_9
   - first:
-      213: 4486228212902061254
-    second: terrain all_10
+      213: -2423334335943686208
+    second: StarFruits_10
   - first:
-      213: 6805151741420243410
-    second: terrain all_11
+      213: 791793917679487732
+    second: StarFruits_11
   - first:
-      213: 2807013748145456822
-    second: terrain all_12
+      213: -5208676755895581819
+    second: StarFruits_12
   - first:
-      213: -7278314245465655848
-    second: terrain all_13
+      213: 5032046672499707139
+    second: StarFruits_13
   - first:
-      213: -8710494319484540464
-    second: terrain all_14
+      213: 2456189445398592006
+    second: StarFruits_14
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -93,7 +93,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,43 +138,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: terrain all_0
+      name: StarFruits_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 491
-        width: 74
-        height: 266
+        x: 3
+        y: 18
+        width: 27
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c134672a866420be0800000000000000
-      internalID: -1512569109626862820
+      spriteID: 7af5deff5422512e0800000000000000
+      internalID: -2155779162585079897
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_1
+      name: StarFruits_1
       rect:
         serializedVersion: 2
-        x: 107
-        y: 491
-        width: 266
-        height: 266
+        x: 47
+        y: 15
+        width: 19
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,20 +179,196 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 18d1651e5ed88cba0800000000000000
-      internalID: -6068444479414198911
+      spriteID: dd32605027fd2ddb0800000000000000
+      internalID: -4768503374628379683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_2
+      name: StarFruits_2
       rect:
         serializedVersion: 2
-        x: 383
+        x: 79
+        y: 15
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea7253ec56ae11910800000000000000
+      internalID: 1806482648524466094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StarFruits_3
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 15
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efc61b8b821a93ff0800000000000000
+      internalID: -55836324096021250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StarFruits_4
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 15
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ec82269a420e6ae0800000000000000
+      internalID: -1554302302026560279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StarFruits_5
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 2
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3dabfe3f1df84e330800000000000000
+      internalID: 3739271722527865555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StarFruits_6
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 8
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac552a9fb4acf71d0800000000000000
+      internalID: -3350737170080836150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StarFruits_7
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec7ed6ac578dc770800000000000000
+      internalID: 8632704892745448679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StarFruits_8
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f93246a58db8ff40800000000000000
+      internalID: 5762564104938207737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StarFruits_9
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 2
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 818d3e4fee9ff6ce0800000000000000
+      internalID: -1409633353637570536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: StarFruits_10
+      rect:
+        serializedVersion: 2
+        x: 47
         y: 0
-        width: 386
-        height: 768
+        width: 18
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -227,174 +377,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79d6995e31737cd80800000000000000
-      internalID: -8230549235400348265
+      spriteID: 0c7c116c2469e5ed0800000000000000
+      internalID: -2423334335943686208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_3
+      name: StarFruits_11
       rect:
         serializedVersion: 2
-        x: 767
-        y: 383
-        width: 386
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4284d3b9e73069870800000000000000
-      internalID: 8689136373363197988
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_4
-      rect:
-        serializedVersion: 2
-        x: 1259
-        y: 395
-        width: 266
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 680c00ff345f729c0800000000000000
-      internalID: -3951920475604467578
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_5
-      rect:
-        serializedVersion: 2
-        x: 1631
-        y: 383
-        width: 193
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 5fdfb73349dab54e0800000000000000
-      internalID: -1991807558150783499
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_6
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 395
-        width: 74
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a641a8b246dfb11c0800000000000000
-      internalID: -4531749993349245846
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_7
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 395
-        width: 266
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 4368071c9a204fcc0800000000000000
-      internalID: -3678312067536746956
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_8
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 107
-        width: 74
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2bf38a2947508a1a0800000000000000
-      internalID: -6798177639280918606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_9
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 107
-        width: 266
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 04538299acec50060800000000000000
-      internalID: 6919163772072899904
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_10
-      rect:
-        serializedVersion: 2
-        x: 767
+        x: 79
         y: 0
-        width: 386
-        height: 385
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,42 +399,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c4ec536ac8424e30800000000000000
-      internalID: 4486228212902061254
+      spriteID: 4fac99e7f540dfa00800000000000000
+      internalID: 791793917679487732
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_11
+      name: StarFruits_12
       rect:
         serializedVersion: 2
-        x: 1259
-        y: 11
-        width: 266
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2d90cfd1471c07e50800000000000000
-      internalID: 6805151741420243410
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_12
-      rect:
-        serializedVersion: 2
-        x: 1631
+        x: 111
         y: 0
-        width: 193
-        height: 193
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -447,20 +421,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b609d9b12484f620800000000000000
-      internalID: 2807013748145456822
+      spriteID: 5838207561017b7b0800000000000000
+      internalID: -5208676755895581819
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_13
+      name: StarFruits_13
       rect:
         serializedVersion: 2
-        x: 11
-        y: 11
-        width: 74
-        height: 74
+        x: 143
+        y: 0
+        width: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -469,20 +443,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d5ba5381cb3efa90800000000000000
-      internalID: -7278314245465655848
+      spriteID: 30d0887a9cb65d540800000000000000
+      internalID: 5032046672499707139
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_14
+      name: StarFruits_14
       rect:
         serializedVersion: 2
-        x: 107
-        y: 11
-        width: 266
-        height: 74
+        x: 174
+        y: 0
+        width: 19
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -491,8 +465,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0d9e01d019b1e1780800000000000000
-      internalID: -8710494319484540464
+      spriteID: 60afb028943261220800000000000000
+      internalID: 2456189445398592006
       vertices: []
       indices: 
       edges: []
@@ -511,21 +485,21 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      terrain all_0: -1512569109626862820
-      terrain all_1: -6068444479414198911
-      terrain all_10: 4486228212902061254
-      terrain all_11: 6805151741420243410
-      terrain all_12: 2807013748145456822
-      terrain all_13: -7278314245465655848
-      terrain all_14: -8710494319484540464
-      terrain all_2: -8230549235400348265
-      terrain all_3: 8689136373363197988
-      terrain all_4: -3951920475604467578
-      terrain all_5: -1991807558150783499
-      terrain all_6: -4531749993349245846
-      terrain all_7: -3678312067536746956
-      terrain all_8: -6798177639280918606
-      terrain all_9: 6919163772072899904
+      StarFruits_0: -2155779162585079897
+      StarFruits_1: -4768503374628379683
+      StarFruits_10: -2423334335943686208
+      StarFruits_11: 791793917679487732
+      StarFruits_12: -5208676755895581819
+      StarFruits_13: 5032046672499707139
+      StarFruits_14: 2456189445398592006
+      StarFruits_2: 1806482648524466094
+      StarFruits_3: -55836324096021250
+      StarFruits_4: -1554302302026560279
+      StarFruits_5: 3739271722527865555
+      StarFruits_6: -3350737170080836150
+      StarFruits_7: 8632704892745448679
+      StarFruits_8: 5762564104938207737
+      StarFruits_9: -1409633353637570536
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

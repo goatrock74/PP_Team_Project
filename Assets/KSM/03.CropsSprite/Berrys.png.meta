@@ -1,52 +1,43 @@
 fileFormatVersion: 2
-guid: 5327a9628114ab245a23a486be4a1839
+guid: 8d830c60cc2074443ac091dbfd81f4c9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1512569109626862820
-    second: terrain all_0
+      213: -8366041549643377438
+    second: Berrys_0
   - first:
-      213: -6068444479414198911
-    second: terrain all_1
+      213: -7505505239158044782
+    second: Berrys_1
   - first:
-      213: -8230549235400348265
-    second: terrain all_2
+      213: -2578567207385797109
+    second: Berrys_2
   - first:
-      213: 8689136373363197988
-    second: terrain all_3
+      213: 4878326788880870513
+    second: Berrys_3
   - first:
-      213: -3951920475604467578
-    second: terrain all_4
+      213: -1812436739602203000
+    second: Berrys_4
   - first:
-      213: -1991807558150783499
-    second: terrain all_5
+      213: 463252804451237913
+    second: Berrys_5
   - first:
-      213: -4531749993349245846
-    second: terrain all_6
+      213: 3002945128721745179
+    second: Berrys_6
   - first:
-      213: -3678312067536746956
-    second: terrain all_7
+      213: 338596907691811543
+    second: Berrys_7
   - first:
-      213: -6798177639280918606
-    second: terrain all_8
+      213: 224542549701557220
+    second: Berrys_8
   - first:
-      213: 6919163772072899904
-    second: terrain all_9
+      213: -8253341163845443366
+    second: Berrys_9
   - first:
-      213: 4486228212902061254
-    second: terrain all_10
+      213: 8093234658835938427
+    second: Berrys_10
   - first:
-      213: 6805151741420243410
-    second: terrain all_11
-  - first:
-      213: 2807013748145456822
-    second: terrain all_12
-  - first:
-      213: -7278314245465655848
-    second: terrain all_13
-  - first:
-      213: -8710494319484540464
-    second: terrain all_14
+      213: -391239128564059699
+    second: Berrys_11
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -93,7 +84,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -138,361 +129,291 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: terrain all_0
+      name: Berrys_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 491
-        width: 74
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: c134672a866420be0800000000000000
-      internalID: -1512569109626862820
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_1
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 491
-        width: 266
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 18d1651e5ed88cba0800000000000000
-      internalID: -6068444479414198911
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: terrain all_2
-      rect:
-        serializedVersion: 2
-        x: 383
+        x: 8
         y: 0
-        width: 386
-        height: 768
+        width: 7
+        height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 79d6995e31737cd80800000000000000
-      internalID: -8230549235400348265
+      spriteID: 2e419592989d5eb80800000000000000
+      internalID: -8366041549643377438
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_3
+      name: Berrys_1
       rect:
         serializedVersion: 2
-        x: 767
-        y: 383
-        width: 386
-        height: 385
+        x: 17
+        y: 15
+        width: 16
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4284d3b9e73069870800000000000000
-      internalID: 8689136373363197988
+      spriteID: 297c62830c617d790800000000000000
+      internalID: -7505505239158044782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_4
+      name: Berrys_2
       rect:
         serializedVersion: 2
-        x: 1259
-        y: 395
-        width: 266
-        height: 266
+        x: 33
+        y: 15
+        width: 16
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 680c00ff345f729c0800000000000000
-      internalID: -3951920475604467578
+      spriteID: b0e6c4669c6173cd0800000000000000
+      internalID: -2578567207385797109
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_5
+      name: Berrys_3
       rect:
         serializedVersion: 2
-        x: 1631
-        y: 383
-        width: 193
-        height: 194
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 48
+        y: 2
+        width: 15
+        height: 14
+      alignment: 9
+      pivot: {x: 0.48800048, y: 0.12857151}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5fdfb73349dab54e0800000000000000
-      internalID: -1991807558150783499
+      spriteID: 17c24853e5c43b340800000000000000
+      internalID: 4878326788880870513
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_6
+      name: Berrys_4
       rect:
         serializedVersion: 2
-        x: 11
-        y: 395
-        width: 74
-        height: 74
+        x: 49
+        y: 15
+        width: 16
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a641a8b246dfb11c0800000000000000
-      internalID: -4531749993349245846
+      spriteID: 88eb426536ee8d6e0800000000000000
+      internalID: -1812436739602203000
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_7
+      name: Berrys_5
       rect:
         serializedVersion: 2
-        x: 107
-        y: 395
-        width: 266
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 64
+        y: 2
+        width: 15
+        height: 14
+      alignment: 9
+      pivot: {x: 0.50000054, y: 0.11285722}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4368071c9a204fcc0800000000000000
-      internalID: -3678312067536746956
+      spriteID: 9100582a8fdcd6600800000000000000
+      internalID: 463252804451237913
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_8
+      name: Berrys_6
       rect:
         serializedVersion: 2
-        x: 11
-        y: 107
-        width: 74
-        height: 266
+        x: 65
+        y: 15
+        width: 16
+        height: 17
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2bf38a2947508a1a0800000000000000
-      internalID: -6798177639280918606
+      spriteID: b15037d2faa9ca920800000000000000
+      internalID: 3002945128721745179
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_9
+      name: Berrys_7
       rect:
         serializedVersion: 2
-        x: 107
-        y: 107
-        width: 266
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 80
+        y: 2
+        width: 15
+        height: 14
+      alignment: 9
+      pivot: {x: 0.50000054, y: 0.1242858}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 04538299acec50060800000000000000
-      internalID: 6919163772072899904
+      spriteID: 7d22405f710f2b400800000000000000
+      internalID: 338596907691811543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_10
+      name: Berrys_8
       rect:
         serializedVersion: 2
-        x: 767
-        y: 0
-        width: 386
-        height: 385
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 96
+        y: 2
+        width: 15
+        height: 14
+      alignment: 9
+      pivot: {x: 0.50133413, y: 0.13000008}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6c4ec536ac8424e30800000000000000
-      internalID: 4486228212902061254
+      spriteID: 4ebfbef524cbd1300800000000000000
+      internalID: 224542549701557220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_11
+      name: Berrys_9
       rect:
         serializedVersion: 2
-        x: 1259
-        y: 11
-        width: 266
-        height: 266
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 113
+        y: 2
+        width: 15
+        height: 14
+      alignment: 9
+      pivot: {x: 0.5082484, y: 0.12170606}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2d90cfd1471c07e50800000000000000
-      internalID: 6805151741420243410
+      spriteID: ad022e680fd367d80800000000000000
+      internalID: -8253341163845443366
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_12
+      name: Berrys_10
       rect:
         serializedVersion: 2
-        x: 1631
-        y: 0
-        width: 193
-        height: 193
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 18
+        y: 2
+        width: 12
+        height: 9
+      alignment: 9
+      pivot: {x: 0.46166706, y: 0.20666681}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b609d9b12484f620800000000000000
-      internalID: 2807013748145456822
+      spriteID: b7cbbcbda02f05070800000000000000
+      internalID: 8093234658835938427
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_13
+      name: Berrys_11
       rect:
         serializedVersion: 2
-        x: 11
-        y: 11
-        width: 74
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 34
+        y: 2
+        width: 11
+        height: 12
+      alignment: 9
+      pivot: {x: 0.5018186, y: 0.1550001}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8d5ba5381cb3efa90800000000000000
-      internalID: -7278314245465655848
+      spriteID: dc1b4bfd51a029af0800000000000000
+      internalID: -391239128564059699
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terrain all_14
+      name: Berrys_12
       rect:
         serializedVersion: 2
-        x: 107
-        y: 11
-        width: 266
-        height: 74
+        x: 5
+        y: 6
+        width: 6
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 0d9e01d019b1e1780800000000000000
-      internalID: -8710494319484540464
+      spriteID: fb8a6443dd58b214892ad973acdc83fb
+      internalID: 444994044
       vertices: []
       indices: 
       edges: []
@@ -501,31 +422,31 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 756c1655684431e46a2697e292e302b9
     internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
-    secondaryTextures: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: fa4ef3fd739aca649b3acd6b2cc6795c, type: 3}
+      name: _NormalMap
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      terrain all_0: -1512569109626862820
-      terrain all_1: -6068444479414198911
-      terrain all_10: 4486228212902061254
-      terrain all_11: 6805151741420243410
-      terrain all_12: 2807013748145456822
-      terrain all_13: -7278314245465655848
-      terrain all_14: -8710494319484540464
-      terrain all_2: -8230549235400348265
-      terrain all_3: 8689136373363197988
-      terrain all_4: -3951920475604467578
-      terrain all_5: -1991807558150783499
-      terrain all_6: -4531749993349245846
-      terrain all_7: -3678312067536746956
-      terrain all_8: -6798177639280918606
-      terrain all_9: 6919163772072899904
+      Berrys_0: -8366041549643377438
+      Berrys_1: -7505505239158044782
+      Berrys_10: 8093234658835938427
+      Berrys_11: -391239128564059699
+      Berrys_12: 444994044
+      Berrys_2: -2578567207385797109
+      Berrys_3: 4878326788880870513
+      Berrys_4: -1812436739602203000
+      Berrys_5: 463252804451237913
+      Berrys_6: 3002945128721745179
+      Berrys_7: 338596907691811543
+      Berrys_8: 224542549701557220
+      Berrys_9: -8253341163845443366
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

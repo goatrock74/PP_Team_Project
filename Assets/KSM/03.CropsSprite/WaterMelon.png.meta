@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 9e7d1a60f99c6764fa7132a273f0187e
+guid: b19222d54095e714dbbf9c817bfeb0c1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2542965494952488964
-    second: run 64x32_0
+      213: 4144650804457457310
+    second: WaterMelon_0
   - first:
-      213: 9064698916272692674
-    second: run 64x32_1
+      213: -909475342819530383
+    second: WaterMelon_1
   - first:
-      213: -3035776179163141891
-    second: run 64x32_2
+      213: -2161011309740578784
+    second: WaterMelon_2
   - first:
-      213: 1742404584680999358
-    second: run 64x32_3
+      213: 1496592473942185885
+    second: WaterMelon_3
   - first:
-      213: 6884610535615159039
-    second: run 64x32_4
+      213: 8982402607476226794
+    second: WaterMelon_4
   - first:
-      213: 7833753710837160381
-    second: run 64x32_5
+      213: 3952120064367531061
+    second: WaterMelon_5
   - first:
-      213: 8946696313149809366
-    second: run 64x32_6
+      213: -7176557880382037833
+    second: WaterMelon_6
   - first:
-      213: 6291779461241827619
-    second: run 64x32_7
+      213: -3162699607301414426
+    second: WaterMelon_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -117,87 +117,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: iOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run 64x32_0
+      name: WaterMelon_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 1
-        width: 14
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cff08450b5295bcd0800000000000000
-      internalID: -2542965494952488964
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run 64x32_1
-      rect:
-        serializedVersion: 2
-        x: 73
-        y: 1
-        width: 14
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2cd5d4433a74ccd70800000000000000
-      internalID: 9064698916272692674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run 64x32_2
-      rect:
-        serializedVersion: 2
-        x: 137
+        x: 0
         y: 0
-        width: 14
-        height: 17
+        width: 81
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -206,19 +136,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: df8636736a1ced5d0800000000000000
-      internalID: -3035776179163141891
+      spriteID: e9649b582f1c48930800000000000000
+      internalID: 4144650804457457310
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run 64x32_3
+      name: WaterMelon_1
       rect:
         serializedVersion: 2
-        x: 201
+        x: 47
         y: 0
-        width: 14
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 179e34b8ef4e063f0800000000000000
+      internalID: -909475342819530383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterMelon_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 17
         height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -228,20 +180,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: eb94ce4fcb34e2810800000000000000
-      internalID: 1742404584680999358
+      spriteID: 028af4fc9ab8202e0800000000000000
+      internalID: -2161011309740578784
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run 64x32_4
+      name: WaterMelon_3
       rect:
         serializedVersion: 2
-        x: 265
-        y: 1
-        width: 14
-        height: 17
+        x: 95
+        y: 0
+        width: 82
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -250,39 +202,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ffad0405ecc0b8f50800000000000000
-      internalID: 6884610535615159039
+      spriteID: d97d8defce6f4c410800000000000000
+      internalID: 1496592473942185885
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run 64x32_5
+      name: WaterMelon_4
       rect:
         serializedVersion: 2
-        x: 328
-        y: 1
-        width: 16
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: db9d858be7517bc60800000000000000
-      internalID: 7833753710837160381
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: run 64x32_6
-      rect:
-        serializedVersion: 2
-        x: 391
+        x: 175
         y: 0
         width: 18
         height: 17
@@ -294,19 +224,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d2679a25ec092c70800000000000000
-      internalID: 8946696313149809366
+      spriteID: aeab928a497e7ac70800000000000000
+      internalID: 8982402607476226794
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: run 64x32_7
+      name: WaterMelon_5
       rect:
         serializedVersion: 2
-        x: 456
+        x: 193
         y: 0
-        width: 16
+        width: 14
         height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -316,8 +246,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 321fa60b514e05750800000000000000
-      internalID: 6291779461241827619
+      spriteID: 53412526240c8d630800000000000000
+      internalID: 3952120064367531061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterMelon_6
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b06ccd71aeb76c90800000000000000
+      internalID: -7176557880382037833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterMelon_7
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 0
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e1288fb675db14d0800000000000000
+      internalID: -3162699607301414426
       vertices: []
       indices: 
       edges: []
@@ -336,14 +310,14 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      run 64x32_0: -2542965494952488964
-      run 64x32_1: 9064698916272692674
-      run 64x32_2: -3035776179163141891
-      run 64x32_3: 1742404584680999358
-      run 64x32_4: 6884610535615159039
-      run 64x32_5: 7833753710837160381
-      run 64x32_6: 8946696313149809366
-      run 64x32_7: 6291779461241827619
+      WaterMelon_0: 4144650804457457310
+      WaterMelon_1: -909475342819530383
+      WaterMelon_2: -2161011309740578784
+      WaterMelon_3: 1496592473942185885
+      WaterMelon_4: 8982402607476226794
+      WaterMelon_5: 3952120064367531061
+      WaterMelon_6: -7176557880382037833
+      WaterMelon_7: -3162699607301414426
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

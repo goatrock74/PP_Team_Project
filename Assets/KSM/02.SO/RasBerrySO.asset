@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
+  m_Name: RasBerrySO
+  m_EditorClassIdentifier: Assembly-CSharp::CropSO
+  cropName: Rasberry
+  icon: {fileID: 0}
+  harvestType: 1
+  growthStages:
+  - sprite: {fileID: 444994044, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
+    durationtime: 3
+  - sprite: {fileID: 8093234658835938427, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
+    durationtime: 3
+  - sprite: {fileID: -391239128564059699, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
+    durationtime: 3
+  - sprite: {fileID: 224542549701557220, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
+    durationtime: 3
+  - sprite: {fileID: -8253341163845443366, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
+    durationtime: 3
+  BackInDexStage: 3
+  minPrice: 10
+  maxPrice: 100
+  size: {x: 1, y: 1}
+  plantableTiles:
+  - {fileID: 0}

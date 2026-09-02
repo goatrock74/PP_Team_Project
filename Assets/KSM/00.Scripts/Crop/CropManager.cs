@@ -1,0 +1,240 @@
+﻿using System;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Tilemaps;
+ 
+namespace KSM._00.Scripts.Crop
+{
+    /// <summary>
+    /// 농장의 두 가지 책임을 진다.
+    ///   1) 시간 배급  - 등록된 작물들에게 주기적으로 Tick(delta)을 나눠준다
+    ///   2) 칸 관리    - 어느 칸에 무엇이 심겨 있는지, 심을 수 있는지를 판정한다
+    /// </summary>
+    public class CropManager : MonoBehaviour
+    {
+        private static CropManager _instance;
+ 
+        public static CropManager Instance
+        {
+            get
+            {
+                if (_instance == null) _instance = FindFirstObjectByType<CropManager>();
+                return _instance;
+            }
+        }
+ 
+        [Header("타일맵")]
+        [Tooltip("작물을 심을 바닥 타일맵 (밭 타일이 그려진 것)")]
+        [SerializeField] private Tilemap groundTilemap;
+ 
+        [Tooltip("GrowCrop + SpriteRenderer + BoxCollider2D 가 붙은 프리팹")]
+        [SerializeField] private GameObject cropPrefab;
+ 
+        [Header("시간")]
+        [Tooltip("작물들을 훑는 주기(초). 매 프레임 돌 필요가 없다")]
+        [SerializeField] private float tickInterval = 0.5f;
+ 
+        [Tooltip("0이면 일시정지, 2면 2배속. 친구의 시간 시스템이 붙으면 제거될 예정")]
+        [SerializeField] private float timeScale = 1f;
+ 
+        private readonly List<GrowCrop> _crops = new();
+        private readonly Dictionary<Vector3Int, GrowCrop> _occupied = new();
+        private float _timer;
+ 
+        /// <summary>수확이 일어났을 때 (작물SO, 수량). 인벤토리가 구독하면 된다</summary>
+        public event Action<CropSO, int> OnHarvested;
+ 
+        private void Awake()
+        {
+            if (_instance != null && _instance != this) { Destroy(gameObject); return; }
+            _instance = this;
+        }
+ 
+        private void OnDestroy()
+        {
+            if (_instance == this) _instance = null;
+        }
+ 
+        // ════════════════════════════════════════════════════════════
+        //  시간 배급
+        // ════════════════════════════════════════════════════════════
+ 
+        public void Register(GrowCrop crop)
+        {
+            if (crop != null && !_crops.Contains(crop)) _crops.Add(crop);   // 중복 등록 = 2배속 성장
+        }
+ 
+        public void Unregister(GrowCrop crop) => _crops.Remove(crop);
+ 
+        private void Update()
+        {
+            if (timeScale <= 0f) { _timer = 0f; return; }   // 일시정지 중엔 헛돌지 않는다
+ 
+            _timer += Time.deltaTime;
+            if (_timer < tickInterval) return;
+ 
+            // tickInterval이 아니라 _timer를 넘긴다. 프레임 드랍으로 초과된 시간이 증발하지 않도록
+            float delta = ToGameDelta(_timer);
+            _timer = 0f;
+ 
+            TickAll(delta);
+        }
+ 
+        /// <summary>★ 시간의 출처는 여기 한 곳뿐. 외부 TimeManager가 붙으면 이 메서드만 갈아끼운다</summary>
+        private float ToGameDelta(float realSeconds) => realSeconds * timeScale;
+ 
+        private void TickAll(float delta)
+        {
+            // 역순: Tick 도중 작물이 리스트에서 빠져도 안전
+            for (int i = _crops.Count - 1; i >= 0; i--)
+                _crops[i].Tick(delta);
+        }
+ 
+        /// <summary>"자고 일어나면 8시간 경과" 같은 명시적 시간 점프</summary>
+        public void SkipTime(float gameSeconds) => TickAll(gameSeconds);
+ 
+        // ════════════════════════════════════════════════════════════
+        //  좌표 변환
+        // ════════════════════════════════════════════════════════════
+ 
+        public Vector3Int WorldToCell(Vector3 world) => groundTilemap.WorldToCell(world);
+ 
+        public Vector3 CellToWorldCenter(Vector3Int cell) => groundTilemap.GetCellCenterWorld(cell);
+ 
+        /// <summary>
+        /// 클릭한 칸을 중앙으로 보고 좌하단 원점을 구한다.
+        /// 3x3 → 클릭 칸이 정확히 가운데. 2x2처럼 짝수는 중앙이 없으므로 좌하단으로 치우친다.
+        /// </summary>
+        public static Vector3Int GetOrigin(Vector3Int clickedCell, Vector2Int size)
+        {
+            return new Vector3Int(
+                clickedCell.x - (size.x - 1) / 2,
+                clickedCell.y - (size.y - 1) / 2,
+                clickedCell.z);
+        }
+ 
+        /// <summary>차지하는 영역의 월드 중심 (스프라이트를 놓을 위치)</summary>
+        public Vector3 GetFootprintCenterWorld(Vector3Int origin, Vector2Int size)
+        {
+            Vector3 a = groundTilemap.GetCellCenterWorld(origin);
+            Vector3 b = groundTilemap.GetCellCenterWorld(
+                new Vector3Int(origin.x + size.x - 1, origin.y + size.y - 1, origin.z));
+            return (a + b) * 0.5f;
+        }
+ 
+        // ════════════════════════════════════════════════════════════
+        //  심기
+        // ════════════════════════════════════════════════════════════
+ 
+        /// <summary>클릭한 칸을 중앙으로 해서 심을 수 있는지 판정</summary>
+        public bool CanPlantAt(Vector3Int clickedCell, CropSO crop)
+        {
+            if (crop == null || groundTilemap == null) return false;
+            return CanPlace(GetOrigin(clickedCell, crop.size), crop);
+        }
+ 
+        /// <summary>좌하단 원점 기준으로 심을 수 있는지 판정</summary>
+        public bool CanPlace(Vector3Int origin, CropSO crop)
+        {
+            if (crop == null || groundTilemap == null) return false;
+ 
+            for (int x = 0; x < crop.size.x; x++)
+            {
+                for (int y = 0; y < crop.size.y; y++)
+                {
+                    var cell = new Vector3Int(origin.x + x, origin.y + y, origin.z);
+ 
+                    if (_occupied.ContainsKey(cell)) return false;                    // 이미 뭔가 있음
+                    if (!crop.IsPlantableTile(groundTilemap.GetTile(cell))) return false; // 심을 수 없는 타일
+                }
+            }
+ 
+            return true;
+        }
+ 
+        /// <summary>클릭한 칸을 중앙으로 심는다. 성공하면 true</summary>
+        public bool TryPlant(Vector3Int clickedCell, CropSO crop)
+        {
+            if (crop == null || cropPrefab == null || groundTilemap == null) return false;
+ 
+            Vector3Int origin = GetOrigin(clickedCell, crop.size);
+            if (!CanPlace(origin, crop)) return false;
+ 
+            Vector3 pos = GetFootprintCenterWorld(origin, crop.size);
+            GameObject go = Instantiate(cropPrefab, pos, Quaternion.identity, transform);
+            go.name = $"{crop.cropName}_{origin.x}_{origin.y}";
+ 
+            if (!go.TryGetComponent<GrowCrop>(out var grow))
+            {
+                Debug.LogError("[CropManager] cropPrefab에 GrowCrop이 없습니다.", cropPrefab);
+                Destroy(go);
+                return false;
+            }
+ 
+            // 여러 칸 작물이면 클릭 판정 영역도 그만큼 넓혀준다
+            if (go.TryGetComponent<BoxCollider2D>(out var box))
+            {
+                Vector3 cs = groundTilemap.cellSize;
+                box.size = new Vector2(crop.size.x * cs.x, crop.size.y * cs.y);
+                box.offset = Vector2.zero;
+            }
+ 
+            grow.Init(crop, origin);
+            OccupyCells(grow);
+ 
+            return true;
+        }
+ 
+        /// <summary>작물이 차지한 모든 칸을 점유 표시</summary>
+        public void OccupyCells(GrowCrop crop)
+        {
+            if (crop == null || crop.Data == null) return;
+ 
+            Vector3Int origin = crop.OriginCell;
+            Vector2Int size = crop.Data.size;
+ 
+            for (int x = 0; x < size.x; x++)
+                for (int y = 0; y < size.y; y++)
+                    _occupied[new Vector3Int(origin.x + x, origin.y + y, origin.z)] = crop;
+        }
+ 
+        /// <summary>작물이 차지했던 칸을 반납. 파괴 전에 반드시 호출해야 그 자리에 다시 심을 수 있다</summary>
+        public void ReleaseCells(GrowCrop crop)
+        {
+            if (crop == null || crop.Data == null) return;
+ 
+            Vector3Int origin = crop.OriginCell;
+            Vector2Int size = crop.Data.size;
+ 
+            for (int x = 0; x < size.x; x++)
+            {
+                for (int y = 0; y < size.y; y++)
+                {
+                    var cell = new Vector3Int(origin.x + x, origin.y + y, origin.z);
+ 
+                    // 남의 칸을 지우지 않도록 주인 확인
+                    if (_occupied.TryGetValue(cell, out var owner) && owner == crop)
+                        _occupied.Remove(cell);
+                }
+            }
+        }
+ 
+        // ════════════════════════════════════════════════════════════
+        //  수확 / 조회
+        // ════════════════════════════════════════════════════════════
+ 
+        /// <summary>이 칸을 차지한 작물 (없으면 null). 3x3이면 9칸 어디를 물어도 같은 작물이 나온다</summary>
+        public GrowCrop GetOccupant(Vector3Int cell)
+            => _occupied.TryGetValue(cell, out var crop) ? crop : null;
+ 
+        public bool TryHarvestAt(Vector3Int cell)
+        {
+            var crop = GetOccupant(cell);
+            return crop != null && crop.CanHarvest && crop.TryHarvest();
+        }
+ 
+        /// <summary>GrowCrop이 수확 시 호출. 인벤토리는 OnHarvested만 구독하면 된다</summary>
+        public void NotifyHarvested(CropSO crop, int amount) => OnHarvested?.Invoke(crop, amount);
+    }
+}
+ 
