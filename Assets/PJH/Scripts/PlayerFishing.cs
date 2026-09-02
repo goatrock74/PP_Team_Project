@@ -28,6 +28,7 @@ namespace PJH.Scripts
         [SerializeField] private FishingAreaCheck fishingAreaCheck;
         private bool isFishing;
         private FishingState state = FishingState.Idle;
+        private bool canClick = true;
         
         
     
@@ -35,17 +36,22 @@ namespace PJH.Scripts
         private void Awake()
         {
             rigid = GetComponent<Rigidbody2D>();
+            canClick = true;
         }
 
         public void CheckBobberLanding()
         {
             bool canFish = fishingAreaCheck.IsFishingLayer();
             
-            if(canFish) Debug.Log("낚시 가능 구역");
+            if(canFish)
+            {
+                Debug.Log("낚시 가능 구역");
+                canClick = true;
+                //미니게임 코드
+            }
             
             else
             {
-                Debug.Log("낚시 불가능 구역 ㅠㅠ");
                 animator.Play(_hashIdle, BaseLayer, 0f);
                 FinishFishing();
             }
@@ -54,27 +60,34 @@ namespace PJH.Scripts
 
         private void Update()
         {
-            if (Mouse.current.leftButton.wasPressedThisFrame)
+            if (Mouse.current.leftButton.wasPressedThisFrame && canClick)
             {
                 if (!isFishing)
                 {
                     Debug.Log("Fishing 애니메이션 실행");
-                    isFishing = true;
+                    canClick = false;
                     animator.Play(_hashFishing, BaseLayer, 0f);
                 }
 
                 else
                 {
                     Debug.Log("FishHook 애니메이션 실행");
+                    canClick = false;
                     animator.Play(_hashFishHook, BaseLayer, 0f);
                 }
             
             }
         }
 
+        public void StartFishing()
+        {
+            isFishing = true;
+        }
+
         public void FinishFishing()
         {
             isFishing = false;
+            canClick = true;
         }
 
         private void FixedUpdate()

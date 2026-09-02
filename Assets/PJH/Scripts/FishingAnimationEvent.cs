@@ -17,5 +17,11 @@ namespace PJH.Scripts
         {
             playerFishing.FinishFishing();
         }
+
+        public void StartFish()
+        {
+            playerFishing.StartFishing();
+        }
+        
     }
 }
