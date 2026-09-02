@@ -1,15 +1,12 @@
 using UnityEngine;
 
-public class DayPeriod : MonoBehaviour
+public class TimePeriod : MonoBehaviour
 {
     [SerializeField] private CanvasGroup sun;
     [SerializeField] private CanvasGroup afternoon;
     [SerializeField] private CanvasGroup night;
-    public void CPeriod(TimeManager.TimePeriod currentPeriod)
-    {
-        ChangePeriod(currentPeriod);
-    }
-    private void ChangePeriod(TimeManager.TimePeriod newPeriod) //페이드인 페이드아웃 서서히 사라지는걸로
+   
+    public void ChangeTimePeriod(TimeManager.TimePeriod newPeriod) //페이드인 페이드아웃 서서히 사라지는걸로
     {
         switch (newPeriod)
         {
