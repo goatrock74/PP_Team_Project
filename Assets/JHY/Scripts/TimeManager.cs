@@ -13,7 +13,7 @@ public class TimeManager : MonoBehaviour
     {
         Spring,
         Summer,
-        Authum,
+        Autumn,
         Winter
     }
     [Header("Time Settings")]
@@ -33,6 +33,7 @@ public class TimeManager : MonoBehaviour
     #endregion
 
     //public event Action<int> OnDayChange;
+    public event Action<SeasonPeriod> OnDayChange;
     public event Action<SeasonPeriod> OnSeasonChange;
     public event Action<TimePeriod> OnTimePeriodChange;
     private void Start()
@@ -49,6 +50,7 @@ public class TimeManager : MonoBehaviour
         {
             currentTimeInSeconds -= dayDuration;
             currentDay++;
+            OnDayChange?.Invoke(currentSeason);
             Debug.Log("Day: " + currentDay);
             UpdateSeasonPeriod();
         }
@@ -56,7 +58,7 @@ public class TimeManager : MonoBehaviour
     }
     private void UpdateSeasonPeriod()
     {
-        int seasonIndex = ((currentDay - 1) / 3) % 4;
+        int seasonIndex = ((currentDay - 1) / 5) % 4;
         SeasonPeriod newSeason = (SeasonPeriod)seasonIndex;
 
         if (newSeason != currentSeason)
