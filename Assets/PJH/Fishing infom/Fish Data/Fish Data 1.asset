@@ -17,3 +17,7 @@ MonoBehaviour:
   icon: {fileID: -861228602180299206, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
   difficulty: 0
+  moveSpeed: 0.25
+  minTargetChangeTime: 0.1
+  maxTargetChangeTime: 0.2
+  maxMoveDistance: 0.3
