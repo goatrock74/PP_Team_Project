@@ -25,7 +25,9 @@ namespace PJH.Scripts
         }
     
         [Header("Fishing Settings")]
+        [SerializeField] private FishingMiniGame fishingMiniGame;
         [SerializeField] private FishingAreaCheck fishingAreaCheck;
+        [SerializeField] private FishSelector fishSelector;
         private bool isFishing;
         private FishingState state = FishingState.Idle;
         private bool canClick = true;
@@ -46,6 +48,8 @@ namespace PJH.Scripts
             if(canFish)
             {
                 Debug.Log("낚시 가능 구역");
+                fishSelector.RandomFish();
+                fishingMiniGame.StartMiniGame();
                 canClick = true;
             }
             

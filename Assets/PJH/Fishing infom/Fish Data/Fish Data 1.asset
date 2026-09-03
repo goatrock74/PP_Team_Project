@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
-  m_Name: Fish Data 2
+  m_Name: Fish Data 1
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  fishID: Tuna
-  displayName: "\uCC38\uCE58"
-  icon: {fileID: 5738382178572575253, guid: d2985d5203b5a2b4686e319aed4afd2b, type: 3}
-  basePrice: 500
+  fishID: Sardine
+  displayName: "\uC815\uC5B4\uB9AC"
+  icon: {fileID: -861228602180299206, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  basePrice: 100
   difficulty: 0
