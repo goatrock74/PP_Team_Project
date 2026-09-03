@@ -5,8 +5,9 @@ public class TimeController : MonoBehaviour
     private TimeManager timeManager;
     private TimePeriod timePeriod;
     private SeasonPeriod seasonPeriod;
-
     private SeasonPassive seasonPassive;
+
+    [SerializeField] private LightManager lightManager;
     private void Awake()
     {
         timeManager = GetComponent<TimeManager>();
@@ -17,14 +18,20 @@ public class TimeController : MonoBehaviour
     private void OnEnable()
     {
         timeManager.OnTimePeriodChange += HandleTimePeriod;
+        timeManager.OnTimePeriodChange +=HandleLight;
         timeManager.OnSeasonChange += HandleSeasonPeriod;
         timeManager.OnDayChange += HandleSeasonPassive;
     }
     private void OnDisable()
     {
         timeManager.OnTimePeriodChange -= HandleTimePeriod;
+        timeManager.OnTimePeriodChange -= HandleLight;
         timeManager.OnSeasonChange -= HandleSeasonPeriod;
         timeManager.OnDayChange -= HandleSeasonPassive;
+    }
+    private void HandleLight(TimeManager.TimePeriod currentPeriod)
+    {
+        lightManager.ChangeTimePeriod(currentPeriod);
     }
     private void HandleSeasonPassive(TimeManager.SeasonPeriod currentSeason)
     {

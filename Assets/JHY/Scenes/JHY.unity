@@ -10736,7 +10736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac69b086e433f704aa6f6bfcdf701047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
-  dayDuration: 15
+  dayDuration: 60
 --- !u!114 &1605480115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10749,6 +10749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de01625610e1404fa313a7d9eb5cbd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayPeriodController
+  lightManager: {fileID: 1890233704}
 --- !u!114 &1605480116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11005,6 +11006,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1890233703
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1890233705}
+  - component: {fileID: 1890233704}
+  m_Layer: 0
+  m_Name: LightManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1890233704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890233703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f780ba5bdadf95847b391b503bea94cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::LightManager
+  globalLight: {fileID: 31519286}
+--- !u!4 &1890233705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890233703}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.98813, y: -1.40108, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1995415299
 GameObject:
   m_ObjectHideFlags: 0
@@ -11112,3 +11158,4 @@ SceneRoots:
   - {fileID: 59512031}
   - {fileID: 899464046}
   - {fileID: 413575892}
+  - {fileID: 1890233705}
