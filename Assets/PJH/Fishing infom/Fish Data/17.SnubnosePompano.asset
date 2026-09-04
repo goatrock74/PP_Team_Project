@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
   fishID: SnubnosePompano
   displayName: "\uBB34\uC810\uB9E4\uAC00\uB9AC"
-  icon: {fileID: -5127773444435267930, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  icon: {fileID: -3632933600622661128, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
   difficulty: 0
   moveSpeed: 0.18

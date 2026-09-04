@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
   fishID: SmoothHeadBlobfish
   displayName: "\uBE14\uB86D\uD53C\uC2DC"
-  icon: {fileID: -5127773444435267930, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  icon: {fileID: 5475462288572003310, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
   difficulty: 0
   moveSpeed: 0.18

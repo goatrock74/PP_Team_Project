@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
   fishID: Turbot
   displayName: "\uD130\uBD07"
-  icon: {fileID: -5127773444435267930, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  icon: {fileID: -8071675455219793797, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
   difficulty: 0
   moveSpeed: 0.18

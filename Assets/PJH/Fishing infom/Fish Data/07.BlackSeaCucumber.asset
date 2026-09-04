@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
   fishID: BlackSeaCucumber
   displayName: "\uAC80\uC740\uD574\uC0BC"
-  icon: {fileID: -5127773444435267930, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  icon: {fileID: -4505679722818219865, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
   difficulty: 0
   moveSpeed: 0.18
