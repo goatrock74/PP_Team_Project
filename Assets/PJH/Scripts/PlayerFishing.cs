@@ -63,6 +63,8 @@ namespace PJH.Scripts
 
         private void Update()
         {
+            if (fishingMiniGame.BlockFishingInput) return;
+            
             if (Mouse.current.leftButton.wasPressedThisFrame && canClick)
             {
                 if (!isFishing)
