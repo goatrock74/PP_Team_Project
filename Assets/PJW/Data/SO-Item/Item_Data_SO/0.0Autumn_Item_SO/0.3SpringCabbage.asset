@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2b2d6aece3f99941a609e051e495b86, type: 3}
-  m_Name: ItemSO
+  m_Name: 0.3SpringCabbage
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  season: 0
-  item_name: 
-  item_icon: {fileID: 0}
-  item_price: 0
+  <Season>k__BackingField: 0
+  <Item_icon>k__BackingField: {fileID: 2827135243542646276, guid: ef1ec4a492a96d44399981f1299e7ee4, type: 3}
+  <Item_price>k__BackingField: 1000
+  <Item_name>k__BackingField: Spring Cabbage
   item_explanation: 
+  Itme_bought: 0

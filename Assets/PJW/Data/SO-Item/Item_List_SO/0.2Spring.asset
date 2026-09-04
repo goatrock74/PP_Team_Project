@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9a59d87da237f4eb57b8f5b1916628, type: 3}
+  m_Name: 0.2Spring
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.PJW.Script.SO_Script.ItemListSO
+  targetType: 2
+  <itemList>k__BackingField:
+  - {fileID: 11400000, guid: 4d1bb903781e1d1429b3b367ad77ea7a, type: 2}
+  - {fileID: 11400000, guid: 5629821f7f011434aa8dce61e168da05, type: 2}
+  - {fileID: 11400000, guid: 9eae5907cf335c54d8c22ab3fda03fc1, type: 2}
+  - {fileID: 11400000, guid: beb74d562ceb90541a3e6c6f51bc4925, type: 2}
+  - {fileID: 11400000, guid: 27b7df77ce5fcd74aabafe1ab97d0fbc, type: 2}
+  - {fileID: 11400000, guid: 7b4a907baaf4fe14ba6c5e0a963465e4, type: 2}
