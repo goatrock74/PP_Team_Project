@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
-  m_Name: BlueBerrySO
+  m_Name: DaikonSO
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: BlueBerry
+  cropName: Daikon
   icon: {fileID: 0}
-  harvestType: 1
+  harvestType: 0
   growthStages:
-  - sprite: {fileID: 444994044, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
-    durationTime: 3
-  - sprite: {fileID: 8093234658835938427, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
-    durationTime: 3
-  - sprite: {fileID: -391239128564059699, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
-    durationTime: 3
-  - sprite: {fileID: 463252804451237913, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
-    durationTime: 3
-  - sprite: {fileID: 338596907691811543, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
-    durationTime: 3
+  - sprite: {fileID: 5735533114237087093, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
+    durationTime: 2
+  - sprite: {fileID: -534061224, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
+    durationTime: 2
+  - sprite: {fileID: -6946984286048669819, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
+    durationTime: 2
+  - sprite: {fileID: 901214324115098773, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
+    durationTime: 2
+  - sprite: {fileID: 1535087401, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
+    durationTime: 2
   harvestStageIndex: 4
-  regrowStageIndex: 3
+  regrowStageIndex: 0
   minYield: 1
   maxYield: 1
   minPrice: 10

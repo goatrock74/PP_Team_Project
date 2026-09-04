@@ -41,8 +41,8 @@ namespace KSM._00.Scripts.Crop
         private readonly Dictionary<Vector3Int, GrowCrop> _occupied = new();
         private float _timer;
  
-        /// <summary>수확이 일어났을 때 (작물SO, 수량). 인벤토리가 구독하면 된다</summary>
-        public event Action<CropSO, int> OnHarvested;
+        /// <summary>수확이 일어났을 때 (수확 아이템, 수량, 품질). 인벤토리가 구독하면 된다</summary>
+        public event Action<ItemSO, int, ItemQuality> OnHarvested;
  
         private void Awake()
         {
@@ -101,6 +101,9 @@ namespace KSM._00.Scripts.Crop
  
         public Vector3 CellToWorldCenter(Vector3Int cell) => groundTilemap.GetCellCenterWorld(cell);
  
+        /// <summary>타일 한 칸의 크기 (미리보기 스케일 등에 쓴다)</summary>
+        public Vector3 CellSize => groundTilemap != null ? groundTilemap.cellSize : Vector3.one;
+ 
         /// <summary>
         /// 클릭한 칸을 중앙으로 보고 좌하단 원점을 구한다.
         /// 3x3 → 클릭 칸이 정확히 가운데. 2x2처럼 짝수는 중앙이 없으므로 좌하단으로 치우친다.
@@ -113,13 +116,17 @@ namespace KSM._00.Scripts.Crop
                 clickedCell.z);
         }
  
-        /// <summary>차지하는 영역의 월드 중심 (스프라이트를 놓을 위치)</summary>
-        public Vector3 GetFootprintCenterWorld(Vector3Int origin, Vector2Int size)
+        /// <summary>
+        /// 스프라이트를 놓을 위치 = 차지한 영역의 "아랫줄 가운데".
+        /// 중심이 아니라 아랫줄인 이유: Y좌표 기반 정렬(Transparency Sort Axis)의 기준점이
+        /// 작물의 밑동이어야 앞뒤 겹침이 자연스럽다. 스프라이트 Pivot도 Bottom으로 맞출 것.
+        /// </summary>
+        public Vector3 GetPlantWorldPos(Vector3Int origin, Vector2Int size)
         {
-            Vector3 a = groundTilemap.GetCellCenterWorld(origin);
-            Vector3 b = groundTilemap.GetCellCenterWorld(
-                new Vector3Int(origin.x + size.x - 1, origin.y + size.y - 1, origin.z));
-            return (a + b) * 0.5f;
+            Vector3 left  = groundTilemap.GetCellCenterWorld(origin);
+            Vector3 right = groundTilemap.GetCellCenterWorld(
+                new Vector3Int(origin.x + size.x - 1, origin.y, origin.z));
+            return (left + right) * 0.5f;
         }
  
         // ════════════════════════════════════════════════════════════
@@ -160,7 +167,7 @@ namespace KSM._00.Scripts.Crop
             Vector3Int origin = GetOrigin(clickedCell, crop.size);
             if (!CanPlace(origin, crop)) return false;
  
-            Vector3 pos = GetFootprintCenterWorld(origin, crop.size);
+            Vector3 pos = GetPlantWorldPos(origin, crop.size);
             GameObject go = Instantiate(cropPrefab, pos, Quaternion.identity, transform);
             go.name = $"{crop.cropName}_{origin.x}_{origin.y}";
  
@@ -171,12 +178,13 @@ namespace KSM._00.Scripts.Crop
                 return false;
             }
  
-            // 여러 칸 작물이면 클릭 판정 영역도 그만큼 넓혀준다
+            // 여러 칸 작물이면 클릭 판정 영역도 그만큼 넓혀준다.
+            // 오브젝트 원점이 아랫줄 가운데이므로 콜라이더는 위쪽으로 밀어준다
             if (go.TryGetComponent<BoxCollider2D>(out var box))
             {
                 Vector3 cs = groundTilemap.cellSize;
                 box.size = new Vector2(crop.size.x * cs.x, crop.size.y * cs.y);
-                box.offset = Vector2.zero;
+                box.offset = new Vector2(0f, (crop.size.y - 1) * cs.y * 0.5f);
             }
  
             grow.Init(crop, origin);
@@ -234,7 +242,7 @@ namespace KSM._00.Scripts.Crop
         }
  
         /// <summary>GrowCrop이 수확 시 호출. 인벤토리는 OnHarvested만 구독하면 된다</summary>
-        public void NotifyHarvested(CropSO crop, int amount) => OnHarvested?.Invoke(crop, amount);
+        public void NotifyHarvested(ItemSO item, int amount, ItemQuality quality)
+            => OnHarvested?.Invoke(item, amount, quality);
     }
 }
- 

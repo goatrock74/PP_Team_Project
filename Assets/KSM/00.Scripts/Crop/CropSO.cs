@@ -25,12 +25,15 @@ public class CropSO : ScriptableObject
     [Min(0)] public int regrowStageIndex;
  
     [Header("수확물")]
+    [Tooltip("수확했을 때 인벤토리에 들어갈 아이템. 작물 자체(CropSO)와는 별개의 에셋이다")]
+    public ItemSO harvestItem;
+ 
     [Min(1)] public int minYield = 1;
     [Min(1)] public int maxYield = 1;
  
-    [Header("가격")]
-    [Min(0)] public int minPrice = 10;
-    [Min(0)] public int maxPrice = 100;
+    [Header("수확 품질")]
+    [Tooltip("수확할 때 굴리는 품질 확률. 가격은 ItemSO 의 Sell Price 에 배수가 곱해진다")]
+    public QualityChance qualityChance = QualityChance.Default;
  
     [Header("설치 크기 (타일맵 칸 수)")]
     [Tooltip("1x1이면 한 칸, 3x3이면 9칸 차지")]
@@ -58,7 +61,6 @@ public class CropSO : ScriptableObject
  
     private void OnValidate()
     {
-        if (maxPrice < minPrice) maxPrice = minPrice;
         if (maxYield < minYield) maxYield = minYield;
  
         size.x = Mathf.Max(1, size.x);

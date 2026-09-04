@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
+  m_Name: CucumberSO
+  m_EditorClassIdentifier: Assembly-CSharp::CropSO
+  cropName: Cucumber
+  icon: {fileID: 0}
+  harvestType: 1
+  growthStages:
+  - sprite: {fileID: -3513379549867885781, guid: 673dad0995760804683237669eab9824, type: 3}
+    durationTime: 3
+  - sprite: {fileID: 669492167673851439, guid: 673dad0995760804683237669eab9824, type: 3}
+    durationTime: 3
+  - sprite: {fileID: -5607939481280983574, guid: 673dad0995760804683237669eab9824, type: 3}
+    durationTime: 3
+  - sprite: {fileID: 5005312502218828524, guid: 673dad0995760804683237669eab9824, type: 3}
+    durationTime: 3
+  - sprite: {fileID: 3230612733744362600, guid: 673dad0995760804683237669eab9824, type: 3}
+    durationTime: 3
+  - sprite: {fileID: -6230029378516168075, guid: 673dad0995760804683237669eab9824, type: 3}
+    durationTime: 3
+  harvestStageIndex: 5
+  regrowStageIndex: 3
+  harvestItem: {fileID: 11400000, guid: a20aefdce20259e48a28a0af021b178c, type: 2}
+  minYield: 1
+  maxYield: 2
+  minPrice: 10
+  maxPrice: 100
+  size: {x: 1, y: 1}
+  plantableTiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

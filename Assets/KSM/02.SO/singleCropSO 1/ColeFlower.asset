@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
+  m_Name: ColeFlower
+  m_EditorClassIdentifier: Assembly-CSharp::CropSO
+  cropName: Watermelon
+  icon: {fileID: 0}
+  harvestType: 0
+  growthStages:
+  - sprite: {fileID: -2155779162585079897, guid: 5dd28ff2a73805446a688448b86aa99a, type: 3}
+    durationTime: 2
+  - sprite: {fileID: -941773328, guid: 5dd28ff2a73805446a688448b86aa99a, type: 3}
+    durationTime: 2
+  - sprite: {fileID: 6745451761592927278, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
+    durationTime: 2
+  - sprite: {fileID: 4742912357984452793, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
+    durationTime: 2
+  harvestStageIndex: 3
+  regrowStageIndex: 0
+  minYield: 1
+  maxYield: 1
+  minPrice: 10
+  maxPrice: 100
+  size: {x: 1, y: 1}
+  plantableTiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

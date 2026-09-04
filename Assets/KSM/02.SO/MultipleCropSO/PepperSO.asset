@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
+  m_Name: PepperSO
+  m_EditorClassIdentifier: Assembly-CSharp::CropSO
+  cropName: Pepper
+  icon: {fileID: 0}
+  harvestType: 1
+  growthStages:
+  - sprite: {fileID: 2708099430083492396, guid: e738ae0d8610cc142968a0d0f2d319c6, type: 3}
+    durationTime: 3
+  - sprite: {fileID: -2030022288, guid: e738ae0d8610cc142968a0d0f2d319c6, type: 3}
+    durationTime: 2
+  - sprite: {fileID: 8282014889697013226, guid: e738ae0d8610cc142968a0d0f2d319c6, type: 3}
+    durationTime: 3
+  - sprite: {fileID: 2214436128910160678, guid: e738ae0d8610cc142968a0d0f2d319c6, type: 3}
+    durationTime: 3
+  - sprite: {fileID: -7756841903046710424, guid: e738ae0d8610cc142968a0d0f2d319c6, type: 3}
+    durationTime: 3
+  - sprite: {fileID: -8162944309585935802, guid: e738ae0d8610cc142968a0d0f2d319c6, type: 3}
+    durationTime: 3
+  - sprite: {fileID: -1023979755758424161, guid: e738ae0d8610cc142968a0d0f2d319c6, type: 3}
+    durationTime: 3
+  harvestStageIndex: 6
+  regrowStageIndex: 5
+  harvestItem: {fileID: 11400000, guid: b91ac00e45786324589130df4229913c, type: 2}
+  minYield: 1
+  maxYield: 4
+  minPrice: 10
+  maxPrice: 100
+  size: {x: 2, y: 1}
+  plantableTiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

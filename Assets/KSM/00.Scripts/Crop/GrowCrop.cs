@@ -130,7 +130,15 @@ namespace KSM._00.Scripts.Crop
             if (_manager == null) _manager = CropManager.Instance;
  
             int amount = cropSO.RollYield();
-            if (_manager != null) _manager.NotifyHarvested(cropSO, amount);
+ 
+            // 한 번 수확에 품질을 한 번 굴린다.
+            // 열매 하나하나 다르게 하고 싶으면 amount 만큼 반복해서 굴리고 품질별로 나눠 보내면 된다
+            ItemQuality quality = cropSO.qualityChance.Roll();
+ 
+            if (cropSO.harvestItem == null)
+                Debug.LogWarning($"[GrowCrop] {cropSO.name} 의 Harvest Item 이 비어있어 인벤토리에 아무것도 들어가지 않습니다.", cropSO);
+            else if (_manager != null)
+                _manager.NotifyHarvested(cropSO.harvestItem, amount, quality);
  
             switch (cropSO.harvestType)
             {
