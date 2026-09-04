@@ -1530,9 +1530,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSelector
   fishDataSO:
-  - {fileID: 11400000, guid: ea505a10af6bb44448be4f4a1eaad6e1, type: 2}
-  - {fileID: 11400000, guid: 0a773f1e35520e84a9e615fdd77ed862, type: 2}
-  - {fileID: 11400000, guid: a9106611991e47746a32af7fb3b860fd, type: 2}
+  - {fileID: 11400000, guid: 4658092333d11ae42a0c64cc74a4810d, type: 2}
+  - {fileID: 11400000, guid: 7d4ebb06a9e5d9e44a1d2c27e23e9f83, type: 2}
+  - {fileID: 11400000, guid: 7d82d8999002c044c89f2bb17aa667dc, type: 2}
 --- !u!1 &324735639
 GameObject:
   m_ObjectHideFlags: 0

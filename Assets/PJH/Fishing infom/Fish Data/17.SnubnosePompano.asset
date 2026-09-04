@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
-  m_Name: Fish Data 2
+  m_Name: 17.SnubnosePompano
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  fishID: Tuna
-  displayName: "\uCC38\uCE58"
-  icon: {fileID: -1346755049733476389, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  basePrice: 500
+  fishID: SnubnosePompano
+  displayName: "\uBB34\uC810\uB9E4\uAC00\uB9AC"
+  icon: {fileID: -5127773444435267930, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  basePrice: 100
   difficulty: 0
-  moveSpeed: 0.25
-  minTargetChangeTime: 1
-  maxTargetChangeTime: 2
-  maxMoveDistance: 1
+  moveSpeed: 0.18
+  minTargetChangeTime: 1.5
+  maxTargetChangeTime: 2.22
+  maxMoveDistance: 0.14
