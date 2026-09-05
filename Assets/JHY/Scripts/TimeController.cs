@@ -50,6 +50,6 @@ public class TimeController : MonoBehaviour
     }
     private void HandleShopPanel(TimeManager.SeasonPeriod currentSeason)
     {
-        //shopPanel.ChangeSeason(currentSeason);
+        shopPanel.ChangeSeason((int)currentSeason);
     }
 }
