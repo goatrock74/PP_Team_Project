@@ -19,7 +19,7 @@ public class SeasonPeriod : MonoBehaviour
                 StartCoroutine(FadeInOut());
                 Debug.Log("Spring");
                 spring.SetActive(true);
-                summer.SetActive(false);
+               summer.SetActive(false);
                 autumn.SetActive(false);
                 winter.SetActive(false);
                 //상점 갱신
@@ -37,7 +37,7 @@ public class SeasonPeriod : MonoBehaviour
                 StartCoroutine(FadeInOut());
                 Debug.Log("Autumn");
                 spring.SetActive(false);
-                summer.SetActive(false);
+               summer.SetActive(false);
                 autumn.SetActive(true);
                 winter.SetActive(false);
                 //상점갱신
@@ -47,7 +47,7 @@ public class SeasonPeriod : MonoBehaviour
                 Debug.Log("Winter");
                 spring.SetActive(false);
                 summer.SetActive(false);
-                autumn.SetActive(false);
+               autumn.SetActive(false);
                 winter.SetActive(true);
                 //상점갱신
                 break;
