@@ -8,7 +8,8 @@ namespace PJH.Scripts
     
         public bool IsFishingLayer()
         {
-            Collider2D result = Physics2D.OverlapPoint(transform.position + Vector3.one, fishingAreaLayer);
+            Collider2D result = Physics2D.OverlapPoint(transform.position + Vector3.one, 
+                fishingAreaLayer);
             
             return result != null;
 
