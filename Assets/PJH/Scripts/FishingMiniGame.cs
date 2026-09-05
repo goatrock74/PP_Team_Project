@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,6 +8,9 @@ namespace PJH.Scripts
 {
     public class FishingMiniGame : MonoBehaviour
     {
+        [Header("Player Sprite")]
+        
+        
         [Header("FishingMiniGame UI")]
         [SerializeField] private FishingMiniGameUI fishingMiniGameUI;
         [SerializeField] private FishingSettingSO fishingSettingSO;
@@ -48,6 +52,12 @@ namespace PJH.Scripts
 
         private float catchBarVelocity;
         
+        [Header("MiniGame progress Information")]
+        private float miniGameProgress;
+
+        [SerializeField] private float progressIncreaseSpeed = 0.12f;
+        [SerializeField] private float progressDecreaseSpeed = 0.18f;
+        
         
         
         
@@ -66,6 +76,7 @@ namespace PJH.Scripts
         private void Update()
         {
             if (!isMiniGameRunning) return;
+
             
             
             MoveCatchBar();
@@ -80,6 +91,33 @@ namespace PJH.Scripts
                 targetFishHeight, 
                 currentFishData.MoveSpeed * Time.deltaTime);
             fishingMiniGameUI.SetFishHeight(currentFishHeight);
+
+            if (fishingMiniGameUI.CatchFishing())
+            {
+                miniGameProgress += progressIncreaseSpeed * Time.deltaTime;
+                miniGameProgress = Mathf.Clamp01(miniGameProgress);
+
+                if (miniGameProgress >= 1f)
+                {
+                    SuccessMiniGame();
+                }
+            }
+            else
+            {
+                miniGameProgress -= progressDecreaseSpeed * Time.deltaTime;
+                miniGameProgress = Mathf.Clamp01(miniGameProgress);
+
+                if (miniGameProgress <= 0f)
+                {
+                    StopMiniGame();
+                }
+            }
+            fishingMiniGameUI.FillGuage(miniGameProgress);
+        }
+
+        private void SuccessMiniGame()
+        {
+            Debug.Log("미니게임 성공 후 물고기 획득!");
         }
 
         public void StopMiniGame()
@@ -91,18 +129,6 @@ namespace PJH.Scripts
         }
         
 
-        private void OnEnable()
-        {
-            fishingMiniGameUI.OnShowComplete += StartFishingMiniGame;
-        }
-
-        private void OnDisable()
-        {
-            fishingMiniGameUI.OnShowComplete -= StartFishingMiniGame;
-            
-            StopMiniGame();
-            
-        }
 
         public void WaitBiteTime()
         {
@@ -124,6 +150,7 @@ namespace PJH.Scripts
             if (isMiniGameRunning) return;
 
             ChooseNextTarget();
+            miniGameProgress = 0.3f;
             isOpeningPanel = false;
             isMiniGameRunning = true;
         }
@@ -209,6 +236,8 @@ namespace PJH.Scripts
             isOpeningPanel = true;
             fishingMiniGameUI.OpenPanel();
         }
+        
+        
         private float GetRandomBiteTime()
         {
             float min = fishingSettingSO.MinBiteTime;
@@ -216,6 +245,17 @@ namespace PJH.Scripts
             return 
             (Random.Range(min, max) +
              Random.Range(min, max)) * 0.5f;
+        }
+        private void OnEnable()
+        {
+            fishingMiniGameUI.OnShowComplete += StartFishingMiniGame;
+        }
+
+        private void OnDisable()
+        {
+            fishingMiniGameUI.OnShowComplete -= StartFishingMiniGame;
+            
+            StopMiniGame();
         }
 
     }

@@ -1825,7 +1825,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 60.809, y: 3}
+  m_AnchoredPosition: {x: 60.809, y: -0}
   m_SizeDelta: {x: 28.456, y: 487.306}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &564983933
@@ -1849,11 +1849,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 19de56b6cd977dc4bb3af299a00fa2e8, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 1
+  m_FillAmount: 0.3
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2161,6 +2161,8 @@ MonoBehaviour:
   catchBarMaxFallSpeed: 0.95
   catchBarBottomBounce: 0.35
   catchBarMinBounceSpeed: 0.12
+  progressIncreaseSpeed: 0.12
+  progressDecreaseSpeed: 0.18
 --- !u!114 &1243269937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2176,9 +2178,11 @@ MonoBehaviour:
   fishMoveArea: {fileID: 796858400}
   fishIcon: {fileID: 1420827902}
   minigamePanel: {fileID: 155989621}
-  catchBar: {fileID: 1635295719}
   targetHeight: 530
   duration: 1.3
+  catchBar: {fileID: 1635295719}
+  catchBarImage: {fileID: 1635295720}
+  gaugeImage: {fileID: 564983933}
 --- !u!1 &1276053080
 GameObject:
   m_ObjectHideFlags: 0
