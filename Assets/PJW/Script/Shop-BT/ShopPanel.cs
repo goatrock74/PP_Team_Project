@@ -13,22 +13,18 @@ public class ShopPanel : MonoBehaviour
 
     private ItemListSO currentList;
 
-    private void Start()
-    {
-        ChangeSeason(SeasonType.Autumn);
-    }
 
     private void Update()
     {
         if(Keyboard.current.lKey.wasPressedThisFrame)
         {
-            ChangeSeason(SeasonType.Winter);
+            ChangeSeason(0);
         }
     }
 
-    public void ChangeSeason(SeasonType season)
+    public void ChangeSeason(int num)
     {
-        currentList = itemLists[(int)season];
+        currentList = itemLists[(num)];
 
         SetItemList();
     }
