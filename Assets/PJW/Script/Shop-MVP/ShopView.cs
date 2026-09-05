@@ -1,6 +1,13 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class ShopView : MonoBehaviour
+namespace Assets.PJW.Script.Shop_MVP
 {
-    
+    internal abstract class ShopView
+    {
+
+    }
 }
