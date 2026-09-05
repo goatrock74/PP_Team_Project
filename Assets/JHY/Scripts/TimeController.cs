@@ -7,6 +7,7 @@ public class TimeController : MonoBehaviour
     private SeasonPeriod seasonPeriod;
     private SeasonPassive seasonPassive;
 
+    
     [SerializeField] private LightManager lightManager;
     private void Awake()
     {

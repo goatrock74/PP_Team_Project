@@ -18,37 +18,37 @@ public class SeasonPeriod : MonoBehaviour
             case TimeManager.SeasonPeriod.Spring:
                 StartCoroutine(FadeInOut());
                 Debug.Log("Spring");
-                spring.SetActive(true);
-                summer.SetActive(false);
-                autumn.SetActive(false);
-                winter.SetActive(false);
+                //spring.SetActive(true);
+               // summer.SetActive(false);
+                //autumn.SetActive(false);
+                //winter.SetActive(false);
                 //상점 갱신
                 break;
             case TimeManager.SeasonPeriod.Summer:
                 StartCoroutine(FadeInOut());
                 Debug.Log("Summer");
-                spring.SetActive(false);
-                summer.SetActive(true);
-                autumn.SetActive(false);
-                winter.SetActive(false);
+                //spring.SetActive(false);
+                //summer.SetActive(true);
+                //autumn.SetActive(false);
+                //winter.SetActive(false);
                 //상점갱신
                 break;
             case TimeManager.SeasonPeriod.Autumn:
                 StartCoroutine(FadeInOut());
                 Debug.Log("Autumn");
-                spring.SetActive(false);
-                summer.SetActive(false);
-                autumn.SetActive(true);
-                winter.SetActive(false);
+                //spring.SetActive(false);
+               //summer.SetActive(false);
+               // autumn.SetActive(true);
+                //winter.SetActive(false);
                 //상점갱신
                 break;
             case TimeManager.SeasonPeriod.Winter:
                 StartCoroutine(FadeInOut());
                 Debug.Log("Winter");
-                spring.SetActive(false);
-                summer.SetActive(false);
-                autumn.SetActive(false);
-                winter.SetActive(true);
+                //spring.SetActive(false);
+                //summer.SetActive(false);
+               //autumn.SetActive(false);
+                //winter.SetActive(true);
                 //상점갱신
                 break;
         }
