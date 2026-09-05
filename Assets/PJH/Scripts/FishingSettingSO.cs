@@ -6,7 +6,9 @@ namespace PJH.Scripts
     public class FishingSettingSO : ScriptableObject
     {
         [Header("Bite time")] 
-        [field: SerializeField] public float MinBiteTime { get; private set; } = 4f;
-        [field: SerializeField] public float MaxBiteTime { get; private set; } = 10f;
+        
+        // 4 ~ 10
+        [field: SerializeField] public float MinBiteTime { get; private set; } = 1f;
+        [field: SerializeField] public float MaxBiteTime { get; private set; } = 2f;
     }
 }

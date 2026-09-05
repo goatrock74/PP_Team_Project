@@ -1,24 +1,27 @@
+using System;
 using UnityEngine;
 using UnityEngine.Rendering;
 
-[CreateAssetMenu(fileName = "ItemSO", menuName = "Scriptable Objects/Item",order = int.MaxValue)]
+[CreateAssetMenu(fileName = "new ItemSO", menuName = "PJW/Item/ItemSO")]
 public class Item : ScriptableObject
 {
-    [SerializeField] private seasonType season;
+    [field: SerializeField] public SeasonType Season { get; private set; }
 
-    [SerializeField] private string item_name;
+    [field: SerializeField] public Sprite Item_icon { get; private set; }
 
-    [SerializeField] private SpriteRenderer item_icon;
+    [field: SerializeField] public int Item_price { get; private set; }
 
-    [SerializeField] private int item_price;
+    [field:SerializeField] public string Item_name { get;private set; }
 
     [TextArea] [SerializeField] private string item_explanation;
+
+    [field:SerializeField] public bool Itme_bought;
 }
 
-public enum seasonType
+public enum SeasonType
 {
-    autumn,
-    summer,
-    spring,
-    winter
+    Autumn,
+    Summer,
+    Spring,
+    Winter
 }

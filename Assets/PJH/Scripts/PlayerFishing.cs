@@ -31,7 +31,7 @@ namespace PJH.Scripts
         private bool isFishing;
         private FishingState state = FishingState.Idle;
         private bool canClick = true;
-        
+        private FishDataSO GetFishDataSO;
         
     
 
@@ -48,8 +48,8 @@ namespace PJH.Scripts
             if(canFish)
             {
                 Debug.Log("낚시 가능 구역");
-                fishSelector.RandomFish();
-                fishingMiniGame.StartMiniGame();
+                fishingMiniGame.BringFishData(fishSelector.RandomFish());
+                fishingMiniGame.WaitBiteTime();
                 canClick = true;
             }
             
@@ -63,6 +63,8 @@ namespace PJH.Scripts
 
         private void Update()
         {
+            if (fishingMiniGame.BlockFishingInput) return;
+            
             if (Mouse.current.leftButton.wasPressedThisFrame && canClick)
             {
                 if (!isFishing)

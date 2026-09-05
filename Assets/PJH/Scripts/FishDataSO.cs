@@ -15,8 +15,24 @@ namespace PJH.Scripts
 
         public float difficulty;
 
+        [Header("MiniGame Movement")]
+        [SerializeField, Min(0.01f)]
+        private float moveSpeed = 0.25f;
         
+        [SerializeField, Min(0.1f)]
+        private float minTargetChangeTime = 1f;
+
+        [SerializeField, Min(0.1f)]
+        private float maxTargetChangeTime = 2f;
         
+        [SerializeField, Range(0f, 1f)]
+        private float maxMoveDistance = 0.3f;
+        
+        public float MoveSpeed => moveSpeed;
+        public float MinTargetChangeTime => minTargetChangeTime;
+        public float MaxTargetChangeTime => maxTargetChangeTime;
+        public float MaxMoveDistance => maxMoveDistance;
+
 
 
 
