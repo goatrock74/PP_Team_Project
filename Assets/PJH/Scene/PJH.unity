@@ -2153,8 +2153,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingMiniGame
   fishingMiniGameUI: {fileID: 1243269937}
   fishingSettingSO: {fileID: 11400000, guid: 37da06c8686be284682586644239fcab, type: 2}
-  catchBarRiseSpeed: 0.4
-  catchBarFallSpeed: 0.4
   catchBarUpAcceleration: 1.4
   catchBarGravity: 1.1
   catchBarMaxRiseSpeed: 0.8
@@ -2163,6 +2161,7 @@ MonoBehaviour:
   catchBarMinBounceSpeed: 0.12
   progressIncreaseSpeed: 0.12
   progressDecreaseSpeed: 0.18
+  animationController: {fileID: 2009406529}
 --- !u!114 &1243269937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3780,6 +3779,7 @@ GameObject:
   - component: {fileID: 2009406527}
   - component: {fileID: 2009406526}
   - component: {fileID: 2009406528}
+  - component: {fileID: 2009406529}
   m_Layer: 0
   m_Name: AgentRenderer
   m_TagString: Untagged
@@ -3896,6 +3896,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishingAnimationEvent
   playerFishing: {fileID: 324735641}
+--- !u!114 &2009406529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009406524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 523d432805904ddfa70dd48670fedddc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingAnimationController
+  playerAnimator: {fileID: 2009406526}
+  rendererTransform: {fileID: 2009406525}
 --- !u!1 &2075259637
 GameObject:
   m_ObjectHideFlags: 0
