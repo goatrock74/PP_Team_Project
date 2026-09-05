@@ -78,13 +78,32 @@ namespace KSM._00.Scripts.Items
         private void OnEnable()
         {
             _cropManager = CropManager.Instance;
-            if (_cropManager != null) _cropManager.OnHarvested += HandleHarvested;
+            if (_cropManager == null) return;
+ 
+            _cropManager.OnHarvested += HandleHarvested;
+            _cropManager.CanAcceptHarvest = CanAccept;   // 수확 전 자리 확인용
         }
  
         private void OnDisable()
         {
-            if (_cropManager != null) _cropManager.OnHarvested -= HandleHarvested;
+            if (_cropManager == null) return;
+ 
+            _cropManager.OnHarvested -= HandleHarvested;
+            _cropManager.CanAcceptHarvest = null;
             _cropManager = null;
+        }
+ 
+        /// <summary>이만큼 받을 자리가 있는가</summary>
+        public bool CanAccept(ItemSO item, int amount, ItemQuality quality = ItemQuality.Normal)
+            => item == null || Inventory.CanAddAll(item, amount, quality);
+ 
+        /// <summary>완전히 빈 칸이 하나라도 있는가 (뽑기처럼 무엇이 나올지 모를 때)</summary>
+        public bool HasFreeSlot()
+        {
+            for (int i = 0; i < Inventory.Capacity; i++)
+                if (Inventory.GetSlot(i) == null) return true;
+ 
+            return false;
         }
  
         private void Start()
@@ -231,3 +250,4 @@ namespace KSM._00.Scripts.Items
         }
     }
 }
+ 

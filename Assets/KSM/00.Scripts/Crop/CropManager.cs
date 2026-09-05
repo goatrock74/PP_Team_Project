@@ -30,6 +30,11 @@ namespace KSM._00.Scripts.Crop
         [Tooltip("GrowCrop + SpriteRenderer + BoxCollider2D 가 붙은 프리팹")]
         [SerializeField] private GameObject cropPrefab;
  
+        [Tooltip("켜면 여러 칸 작물의 스프라이트가 영역 정중앙에 놓인다.\n" +
+                 "끄면 아랫줄에 놓인다 (스프라이트가 영역 전체를 채우도록 그렸을 때).\n" +
+                 "어느 쪽이든 앞뒤 정렬은 밑동 기준으로 유지된다.")]
+        [SerializeField] private bool placeAtFootprintCenter = true;
+ 
         [Header("시간")]
         [Tooltip("작물들을 훑는 주기(초). 매 프레임 돌 필요가 없다")]
         [SerializeField] private float tickInterval = 0.5f;
@@ -43,6 +48,21 @@ namespace KSM._00.Scripts.Crop
  
         /// <summary>수확이 일어났을 때 (수확 아이템, 수량, 품질). 인벤토리가 구독하면 된다</summary>
         public event Action<ItemSO, int, ItemQuality> OnHarvested;
+ 
+        /// <summary>
+        /// 수확물을 받을 자리가 있는지 묻는 함수. PlayerInventory 가 등록한다.
+        /// 등록된 게 없으면 항상 받을 수 있는 것으로 본다.
+        /// (이 델리게이트 덕분에 Crop 쪽이 인벤토리 클래스를 직접 알 필요가 없다)
+        /// </summary>
+        public Func<ItemSO, int, ItemQuality, bool> CanAcceptHarvest;
+ 
+        /// <summary>수확 실패 사유를 알릴 때 (가방 가득 참 등). UI 토스트가 구독하면 된다</summary>
+        public event Action<string> OnHarvestBlocked;
+ 
+        public bool CheckCanAccept(ItemSO item, int amount, ItemQuality quality)
+            => CanAcceptHarvest == null || CanAcceptHarvest(item, amount, quality);
+ 
+        public void NotifyHarvestBlocked(string reason) => OnHarvestBlocked?.Invoke(reason);
  
         private void Awake()
         {
@@ -117,17 +137,30 @@ namespace KSM._00.Scripts.Crop
         }
  
         /// <summary>
-        /// 스프라이트를 놓을 위치 = 차지한 영역의 "아랫줄 가운데".
-        /// 중심이 아니라 아랫줄인 이유: Y좌표 기반 정렬(Transparency Sort Axis)의 기준점이
-        /// 작물의 밑동이어야 앞뒤 겹침이 자연스럽다. 스프라이트 Pivot도 Bottom으로 맞출 것.
+        /// 스프라이트를 놓을 위치.
+        ///
+        /// placeAtFootprintCenter = true  → 차지한 영역의 정중앙 (스프라이트가 가운데 보임)
+        ///                        = false → 아랫줄 가운데 (스프라이트가 영역 전체를 채울 때)
+        ///
+        /// 어느 쪽이든 Y정렬은 항상 "밑동" 기준으로 맞춰진다 (TryPlant 에서 YSorter 를 보정).
         /// </summary>
         public Vector3 GetPlantWorldPos(Vector3Int origin, Vector2Int size)
         {
-            Vector3 left  = groundTilemap.GetCellCenterWorld(origin);
-            Vector3 right = groundTilemap.GetCellCenterWorld(
-                new Vector3Int(origin.x + size.x - 1, origin.y, origin.z));
-            return (left + right) * 0.5f;
+            Vector3 left = groundTilemap.GetCellCenterWorld(origin);
+ 
+            int topRow = placeAtFootprintCenter ? origin.y + size.y - 1 : origin.y;
+            Vector3 opposite = groundTilemap.GetCellCenterWorld(
+                new Vector3Int(origin.x + size.x - 1, topRow, origin.z));
+ 
+            return (left + opposite) * 0.5f;
         }
+ 
+        /// <summary>
+        /// 오브젝트 원점이 영역 중앙일 때, 정렬 기준을 아랫줄로 되돌리기 위한 보정값.
+        /// 중앙 배치가 아니면 0.
+        /// </summary>
+        private float GetSortYOffset(Vector2Int size)
+            => placeAtFootprintCenter ? -(size.y - 1) * groundTilemap.cellSize.y * 0.5f : 0f;
  
         // ════════════════════════════════════════════════════════════
         //  심기
@@ -179,13 +212,19 @@ namespace KSM._00.Scripts.Crop
             }
  
             // 여러 칸 작물이면 클릭 판정 영역도 그만큼 넓혀준다.
-            // 오브젝트 원점이 아랫줄 가운데이므로 콜라이더는 위쪽으로 밀어준다
+            // 아랫줄 배치일 때는 콜라이더를 위로 밀어야 영역과 맞는다
             if (go.TryGetComponent<BoxCollider2D>(out var box))
             {
                 Vector3 cs = groundTilemap.cellSize;
                 box.size = new Vector2(crop.size.x * cs.x, crop.size.y * cs.y);
-                box.offset = new Vector2(0f, (crop.size.y - 1) * cs.y * 0.5f);
+                box.offset = placeAtFootprintCenter
+                    ? Vector2.zero
+                    : new Vector2(0f, (crop.size.y - 1) * cs.y * 0.5f);
             }
+ 
+            // 스프라이트를 가운데 놓더라도 앞뒤 정렬은 밑동 기준이어야 자연스럽다
+            if (go.TryGetComponent<YSorter>(out var sorter))
+                sorter.SetYOffset(GetSortYOffset(crop.size));
  
             grow.Init(crop, origin);
             OccupyCells(grow);
@@ -239,6 +278,24 @@ namespace KSM._00.Scripts.Crop
         {
             var crop = GetOccupant(cell);
             return crop != null && crop.CanHarvest && crop.TryHarvest();
+        }
+ 
+        /// <summary>
+        /// 그 칸의 작물을 파낸다. 칸 반납까지 처리하므로 그 자리에 바로 다시 심을 수 있다.
+        /// 괭이 같은 도구에서도 이 메서드를 부르면 된다.
+        /// </summary>
+        /// <param name="protectMature">true 면 다 자란(수확 가능한) 작물은 파내지 않는다</param>
+        public bool RemoveCropAt(Vector3Int cell, bool protectMature = true)
+        {
+            GrowCrop crop = GetOccupant(cell);
+            if (crop == null) return false;
+ 
+            if (protectMature && crop.CanHarvest) return false;
+ 
+            ReleaseCells(crop);
+            Destroy(crop.gameObject);
+ 
+            return true;
         }
  
         /// <summary>GrowCrop이 수확 시 호출. 인벤토리는 OnHarvested만 구독하면 된다</summary>

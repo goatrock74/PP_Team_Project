@@ -23,6 +23,9 @@ namespace KSM._00.Scripts.Crop
         [Tooltip("씬의 PlacementPreview. 비워두면 자동으로 찾는다")]
         [SerializeField] private PlacementPreview preview;
  
+        [Tooltip("씬의 GachaUI. 비워두면 자동으로 찾는다")]
+        [SerializeField] private GachaUI gacha;
+ 
         [Tooltip("그리드 밖 오브젝트(나무, 광석 등)를 찾을 레이어")]
         [SerializeField] private LayerMask interactableLayer;
  
@@ -30,17 +33,28 @@ namespace KSM._00.Scripts.Crop
         [Tooltip("플레이어로부터 이 거리 안쪽만 상호작용 가능 (월드 단위)")]
         [SerializeField] private float interactRange = 2.5f;
  
+        [Tooltip("작물을 파내는 키")]
+        [SerializeField] private Key digKey = Key.X;
+ 
+        [Tooltip("켜면 다 자란 작물은 파내지지 않는다 (실수로 날리는 것 방지)")]
+        [SerializeField] private bool protectMatureCrops = true;
+ 
         [SerializeField] private bool verboseLog = true;
  
         private void Awake()
         {
             if (cam == null) cam = Camera.main;
             if (preview == null) preview = FindFirstObjectByType<PlacementPreview>();
+ 
+            // 뽑기 패널은 보통 꺼진 채로 시작하므로 비활성 오브젝트까지 뒤져야 찾는다
+            if (gacha == null) gacha = FindFirstObjectByType<GachaUI>(FindObjectsInactive.Include);
         }
  
         private void Update()
         {
             if (Mouse.current == null) return;
+ 
+            if (GachaUI.IsSpinning) { if (preview != null) preview.Hide(); return; }
  
             UpdatePreview();
  
@@ -48,6 +62,8 @@ namespace KSM._00.Scripts.Crop
  
             if (Mouse.current.leftButton.wasPressedThisFrame)  HandleLeftClick();
             if (Mouse.current.rightButton.wasPressedThisFrame) HandleRightClick();
+ 
+            if (Keyboard.current != null && Keyboard.current[digKey].wasPressedThisFrame) HandleDig();
         }
  
         private void OnDisable()
@@ -89,10 +105,71 @@ namespace KSM._00.Scripts.Crop
  
         private void HandleLeftClick()
         {
-            SeedSO seed = GetHeldSeed();
+            PlayerInventory player = PlayerInventory.Instance;
  
-            if (seed != null) HandlePlant(seed);
-            else HandleHarvest();
+            // 1) 뽑기 팩을 들고 있으면 룰렛
+            if (player != null && player.HeldItem is ItemPackSO pack) { HandleOpenPack(player, pack); return; }
+ 
+            // 2) 씨앗을 들고 있으면 심기
+            SeedSO seed = GetHeldSeed();
+            if (seed != null) { HandlePlant(seed); return; }
+ 
+            // 3) 아니면 수확
+            HandleHarvest();
+        }
+ 
+        private void HandleOpenPack(PlayerInventory player, ItemPackSO pack)
+        {
+            if (gacha == null)
+            {
+                Debug.LogWarning("[뽑기] 씬에 GachaUI 가 없습니다.");
+                return;
+            }
+ 
+            if (!pack.IsUsable)
+            {
+                if (verboseLog) Debug.Log($"[뽑기] {pack.DisplayName} 에 Loot Table 이 비어있음");
+                return;
+            }
+ 
+            // 결과를 받을 자리가 없으면 열지 않는다 (열고 나서 증발하면 최악)
+            if (player.Inventory.Capacity > 0 && !player.HasFreeSlot())
+            {
+                Debug.LogWarning("[뽑기] 가방에 빈 칸이 없어 열 수 없습니다");
+                return;
+            }
+ 
+            // 먼저 소모하고 연출을 돌린다 (연출 중 중복 사용 방지)
+            if (!player.ConsumeHeld(1)) return;
+ 
+            bool started = gacha.Open(pack, entry =>
+            {
+                if (entry.item == null) return;
+                player.Add(entry.item, entry.RollCount(), entry.quality);
+            });
+ 
+            if (!started) player.Add(pack, 1);   // 못 열었으면 팩을 돌려준다
+        }
+ 
+        private void HandleDig()
+        {
+            CropManager mgr = CropManager.Instance;
+            if (mgr == null) return;
+ 
+            if (!TryGetTargetCell(mgr, out Vector3Int cell)) return;
+ 
+            if (mgr.RemoveCropAt(cell, protectMatureCrops))
+            {
+                if (verboseLog) Debug.Log($"[파내기] {cell} 작물 제거");
+                return;
+            }
+ 
+            if (!verboseLog) return;
+ 
+            GrowCrop crop = mgr.GetOccupant(cell);
+            Debug.Log(crop == null
+                ? $"[파내기] {cell} 에 작물이 없음"
+                : "[파내기] 다 자란 작물은 파낼 수 없음 (수확부터 하세요)");
         }
  
         private void HandleRightClick()

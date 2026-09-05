@@ -33,8 +33,9 @@ MonoBehaviour:
   harvestItem: {fileID: 11400000, guid: a20aefdce20259e48a28a0af021b178c, type: 2}
   minYield: 1
   maxYield: 2
-  minPrice: 10
-  maxPrice: 100
-  size: {x: 1, y: 1}
+  qualityChance:
+    goodChance: 0.2
+    bestChance: 0.05
+  size: {x: 3, y: 3}
   plantableTiles:
   - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

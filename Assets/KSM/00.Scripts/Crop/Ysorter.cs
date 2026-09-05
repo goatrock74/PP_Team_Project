@@ -38,6 +38,16 @@ namespace KSM._00.Scripts.Crop
             if (continuous) Apply();
         }
  
+        /// <summary>
+        /// 정렬 기준점을 위아래로 밀어준다.
+        /// 여러 칸 작물을 영역 중앙에 놓았을 때, 정렬만 밑동 기준으로 되돌리는 데 쓴다.
+        /// </summary>
+        public void SetYOffset(float offset)
+        {
+            yOffset = offset;
+            Apply();
+        }
+ 
         /// <summary>위치를 옮긴 직후 직접 불러도 된다</summary>
         public void Apply()
         {

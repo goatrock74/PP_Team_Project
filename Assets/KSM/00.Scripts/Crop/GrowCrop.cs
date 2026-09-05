@@ -136,9 +136,20 @@ namespace KSM._00.Scripts.Crop
             ItemQuality quality = cropSO.qualityChance.Roll();
  
             if (cropSO.harvestItem == null)
+            {
                 Debug.LogWarning($"[GrowCrop] {cropSO.name} 의 Harvest Item 이 비어있어 인벤토리에 아무것도 들어가지 않습니다.", cropSO);
+            }
             else if (_manager != null)
+            {
+                // ★ 자리가 없으면 아예 수확하지 않는다. 안 그러면 수확물이 조용히 증발한다
+                if (!_manager.CheckCanAccept(cropSO.harvestItem, amount, quality))
+                {
+                    _manager.NotifyHarvestBlocked("가방이 가득 찼습니다");
+                    return false;
+                }
+ 
                 _manager.NotifyHarvested(cropSO.harvestItem, amount, quality);
+            }
  
             switch (cropSO.harvestType)
             {
