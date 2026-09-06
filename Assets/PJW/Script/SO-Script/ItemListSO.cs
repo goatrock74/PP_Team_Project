@@ -8,18 +8,18 @@ namespace Assets.PJW.Script.SO_Script
     public class ItemListSO : ScriptableObject
     {
         [SerializeField] private SeasonType targetType;
-        [field: SerializeField] public Item[] itemList { get; private set; }
+        [field: SerializeField] public Item[] ItemList { get; private set; }
 
         private void OnValidate()
         {
-            for (int i = 0; i < itemList.Length; ++i)
+            for (int i = 0; i < ItemList.Length; ++i)
             {
-                if (itemList[i] == null)
+                if (ItemList[i] == null)
                     continue;
-                if (itemList[i].Season != targetType )
+                if (ItemList[i].Season != targetType )
                 {
-                    Debug.LogError($"{name}의 목록에 맞지 않는 타입이 있습니다. {itemList[i].name}");
-                    itemList[i] = null;
+                    Debug.LogError($"{name}의 목록에 맞지 않는 타입이 있습니다. {ItemList[i].name}");
+                    ItemList[i] = null;
                 }
             }
         }
