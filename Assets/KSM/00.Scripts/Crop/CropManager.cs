@@ -36,15 +36,21 @@ namespace KSM._00.Scripts.Crop
         [SerializeField] private bool placeAtFootprintCenter = true;
  
         [Header("시간")]
-        [Tooltip("작물들을 훑는 주기(초). 매 프레임 돌 필요가 없다")]
+        [Tooltip("작물들을 훑는 주기(실제 초). 자주 훑을 필요가 없다")]
         [SerializeField] private float tickInterval = 0.5f;
  
-        [Tooltip("0이면 일시정지, 2면 2배속. 친구의 시간 시스템이 붙으면 제거될 예정")]
+        [Tooltip("Game Clock 이 안 꽂혀 있을 때만 쓰는 폴백 — 인게임 하루 = 실제 몇 초인가")]
+        [SerializeField] private float fallbackSecondsPerDay = 720f;
+ 
+        [Tooltip("폴백 시계의 배속. 0이면 일시정지. Game Clock 을 쓰면 무시된다")]
         [SerializeField] private float timeScale = 1f;
  
         private readonly List<GrowCrop> _crops = new();
         private readonly Dictionary<Vector3Int, GrowCrop> _occupied = new();
+ 
         private float _timer;
+        private float _lastClockDays;
+        private bool _clockPrimed;
  
         /// <summary>수확이 일어났을 때 (수확 아이템, 수량, 품질). 인벤토리가 구독하면 된다</summary>
         public event Action<ItemSO, int, ItemQuality> OnHarvested;
@@ -88,20 +94,69 @@ namespace KSM._00.Scripts.Crop
  
         private void Update()
         {
-            if (timeScale <= 0f) { _timer = 0f; return; }   // 일시정지 중엔 헛돌지 않는다
- 
+            // 훑는 "주기" 는 실제 시간 기준, 흐른 "양" 은 게임 시계에서 가져온다
             _timer += Time.deltaTime;
             if (_timer < tickInterval) return;
  
-            // tickInterval이 아니라 _timer를 넘긴다. 프레임 드랍으로 초과된 시간이 증발하지 않도록
-            float delta = ToGameDelta(_timer);
+            float realElapsed = _timer;
             _timer = 0f;
  
-            TickAll(delta);
+            float gameDays = ConsumeGameDays(realElapsed);
+            if (gameDays <= 0f) return;
+ 
+            TickAll(gameDays * GrowthSpeedMultiplier);
         }
  
-        /// <summary>★ 시간의 출처는 여기 한 곳뿐. 외부 TimeManager가 붙으면 이 메서드만 갈아끼운다</summary>
-        private float ToGameDelta(float realSeconds) => realSeconds * timeScale;
+        /// <summary>
+        /// ★ 시간의 출처는 여기 한 곳뿐.
+        /// GameClock 이 꽂혀 있으면 그 시계가 흐른 만큼, 없으면 자체 계산으로 인게임 일수를 낸다.
+        /// </summary>
+        private float ConsumeGameDays(float realElapsed)
+        {
+            if (GameClock != null)
+            {
+                float now = GameClock.TotalGameDays;
+ 
+                // 첫 호출은 기준점만 잡는다 (시작 시각이 0이 아닐 수 있으므로)
+                if (!_clockPrimed)
+                {
+                    _lastClockDays = now;
+                    _clockPrimed = true;
+                    return 0f;
+                }
+ 
+                float delta = now - _lastClockDays;
+                _lastClockDays = now;
+ 
+                return Mathf.Max(0f, delta);   // 되감김은 무시
+            }
+ 
+            if (timeScale <= 0f) return 0f;   // 폴백 시계의 일시정지
+ 
+            return realElapsed * timeScale / Mathf.Max(1f, fallbackSecondsPerDay);
+        }
+ 
+        // ════════════════════════════════════════════════════════════
+        //  외부 영향 (계절 / 날씨 / 비료 ...)
+        // ════════════════════════════════════════════════════════════
+ 
+        /// <summary>
+        /// 외부 시간 시스템이 여기에 꽂히면 작물이 그 시계를 따라간다.
+        /// 안 꽂혀 있으면 fallbackSecondsPerDay 로 자체 계산한다.
+        /// </summary>
+        public IGameClock GameClock { get; set; }
+ 
+        /// <summary>
+        /// 계절·날씨 시스템이 여기에 자기 자신을 꽂으면 모든 작물에 즉시 반영된다.
+        /// 안 꽂혀 있으면 전부 기본값(배수 1, 보너스 0)으로 동작한다.
+        /// </summary>
+        public IGrowthModifier GrowthModifier { get; set; }
+ 
+        public float GrowthSpeedMultiplier => GrowthModifier?.GrowthSpeedMultiplier ?? 1f;
+        public float YieldMultiplier => GrowthModifier?.YieldMultiplier ?? 1f;
+        public float QualityBonus => GrowthModifier?.QualityBonus ?? 0f;
+ 
+        public bool CanPlantNow(CropSO crop) => GrowthModifier?.CanPlantNow(crop) ?? true;
  
         private void TickAll(float delta)
         {
@@ -110,8 +165,11 @@ namespace KSM._00.Scripts.Crop
                 _crops[i].Tick(delta);
         }
  
-        /// <summary>"자고 일어나면 8시간 경과" 같은 명시적 시간 점프</summary>
-        public void SkipTime(float gameSeconds) => TickAll(gameSeconds);
+        /// <summary>
+        /// 인게임 일수만큼 즉시 성장시킨다. 0.5 = 반나절.
+        /// GameClock 을 쓰는 경우 시계가 점프하면 자동으로 반영되므로 보통은 부를 일이 없다.
+        /// </summary>
+        public void SkipGameDays(float days) => TickAll(Mathf.Max(0f, days));
  
         // ════════════════════════════════════════════════════════════
         //  좌표 변환
@@ -177,6 +235,9 @@ namespace KSM._00.Scripts.Crop
         public bool CanPlace(Vector3Int origin, CropSO crop)
         {
             if (crop == null || groundTilemap == null) return false;
+ 
+            // 제철이 아니면 심을 수 없다 (계절 시스템이 없으면 항상 통과)
+            if (!CanPlantNow(crop)) return false;
  
             for (int x = 0; x < crop.size.x; x++)
             {
@@ -303,3 +364,4 @@ namespace KSM._00.Scripts.Crop
             => OnHarvested?.Invoke(item, amount, quality);
     }
 }
+ 

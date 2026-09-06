@@ -129,11 +129,15 @@ namespace KSM._00.Scripts.Crop
             // Unity의 == 는 파괴된 오브젝트도 null로 판정하므로 ??= 대신 이렇게 쓴다
             if (_manager == null) _manager = CropManager.Instance;
  
-            int amount = cropSO.RollYield();
+            // 계절·날씨 보정을 곱한다 (해당 시스템이 없으면 배수 1, 보너스 0)
+            float yieldMul = _manager != null ? _manager.YieldMultiplier : 1f;
+            float qualityBonus = _manager != null ? _manager.QualityBonus : 0f;
+ 
+            int amount = Mathf.Max(1, Mathf.RoundToInt(cropSO.RollYield() * yieldMul));
  
             // 한 번 수확에 품질을 한 번 굴린다.
             // 열매 하나하나 다르게 하고 싶으면 amount 만큼 반복해서 굴리고 품질별로 나눠 보내면 된다
-            ItemQuality quality = cropSO.qualityChance.Roll();
+            ItemQuality quality = cropSO.qualityChance.Roll(qualityBonus);
  
             if (cropSO.harvestItem == null)
             {
@@ -183,3 +187,4 @@ namespace KSM._00.Scripts.Crop
         }
     }
 }
+ 
