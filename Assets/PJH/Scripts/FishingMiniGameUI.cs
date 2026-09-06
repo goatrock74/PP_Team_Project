@@ -12,7 +12,8 @@ namespace PJH.Scripts
 
         [Header("MiniGame Fish UI")]
         [SerializeField] private RectTransform fishMoveArea;
-        [SerializeField] private RectTransform fishIcon;
+        [SerializeField] private RectTransform fishIconRoot;
+        [SerializeField] private RectTransform fishVisual;
         [SerializeField] private RectTransform minigamePanel;
         [SerializeField] private float targetHeight = 530f;
         [SerializeField] private float duration = 1.3f;
@@ -28,9 +29,12 @@ namespace PJH.Scripts
         private readonly Vector3[] catchBarCorners = new Vector3[4];
         private readonly Vector3[] fishCorners = new Vector3[4];
 
-        public event Action OnShowComplete; 
-
+        public event Action OnShowComplete;
+        private Tween shakeFish;
+        private bool wasFishInside;
         #endregion
+
+   
 
         #region 패널 열기 및 닫기
 
@@ -42,8 +46,10 @@ namespace PJH.Scripts
 
         public void OpenPanel()
         {
+            ResetFishShake();
             panelTween?.Kill();
             isOpend = true;
+            catchBarImage.color = Color.red;
             SetPanelHeight(0f);
 
             panelTween = minigamePanel.DOSizeDelta(new Vector2(minigamePanel.sizeDelta.x, targetHeight), duration)
@@ -53,6 +59,7 @@ namespace PJH.Scripts
 
         public void ClosePanel()
         {
+            ResetFishShake();
             panelTween?.Kill();
 
             panelTween = minigamePanel.DOSizeDelta(new Vector2(minigamePanel.sizeDelta.x, 0f), 0.5f
@@ -106,18 +113,18 @@ namespace PJH.Scripts
         public void SetFishHeight(float normalizedHeight)
         {
             float areaHeight = fishMoveArea.rect.height;
-            float iconHeight = fishIcon.rect.height;
+            float iconHeight = fishIconRoot.rect.height;
 
             if (areaHeight <= iconHeight)
             {
-                fishIcon.anchoredPosition = new Vector2(0f, areaHeight * 0.5f);
+                fishIconRoot.anchoredPosition = new Vector2(0f, areaHeight * 0.5f);
                 return;
             }
 
             float minY = iconHeight * 0.5f;
             float maxY = areaHeight - iconHeight * 0.5f;
             float y = Mathf.Lerp(minY, maxY,  Mathf.Clamp01(normalizedHeight));
-            fishIcon.anchoredPosition = new Vector2(0f, y);
+            fishIconRoot.anchoredPosition = new Vector2(fishIconRoot.anchoredPosition.x, y);
         }
 
         #endregion
@@ -127,7 +134,7 @@ namespace PJH.Scripts
         public bool CatchFishing()
         {
             catchBar.GetWorldCorners(catchBarCorners);
-            fishIcon.GetWorldCorners(fishCorners);
+            fishIconRoot.GetWorldCorners(fishCorners);
 
             float catchBarBottom = catchBarCorners[0].y;
             float catchBarTop = catchBarCorners[1].y;
@@ -136,11 +143,47 @@ namespace PJH.Scripts
             
             bool isFishInside = fishCenter >= catchBarBottom && fishCenter <= catchBarTop;
             
-            if (isFishInside) catchBarImage.color = Color.white;
-            else catchBarImage.color = Color.red;
-            
+            if (isFishInside && !wasFishInside)
+            {
+                StartFishShake();
+            }   
+            else if(!isFishInside && wasFishInside)
+            {
+                StopFishShake();
+            }
+            catchBarImage.color = isFishInside ? Color.white : Color.red;
+            wasFishInside = isFishInside;
             return isFishInside;
         }
+        private void StartFishShake()
+        {
+            shakeFish?.Kill();
+            
+            shakeFish = fishVisual.DOShakeAnchorPos(0.15f,
+                new Vector2(2f, 1f),
+                10,
+                15f,
+                false,
+                false)
+                .SetLoops(-1, LoopType.Restart)
+                .SetLink(fishVisual.gameObject, LinkBehaviour.KillOnDestroy);
+        }
+
+        private void StopFishShake()
+        {
+            shakeFish?.Kill();
+            shakeFish = null;
+            fishVisual.anchoredPosition = Vector2.zero;
+        }
+
+        private void ResetFishShake()
+        {
+            shakeFish?.Kill();
+            shakeFish = null;
+            wasFishInside = false;
+            fishVisual.anchoredPosition = Vector2.zero;
+        }
+
 
         #endregion
     }
