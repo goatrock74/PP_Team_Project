@@ -8,6 +8,8 @@ namespace PJH.Scripts
 {
     public class FishingMiniGameUI : MonoBehaviour
     {
+        #region 필드 및 이벤트
+
         [Header("MiniGame Fish UI")]
         [SerializeField] private RectTransform fishMoveArea;
         [SerializeField] private RectTransform fishIcon;
@@ -28,6 +30,10 @@ namespace PJH.Scripts
 
         public event Action OnShowComplete; 
 
+        #endregion
+
+        #region 패널 열기 및 닫기
+
         public void Start()
         {
             SetPanelHeight(0f);
@@ -45,15 +51,32 @@ namespace PJH.Scripts
                 .OnComplete(InvokeMiniGame);
         }
 
+        public void ClosePanel()
+        {
+            panelTween?.Kill();
+
+            panelTween = minigamePanel.DOSizeDelta(new Vector2(minigamePanel.sizeDelta.x, 0f), 0.5f
+                ).SetEase(Ease.InCubic)
+                .OnComplete(() =>  isOpend = false);
+        }
+
         private void InvokeMiniGame()
         {
             OnShowComplete?.Invoke();
         }
 
+        #endregion
+
+        #region 진행도 게이지
+
         public void FillGuage(float progress)
         {
             gaugeImage.fillAmount = progress;
         }
+
+        #endregion
+
+        #region UI 위치 설정
 
         private void SetPanelHeight(float height)
         {
@@ -97,6 +120,10 @@ namespace PJH.Scripts
             fishIcon.anchoredPosition = new Vector2(0f, y);
         }
 
+        #endregion
+
+        #region 물고기 포획 판정
+
         public bool CatchFishing()
         {
             catchBar.GetWorldCorners(catchBarCorners);
@@ -114,6 +141,8 @@ namespace PJH.Scripts
             
             return isFishInside;
         }
+
+        #endregion
     }
 
 }

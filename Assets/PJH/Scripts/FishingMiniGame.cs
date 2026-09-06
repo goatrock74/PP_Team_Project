@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -8,9 +9,8 @@ namespace PJH.Scripts
 {
     public class FishingMiniGame : MonoBehaviour
     {
-        [Header("Player Sprite")]
-        
-        
+        #region 필드 및 설정
+
         [Header("FishingMiniGame UI")]
         [SerializeField] private FishingMiniGameUI fishingMiniGameUI;
         [SerializeField] private FishingSettingSO fishingSettingSO;
@@ -25,8 +25,6 @@ namespace PJH.Scripts
         private float targetChangeTimer;
 
         [Header("CatchBar")]
-        [SerializeField] private float catchBarRiseSpeed = 0.6f;
-        [SerializeField] private float catchBarFallSpeed = 0.4f;
         private float currentCatchBarHeight;
         
         [Header("CatchBar Acceleration")]
@@ -58,21 +56,36 @@ namespace PJH.Scripts
         [SerializeField] private float progressIncreaseSpeed = 0.12f;
         [SerializeField] private float progressDecreaseSpeed = 0.18f;
         
-        
-        
-        
+        [Header("Animation")]
+        [SerializeField] private FishingAnimationController animationController;
         
         [Header("MiniGame Bool")]
         public bool IsMiniGameRunning => isMiniGameRunning;
         public bool BlockFishingInput => isOpeningPanel || isMiniGameRunning;
         private bool isOpeningPanel;
         private bool isMiniGameRunning;
-        
-        
-        
 
-
+        public event Action<FishDataSO> OnFishingSucceeded;
+        public event Action OnFishingFailed;
         
+        private Coroutine biteCoroutine;
+
+        #endregion
+
+        #region 유니티 생명주기
+
+        private void OnEnable()
+        {
+            fishingMiniGameUI.OnShowComplete += StartFishingMiniGame;
+        }
+
+        private void OnDisable()
+        {
+            fishingMiniGameUI.OnShowComplete -= StartFishingMiniGame;
+            
+            StopMiniGame();
+        }
+
         private void Update()
         {
             if (!isMiniGameRunning) return;
@@ -109,31 +122,70 @@ namespace PJH.Scripts
 
                 if (miniGameProgress <= 0f)
                 {
-                    StopMiniGame();
+                    FailedMiniGame();
                 }
             }
             fishingMiniGameUI.FillGuage(miniGameProgress);
         }
 
+        #endregion
+
+        #region 미니게임 결과 및 종료
+
         private void SuccessMiniGame()
         {
-            Debug.Log("미니게임 성공 후 물고기 획득!");
+            if (!isMiniGameRunning) return;
+            
+            FishDataSO caughtFish = currentFishData;
+            
+            StopMiniGame();
+
+            OnFishingSucceeded?.Invoke(caughtFish);
+        }
+
+        private void FailedMiniGame()
+        {
+            if (!isMiniGameRunning) return;
+            StopMiniGame();
+            OnFishingFailed?.Invoke();
         }
 
         public void StopMiniGame()
         {
+
+            if (biteCoroutine != null)
+            {
+                StopCoroutine(biteCoroutine);
+                biteCoroutine = null;
+            }
+            
+            
             isMiniGameRunning = false;
             isOpeningPanel = false;
             currentFishData = null;
             catchBarVelocity = 0f;
+            if (animationController != null)
+            {
+                animationController.StopFishingShake();
+            }
+            
+            fishingMiniGameUI.ClosePanel();
         }
-        
+
+        #endregion
+
+        #region 미니게임 시작 및 입질 대기
 
 
         public void WaitBiteTime()
         {
             Debug.Log("찌 도착 후 물고기가 잡히길 기다림");
-            StartCoroutine(WaitBiteAndGame());
+
+            if (biteCoroutine != null)
+            {
+                StopCoroutine(biteCoroutine);
+            }
+            biteCoroutine = StartCoroutine(WaitBiteAndGame());
             
         }
 
@@ -150,10 +202,15 @@ namespace PJH.Scripts
             if (isMiniGameRunning) return;
 
             ChooseNextTarget();
+            animationController.ShakePlayer();
             miniGameProgress = 0.3f;
             isOpeningPanel = false;
             isMiniGameRunning = true;
         }
+
+        #endregion
+
+        #region 캐치바 및 물고기 이동
 
         private void MoveCatchBar()
         {
@@ -229,10 +286,14 @@ namespace PJH.Scripts
             Debug.Log($"{fishDataSO.name} 이새끼 잡힘!!");
         }
 
+        #endregion
+
+        #region 입질 시간 계산
 
         private IEnumerator WaitBiteAndGame()
         {
             yield return new WaitForSeconds(GetRandomBiteTime());
+            biteCoroutine = null;
             isOpeningPanel = true;
             fishingMiniGameUI.OpenPanel();
         }
@@ -246,17 +307,8 @@ namespace PJH.Scripts
             (Random.Range(min, max) +
              Random.Range(min, max)) * 0.5f;
         }
-        private void OnEnable()
-        {
-            fishingMiniGameUI.OnShowComplete += StartFishingMiniGame;
-        }
 
-        private void OnDisable()
-        {
-            fishingMiniGameUI.OnShowComplete -= StartFishingMiniGame;
-            
-            StopMiniGame();
-        }
+        #endregion
 
     }
 }

@@ -1,5 +1,3 @@
-using System;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +5,8 @@ namespace PJH.Scripts
 {
     public class PlayerFishing : MonoBehaviour
     {
+        #region 필드 및 설정
+
         [Header("나중에 뺄것")]
         private Rigidbody2D rigid;
         private Vector3 movedir;
@@ -32,14 +32,48 @@ namespace PJH.Scripts
         private FishingState state = FishingState.Idle;
         private bool canClick = true;
         private FishDataSO GetFishDataSO;
-        
-    
+
+        #endregion
+
+        #region 이벤트 연결 및 처리
+
+        private void OnEnable()
+        {
+            fishingMiniGame.OnFishingSucceeded += HandleFishingSucceeded;
+            fishingMiniGame.OnFishingFailed += HandleFishingFailed;
+        }
+
+        private void OnDisable()
+        {
+            fishingMiniGame.OnFishingSucceeded -= HandleFishingSucceeded;
+            fishingMiniGame.OnFishingFailed -= HandleFishingFailed;
+        }
+
+        private void HandleFishingSucceeded(FishDataSO caughtFish)
+        {
+            animator.Play(_hashFishHook, BaseLayer, 0f);
+            Debug.Log($"인벤토리에 {caughtFish.name}가 들어갈거임 ㅇㅇ");
+            //caughtFish를 인벤토리에 추가
+        }
+
+        private void HandleFishingFailed()
+        {
+            animator.Play(_hashFishHook, BaseLayer, 0f);
+        }
+
+        #endregion
+
+        #region 초기화
 
         private void Awake()
         {
             rigid = GetComponent<Rigidbody2D>();
             canClick = true;
         }
+
+        #endregion
+
+        #region 낚시 진행
 
         public void CheckBobberLanding()
         {
@@ -92,8 +126,13 @@ namespace PJH.Scripts
         public void FinishFishing()
         {
             isFishing = false;
+            fishingMiniGame.StopMiniGame();
             canClick = true;
         }
+
+        #endregion
+
+        #region 플레이어 이동
 
         private void FixedUpdate()
         {
@@ -111,9 +150,7 @@ namespace PJH.Scripts
             movedir = value.Get<Vector2>();
         }
 
-        public void HandBobberLand()
-        {
-            throw new NotImplementedException();
-        }
+        #endregion
+
     }
 }
