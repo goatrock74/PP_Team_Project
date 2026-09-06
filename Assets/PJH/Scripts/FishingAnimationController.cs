@@ -34,7 +34,7 @@ namespace PJH.Scripts
             
             originalPosition = rendererTransform.position;
 
-            shakeTween = rendererTransform.DOShakePosition(0.25f, new Vector3(0.06f, 0, 0),
+            shakeTween = rendererTransform.DOShakePosition(0.15f, new Vector3(0.06f, 0, 0),
                 6, 10,
                 false, false
                 ).SetLoops(-1, LoopType.Restart)
