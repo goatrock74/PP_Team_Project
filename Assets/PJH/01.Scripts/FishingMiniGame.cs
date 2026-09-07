@@ -67,6 +67,7 @@ namespace PJH.Scripts
 
         public event Action<FishDataSO> OnFishingSucceeded;
         public event Action OnFishingFailed;
+        public event Action OnFishSplash;
         
         private Coroutine biteCoroutine;
 
@@ -293,6 +294,7 @@ namespace PJH.Scripts
         private IEnumerator WaitBiteAndGame()
         {
             yield return new WaitForSeconds(GetRandomBiteTime());
+            OnFishSplash?.Invoke();
             biteCoroutine = null;
             isOpeningPanel = true;
             fishingMiniGameUI.OpenPanel();
