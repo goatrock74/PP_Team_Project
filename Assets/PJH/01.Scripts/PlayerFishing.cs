@@ -28,6 +28,8 @@ namespace PJH.Scripts
         [SerializeField] private FishingMiniGame fishingMiniGame;
         [SerializeField] private FishingAreaCheck fishingAreaCheck;
         [SerializeField] private FishSelector fishSelector;
+
+        [SerializeField] private GameObject splashParticle;
         private bool isFishing;
         private FishingState state = FishingState.Idle;
         private bool canClick = true;
@@ -41,12 +43,14 @@ namespace PJH.Scripts
         {
             fishingMiniGame.OnFishingSucceeded += HandleFishingSucceeded;
             fishingMiniGame.OnFishingFailed += HandleFishingFailed;
+            fishingMiniGame.OnFishSplash += StartSplash;
         }
 
         private void OnDisable()
         {
             fishingMiniGame.OnFishingSucceeded -= HandleFishingSucceeded;
             fishingMiniGame.OnFishingFailed -= HandleFishingFailed;
+            fishingMiniGame.OnFishSplash -= StartSplash;
         }
 
         private void HandleFishingSucceeded(FishDataSO caughtFish)
@@ -81,9 +85,9 @@ namespace PJH.Scripts
             
             if(canFish)
             {
-                Debug.Log("낚시 가능 구역");
                 fishingMiniGame.BringFishData(fishSelector.RandomFish());
                 fishingMiniGame.WaitBiteTime();
+                
                 canClick = true;
             }
             
@@ -92,6 +96,16 @@ namespace PJH.Scripts
                 animator.Play(_hashIdle, BaseLayer, 0f);
                 FinishFishing();
             }
+        }
+
+        private void StartSplash()
+        {
+            if (splashParticle == null)
+            {
+                Debug.LogError("연결 안되었는디요?");
+                return;
+            }
+            Instantiate(splashParticle, fishingAreaCheck.FishingPointPosition, Quaternion.identity);
         }
 
 
@@ -103,14 +117,12 @@ namespace PJH.Scripts
             {
                 if (!isFishing)
                 {
-                    Debug.Log("Fishing 애니메이션 실행");
                     canClick = false;
                     animator.Play(_hashFishing, BaseLayer, 0f);
                 }
 
                 else
                 {
-                    Debug.Log("FishHook 애니메이션 실행");
                     canClick = false;
                     animator.Play(_hashFishHook, BaseLayer, 0f);
                 }

@@ -35,6 +35,10 @@ public class CropSO : ScriptableObject
     [Tooltip("수확할 때 굴리는 품질 확률. 가격은 ItemSO 의 Sell Price 에 배수가 곱해진다")]
     public QualityChance qualityChance = QualityChance.Default;
  
+    [Header("제철")]
+    [Tooltip("이 계절에만 심을 수 있다. 계절 시스템이 안 붙어 있으면 무시된다")]
+    public CropSeason plantableSeasons = CropSeason.All;
+ 
     [Header("설치 크기 (타일맵 칸 수)")]
     [Tooltip("1x1이면 한 칸, 3x3이면 9칸 차지")]
     public Vector2Int size = Vector2Int.one;
@@ -70,6 +74,16 @@ public class CropSO : ScriptableObject
  
         if (growthStages == null || growthStages.Length == 0) return;
  
+        // 새로 추가한 단계는 0으로 들어온다. 0이면 while 루프가 무한히 돌 수 있어 최소값을 준다
+        for (int i = 0; i < growthStages.Length; i++)
+        {
+            if (growthStages[i].durationTime > 0f) continue;
+ 
+            GrowthStage stage = growthStages[i];
+            stage.durationTime = 1f;          // 기본 하루
+            growthStages[i] = stage;
+        }
+ 
         harvestStageIndex = Mathf.Clamp(harvestStageIndex, 0, growthStages.Length - 1);
  
         if (harvestType == HarvestType.Multiple)
@@ -87,9 +101,11 @@ public struct GrowthStage
     public Sprite sprite;
  
     [FormerlySerializedAs("durationtime")]
-    [Min(0.1f)]
-    [Tooltip("이 단계에 머무는 시간. 마지막(수확) 단계의 값은 사용되지 않음")]
-    public float durationTime;
+    [Min(0.02f)]
+    [Tooltip("이 단계에 머무는 시간 — 단위는 '인게임 일수'.\n" +
+             "1 = 하루, 0.5 = 반나절, 3 = 사흘.\n" +
+             "마지막(수확) 단계의 값은 사용되지 않는다")]
+    public float durationTime;   // struct 는 필드 초기값을 못 준다. 기본값은 CropSO.OnValidate 에서 채운다
 }
  
 public enum HarvestType
@@ -97,3 +113,4 @@ public enum HarvestType
     Single,   // 1회용: 수확하면 사라짐
     Multiple, // 다회용: 수확하면 특정 단계로 돌아가서 다시 자람
 }
+ 

@@ -36,9 +36,9 @@ public class ShopPanel : MonoBehaviour
 
         for (int i = 0; i < itemButtons.Length; i++)
         {
-            if (i < currentList.itemList.Length)
+            if (i < currentList.ItemList.Length)
             {
-                itemButtons[i].SetItem(currentList.itemList[i]);
+                itemButtons[i].SetItem(currentList.ItemList[i]);
             }
             else
             {
