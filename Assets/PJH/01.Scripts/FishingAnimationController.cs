@@ -11,7 +11,8 @@ namespace PJH.Scripts
         [SerializeField] private Transform rendererTransform;
         
         private Tweener shakeTween;
-        private Vector3 originalPosition;
+        private Vector3 originalLocalPosition;
+        private bool isShaking; 
 
         #endregion
 
@@ -20,7 +21,7 @@ namespace PJH.Scripts
 
         private void Awake()
         {
-            originalPosition = rendererTransform.position;
+            originalLocalPosition = rendererTransform.localPosition;
         }
 
         #endregion
@@ -32,7 +33,8 @@ namespace PJH.Scripts
             shakeTween?.Kill();
             playerAnimator.Play("Landing");
             
-            originalPosition = rendererTransform.position;
+            originalLocalPosition = rendererTransform.localPosition;
+            isShaking = true;
 
             shakeTween = rendererTransform.DOShakePosition(0.15f, new Vector3(0.06f, 0, 0),
                 6, 10,
@@ -43,13 +45,16 @@ namespace PJH.Scripts
 
         public void StopFishingShake()
         {
+            if (!isShaking) return;
             shakeTween?.Kill();
             shakeTween = null;
 
             if (rendererTransform != null)
             {
-                rendererTransform.position = originalPosition;
+                rendererTransform.localPosition = originalLocalPosition;
             }
+
+            isShaking = false;
         }
 
         #endregion
