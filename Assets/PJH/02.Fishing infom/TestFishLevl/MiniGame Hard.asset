@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishDataSO
   fishID: Hard
   displayName: Hard
-  icon: {fileID: -8769481334326599056, guid: 1c06702e3e302ac4b95bf37a14009349, type: 3}
+  icon: {fileID: 6299156184703729651, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 0
   difficulty: 0
   moveSpeed: 0.42

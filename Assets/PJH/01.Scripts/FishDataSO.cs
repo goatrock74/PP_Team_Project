@@ -32,6 +32,7 @@ namespace PJH.Scripts
         public float MinTargetChangeTime => minTargetChangeTime;
         public float MaxTargetChangeTime => maxTargetChangeTime;
         public float MaxMoveDistance => maxMoveDistance;
+        
 
 
 

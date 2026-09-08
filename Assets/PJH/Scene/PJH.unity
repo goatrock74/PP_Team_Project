@@ -1519,6 +1519,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900bc521349d472fb7fb46a61d4c1563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingController
+  fishingAreaCheck: {fileID: 180091181}
+  fishSelector: {fileID: 180091183}
+  fishingMiniGame: {fileID: 1243269936}
+  fishingSettingSO: {fileID: 11400000, guid: 37da06c8686be284682586644239fcab, type: 2}
+  splashParticlePrefab: {fileID: 7751772685987678850, guid: 0387cf995dbbb494f8d615397183d20e, type: 3}
+  biteReactionTime: 1
+  catchEffectPrefab: {fileID: 618196433143026379, guid: 0f34367616e5e6d40b13b3e75d1b0142, type: 3}
+  caughtFishPoint: {fileID: 887754986}
 --- !u!114 &180091183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1595,6 +1603,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TestPlayer
   moveSpeed: 2
   animator: {fileID: 2009406526}
+  fishingController: {fileID: 180091182}
   fishingMiniGame: {fileID: 1243269936}
   fishingAreaCheck: {fileID: 180091181}
   fishSelector: {fileID: 180091183}
@@ -1643,8 +1652,41 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 180091180}
-  - {fileID: 2009406525}
+  - {fileID: 347657090}
+  - {fileID: 777092637}
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &347657089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347657090}
+  m_Layer: 0
+  m_Name: FishingShakeRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &347657090
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347657089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2009406525}
+  m_Father: {fileID: 324735644}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &360123152
 GameObject:
@@ -1979,6 +2021,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 180091180}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &777092636
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 777092637}
+  m_Layer: 0
+  m_Name: CaughtFishPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &777092637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 777092636}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.04, y: 1.14, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 324735644}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &796858399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,6 +2089,37 @@ RectTransform:
   m_AnchoredPosition: {x: 8.794806, y: 1.7898865}
   m_SizeDelta: {x: 63.7864, y: 489.72}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &887754985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 887754986}
+  m_Layer: 0
+  m_Name: FishPullPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &887754986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887754985}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2009406525}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1030211453
 GameObject:
   m_ObjectHideFlags: 0
@@ -2187,14 +2291,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingMiniGame
   fishingMiniGameUI: {fileID: 1243269937}
   fishingSettingSO: {fileID: 11400000, guid: 37da06c8686be284682586644239fcab, type: 2}
-  catchBarUpAcceleration: 1.4
+  catchBarUpAcceleration: 1.2
   catchBarGravity: 1.1
-  catchBarMaxRiseSpeed: 1.1
+  catchBarMaxRiseSpeed: 1.3
   catchBarMaxFallSpeed: 1.5
   catchBarBottomBounce: 0.35
   catchBarMinBounceSpeed: 0.12
-  progressIncreaseSpeed: 0.12
-  progressDecreaseSpeed: 0.18
+  progressIncreaseSpeed: 0.15
+  progressDecreaseSpeed: 0.16
   animationController: {fileID: 2009406529}
 --- !u!114 &1243269937
 MonoBehaviour:
@@ -3870,8 +3974,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 324735644}
+  m_Children:
+  - {fileID: 887754986}
+  m_Father: {fileID: 347657090}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &2009406526
 Animator:
@@ -3980,7 +4085,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingAnimationController
   playerAnimator: {fileID: 2009406526}
-  rendererTransform: {fileID: 2009406525}
+  rendererTransform: {fileID: 347657090}
 --- !u!1 &2075259637
 GameObject:
   m_ObjectHideFlags: 0

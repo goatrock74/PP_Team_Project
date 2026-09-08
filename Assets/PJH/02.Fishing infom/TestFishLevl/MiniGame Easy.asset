@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishDataSO
   fishID: Easy
   displayName: Easy
-  icon: {fileID: 4707136004336530311, guid: 1c06702e3e302ac4b95bf37a14009349, type: 3}
+  icon: {fileID: -861228602180299206, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 0
   difficulty: 0
   moveSpeed: 0.15

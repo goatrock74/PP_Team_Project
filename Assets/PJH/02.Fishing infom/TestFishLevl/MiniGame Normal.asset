@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishDataSO
   fishID: Normal
   displayName: Normal
-  icon: {fileID: -4646603761676778886, guid: 1c06702e3e302ac4b95bf37a14009349, type: 3}
+  icon: {fileID: -1346755049733476389, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 0
   difficulty: 0
   moveSpeed: 0.28

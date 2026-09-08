@@ -131,6 +131,19 @@ namespace PJH.Scripts
 
         #endregion
 
+        public void OpenMiniGame(FishDataSO fishDataSo)
+        {
+            if (fishDataSo == null) return;
+            
+            BringFishData(fishDataSo);
+
+            miniGameProgress = 0.3f;
+            fishingMiniGameUI.FillGuage(miniGameProgress);
+            
+            isOpeningPanel = true;
+            fishingMiniGameUI.OpenPanel();
+        }
+
         #region 미니게임 결과 및 종료
 
         private void SuccessMiniGame()
@@ -175,20 +188,8 @@ namespace PJH.Scripts
 
         #endregion
 
-        #region 미니게임 시작 및 입질 대기
 
-
-        public void WaitBiteTime()
-        {
-            Debug.Log("찌 도착 후 물고기가 잡히길 기다림");
-
-            if (biteCoroutine != null)
-            {
-                StopCoroutine(biteCoroutine);
-            }
-            biteCoroutine = StartCoroutine(WaitBiteAndGame());
-            
-        }
+     
 
         public void StartFishingMiniGame()
         {
@@ -208,9 +209,6 @@ namespace PJH.Scripts
             isOpeningPanel = false;
             isMiniGameRunning = true;
         }
-
-        #endregion
-
         #region 캐치바 및 물고기 이동
 
         private void MoveCatchBar()
@@ -288,29 +286,5 @@ namespace PJH.Scripts
         }
 
         #endregion
-
-        #region 입질 시간 계산
-
-        private IEnumerator WaitBiteAndGame()
-        {
-            yield return new WaitForSeconds(GetRandomBiteTime());
-            OnFishSplash?.Invoke();
-            biteCoroutine = null;
-            isOpeningPanel = true;
-            fishingMiniGameUI.OpenPanel();
-        }
-        
-        
-        private float GetRandomBiteTime()
-        {
-            float min = fishingSettingSO.MinBiteTime;
-            float max = fishingSettingSO.MaxBiteTime;
-            return 
-            (Random.Range(min, max) +
-             Random.Range(min, max)) * 0.5f;
-        }
-
-        #endregion
-
     }
 }

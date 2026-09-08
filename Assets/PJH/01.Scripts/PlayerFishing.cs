@@ -25,6 +25,7 @@ namespace PJH.Scripts
         }
     
         [Header("Fishing Settings")]
+        [SerializeField] private FishingController fishingController;
         [SerializeField] private FishingMiniGame fishingMiniGame;
         [SerializeField] private FishingAreaCheck fishingAreaCheck;
         [SerializeField] private FishSelector fishSelector;
@@ -81,21 +82,16 @@ namespace PJH.Scripts
 
         public void CheckBobberLanding()
         {
-            bool canFish = fishingAreaCheck.IsFishingLayer();
-            
-            if(canFish)
+            bool started = fishingController.HandleBobberLanding();
+
+            if (started)
             {
-                fishingMiniGame.BringFishData(fishSelector.RandomFish());
-                fishingMiniGame.WaitBiteTime();
-                
                 canClick = true;
+                return;
             }
             
-            else
-            {
-                animator.Play(_hashIdle, BaseLayer, 0f);
-                FinishFishing();
-            }
+            animator.Play(_hashIdle, BaseLayer, 0f);
+            FinishFishing();
         }
 
         private void StartSplash()
@@ -111,7 +107,7 @@ namespace PJH.Scripts
 
         private void Update()
         {
-            if (fishingMiniGame.BlockFishingInput) return;
+            if (fishingController.BlockPlayerInput) return;
             
             if (Mouse.current.leftButton.wasPressedThisFrame && canClick)
             {
@@ -124,6 +120,7 @@ namespace PJH.Scripts
                 else
                 {
                     canClick = false;
+                    fishingController.CancelFishing();
                     animator.Play(_hashFishHook, BaseLayer, 0f);
                 }
             
@@ -138,7 +135,7 @@ namespace PJH.Scripts
         public void FinishFishing()
         {
             isFishing = false;
-            fishingMiniGame.StopMiniGame();
+            fishingController.CancelFishing();
             canClick = true;
         }
 
