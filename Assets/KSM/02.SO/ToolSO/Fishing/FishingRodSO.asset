@@ -9,27 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d42fd462cca4220bb3c4317ade4e332, type: 3}
-  m_Name: ScytheSO
-  m_EditorClassIdentifier: Assembly-CSharp::ScytheSO
+  m_Script: {fileID: 11500000, guid: 3a04df9c381845e6b3afae7a6452a7c9, type: 3}
+  m_Name: FishingRodSO
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodSO
   itemId: 
-  displayName: Scyyhe Wood
-  icon: {fileID: -4420145649186828028, guid: a087c8238574c1346b2ebd451bc78a8c, type: 3}
+  displayName: FishingRod
+  icon: {fileID: 3259921014678051045, guid: 1f92e8e6bfb53bd4fb22f1d4bb9f0148, type: 3}
   description: 
   itemType: 5
   maxStack: 1
   sellPrice: 0
   tier: 0
   areaSize: {x: 1, y: 1}
-  hitBoxSize: {x: 1.66, y: 1.26}
+  hitBoxSize: {x: 1.2, y: 1.2}
   hitBoxDistance: 0.8
   verboseLog: 1
   showPreview: 0
-  animationTrigger: Scythe
+  animationTrigger: 
   heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
   impactDelay: 0.15
   useCooldown: 0.4
-  lockMovementWhileUsing: 1
+  lockMovementWhileUsing: 0
   movementLockDuration: 0
-  fallbackTable: {fileID: 0}
-  bonusRolls: 0
+  biteTimeBonus: 0
+  luckBonus: 0

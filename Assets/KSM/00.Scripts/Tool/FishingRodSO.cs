@@ -68,5 +68,9 @@ public class FishingRodSO : ToolSO
         // 낚싯대는 휘두르고 끝나는 도구가 아니라 "던지고 기다리는" 도구다.
         // 발 묶기는 PlayerFishing 이 HoldLocked 로 직접 관리하므로 여기선 끈다
         lockMovementWhileUsing = false;
+ 
+        // 낚시는 찌 지점(FishingAreaCheck)이 판정하지 상자 범위가 의미가 없다.
+        // 네모가 뜨면 오히려 헷갈리므로 안 그린다
+        showPreview = false;
     }
 }

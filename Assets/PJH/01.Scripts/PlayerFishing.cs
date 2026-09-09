@@ -103,13 +103,65 @@ namespace PJH.Scripts
         #region 낚싯대가 부르는 진입점
  
         /// <summary>지금 던질 수 있는가. 낚싯대의 CanUse(미리보기 초록/빨강)가 이걸 본다</summary>
-        public bool CanCast()
-        {
-            if (isFishing || !canClick) return false;
-            if (fishingController != null && fishingController.BlockPlayerInput) return false;
+        public bool CanCast() => CanCast(out _);
  
-            // 찌가 떨어질 자리가 물인지
-            return fishingAreaCheck == null || fishingAreaCheck.IsFishingLayer();
+        /// <summary>
+        /// 던질 수 있는지 + 안 되면 왜 안 되는지.
+        /// "여기서는 낚시할 수 없습니다" 가 뜰 때 원인을 찾는 용도.
+        /// </summary>
+        public bool CanCast(out string reason)
+        {
+            if (isFishing)
+            {
+                reason = "이미 낚시 중입니다 (FinishFishing 애니메이션 이벤트가 안 걸렸을 수 있음)";
+                return false;
+            }
+ 
+            if (!canClick)
+            {
+                reason = "canClick 이 false 입니다 " +
+                         "(CheckBobberLanding / FinishFishing 애니메이션 이벤트가 안 불렸습니다)";
+                return false;
+            }
+ 
+            if (fishingController == null)
+            {
+                reason = "Fishing Controller 가 연결되지 않았습니다";
+                return false;
+            }
+ 
+            if (fishingController.BlockPlayerInput)
+            {
+                reason = "입질 대기 또는 미니게임 중입니다";
+                return false;
+            }
+ 
+            if (fishingAreaCheck == null)
+            {
+                reason = "Fishing Area Check 가 연결되지 않았습니다";
+                return false;
+            }
+ 
+            if (!fishingAreaCheck.IsFishingLayer())
+            {
+                reason = $"찌 지점 {fishingAreaCheck.FishingPointPosition} 이(가) 물이 아닙니다 " +
+                         "(물 오브젝트의 Collider2D / FishingAreaCheck 의 Layer Mask 확인)";
+                return false;
+            }
+ 
+            reason = string.Empty;
+            return true;
+        }
+ 
+        /// <summary>플레이 중 컴포넌트 우클릭 → 지금 왜 낚시가 안 되는지 콘솔에 찍는다</summary>
+        [ContextMenu("낚시 가능 여부 진단")]
+        public void DebugCanCast()
+        {
+            bool ok = CanCast(out string reason);
+ 
+            Debug.Log(ok
+                ? "[낚시] 지금 던질 수 있습니다"
+                : $"[낚시] 던질 수 없음 — {reason}", this);
         }
  
         /// <summary>
@@ -118,7 +170,11 @@ namespace PJH.Scripts
         /// </summary>
         public bool TryStartCast()
         {
-            if (!CanCast()) return false;
+            if (!CanCast(out string reason))
+            {
+                Debug.Log($"[낚시] 던질 수 없음 — {reason}", this);
+                return false;
+            }
  
             canClick = false;
             animator.Play(_hashFishing, BaseLayer, 0f);
@@ -202,4 +258,3 @@ namespace PJH.Scripts
         #endregion
     }
 }
- 

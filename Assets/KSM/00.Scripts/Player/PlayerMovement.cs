@@ -1,5 +1,4 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
  
 namespace KSM._00.Scripts
@@ -7,6 +6,10 @@ namespace KSM._00.Scripts
     public class PlayerMovement : MonoBehaviour
     {
         [SerializeField] private float speed = 4f;
+ 
+        [Tooltip("발이 묶여 있는 동안 바라보는 방향도 고정한다.\n" +
+                 "끄면 제자리에서 좌우 입력만으로 몸이 돌아간다")]
+        [SerializeField] private bool freezeFacingWhileLocked = true;
  
         private Vector2 dir;
         private Rigidbody2D _rb;
@@ -54,6 +57,13 @@ namespace KSM._00.Scripts
         public void OnMove(InputValue value)
         {
             dir = value.Get<Vector2>();
+ 
+            // ★ 잠긴 동안에는 정면도 고정한다.
+            //   안 그러면 제자리에 묶인 채로 A/D 를 눌러 몸만 빙글빙글 돈다.
+            //   (낚싯대를 물에 던져놓고 반대쪽을 보는 그림이 나온다)
+            //   도구를 휘두르는 중에도 마찬가지 — 판정 상자는 클릭 순간의 방향으로
+            //   이미 정해졌는데 그림만 돌아가면 어긋나 보인다
+            if (freezeFacingWhileLocked && IsLocked) return;
  
             // 좌우 입력이 있을 때만 정면을 갱신한다
             if (Mathf.Abs(dir.x) > 0.01f) FacingX = Mathf.Sign(dir.x);

@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
  
 namespace KSM._00.Scripts.Crop
 {
@@ -12,6 +13,14 @@ namespace KSM._00.Scripts.Crop
     /// </summary>
     public class PlacementPreview : MonoBehaviour
     {
+        [Header("표시 여부")]
+        [Tooltip("전체 스위치. 끄면 씨앗이든 도구든 미리보기가 아예 안 뜬다.\n" +
+                 "게임 중에 이 체크박스를 켜고 꺼도 바로 반영된다")]
+        [SerializeField] private bool showPreview = true;
+ 
+        [Tooltip("이 키로 게임 중에 미리보기를 켜고 끈다. None 이면 단축키 없음")]
+        [SerializeField] private Key toggleKey = Key.None;
+ 
         [Header("모양")]
         [Tooltip("비워두면 흰 사각형을 자동 생성한다")]
         [SerializeField] private Sprite cellSprite;
@@ -31,10 +40,36 @@ namespace KSM._00.Scripts.Crop
         private int _visibleCount;
  
         /// <summary>
+        /// 미리보기 전체 스위치. 설정 메뉴 등에서 코드로 켜고 끌 수 있다.
+        ///     PlacementPreview.Instance.Enabled = false;
+        /// </summary>
+        public bool Enabled
+        {
+            get => showPreview;
+            set
+            {
+                if (showPreview == value) return;
+ 
+                showPreview = value;
+                if (!value) Hide();
+            }
+        }
+ 
+        public void Toggle() => Enabled = !Enabled;
+ 
+        private void Update()
+        {
+            if (toggleKey == Key.None || Keyboard.current == null) return;
+            if (Keyboard.current[toggleKey].wasPressedThisFrame) Toggle();
+        }
+ 
+        /// <summary>
         /// origin(좌하단 칸)부터 size 만큼 칸을 그린다.
         /// </summary>
         public void Show(Vector3Int origin, Vector2Int size, bool ok)
         {
+            if (!showPreview) { Hide(); return; }
+ 
             CropManager mgr = CropManager.Instance;
             if (mgr == null) { Hide(); return; }
  
@@ -70,6 +105,8 @@ namespace KSM._00.Scripts.Crop
         /// </summary>
         public void ShowBox(Vector3 center, Vector2 size, bool ok)
         {
+            if (!showPreview) { Hide(); return; }
+ 
             EnsureCells(1);
  
             SpriteRenderer sr = _cells[0];
@@ -135,5 +172,12 @@ namespace KSM._00.Scripts.Crop
         }
  
         private void OnDisable() => Hide();
+ 
+        /// <summary>게임 중에 인스펙터 체크박스를 꺼도 즉시 사라지게 한다</summary>
+        private void OnValidate()
+        {
+            if (Application.isPlaying && !showPreview) Hide();
+        }
     }
 }
+ 
