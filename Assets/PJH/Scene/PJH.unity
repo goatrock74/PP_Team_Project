@@ -1463,13 +1463,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cd32c7c73bb2fc4ead473b7ca20346a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestPlayer
-  moveSpeed: 2
   animator: {fileID: 1415155547927814017}
   fishingController: {fileID: 7288665619009897472}
   fishingMiniGame: {fileID: 6820266594769326791}
   fishingAreaCheck: {fileID: 5022662610120601307}
   fishSelector: {fileID: 2901346291419793180}
   splashParticle: {fileID: 7751772685987678850, guid: 0387cf995dbbb494f8d615397183d20e, type: 3}
+  movement: {fileID: 0}
 --- !u!114 &324735642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3333,10 +3333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385a377fe6014da5a614c16e971118ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSelector
-  fishDataSO:
-  - {fileID: 11400000, guid: 4658092333d11ae42a0c64cc74a4810d, type: 2}
-  - {fileID: 11400000, guid: 7d4ebb06a9e5d9e44a1d2c27e23e9f83, type: 2}
-  - {fileID: 11400000, guid: 7d82d8999002c044c89f2bb17aa667dc, type: 2}
+  fishTable: []
+  useMasteryLuck: 1
 --- !u!1 &2967419505288977588
 GameObject:
   m_ObjectHideFlags: 0
@@ -3578,6 +3576,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   bobberPoint: {fileID: 2217803957244311420}
+  mirrorByFacing: 1
+  movement: {fileID: 0}
+  pivot: {fileID: 0}
 --- !u!222 &5023347285878315709
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4075,6 +4076,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingAnimationController
   playerAnimator: {fileID: 1415155547927814017}
   rendererTransform: {fileID: 7327344103193202187}
+  shakeStateName: Landing
+  animatorLayer: 0
+  shakeDuration: 0.15
+  shakeStrength: {x: 0.06, y: 0, z: 0}
+  vibrato: 6
+  randomness: 10
 --- !u!1 &7697842411151174072
 GameObject:
   m_ObjectHideFlags: 0
