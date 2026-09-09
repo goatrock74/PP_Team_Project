@@ -45,6 +45,10 @@ namespace KSM._00.Scripts.Crop
         [Tooltip("폴백 시계의 배속. 0이면 일시정지. Game Clock 을 쓰면 무시된다")]
         [SerializeField] private float timeScale = 1f;
  
+        [Header("젖은 땅")]
+        [Tooltip("젖은 칸에 심긴 작물의 성장 속도 배수")]
+        [Min(1f)] public float wetGrowthMultiplier = 1.2f;
+ 
         private readonly List<GrowCrop> _crops = new();
         private readonly Dictionary<Vector3Int, GrowCrop> _occupied = new();
  
@@ -104,6 +108,10 @@ namespace KSM._00.Scripts.Crop
             float gameDays = ConsumeGameDays(realElapsed);
             if (gameDays <= 0f) return;
  
+            // 재생 타이머 등이 참고할 수 있게 누적 일수를 들고 있는다
+            CurrentGameDays = GameClock != null ? GameClock.TotalGameDays : CurrentGameDays + gameDays;
+ 
+            UpdateWetCells();   // 마른 칸을 먼저 되돌리고 나서 성장시킨다
             TickAll(gameDays * GrowthSpeedMultiplier);
         }
  
@@ -147,6 +155,12 @@ namespace KSM._00.Scripts.Crop
         public IGameClock GameClock { get; set; }
  
         /// <summary>
+        /// 게임 시작부터 흐른 인게임 일수. 시계가 없어도 항상 유효하다.
+        /// 채집물 재생, 쿨다운 같은 "며칠 뒤" 계산에 쓰면 된다.
+        /// </summary>
+        public float CurrentGameDays { get; private set; }
+ 
+        /// <summary>
         /// 계절·날씨 시스템이 여기에 자기 자신을 꽂으면 모든 작물에 즉시 반영된다.
         /// 안 꽂혀 있으면 전부 기본값(배수 1, 보너스 0)으로 동작한다.
         /// </summary>
@@ -162,7 +176,72 @@ namespace KSM._00.Scripts.Crop
         {
             // 역순: Tick 도중 작물이 리스트에서 빠져도 안전
             for (int i = _crops.Count - 1; i >= 0; i--)
-                _crops[i].Tick(delta);
+            {
+                GrowCrop crop = _crops[i];
+                if (crop == null) continue;
+ 
+                // 젖은 땅에 있는 작물만 추가 배수를 받는다
+                float mul = IsWet(crop.OriginCell) ? wetGrowthMultiplier : 1f;
+                crop.Tick(delta * mul);
+            }
+        }
+ 
+        // ════════════════════════════════════════════════════════════
+        //  젖은 땅
+        // ════════════════════════════════════════════════════════════
+ 
+        private struct WetData
+        {
+            public TileBase originalTile;   // 마르면 되돌릴 타일
+            public float dryAtDay;          // 이 시각이 지나면 마른다
+        }
+ 
+        private readonly Dictionary<Vector3Int, WetData> _wet = new();
+        private readonly List<Vector3Int> _dryBuffer = new();
+ 
+        public bool IsWet(Vector3Int cell) => _wet.ContainsKey(cell);
+ 
+        /// <summary>
+        /// 그 칸을 적신다. days 가 지나면 원래 타일로 저절로 돌아간다.
+        /// 이미 젖어 있으면 기한만 갱신한다 (원래 타일을 젖은 타일로 덮어쓰지 않도록).
+        /// </summary>
+        public bool SetCellWet(Vector3Int cell, TileBase wetTile, float days)
+        {
+            if (wetTile == null || days <= 0f) return false;
+ 
+            if (_wet.TryGetValue(cell, out WetData existing))
+            {
+                existing.dryAtDay = CurrentGameDays + days;
+                _wet[cell] = existing;
+                return true;
+            }
+ 
+            TileBase original = GetGroundTile(cell);
+            if (original == null || original == wetTile) return false;
+ 
+            _wet[cell] = new WetData { originalTile = original, dryAtDay = CurrentGameDays + days };
+            SetGroundTile(cell, wetTile);
+ 
+            return true;
+        }
+ 
+        /// <summary>기한이 지난 칸을 원래 타일로 되돌린다</summary>
+        private void UpdateWetCells()
+        {
+            if (_wet.Count == 0) return;
+ 
+            _dryBuffer.Clear();
+ 
+            foreach (KeyValuePair<Vector3Int, WetData> kv in _wet)
+                if (CurrentGameDays >= kv.Value.dryAtDay) _dryBuffer.Add(kv.Key);
+ 
+            foreach (Vector3Int cell in _dryBuffer)
+            {
+                if (_wet.TryGetValue(cell, out WetData data))
+                    SetGroundTile(cell, data.originalTile);
+ 
+                _wet.Remove(cell);
+            }
         }
  
         /// <summary>
@@ -170,6 +249,55 @@ namespace KSM._00.Scripts.Crop
         /// GameClock 을 쓰는 경우 시계가 점프하면 자동으로 반영되므로 보통은 부를 일이 없다.
         /// </summary>
         public void SkipGameDays(float days) => TickAll(Mathf.Max(0f, days));
+ 
+        // ════════════════════════════════════════════════════════════
+        //  진단
+        // ════════════════════════════════════════════════════════════
+ 
+        /// <summary>
+        /// 작물이 안 자랄 때 원인을 찾는 용도.
+        /// 플레이 중 인스펙터의 CropManager 컴포넌트 우클릭 → "성장 상태 진단"
+        /// </summary>
+        [ContextMenu("성장 상태 진단")]
+        public void DebugGrowthStatus()
+        {
+            bool hasClock = GameClock != null;
+ 
+            float daysPerRealSecond = hasClock
+                ? -1f                                            // 외부 시계라 여기서 알 수 없음
+                : timeScale / Mathf.Max(1f, fallbackSecondsPerDay);
+ 
+            string clockLine = hasClock
+                ? $"외부 시계 ({GameClock.GetType().Name}) — 현재 {GameClock.TotalGameDays:0.0000} 일차"
+                : $"자체 시계 — 실제 {fallbackSecondsPerDay}초 = 인게임 1일, 배속 {timeScale}";
+ 
+            string rateLine = hasClock
+                ? "진행 속도는 외부 시계가 결정합니다"
+                : $"실제 1초당 {daysPerRealSecond * GrowthSpeedMultiplier:0.00000} 인게임일 진행";
+ 
+            Debug.Log(
+                "───── CropManager 진단 ─────\n" +
+                $"등록된 작물 : {_crops.Count}개\n" +
+                $"점유 중인 칸 : {_occupied.Count}칸\n" +
+                $"시계 : {clockLine}\n" +
+                $"성장 배수 : x{GrowthSpeedMultiplier}  (0이면 절대 안 자랍니다)\n" +
+                $"수확량 배수 : x{YieldMultiplier}\n" +
+                $"{rateLine}\n" +
+                "───────────────────────────", this);
+ 
+            // 각 작물이 지금 어디까지 왔는지
+            for (int i = 0; i < _crops.Count && i < 5; i++)
+            {
+                GrowCrop c = _crops[i];
+                if (c == null || c.Data == null) continue;
+ 
+                float need = c.Data.growthStages[c.NowGrowthStage].durationTime;
+ 
+                Debug.Log($"  · {c.Data.cropName}  {c.NowGrowthStage}단계  " +
+                          $"{c.CurrentTimeStage:0.000} / {need} 일  " +
+                          $"{(c.IsGrowFinished ? "(수확 가능)" : string.Empty)}", c);
+            }
+        }
  
         // ════════════════════════════════════════════════════════════
         //  좌표 변환
@@ -181,6 +309,27 @@ namespace KSM._00.Scripts.Crop
  
         /// <summary>타일 한 칸의 크기 (미리보기 스케일 등에 쓴다)</summary>
         public Vector3 CellSize => groundTilemap != null ? groundTilemap.cellSize : Vector3.one;
+ 
+        /// <summary>그 칸의 바닥 타일. 없으면 null</summary>
+        public TileBase GetGroundTile(Vector3Int cell)
+            => groundTilemap != null ? groundTilemap.GetTile(cell) : null;
+ 
+        /// <summary>
+        /// ★ "판정용" 바닥 타일.
+        /// 젖은 칸이면 물 주기 전의 <b>원래 타일</b>을, 아니면 지금 깔려 있는 타일을 준다.
+        ///
+        /// 젖음은 땅의 종류가 바뀐 게 아니라 상태가 얹힌 것뿐이므로,
+        /// 심을 수 있는지 같은 판정은 젖은 타일이 아니라 원래 타일로 해야 한다.
+        /// 덕분에 CropSO 의 Plantable Tiles 에 젖은 타일을 따로 넣을 필요가 없다.
+        /// </summary>
+        public TileBase GetEffectiveGroundTile(Vector3Int cell)
+            => _wet.TryGetValue(cell, out WetData data) ? data.originalTile : GetGroundTile(cell);
+ 
+        /// <summary>바닥 타일을 바꾼다 (괭이로 밭 갈기 등)</summary>
+        public void SetGroundTile(Vector3Int cell, TileBase tile)
+        {
+            if (groundTilemap != null) groundTilemap.SetTile(cell, tile);
+        }
  
         /// <summary>
         /// 클릭한 칸을 중앙으로 보고 좌하단 원점을 구한다.
@@ -200,7 +349,9 @@ namespace KSM._00.Scripts.Crop
         /// placeAtFootprintCenter = true  → 차지한 영역의 정중앙 (스프라이트가 가운데 보임)
         ///                        = false → 아랫줄 가운데 (스프라이트가 영역 전체를 채울 때)
         ///
-        /// 어느 쪽이든 Y정렬은 항상 "밑동" 기준으로 맞춰진다 (TryPlant 에서 YSorter 를 보정).
+        /// 앞뒤 겹침 정렬을 Y좌표로 하는 경우, 중앙 배치는 여러 칸 작물의 기준점을
+        /// 가운뎃줄로 올려버린다. 정렬이 어긋나 보이면 이 옵션을 꺼서 아랫줄에 놓거나,
+        /// 정렬 쪽에서 SortYOffset 만큼 보정해주면 된다.
         /// </summary>
         public Vector3 GetPlantWorldPos(Vector3Int origin, Vector2Int size)
         {
@@ -214,11 +365,13 @@ namespace KSM._00.Scripts.Crop
         }
  
         /// <summary>
-        /// 오브젝트 원점이 영역 중앙일 때, 정렬 기준을 아랫줄로 되돌리기 위한 보정값.
+        /// 오브젝트 원점이 영역 중앙일 때, 정렬 기준을 아랫줄(밑동)로 되돌리기 위한 보정값.
         /// 중앙 배치가 아니면 0.
+        ///
+        /// Y정렬을 쓰는 쪽에서 이 값만큼 기준점을 내려주면 여러 칸 작물의 앞뒤가 맞는다.
         /// </summary>
-        private float GetSortYOffset(Vector2Int size)
-            => placeAtFootprintCenter ? -(size.y - 1) * groundTilemap.cellSize.y * 0.5f : 0f;
+        public float GetSortYOffset(Vector2Int size)
+            => placeAtFootprintCenter ? -(size.y - 1) * CellSize.y * 0.5f : 0f;
  
         // ════════════════════════════════════════════════════════════
         //  심기
@@ -245,8 +398,10 @@ namespace KSM._00.Scripts.Crop
                 {
                     var cell = new Vector3Int(origin.x + x, origin.y + y, origin.z);
  
-                    if (_occupied.ContainsKey(cell)) return false;                    // 이미 뭔가 있음
-                    if (!crop.IsPlantableTile(groundTilemap.GetTile(cell))) return false; // 심을 수 없는 타일
+                    if (_occupied.ContainsKey(cell)) return false;   // 이미 뭔가 있음
+ 
+                    // 젖은 칸은 원래 타일로 판정한다. 젖었다고 못 심으면 이상하니까
+                    if (!crop.IsPlantableTile(GetEffectiveGroundTile(cell))) return false;
                 }
             }
  
@@ -282,10 +437,6 @@ namespace KSM._00.Scripts.Crop
                     ? Vector2.zero
                     : new Vector2(0f, (crop.size.y - 1) * cs.y * 0.5f);
             }
- 
-            // 스프라이트를 가운데 놓더라도 앞뒤 정렬은 밑동 기준이어야 자연스럽다
-            if (go.TryGetComponent<YSorter>(out var sorter))
-                sorter.SetYOffset(GetSortYOffset(crop.size));
  
             grow.Init(crop, origin);
             OccupyCells(grow);
@@ -364,4 +515,3 @@ namespace KSM._00.Scripts.Crop
             => OnHarvested?.Invoke(item, amount, quality);
     }
 }
- 

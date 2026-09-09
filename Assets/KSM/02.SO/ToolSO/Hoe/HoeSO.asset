@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a2e59b91e048ed8b81a9f9f717d4d9, type: 3}
+  m_Name: HoeSO
+  m_EditorClassIdentifier: Assembly-CSharp::HoeSO
+  itemId: 
+  displayName: Hoe Wood
+  icon: {fileID: -1249109064242409673, guid: c687d774894d93242948d0cfd5ab3c75, type: 3}
+  description: 
+  itemType: 5
+  maxStack: 1
+  sellPrice: 0
+  tier: 0
+  areaSize: {x: 1, y: 1}
+  hitBoxSize: {x: 1.2, y: 1.2}
+  hitBoxDistance: 0.8
+  verboseLog: 1
+  animationTrigger: Hoe
+  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
+  impactDelay: 0.15
+  useCooldown: 0.4
+  lockMovementWhileUsing: 1
+  movementLockDuration: 0
+  tillableTiles:
+  - {fileID: 11400000, guid: 970f2bf7bd3c08840b73a6ebca96b32c, type: 2}
+  tilledTile: {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

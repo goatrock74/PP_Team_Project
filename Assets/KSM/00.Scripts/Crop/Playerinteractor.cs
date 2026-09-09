@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using KSM._00.Scripts.Items;
@@ -26,6 +27,12 @@ namespace KSM._00.Scripts.Crop
         [Tooltip("씬의 GachaUI. 비워두면 자동으로 찾는다")]
         [SerializeField] private GachaUI gacha;
  
+        [Tooltip("도구 애니메이션 담당. 비워두면 이 오브젝트에서 찾는다. 없어도 도구는 동작한다")]
+        [SerializeField] private ToolAnimator toolAnimator;
+ 
+        [Tooltip("도구 사용 중 캐릭터를 멈추는 데 쓴다. 비워두면 이 오브젝트에서 찾는다")]
+        [SerializeField] private PlayerMovement movement;
+ 
         [Tooltip("그리드 밖 오브젝트(나무, 광석 등)를 찾을 레이어")]
         [SerializeField] private LayerMask interactableLayer;
  
@@ -48,6 +55,8 @@ namespace KSM._00.Scripts.Crop
  
             // 뽑기 패널은 보통 꺼진 채로 시작하므로 비활성 오브젝트까지 뒤져야 찾는다
             if (gacha == null) gacha = FindFirstObjectByType<GachaUI>(FindObjectsInactive.Include);
+            if (toolAnimator == null) toolAnimator = GetComponentInChildren<ToolAnimator>();
+            if (movement == null) movement = GetComponent<PlayerMovement>();
         }
  
         private void Update()
@@ -79,24 +88,46 @@ namespace KSM._00.Scripts.Crop
         {
             if (preview == null) return;
  
-            SeedSO seed = GetHeldSeed();
- 
-            if (seed == null || IsPointerOverUI())
-            {
-                preview.Hide();
-                return;
-            }
+            if (IsPointerOverUI()) { preview.Hide(); return; }
  
             CropManager mgr = CropManager.Instance;
             if (mgr == null || cam == null) { preview.Hide(); return; }
  
+            PlayerInventory player = PlayerInventory.Instance;
+            ItemSO held = player != null ? player.HeldItem : null;
+ 
             Vector3Int cell = GetMouseCell(mgr);
-            Vector3Int origin = CropManager.GetOrigin(cell, seed.crop.size);
+            bool inRange = IsInRange(mgr, cell);
  
-            // 사거리 안이고, 9칸이 전부 비어있고 심을 수 있는 타일이어야 초록
-            bool ok = IsInRange(mgr, cell) && mgr.CanPlace(origin, seed.crop);
+            // 도구 — 작용 범위를 그대로 보여준다
+            if (held is ToolSO tool)
+            {
+                ToolUseContext ctx = BuildToolContext(mgr, cell);
  
-            preview.Show(origin, seed.crop.size, ok);
+                if (tool.UsesHitBox)
+                {
+                    // 상자형(도끼·낫) — 플레이어 정면 앞에 판정 상자를 그린다.
+                    // 상자가 몸에 붙어 있으므로 사거리 제한은 필요 없다
+                    preview.ShowBox(tool.GetHitBoxCenter(ctx), tool.hitBoxSize, tool.CanUse(ctx));
+                    return;
+                }
+ 
+                bool usable = inRange && tool.CanUse(ctx);
+                preview.Show(tool.GetOrigin(cell), tool.areaSize, usable);
+                return;
+            }
+ 
+            // 씨앗 — 심을 자리를 보여준다
+            if (held is SeedSO seed && seed.IsPlantable)
+            {
+                Vector3Int origin = CropManager.GetOrigin(cell, seed.crop.size);
+                bool ok = inRange && mgr.CanPlace(origin, seed.crop);
+ 
+                preview.Show(origin, seed.crop.size, ok);
+                return;
+            }
+ 
+            preview.Hide();
         }
  
         // ════════════════════════════════════════════════════════════
@@ -110,12 +141,80 @@ namespace KSM._00.Scripts.Crop
             // 1) 뽑기 팩을 들고 있으면 룰렛
             if (player != null && player.HeldItem is ItemPackSO pack) { HandleOpenPack(player, pack); return; }
  
-            // 2) 씨앗을 들고 있으면 심기
+            // 2) 도구를 들고 있으면 도구 사용 (괭이·물뿌리개·도끼·낫)
+            if (player != null && player.HeldItem is ToolSO tool) { HandleUseTool(tool); return; }
+ 
+            // 3) 씨앗을 들고 있으면 심기
             SeedSO seed = GetHeldSeed();
             if (seed != null) { HandlePlant(seed); return; }
  
-            // 3) 아니면 수확
+            // 4) 아니면 수확
             HandleHarvest();
+        }
+ 
+        private void HandleUseTool(ToolSO tool)
+        {
+            CropManager mgr = CropManager.Instance;
+            if (mgr == null) return;
+ 
+            // 아직 휘두르는 중이면 무시 (연타 방지)
+            if (toolAnimator != null && toolAnimator.IsBusy) return;
+ 
+            Vector3Int cell = GetMouseCell(mgr);
+            ToolUseContext ctx = BuildToolContext(mgr, cell);
+ 
+            // 상자형은 플레이어 몸에 붙어 있어서 사거리 제한이 없다
+            bool inRange = tool.UsesHitBox || IsInRange(mgr, cell);
+ 
+            if (!inRange)
+            {
+                if (verboseLog) Debug.Log("[상호작용] 너무 멀다");
+                return;
+            }
+ 
+            // 발을 딛고 하는 동작이면 그동안 캐릭터를 묶어둔다
+            if (tool.lockMovementWhileUsing && movement != null)
+                movement.LockFor(tool.LockSeconds);
+ 
+            if (toolAnimator == null)
+            {
+                tool.Use(ctx);
+                return;
+            }
+ 
+            // 애니메이션을 먼저 재생하고, 도구가 대상에 닿는 타이밍에 효과를 낸다
+            float delay = toolAnimator.PlayUse(tool);
+ 
+            if (delay <= 0f) tool.Use(ctx);
+            else StartCoroutine(UseAfterDelay(tool, ctx, delay));
+        }
+ 
+        private IEnumerator UseAfterDelay(ToolSO tool, ToolUseContext ctx, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            tool.Use(ctx);
+        }
+ 
+        private ToolUseContext BuildToolContext(CropManager mgr, Vector3Int cell)
+        {
+            Vector3 aim = GetMouseWorld();
+            Vector3 self = transform.position;
+ 
+            // 정면은 이동 입력의 좌우가 정한다. 마우스는 방향에 관여하지 않는다
+            Vector2 facing = movement != null ? movement.FacingDirection : Vector2.right;
+ 
+            return new ToolUseContext
+            {
+                cell = cell,
+                worldPoint = mgr.CellToWorldCenter(cell),
+                aimPoint = aim,
+                facing = facing,
+ 
+                user = gameObject,
+                userPosition = self,
+                farm = mgr,
+                targetLayer = interactableLayer,
+            };
         }
  
         private void HandleOpenPack(PlayerInventory player, ItemPackSO pack)
@@ -234,20 +333,23 @@ namespace KSM._00.Scripts.Crop
             return player.HeldItem is SeedSO seed && seed.IsPlantable ? seed : null;
         }
  
-        private Vector3Int GetMouseCell(CropManager mgr)
+        /// <summary>마우스가 가리키는 월드 좌표 (칸에 스냅되지 않은 원본)</summary>
+        private Vector3 GetMouseWorld()
         {
             Vector2 screen = Mouse.current.position.ReadValue();
             Vector3 world = cam.ScreenToWorldPoint(screen);
             world.z = 0f;
  
-            return mgr.WorldToCell(world);
+            return world;
         }
  
+        private Vector3Int GetMouseCell(CropManager mgr) => mgr.WorldToCell(GetMouseWorld());
+ 
         private bool IsInRange(CropManager mgr, Vector3Int cell)
-        {
-            Vector3 center = mgr.CellToWorldCenter(cell);
-            return Vector2.Distance(transform.position, center) <= interactRange;
-        }
+            => IsInRange(mgr.CellToWorldCenter(cell));
+ 
+        private bool IsInRange(Vector3 worldPoint)
+            => Vector2.Distance(transform.position, worldPoint) <= interactRange;
  
         /// <summary>마우스가 가리키는 칸을 구하고, 사거리 안인지까지 확인한다</summary>
         private bool TryGetTargetCell(CropManager mgr, out Vector3Int cell)
@@ -291,4 +393,3 @@ namespace KSM._00.Scripts.Crop
         }
     }
 }
- 

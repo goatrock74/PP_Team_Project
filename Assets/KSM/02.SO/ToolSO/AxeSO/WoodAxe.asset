@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a69613adec14febb42d0ece277c87b5, type: 3}
+  m_Name: WoodAxe
+  m_EditorClassIdentifier: Assembly-CSharp::AxeSO
+  itemId: 
+  displayName: Wood Axe
+  icon: {fileID: 5858095290441030764, guid: 653ca9fcc4ce53646b250d325bcb7829, type: 3}
+  description: 
+  itemType: 5
+  maxStack: 1
+  sellPrice: 0
+  tier: 0
+  areaSize: {x: 1, y: 1}
+  verboseLog: 1
+  animationTrigger: Chop
+  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
+  impactDelay: 0.15
+  useCooldown: 0.4
+  lockMovementWhileUsing: 1
+  movementLockDuration: 0
+  power: 1
+  extraDropRolls: 0
