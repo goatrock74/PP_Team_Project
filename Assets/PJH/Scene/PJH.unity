@@ -2291,12 +2291,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingMiniGame
   fishingMiniGameUI: {fileID: 1243269937}
   fishingSettingSO: {fileID: 11400000, guid: 37da06c8686be284682586644239fcab, type: 2}
-  catchBarUpAcceleration: 1.2
-  catchBarGravity: 1.1
-  catchBarMaxRiseSpeed: 1.3
-  catchBarMaxFallSpeed: 1.5
-  catchBarBottomBounce: 0.35
-  catchBarMinBounceSpeed: 0.12
+  catchBarUpAcceleration: 4
+  catchBarGravity: 2.85
+  catchBarMaxRiseSpeed: 0.8
+  catchBarMaxFallSpeed: 0.95
+  catchBarBottomBounce: 0.45
+  catchBarMinBounceSpeed: 0.05
   progressIncreaseSpeed: 0.15
   progressDecreaseSpeed: 0.16
   animationController: {fileID: 2009406529}
