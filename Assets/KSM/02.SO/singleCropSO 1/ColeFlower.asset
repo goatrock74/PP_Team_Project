@@ -26,10 +26,13 @@ MonoBehaviour:
     durationTime: 2
   harvestStageIndex: 3
   regrowStageIndex: 0
+  harvestItem: {fileID: 0}
   minYield: 1
   maxYield: 1
-  minPrice: 10
-  maxPrice: 100
+  qualityChance:
+    goodChance: 0.2
+    bestChance: 0.05
+  plantableSeasons: -1
   size: {x: 1, y: 1}
   plantableTiles:
   - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

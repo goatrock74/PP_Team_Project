@@ -11,6 +11,7 @@ namespace KSM._00.Scripts.Crop
         private SpriteRenderer _renderer;
         private CropManager _manager;
         private bool _initialized;
+        private bool _harvested;   // 1회용 작물이 흔들리는 동안 두 번 캐이는 걸 막는다
  
         [field: SerializeField] public int NowGrowthStage { get; private set; }
         [field: SerializeField] public float CurrentTimeStage { get; private set; }
@@ -25,7 +26,7 @@ namespace KSM._00.Scripts.Crop
         public event Action<int> OnStageChanged;
  
         // ── IHarvestable ────────────────────────────────────────────────
-        public bool CanHarvest => _initialized && IsGrowFinished;
+        public bool CanHarvest => _initialized && IsGrowFinished && !_harvested;
  
         public string HarvestPrompt
         {
@@ -158,12 +159,15 @@ namespace KSM._00.Scripts.Crop
             switch (cropSO.harvestType)
             {
                 case HarvestType.Single:
-                    // 파괴 전에 칸을 반납해야 그 자리에 다시 심을 수 있다
+                    // 한 번 캐면 끝. 칸을 반납하고 바로 치운다
                     if (_manager != null) _manager.ReleaseCells(this);
+ 
+                    _harvested = true;
                     Destroy(gameObject);
                     break;
  
                 case HarvestType.Multiple:
+                    // 다시 자라는 작물. 지정된 단계로 되돌린다
                     NowGrowthStage = Mathf.Clamp(cropSO.regrowStageIndex, 0, cropSO.harvestStageIndex);
                     CurrentTimeStage = 0f;
                     IsGrowFinished = NowGrowthStage >= cropSO.harvestStageIndex;
@@ -171,6 +175,18 @@ namespace KSM._00.Scripts.Crop
                     break;
             }
  
+            return true;
+        }
+ 
+        /// <summary>
+        /// 성장을 즉시 앞당긴다 (물주기, 비료 등). 단위는 인게임 일수.
+        /// 여러 단계를 한 번에 건너뛰어도 Tick 안의 while 이 알아서 처리한다.
+        /// </summary>
+        public bool AddGrowth(float days)
+        {
+            if (!_initialized || IsGrowFinished || days <= 0f) return false;
+ 
+            Tick(days);
             return true;
         }
  
@@ -187,4 +203,3 @@ namespace KSM._00.Scripts.Crop
         }
     }
 }
- 

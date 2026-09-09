@@ -65,6 +65,24 @@ namespace KSM._00.Scripts.Crop
             _visibleCount = need;
         }
  
+        /// <summary>
+        /// 칸이 아니라 임의의 상자를 그린다. 도끼·낫처럼 그리드를 안 쓰는 도구용.
+        /// </summary>
+        public void ShowBox(Vector3 center, Vector2 size, bool ok)
+        {
+            EnsureCells(1);
+ 
+            SpriteRenderer sr = _cells[0];
+            sr.transform.position = center;
+            sr.transform.localScale = new Vector3(Mathf.Abs(size.x), Mathf.Abs(size.y), 1f);
+            sr.color = ok ? okColor : badColor;
+            sr.enabled = true;
+ 
+            for (int i = 1; i < _cells.Count; i++) _cells[i].enabled = false;
+ 
+            _visibleCount = 1;
+        }
+ 
         public void Hide()
         {
             if (_visibleCount == 0) return;
@@ -119,4 +137,3 @@ namespace KSM._00.Scripts.Crop
         private void OnDisable() => Hide();
     }
 }
- 

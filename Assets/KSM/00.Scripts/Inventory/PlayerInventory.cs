@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using UnityEngine;
 using KSM._00.Scripts.Crop;
  
@@ -44,6 +45,12 @@ namespace KSM._00.Scripts.Items
  
         /// <summary>가방이 꽉 차서 못 받았을 때 (아이템, 남은 개수)</summary>
         public event Action<ItemSO, int> OnOverflow;
+ 
+        /// <summary>
+        /// 아이템이 실제로 가방에 들어갔을 때 (아이템, 들어간 개수, 품질).
+        /// 획득 알림 UI 가 구독한다. 꽉 차서 못 받은 몫은 여기 안 들어온다.
+        /// </summary>
+        public event Action<ItemSO, int, ItemQuality> OnItemGained;
  
         // ── 손에 든 아이템 ───────────────────────────────────────────
         public ItemSO HeldItem { get; private set; }
@@ -124,11 +131,13 @@ namespace KSM._00.Scripts.Items
             if (item == null || amount <= 0) return 0;
  
             int leftover = Inventory.Add(item, amount, quality);
+            int got = amount - leftover;
  
-            if (verboseLog)
+            if (got > 0)
             {
-                int got = amount - leftover;
-                if (got > 0)
+                OnItemGained?.Invoke(item, got, quality);
+ 
+                if (verboseLog)
                 {
                     string grade = quality == ItemQuality.Normal
                         ? string.Empty
@@ -250,4 +259,3 @@ namespace KSM._00.Scripts.Items
         }
     }
 }
- 

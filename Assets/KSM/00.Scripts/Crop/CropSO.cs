@@ -80,7 +80,7 @@ public class CropSO : ScriptableObject
             if (growthStages[i].durationTime > 0f) continue;
  
             GrowthStage stage = growthStages[i];
-            stage.durationTime = 1f;          // 기본 하루
+            stage.durationTime = 1f;         
             growthStages[i] = stage;
         }
  
@@ -88,7 +88,6 @@ public class CropSO : ScriptableObject
  
         if (harvestType == HarvestType.Multiple)
         {
-            // 되돌아갈 단계는 반드시 수확 단계보다 앞이어야 한다. 아니면 즉시 재수확 버그
             regrowStageIndex = Mathf.Clamp(regrowStageIndex, 0, Mathf.Max(0, harvestStageIndex - 1));
         }
     }
@@ -105,12 +104,12 @@ public struct GrowthStage
     [Tooltip("이 단계에 머무는 시간 — 단위는 '인게임 일수'.\n" +
              "1 = 하루, 0.5 = 반나절, 3 = 사흘.\n" +
              "마지막(수확) 단계의 값은 사용되지 않는다")]
-    public float durationTime;   // struct 는 필드 초기값을 못 준다. 기본값은 CropSO.OnValidate 에서 채운다
+    public float durationTime;   
 }
  
 public enum HarvestType
 {
-    Single,   // 1회용: 수확하면 사라짐
-    Multiple, // 다회용: 수확하면 특정 단계로 돌아가서 다시 자람
+    Single,   
+    Multiple, 
 }
  

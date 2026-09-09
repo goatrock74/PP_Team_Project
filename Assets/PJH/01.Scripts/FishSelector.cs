@@ -13,7 +13,7 @@ namespace PJH.Scripts
         {
             float random =  UnityEngine.Random.Range(0f, 100f);
 
-            if (random <= 10)
+            if (random <= 100)
             {
                 // 10%물고기
                 selctedFishDataSO = fishDataSO[2];
