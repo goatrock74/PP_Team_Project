@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 13fb70eb8887d9e4ea27a511afec382b
+guid: 9610ef815580c4f4ca383cb3f150f7fc
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - CookieRunOTF
+  - MonaS12 Text HK
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
