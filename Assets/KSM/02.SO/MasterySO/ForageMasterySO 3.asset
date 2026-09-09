@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9623e31d58f4fbe97c623cf6caf7c6a, type: 3}
+  m_Name: ForageMasterySO 3
+  m_EditorClassIdentifier: Assembly-CSharp::MasterySO
+  type: 0
+  displayName: Foraging
+  icon: {fileID: -4361023292821057525, guid: 1d4fb122d56c6c74097027c330bdef09, type: 3}
+  description: 
+  maxLevel: 20
+  baseExp: 100
+  expGrowth: 1.25
+  statsPerLevel:
+  - stat: 0
+    perLevel: 0.02
+  unlocks:
+  - level: 10
+    perk: 1
+    title: 
+    description: 
+    value: 1.5
+  - level: 15
+    perk: 2
+    title: 
+    description: 
+    value: 2

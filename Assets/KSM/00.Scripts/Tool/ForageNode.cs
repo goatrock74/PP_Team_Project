@@ -72,14 +72,25 @@ public class ForageNode : MonoBehaviour, IForageable
         if (player == null) return false;
  
         int rolls = 1 + scythe.bonusRolls;
+ 
+        // ── 채집 마스터리 보정 (매니저가 없으면 각각 0 / 1배라 원래대로 동작한다) ──
+        float luck = MasteryManager.Stat(MasteryStat.ForageLuck);                    // 희귀한 게 나올 확률
+        float yieldMul = MasteryManager.PerkVal(MasteryPerk.BonusForageYield, 1f);   // 15렙: 채집량 배수
+ 
         bool gotSomething = false;
  
         for (int i = 0; i < rolls; i++)
         {
-            LootEntry entry = table.Roll();
+            LootEntry entry = table.Roll(luck);
             if (!entry.IsValid) continue;
  
-            player.Add(entry.item, entry.RollCount(), entry.quality);
+            int count = Mathf.Max(1, Mathf.RoundToInt(entry.RollCount() * yieldMul));
+            player.Add(entry.item, count, entry.quality);
+ 
+            // 경험치는 "뽑힌 등급" 으로만 정한다. 개수를 곱하지 않는 이유는
+            // 15렙 채집량 퍽이 경험치까지 두 배로 만들어 눈덩이처럼 불어나기 때문
+            MasteryManager.GainByRarity(MasteryType.Foraging, entry.rarity);
+ 
             gotSomething = true;
         }
  
@@ -98,7 +109,12 @@ public class ForageNode : MonoBehaviour, IForageable
         _depleted = true;
  
         var farm = ctx.farm != null ? ctx.farm : KSM._00.Scripts.Crop.CropManager.Instance;
-        _readyAtDay = (farm != null ? farm.CurrentGameDays : 0f) + respawnDays;
+ 
+        // 채집 10렙 퍽 — 재생 시간이 배수만큼 줄어든다. 1.5 면 원래의 2/3 시간
+        float speedUp = Mathf.Max(0.01f, MasteryManager.PerkVal(MasteryPerk.FastForageRespawn, 1f));
+        float wait = respawnDays / speedUp;
+ 
+        _readyAtDay = (farm != null ? farm.CurrentGameDays : 0f) + wait;
  
         if (bodyRenderer == null) return;
  

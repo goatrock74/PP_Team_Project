@@ -161,16 +161,88 @@ namespace KSM._00.Scripts.Crop
         public float CurrentGameDays { get; private set; }
  
         /// <summary>
-        /// 계절·날씨 시스템이 여기에 자기 자신을 꽂으면 모든 작물에 즉시 반영된다.
-        /// 안 꽂혀 있으면 전부 기본값(배수 1, 보너스 0)으로 동작한다.
+        /// 성장에 영향을 주는 것들. 계절·날씨, 마스터리, 나중에 비료까지 <b>동시에</b> 꽂을 수 있다.
+        /// 하나도 없으면 전부 기본값(배수 1, 보너스 0)으로 동작한다.
         /// </summary>
-        public IGrowthModifier GrowthModifier { get; set; }
+        private readonly List<IGrowthModifier> _modifiers = new();
  
-        public float GrowthSpeedMultiplier => GrowthModifier?.GrowthSpeedMultiplier ?? 1f;
-        public float YieldMultiplier => GrowthModifier?.YieldMultiplier ?? 1f;
-        public float QualityBonus => GrowthModifier?.QualityBonus ?? 0f;
+        /// <summary>보정자를 꽂는다. 중복 등록은 무시한다 (두 번 곱해지는 사고 방지)</summary>
+        public void AddGrowthModifier(IGrowthModifier modifier)
+        {
+            if (modifier == null || _modifiers.Contains(modifier)) return;
+            _modifiers.Add(modifier);
+        }
  
-        public bool CanPlantNow(CropSO crop) => GrowthModifier?.CanPlantNow(crop) ?? true;
+        public void RemoveGrowthModifier(IGrowthModifier modifier) => _modifiers.Remove(modifier);
+ 
+        /// <summary>
+        /// 예전처럼 하나만 꽂고 싶을 때 쓰는 호환용 프로퍼티.
+        /// 새 코드는 AddGrowthModifier 를 쓰는 게 좋다 — 그래야 여러 개가 공존한다.
+        /// </summary>
+        public IGrowthModifier GrowthModifier
+        {
+            get => _modifiers.Count > 0 ? _modifiers[0] : null;
+            set
+            {
+                if (_modifiers.Count > 0) _modifiers.RemoveAt(0);
+                if (value != null) _modifiers.Insert(0, value);
+            }
+        }
+ 
+        // ── 합산 규칙 ──
+        //   속도·수확량 : 곱한다 (가을 1.5배 × 마스터리 1.2배 = 1.8배)
+        //   품질 보너스 : 더한다 (확률에 더하는 값이라 곱하면 이상해진다)
+        //   심기·최상   : 하나라도 반대하면 막힌다
+ 
+        public float GrowthSpeedMultiplier
+        {
+            get
+            {
+                float v = 1f;
+                foreach (IGrowthModifier m in _modifiers) v *= m.GrowthSpeedMultiplier;
+                return v;
+            }
+        }
+ 
+        public float YieldMultiplier
+        {
+            get
+            {
+                float v = 1f;
+                foreach (IGrowthModifier m in _modifiers) v *= m.YieldMultiplier;
+                return v;
+            }
+        }
+ 
+        public float QualityBonus
+        {
+            get
+            {
+                float v = 0f;
+                foreach (IGrowthModifier m in _modifiers) v += m.QualityBonus;
+                return v;
+            }
+        }
+ 
+        /// <summary>보정자가 하나도 없으면 제한 없음(true). 하나라도 막으면 false</summary>
+        public bool AllowBestQuality
+        {
+            get
+            {
+                foreach (IGrowthModifier m in _modifiers)
+                    if (!m.AllowBestQuality) return false;
+ 
+                return true;
+            }
+        }
+ 
+        public bool CanPlantNow(CropSO crop)
+        {
+            foreach (IGrowthModifier m in _modifiers)
+                if (!m.CanPlantNow(crop)) return false;
+ 
+            return true;
+        }
  
         private void TickAll(float delta)
         {
@@ -515,3 +587,4 @@ namespace KSM._00.Scripts.Crop
             => OnHarvested?.Invoke(item, amount, quality);
     }
 }
+ 

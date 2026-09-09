@@ -136,9 +136,13 @@ namespace KSM._00.Scripts.Crop
  
             int amount = Mathf.Max(1, Mathf.RoundToInt(cropSO.RollYield() * yieldMul));
  
+            // 농사 마스터리 10레벨 전에는 최상 등급이 '좋음'으로 강등된다.
+            // 보정자가 하나도 안 꽂혀 있으면 제한 없음
+            bool allowBest = _manager == null || _manager.AllowBestQuality;
+ 
             // 한 번 수확에 품질을 한 번 굴린다.
             // 열매 하나하나 다르게 하고 싶으면 amount 만큼 반복해서 굴리고 품질별로 나눠 보내면 된다
-            ItemQuality quality = cropSO.qualityChance.Roll(qualityBonus);
+            ItemQuality quality = cropSO.qualityChance.Roll(qualityBonus, allowBest);
  
             if (cropSO.harvestItem == null)
             {
@@ -155,6 +159,11 @@ namespace KSM._00.Scripts.Crop
  
                 _manager.NotifyHarvested(cropSO.harvestItem, amount, quality);
             }
+ 
+            // 농사 경험치는 수확물의 가치로 정해진다. 비싼 작물일수록, 등급이 좋을수록 많이 준다.
+            // 씬에 MasteryManager 가 없으면 아무 일도 일어나지 않는다
+            if (cropSO.harvestItem != null)
+                MasteryManager.GainByValue(MasteryType.Farming, cropSO.harvestItem.GetSellPrice(quality) * amount);
  
             switch (cropSO.harvestType)
             {
