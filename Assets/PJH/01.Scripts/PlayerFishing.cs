@@ -176,6 +176,11 @@ namespace PJH.Scripts
                 return false;
             }
  
+            // ★ 미니게임 패널이 물 반대쪽에 뜨지 않도록, 던지는 시점의 방향을 알려준다.
+            //   패널이 열리기 전(입질 전)이라 자연스럽게 그 자리에서 펼쳐진다
+            bool faceLeft = movement != null && movement.FacingX < 0f;
+            fishingController.SetFishingDirection(faceLeft);
+ 
             canClick = false;
             animator.Play(_hashFishing, BaseLayer, 0f);
  
@@ -258,3 +263,4 @@ namespace PJH.Scripts
         #endregion
     }
 }
+ 
