@@ -8,16 +8,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - FishingArea
+  - 
   - Water
   - UI
-  - Ground
-  - Object
-<<<<<<< HEAD
-  - Interactable
-=======
-  - Tree
->>>>>>> 9f5b96d54c08188bcfc42e825326c155f76ec524
+  - 
+  - 
+  - 
   - 
   - 
   - 

@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "ToolSO", menuName = "Scriptable Objects/ToolSO")]
-public class ToolSO : ScriptableObject
+public class ToolSOPJW : ScriptableObject
 {
     [field:SerializeField]public string Name {  get;private set; }
 
