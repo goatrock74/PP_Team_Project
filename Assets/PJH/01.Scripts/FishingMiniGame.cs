@@ -137,7 +137,7 @@ namespace PJH.Scripts
             
             BringFishData(fishDataSo);
 
-            miniGameProgress = 0.3f;
+            miniGameProgress = 0.4f;
             fishingMiniGameUI.FillGuage(miniGameProgress);
             
             isOpeningPanel = true;
@@ -205,7 +205,7 @@ namespace PJH.Scripts
 
             ChooseNextTarget();
             animationController.ShakePlayer();
-            miniGameProgress = 0.3f;
+            miniGameProgress = 0.4f;
             isOpeningPanel = false;
             isMiniGameRunning = true;
         }
