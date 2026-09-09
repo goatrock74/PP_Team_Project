@@ -11,9 +11,10 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private CanvasGroup fadePanel;
     [SerializeField] private GameObject particle;
     [SerializeField] private GameObject background;
+    [SerializeField] private MainMenuAnimation mainMenuAnimation;
+
     [Header("Fade Settings")]
     [SerializeField] private float fadeDuration = 0.5f;
-
     private bool isStartScreen = true;
     private bool isTransitioning = false;
 
@@ -52,7 +53,7 @@ public class MenuManager : MonoBehaviour
     private void ShowMainMenu()
     {
         isTransitioning = true;
-       
+
         fadePanel
             .DOFade(1f, fadeDuration)
             .SetEase(Ease.InOutQuad)
@@ -69,6 +70,9 @@ public class MenuManager : MonoBehaviour
                 isStartScreen = false;
                 particle.SetActive(false);
                 background.SetActive(false);
+
+                mainMenuAnimation.PlayAnimation();
+
                 fadePanel
                     .DOFade(0f, fadeDuration)
                     .SetEase(Ease.InOutQuad)
@@ -78,6 +82,7 @@ public class MenuManager : MonoBehaviour
                     });
             });
     }
+
     public void NextScene()
     {
         SceneManager.LoadScene("JHY");
