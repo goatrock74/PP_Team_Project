@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 8ef4700c812bc774fb97b5b9977335d6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7798825729853458681
+    second: 1_wide_wooden_buttons_32x16_1000__0
+  - first:
+      213: -5697985947809264849
+    second: 1_wide_wooden_buttons_32x16_1000__1
+  - first:
+      213: 5454792226593899491
+    second: 1_wide_wooden_buttons_32x16_1000__2
+  - first:
+      213: 3064247029220439855
+    second: 1_wide_wooden_buttons_32x16_1000__3
+  - first:
+      213: -7359542516750346836
+    second: 1_wide_wooden_buttons_32x16_1000__4
+  - first:
+      213: -3811937740537827401
+    second: 1_wide_wooden_buttons_32x16_1000__5
+  - first:
+      213: -888698044112962266
+    second: 1_wide_wooden_buttons_32x16_1000__6
+  - first:
+      213: -5206963889240099949
+    second: 1_wide_wooden_buttons_32x16_1000__7
+  - first:
+      213: 5344587139829716914
+    second: 1_wide_wooden_buttons_32x16_1000__8
+  - first:
+      213: 2272273150098969462
+    second: 1_wide_wooden_buttons_32x16_1000__9
+  - first:
+      213: -3253255250395545763
+    second: 1_wide_wooden_buttons_32x16_1000__10
+  - first:
+      213: -2183979379266801789
+    second: 1_wide_wooden_buttons_32x16_1000__11
+  - first:
+      213: 1221004762087492338
+    second: 1_wide_wooden_buttons_32x16_1000__12
+  - first:
+      213: -4438309580385000647
+    second: 1_wide_wooden_buttons_32x16_1000__13
+  - first:
+      213: -1257258024508011848
+    second: 1_wide_wooden_buttons_32x16_1000__14
+  - first:
+      213: -8713639644515965184
+    second: 1_wide_wooden_buttons_32x16_1000__15
+  - first:
+      213: 9193028275289601165
+    second: 1_wide_wooden_buttons_32x16_1000__16
+  - first:
+      213: 8335478949849226931
+    second: 1_wide_wooden_buttons_32x16_1000__17
+  - first:
+      213: -8374922205002798048
+    second: 1_wide_wooden_buttons_32x16_1000__18
+  - first:
+      213: -4093018356436580642
+    second: 1_wide_wooden_buttons_32x16_1000__19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__0
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 3039
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 153, y: 75, z: 153, w: 75}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70778e2915105c390800000000000000
+      internalID: -7798825729853458681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__1
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 3039
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 154, y: 69, z: 154, w: 68}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2b49ad38fface0b0800000000000000
+      internalID: -5697985947809264849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 2719
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 152, y: 73, z: 153, w: 72}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e301bd11a053bb40800000000000000
+      internalID: 5454792226593899491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__3
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 2719
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 147, y: 63, z: 146, w: 60}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f27fab02074668a20800000000000000
+      internalID: 3064247029220439855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__4
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 2399
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 151, y: 70, z: 151, w: 71}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca516b3d217add990800000000000000
+      internalID: -7359542516750346836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__5
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 2399
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 146, y: 61, z: 146, w: 62}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bf665d42d6491bc0800000000000000
+      internalID: -3811937740537827401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__6
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 2079
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62dff0066d5baa3f0800000000000000
+      internalID: -888698044112962266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__7
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 2079
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 393be8f2ee52db7b0800000000000000
+      internalID: -5206963889240099949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__8
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 1759
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b7dba4dfa9cb2a40800000000000000
+      internalID: 5344587139829716914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__9
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1759
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6739e48146cb88f10800000000000000
+      internalID: 2272273150098969462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__10
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 1439
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5fbf74169d1ad2d0800000000000000
+      internalID: -3253255250395545763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__11
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1439
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38f26066352f0b1e0800000000000000
+      internalID: -2183979379266801789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__12
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 1119
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fa0949ac51e1f010800000000000000
+      internalID: 1221004762087492338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__13
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 1119
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93360f9a3f4f762c0800000000000000
+      internalID: -4438309580385000647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__14
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 799
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bac03aec725d8ee0800000000000000
+      internalID: -1257258024508011848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__15
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 799
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0076ddff8eee21780800000000000000
+      internalID: -8713639644515965184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__16
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 479
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8432c67282349f70800000000000000
+      internalID: 9193028275289601165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__17
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 479
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3be528e01f19da370800000000000000
+      internalID: 8335478949849226931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__18
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 159
+        width: 322
+        height: 162
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ce64570ac46cb80800000000000000
+      internalID: -8374922205002798048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wide_wooden_buttons_32x16_1000__19
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 159
+        width: 322
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed6c1759d7da237c0800000000000000
+      internalID: -4093018356436580642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: fc988030bdf1208468add9fc24c12c51
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      1_wide_wooden_buttons_32x16_1000__0: -7798825729853458681
+      1_wide_wooden_buttons_32x16_1000__1: -5697985947809264849
+      1_wide_wooden_buttons_32x16_1000__10: -3253255250395545763
+      1_wide_wooden_buttons_32x16_1000__11: -2183979379266801789
+      1_wide_wooden_buttons_32x16_1000__12: 1221004762087492338
+      1_wide_wooden_buttons_32x16_1000__13: -4438309580385000647
+      1_wide_wooden_buttons_32x16_1000__14: -1257258024508011848
+      1_wide_wooden_buttons_32x16_1000__15: -8713639644515965184
+      1_wide_wooden_buttons_32x16_1000__16: 9193028275289601165
+      1_wide_wooden_buttons_32x16_1000__17: 8335478949849226931
+      1_wide_wooden_buttons_32x16_1000__18: -8374922205002798048
+      1_wide_wooden_buttons_32x16_1000__19: -4093018356436580642
+      1_wide_wooden_buttons_32x16_1000__2: 5454792226593899491
+      1_wide_wooden_buttons_32x16_1000__3: 3064247029220439855
+      1_wide_wooden_buttons_32x16_1000__4: -7359542516750346836
+      1_wide_wooden_buttons_32x16_1000__5: -3811937740537827401
+      1_wide_wooden_buttons_32x16_1000__6: -888698044112962266
+      1_wide_wooden_buttons_32x16_1000__7: -5206963889240099949
+      1_wide_wooden_buttons_32x16_1000__8: 5344587139829716914
+      1_wide_wooden_buttons_32x16_1000__9: 2272273150098969462
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -485,10 +485,10 @@ TextureImporter:
       name: Wood set 1_11
       rect:
         serializedVersion: 2
-        x: 416
+        x: 512
         y: 288
-        width: 112
-        height: 32
+        width: 16
+        height: 30
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -727,13 +727,13 @@ TextureImporter:
       name: Wood set 1_22
       rect:
         serializedVersion: 2
-        x: 320
+        x: 321
         y: 112
-        width: 31
+        width: 30
         height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 1, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
@@ -1148,6 +1148,7 @@ TextureImporter:
       Wood set 1_36: -3680582914605150772
       Wood set 1_37: 8123655588119000591
       Wood set 1_38: -7842397772506213391
+      Wood set 1_39: 1978773407
       Wood set 1_4: 2123944340928130426
       Wood set 1_5: 3318456493824769214
       Wood set 1_6: 7333097397031895235
