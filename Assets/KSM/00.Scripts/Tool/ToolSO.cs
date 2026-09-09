@@ -1,5 +1,4 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D.Animation;   // 2D Animation 패키지 필요
 using KSM._00.Scripts.Crop;
@@ -70,6 +69,11 @@ public abstract class ToolSO : ItemSO
  
     [Tooltip("도구를 쓸 때 콘솔에 로그를 남긴다")]
     public bool verboseLog = true;
+ 
+    [Tooltip("이 도구를 들었을 때 작용 범위를 화면에 그릴지.\n" +
+             "낚싯대처럼 '범위' 개념이 없는 도구는 끄면 된다.\n" +
+             "미리보기를 통째로 끄려면 PlacementPreview 쪽 Show Preview 를 끈다")]
+    public bool showPreview = true;
  
     [Header("연출")]
     [Tooltip("Animator 의 Trigger 이름. 같은 종류 도구는 등급이 달라도 같은 값을 쓴다\n" +

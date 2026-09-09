@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9623e31d58f4fbe97c623cf6caf7c6a, type: 3}
+  m_Name: GrowMasterySO 1
+  m_EditorClassIdentifier: Assembly-CSharp::MasterySO
+  type: 1
+  displayName: FarmMastery
+  icon: {fileID: -888257036514282291, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
+  description: 
+  maxLevel: 20
+  baseExp: 100
+  expGrowth: 1.25
+  statsPerLevel:
+  - stat: 2
+    perLevel: 0.01
+  unlocks:
+  - level: 10
+    perk: 3
+    title: 
+    description: u can get best Quallity
+    value: 1
+  - level: 15
+    perk: 4
+    title: 
+    description: u can harvest *1.5
+    value: 1.5

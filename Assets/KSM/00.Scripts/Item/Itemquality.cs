@@ -59,15 +59,24 @@ public struct QualityChance
     [Tooltip("'최상'이 나올 확률. 좋음보다 먼저 판정한다")]
     public float bestChance;
  
-    /// <summary>비료·행운 같은 보너스를 더해서 굴릴 수 있다</summary>
-    public ItemQuality Roll(float bonus = 0f)
+    /// <summary>
+    /// 비료·행운 같은 보너스를 더해서 굴린다.
+    ///
+    /// <paramref name="allowBest"/> 가 false 면 최상이 나와도 '좋음'으로 강등된다.
+    /// 농사 마스터리 10레벨을 찍기 전에는 최상 등급이 안 나오게 하는 용도.
+    ///
+    /// 강등 방식을 쓰는 이유: 확률을 0으로 만들어버리면 10레벨을 찍는 순간
+    /// 모든 작물 SO 의 최상 확률을 다시 켜줘야 한다. 강등이면 SO 는 그대로 두고
+    /// 게이트만 열리면 된다.
+    /// </summary>
+    public ItemQuality Roll(float bonus = 0f, bool allowBest = true)
     {
         float best = Mathf.Clamp01(bestChance + bonus);
         float good = Mathf.Clamp01(goodChance + bonus);
  
         float r = UnityEngine.Random.value;
  
-        if (r < best) return ItemQuality.Best;
+        if (r < best) return allowBest ? ItemQuality.Best : ItemQuality.Good;
         if (r < best + good) return ItemQuality.Good;
  
         return ItemQuality.Normal;

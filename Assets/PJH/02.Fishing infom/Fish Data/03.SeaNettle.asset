@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
   m_Name: 03.SeaNettle
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  fishID: SeaNettle
+  itemId: 
   displayName: "\uC77C\uBCF8\uBC14\uB2E4\uC410\uAE30\uD574\uD30C\uB9AC"
   icon: {fileID: 626382953066416219, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  basePrice: 100
-  difficulty: 0
+  description: 
+  itemType: 2
+  maxStack: 99
+  sellPrice: 0
+  fishID: SeaNettle
+  rarity: 2
+  difficulty: 3
   moveSpeed: 0.18
   minTargetChangeTime: 1.5
   maxTargetChangeTime: 2.22

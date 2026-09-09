@@ -81,6 +81,35 @@ public class LootTableSO : ScriptableObject
         return LastValid();
     }
  
+    /// <summary>
+    /// 행운을 적용해서 뽑는다. 채집 마스터리가 이걸 쓴다.
+    ///
+    /// 방식: <b>여러 번 굴려서 가장 희귀한 것을 고른다.</b>
+    ///   luck 0.4 → 40% 확률로 한 번 더 굴려 더 좋은 쪽 채택
+    ///   luck 1.0 → 항상 두 번 굴려 좋은 쪽
+    ///   luck 2.5 → 세 번 + 50% 확률로 네 번째
+    ///
+    /// 가중치를 직접 건드리지 않아서 확률표의 비율이 안 망가진다.
+    /// "희귀함"은 weight 가 작은 쪽으로 판단한다 (weight 가 곧 확률이므로).
+    /// </summary>
+    public LootEntry Roll(float luck)
+    {
+        LootEntry best = Roll();
+        if (luck <= 0f || !best.IsValid) return best;
+ 
+        // 소수점은 확률로 처리 — 2.5 면 2번 확정 + 50% 확률로 1번 더
+        int extra = Mathf.FloorToInt(luck);
+        if (UnityEngine.Random.value < luck - extra) extra++;
+ 
+        for (int i = 0; i < extra; i++)
+        {
+            LootEntry candidate = Roll();
+            if (candidate.IsValid && candidate.weight < best.weight) best = candidate;
+        }
+ 
+        return best;
+    }
+ 
     /// <summary>연출용으로 여러 개 뽑는다 (룰렛 띠를 채울 때)</summary>
     public void RollMany(List<LootEntry> buffer, int count)
     {
@@ -152,4 +181,3 @@ public class LootTableSO : ScriptableObject
         }
     }
 }
- 

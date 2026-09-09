@@ -42,19 +42,16 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Background
-    uniqueID: 3784319991
+    uniqueID: 2782918223
     locked: 0
-  - name: Particle
-    uniqueID: 2339783707
+  - name: UI_Behind
+    uniqueID: 134437295
     locked: 0
-  - name: UI
-    uniqueID: 1736510335
+  - name: 'GameObject '
+    uniqueID: 932193595
     locked: 0
-  - name: Bush
-    uniqueID: 3137197673
-    locked: 0
-  - name: Fade
-    uniqueID: 2154451455
+  - name: UI_Front
+    uniqueID: 3900621979
     locked: 0
   m_RenderingLayers:
   - Default

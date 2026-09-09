@@ -21,7 +21,10 @@ MonoBehaviour:
   sellPrice: 0
   tier: 0
   areaSize: {x: 1, y: 1}
+  hitBoxSize: {x: 1.2, y: 1.2}
+  hitBoxDistance: 0.8
   verboseLog: 1
+  showPreview: 0
   animationTrigger: Chop
   heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
   impactDelay: 0.15

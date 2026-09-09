@@ -102,6 +102,9 @@ namespace KSM._00.Scripts.Crop
             // 도구 — 작용 범위를 그대로 보여준다
             if (held is ToolSO tool)
             {
+                // 낚싯대처럼 범위 개념이 없는 도구는 아무것도 안 그린다
+                if (!tool.showPreview) { preview.Hide(); return; }
+ 
                 ToolUseContext ctx = BuildToolContext(mgr, cell);
  
                 if (tool.UsesHitBox)
@@ -393,3 +396,4 @@ namespace KSM._00.Scripts.Crop
         }
     }
 }
+ 

@@ -24,6 +24,7 @@ MonoBehaviour:
   hitBoxSize: {x: 1.66, y: 1.26}
   hitBoxDistance: 0.8
   verboseLog: 1
+  showPreview: 0
   animationTrigger: Scythe
   heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
   impactDelay: 0.15
