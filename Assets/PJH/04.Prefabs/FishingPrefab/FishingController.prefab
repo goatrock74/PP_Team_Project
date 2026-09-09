@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5462578964467161455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4961714374853332093}
+  m_Layer: 0
+  m_Name: OnBobberPointRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4961714374853332093
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5462578964467161455}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 0.12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 884607254638997158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8300926088893507509
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 884607254638997158}
+  - component: {fileID: 2281250322926687706}
+  - component: {fileID: 4556023096924290817}
+  - component: {fileID: 8241326773114829853}
+  m_Layer: 0
+  m_Name: FishingController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &884607254638997158
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300926088893507509}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4961714374853332093}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2281250322926687706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300926088893507509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84cc55cfbd2ef304aa6e48f78ef53baa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FishingAreaCheck
+  fishingAreaLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  bobberPoint: {fileID: 4961714374853332093}
+--- !u!114 &4556023096924290817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300926088893507509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900bc521349d472fb7fb46a61d4c1563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingController
+  fishingAreaCheck: {fileID: 2281250322926687706}
+  fishSelector: {fileID: 8241326773114829853}
+  fishingMiniGame: {fileID: 0}
+  fishingSettingSO: {fileID: 11400000, guid: 37da06c8686be284682586644239fcab, type: 2}
+  splashParticlePrefab: {fileID: 7751772685987678850, guid: 0387cf995dbbb494f8d615397183d20e, type: 3}
+  biteReactionTime: 1
+  catchEffectPrefab: {fileID: 618196433143026379, guid: 0f34367616e5e6d40b13b3e75d1b0142, type: 3}
+  caughtFishPoint: {fileID: 0}
+--- !u!114 &8241326773114829853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8300926088893507509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385a377fe6014da5a614c16e971118ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSelector
+  fishDataSO:
+  - {fileID: 11400000, guid: 4658092333d11ae42a0c64cc74a4810d, type: 2}
+  - {fileID: 11400000, guid: 7d4ebb06a9e5d9e44a1d2c27e23e9f83, type: 2}
+  - {fileID: 11400000, guid: 7d82d8999002c044c89f2bb17aa667dc, type: 2}
