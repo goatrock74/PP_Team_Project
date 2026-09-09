@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WaterMelonSO
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
   cropName: Watermelon
-  icon: {fileID: 0}
+  icon: {fileID: -2161011309740578784, guid: b19222d54095e714dbbf9c817bfeb0c1, type: 3}
   harvestType: 0
   growthStages:
   - sprite: {fileID: 4144650804457457310, guid: b19222d54095e714dbbf9c817bfeb0c1, type: 3}
@@ -31,8 +31,10 @@ MonoBehaviour:
   harvestItem: {fileID: 11400000, guid: 228ae85fc8670554786633bba2d56851, type: 2}
   minYield: 1
   maxYield: 1
-  minPrice: 10
-  maxPrice: 100
+  qualityChance:
+    goodChance: 0.2
+    bestChance: 0.05
+  plantableSeasons: -1
   size: {x: 1, y: 1}
   plantableTiles:
   - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}
