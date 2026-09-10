@@ -65,6 +65,13 @@ namespace KSM._00.Scripts.Crop
  
             if (GachaUI.IsSpinning) { if (preview != null) preview.Hide(); return; }
  
+            // 제작창이 열려 있으면 뒤쪽 세상은 클릭을 안 받는다
+            if (KSM._00.Scripts.Crafting.CraftingUI.IsOpen)
+            {
+                if (preview != null) preview.Hide();
+                return;
+            }
+ 
             UpdatePreview();
  
             if (IsPointerOverUI()) return;          // UI 위 클릭은 무시
@@ -94,7 +101,10 @@ namespace KSM._00.Scripts.Crop
             if (mgr == null || cam == null) { preview.Hide(); return; }
  
             PlayerInventory player = PlayerInventory.Instance;
-            ItemSO held = player != null ? player.HeldItem : null;
+ 
+            // 쓸 수 없는 것(가방에 있는 것)은 미리보기도 안 띄운다.
+            // 초록 네모가 떴는데 클릭이 안 되면 더 헷갈린다
+            ItemSO held = player != null && player.CanUseHeld ? player.HeldItem : null;
  
             Vector3Int cell = GetMouseCell(mgr);
             bool inRange = IsInRange(mgr, cell);
@@ -141,19 +151,32 @@ namespace KSM._00.Scripts.Crop
         {
             PlayerInventory player = PlayerInventory.Instance;
  
-            // 1) 뽑기 팩을 들고 있으면 룰렛
-            if (player != null && player.HeldItem is ItemPackSO pack) { HandleOpenPack(player, pack); return; }
+            // ★ 핫바에 올려둔 것만 실제로 쓸 수 있다.
+            //   가방에 있는 건 정보 확인·정리용이라 세상에 영향을 주지 않는다
+            if (player != null && player.CanUseHeld)
+            {
+                // 1) 뽑기 팩을 들고 있으면 룰렛
+                if (player.HeldItem is ItemPackSO pack) { HandleOpenPack(player, pack); return; }
  
-            // 2) 도구를 들고 있으면 도구 사용 (괭이·물뿌리개·도끼·낫)
-            if (player != null && player.HeldItem is ToolSO tool) { HandleUseTool(tool); return; }
+                // 2) 도구를 들고 있으면 도구 사용 (괭이·물뿌리개·도끼·낫·낚싯대)
+                if (player.HeldItem is ToolSO tool) { HandleUseTool(tool); return; }
  
-            // 3) 씨앗을 들고 있으면 심기
-            SeedSO seed = GetHeldSeed();
-            if (seed != null) { HandlePlant(seed); return; }
+                // 3) 씨앗을 들고 있으면 심기
+                SeedSO seed = GetHeldSeed();
+                if (seed != null) { HandlePlant(seed); return; }
+            }
+            else if (player != null && IsUsableItem(player.HeldItem) && verboseLog)
+            {
+                Debug.Log($"[상호작용] {player.HeldItem.DisplayName} 은(는) 핫바에 올려야 쓸 수 있습니다");
+            }
  
             // 4) 아니면 수확
             HandleHarvest();
         }
+ 
+        /// <summary>핫바에 올렸을 때 실제로 동작하는 종류인가 (안내 메시지용)</summary>
+        private static bool IsUsableItem(ItemSO item)
+            => item is ToolSO || item is ItemPackSO || (item is SeedSO seed && seed.IsPlantable);
  
         private void HandleUseTool(ToolSO tool)
         {

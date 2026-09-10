@@ -37,6 +37,11 @@ namespace PJH.Scripts
  
         [SerializeField] private GameObject splashParticle;
  
+        [Header("던지기")]
+        [Tooltip("켜면 물 앞이 아닐 때 아예 던지지 않는다.\n" +
+                 "끄면 일단 던지는 동작은 나오고, 찌가 닿는 순간 물이 아니면 되돌아온다 (권장)")]
+        [SerializeField] private bool requireWaterToCast;
+ 
         [Header("이동 잠금")]
         [Tooltip("비우면 이 오브젝트와 부모에서 찾는다")]
         [SerializeField] private PlayerMovement movement;
@@ -136,22 +141,33 @@ namespace PJH.Scripts
                 return false;
             }
  
-            if (fishingAreaCheck == null)
+            // ★ 물 판정은 기본적으로 여기서 하지 않는다.
+            //   던지는 동작은 어디서든 나오고, 찌가 물에 닿는 프레임에
+            //   CheckBobberLanding 이 판정해서 아니면 되돌아간다.
+            //   (헛던지는 맛이 있어야 자연스럽다)
+            if (requireWaterToCast)
             {
-                reason = "Fishing Area Check 가 연결되지 않았습니다";
-                return false;
-            }
+                if (fishingAreaCheck == null)
+                {
+                    reason = "Fishing Area Check 가 연결되지 않았습니다";
+                    return false;
+                }
  
-            if (!fishingAreaCheck.IsFishingLayer())
-            {
-                reason = $"찌 지점 {fishingAreaCheck.FishingPointPosition} 이(가) 물이 아닙니다 " +
-                         "(물 오브젝트의 Collider2D / FishingAreaCheck 의 Layer Mask 확인)";
-                return false;
+                if (!fishingAreaCheck.IsFishingLayer())
+                {
+                    reason = $"찌 지점 {fishingAreaCheck.FishingPointPosition} 이(가) 물이 아닙니다 " +
+                             "(물 오브젝트의 Collider2D / FishingAreaCheck 의 Layer Mask 확인)";
+                    return false;
+                }
             }
  
             reason = string.Empty;
             return true;
         }
+ 
+        /// <summary>지금 찌 지점이 물 위인가. 판정 없이 확인만 하고 싶을 때</summary>
+        public bool IsOverWater()
+            => fishingAreaCheck != null && fishingAreaCheck.IsFishingLayer();
  
         /// <summary>플레이 중 컴포넌트 우클릭 → 지금 왜 낚시가 안 되는지 콘솔에 찍는다</summary>
         [ContextMenu("낚시 가능 여부 진단")]
@@ -182,6 +198,11 @@ namespace PJH.Scripts
             fishingController.SetFishingDirection(faceLeft);
  
             canClick = false;
+ 
+            // 던지는 동작 중에 걸어나가지 않도록 여기서 바로 묶는다.
+            // 물이 아니어서 되돌아가는 경우엔 FinishFishing 이 풀어준다
+            if (movement != null) movement.HoldLocked = true;
+ 
             animator.Play(_hashFishing, BaseLayer, 0f);
  
             return true;
@@ -263,4 +284,3 @@ namespace PJH.Scripts
         #endregion
     }
 }
- 

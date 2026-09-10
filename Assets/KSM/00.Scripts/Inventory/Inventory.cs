@@ -69,10 +69,13 @@ namespace KSM._00.Scripts.Items
             return remaining;
         }
  
-        /// <summary>실제로 넣지 않고, 전부 들어갈 수 있는지만 확인</summary>
-        public bool CanAddAll(ItemSO item, int amount, ItemQuality quality = ItemQuality.Normal)
+        /// <summary>
+        /// 이 아이템을 앞으로 몇 개나 더 받을 수 있는가.
+        /// 가방과 핫바처럼 저장소가 여러 개일 때 합산해서 판단하려고 개수로 돌려준다.
+        /// </summary>
+        public int SpaceFor(ItemSO item, ItemQuality quality = ItemQuality.Normal)
         {
-            if (item == null || amount <= 0) return true;
+            if (item == null) return 0;
  
             int space = 0;
             foreach (ItemStack slot in _slots)
@@ -80,9 +83,21 @@ namespace KSM._00.Scripts.Items
                 space += (slot == null) ? item.maxStack
                        : slot.Matches(item, quality) ? slot.SpaceLeft
                        : 0;
- 
-                if (space >= amount) return true;
             }
+ 
+            return space;
+        }
+ 
+        /// <summary>실제로 넣지 않고, 전부 들어갈 수 있는지만 확인</summary>
+        public bool CanAddAll(ItemSO item, int amount, ItemQuality quality = ItemQuality.Normal)
+            => item == null || amount <= 0 || SpaceFor(item, quality) >= amount;
+ 
+        /// <summary>빈 칸이 하나라도 있는가</summary>
+        public bool HasEmptySlot()
+        {
+            foreach (ItemStack slot in _slots)
+                if (slot == null) return true;
+ 
             return false;
         }
  
@@ -222,6 +237,50 @@ namespace KSM._00.Scripts.Items
             }
  
             OnChanged?.Invoke();
+        }
+ 
+        /// <summary>
+        /// <b>서로 다른 보관함</b> 사이에서 칸을 옮기거나 교환한다.
+        /// 가방 ↔ 핫바 드래그가 이걸 쓴다. 같은 보관함이면 SwapOrMerge 로 넘긴다.
+        ///
+        /// static 인 이유: 두 인스턴스의 내부 배열을 동시에 만져야 해서,
+        /// 어느 한쪽의 인스턴스 메서드로 두면 다른 쪽 private 에 손이 안 닿는다.
+        /// </summary>
+        public static void MoveOrSwap(Inventory fromInv, int a, Inventory toInv, int b)
+        {
+            if (fromInv == null || toInv == null) return;
+ 
+            // 같은 보관함이면 기존 로직 그대로
+            if (ReferenceEquals(fromInv, toInv)) { fromInv.SwapOrMerge(a, b); return; }
+ 
+            if (a < 0 || a >= fromInv._slots.Length) return;
+            if (b < 0 || b >= toInv._slots.Length) return;
+ 
+            ItemStack from = fromInv._slots[a];
+            if (from == null) return;                 // 빈 칸을 끌어봐야 할 일이 없다
+ 
+            ItemStack to = toInv._slots[b];
+ 
+            bool canMerge = to != null
+                         && to.Matches(from.item, from.quality)
+                         && !to.IsFull;
+ 
+            if (canMerge)
+            {
+                int move = Mathf.Min(to.SpaceLeft, from.count);
+                to.count += move;
+                from.count -= move;
+ 
+                if (from.count <= 0) fromInv._slots[a] = null;
+            }
+            else
+            {
+                fromInv._slots[a] = to;
+                toInv._slots[b] = from;
+            }
+ 
+            fromInv.OnChanged?.Invoke();
+            toInv.OnChanged?.Invoke();
         }
  
         /// <summary>세이브용 스냅샷. 원본과 분리된 복사본을 준다</summary>

@@ -5,8 +5,9 @@ using UnityEngine.InputSystem;
 namespace KSM._00.Scripts.Items
 {
     /// <summary>
-    /// 화면 하단 핫바. 인벤토리의 앞 N칸을 그대로 비춘다.
-    /// 별도 저장소가 아니라 같은 Inventory 를 보므로, 인벤토리 창에서 옮기면 핫바도 바뀐다.
+    /// 화면 하단 핫바. <b>가방과는 별개의 저장소</b>다.
+    /// 여기 올려둔 도구는 가방 칸을 차지하지 않는다.
+    /// 칸 수는 PlayerInventory 의 Hotbar Capacity 가 정한다.
     ///
     ///   숫자키 1~9 : 그 칸을 손에 든다 (같은 칸 다시 = 놓기)
     ///   마우스 휠   : 좌우로 이동
@@ -27,9 +28,6 @@ namespace KSM._00.Scripts.Items
         [SerializeField] private InventorySlotUI slotPrefab;
  
         [Header("설정")]
-        [Tooltip("핫바 칸 수. 인벤토리 0번부터 이만큼을 비춘다")]
-        [SerializeField, Range(1, 9)] private int slotCount = 8;
- 
         [Tooltip("마우스 휠로 칸을 옮길 수 있게 한다")]
         [SerializeField] private bool wheelSelect = true;
  
@@ -43,6 +41,9 @@ namespace KSM._00.Scripts.Items
         private readonly List<InventorySlotUI> _views = new();
         private PlayerInventory _player;
         private Inventory _inventory;
+ 
+        /// <summary>칸 수는 PlayerInventory 의 Hotbar 용량을 그대로 따른다</summary>
+        private int slotCount;
  
         private void Start()
         {
@@ -61,8 +62,8 @@ namespace KSM._00.Scripts.Items
                 return;
             }
  
-            _inventory = _player.Inventory;
-            slotCount = Mathf.Min(slotCount, _inventory.Capacity);
+            _inventory = _player.Hotbar;        // ★ 가방이 아니라 핫바 저장소
+            slotCount = _inventory.Capacity;
  
             BuildSlots();
  
@@ -97,7 +98,7 @@ namespace KSM._00.Scripts.Items
             {
                 InventorySlotUI view = Instantiate(slotPrefab, slotParent);
                 view.name = $"Hotbar_{i}";
-                view.Setup(i);                       // 인벤토리 칸 번호와 그대로 일치시킨다
+                view.Setup(SlotArea.Hotbar, i);
                 view.OnClicked += HandleSlotClicked;
  
                 _views.Add(view);
@@ -114,10 +115,8 @@ namespace KSM._00.Scripts.Items
  
         private void RefreshHighlight()
         {
-            int held = _player.HeldSlotIndex;
- 
             for (int i = 0; i < _views.Count; i++)
-                _views[i].SetSelected(i == held);
+                _views[i].SetSelected(_player.IsHeld(SlotArea.Hotbar, i));
         }
  
         // ════════════════════════════════════════════════════════════
@@ -146,8 +145,8 @@ namespace KSM._00.Scripts.Items
  
             int current = _player.HeldSlotIndex;
  
-            // 핫바 밖(인벤토리 뒷칸)을 들고 있었으면 0번부터 시작
-            if (current < 0 || current >= slotCount) current = 0;
+            // 가방 쪽을 들고 있었으면 핫바 0번부터 시작
+            if (_player.HeldArea != SlotArea.Hotbar || current < 0 || current >= slotCount) current = 0;
             else current += scroll > 0 ? -1 : 1;
  
             // 양끝에서 반대편으로 돌아간다
@@ -160,19 +159,20 @@ namespace KSM._00.Scripts.Items
         /// <summary>같은 칸을 다시 고르면 손을 비운다 (toggleOff 가 true 일 때)</summary>
         private void Select(int index, bool toggleOff = true)
         {
-            if (toggleOff && _player.HeldSlotIndex == index)
+            if (toggleOff && _player.IsHeld(SlotArea.Hotbar, index))
             {
                 _player.ClearHeld();
                 return;
             }
  
-            _player.HoldSlot(index);
+            _player.HoldSlot(SlotArea.Hotbar, index);
         }
  
-        private void HandleSlotClicked(int index, bool isLeftClick)
+        private void HandleSlotClicked(InventorySlotUI slot, bool isLeftClick)
         {
-            if (isLeftClick) Select(index);
+            if (isLeftClick) Select(slot.Index);
             else _player.ClearHeld();
         }
     }
 }
+ 

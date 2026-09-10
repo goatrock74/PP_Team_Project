@@ -68,7 +68,7 @@ namespace KSM._00.Scripts.Items
  
             SetupToggleMode();
  
-            _inventory = _player.Inventory;
+            _inventory = _player.Bag;                 // ★ 인벤토리 창은 가방만 본다
  
             BuildSlots();
             if (!enabled) return;          // BuildSlots 가 실패했으면 중단
@@ -147,7 +147,7 @@ namespace KSM._00.Scripts.Items
             {
                 InventorySlotUI view = Instantiate(slotPrefab, slotParent);
                 view.name = $"Slot_{i:00}";
-                view.Setup(i);
+                view.Setup(SlotArea.Bag, i);
                 view.OnClicked += HandleSlotClicked;
  
                 _slotViews.Add(view);
@@ -165,10 +165,8 @@ namespace KSM._00.Scripts.Items
         /// <summary>손에 든 칸에만 테두리를 켠다</summary>
         private void RefreshHighlight()
         {
-            int held = _player.HeldSlotIndex;
- 
             for (int i = 0; i < _slotViews.Count; i++)
-                _slotViews[i].SetSelected(i == held);
+                _slotViews[i].SetSelected(_player.IsHeld(SlotArea.Bag, i));
  
             UpdateInfoText();
         }
@@ -179,29 +177,30 @@ namespace KSM._00.Scripts.Items
         /// 좌클릭 : 손에 들기 / 같은 칸이면 놓기
         /// 우클릭 : 손에 든 칸과 교환·병합
         /// </summary>
-        private void HandleSlotClicked(int index, bool isLeftClick)
+        private void HandleSlotClicked(InventorySlotUI slot, bool isLeftClick)
         {
+            int index = slot.Index;
+ 
             if (isLeftClick)
             {
-                if (_player.HeldSlotIndex == index)
+                if (_player.IsHeld(SlotArea.Bag, index))
                 {
                     _player.ClearHeld();
                     return;
                 }
  
-                _player.HoldSlot(index);
+                _player.HoldSlot(SlotArea.Bag, index);
  
                 // 씨앗을 들었으면 바로 심으러 갈 수 있게 창을 닫아준다
                 if (closeOnHold && _player.HeldItem is SeedSO) SetOpen(false);
                 return;
             }
  
-            // 우클릭 — 손에 든 칸이 있어야 옮길 수 있다
-            int held = _player.HeldSlotIndex;
-            if (held < 0 || held == index) return;
+            // 우클릭 — 손에 든 칸이 있어야 옮길 수 있다 (드래그와 결과는 같다)
+            if (!_player.HasHeldItem) return;
+            if (_player.IsHeld(SlotArea.Bag, index)) return;
  
-            _inventory.SwapOrMerge(held, index);
-            _player.HoldSlot(index);   // 옮긴 칸을 계속 들고 있는다
+            _player.MoveOrSwap(_player.HeldArea, _player.HeldSlotIndex, SlotArea.Bag, index);
         }
  
         private void UpdateInfoText()
@@ -209,7 +208,7 @@ namespace KSM._00.Scripts.Items
             if (infoText == null) return;
  
             int held = _player.HeldSlotIndex;
-            ItemStack stack = held >= 0 ? _inventory.GetSlot(held) : null;
+            ItemStack stack = held >= 0 ? _player.GetSlot(_player.HeldArea, held) : null;
  
             if (stack == null || stack.IsEmpty)
             {
@@ -247,14 +246,23 @@ namespace KSM._00.Scripts.Items
                 sb.Append("</size>");
             }
  
-            // 5) 씨앗 안내
-            if (stack.item is SeedSO seed && seed.IsPlantable)
+            // 5) 사용 안내 — 핫바에 올려야 쓸 수 있다
+            bool usable = _player.CanUseHeld;
+            bool isUsableKind = stack.item is ToolSO
+                             || stack.item is ItemPackSO
+                             || (stack.item is SeedSO s2 && s2.IsPlantable);
+ 
+            if (isUsableKind && !usable)
+                sb.Append("\n\n<size=85%><color=#FFC966>핫바로 끌어다 놓아야 쓸 수 있습니다</color></size>");
+ 
+            if (stack.item is SeedSO seed && seed.IsPlantable && usable)
                 sb.Append($"\n\n<size=85%><color=#8FE08F>{toggleKey} 로 창을 닫고 밭을 좌클릭</color></size>");
  
             // 6) 뽑기 팩이면 확률표
             if (stack.item is ItemPackSO pack)
             {
-                sb.Append($"\n\n<size=85%><color=#8FE08F>{toggleKey} 로 창을 닫고 화면을 좌클릭</color></size>");
+                if (usable)
+                    sb.Append($"\n\n<size=85%><color=#8FE08F>{toggleKey} 로 창을 닫고 화면을 좌클릭</color></size>");
  
                 if (pack.rollCount > 1)
                     sb.Append($"\n<size=85%>한 번에 {pack.rollCount}회 뽑기</size>");
@@ -270,3 +278,4 @@ namespace KSM._00.Scripts.Items
         }
     }
 }
+ 
