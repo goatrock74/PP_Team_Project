@@ -15,16 +15,16 @@ public class MoneyManger : MonoBehaviour
 
     public void BuyItem(ShopBT shopBT)
     {
-        int price = shopBT.Price;
+        //int price = shopBT.Price;
 
-        if (totalMoney - price < 0)
+        //if (totalMoney - price < 0)
         {
             Debug.Log("돈없음");
             return;
         }
 
 
-        totalMoney -= price;
+        //totalMoney -= price;
         moneytext.text = $"{totalMoney}$";
     }
 
