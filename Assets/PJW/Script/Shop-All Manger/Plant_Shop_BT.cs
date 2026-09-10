@@ -37,9 +37,9 @@ public class Plant_Shop_BT : MonoBehaviour
                 SetImageAlpha(currentlySelectedImage, 0f);
             }
 
+            currentlySelectedImage = clickimage; // 현재 켜진 버튼으로 갱신
             // 현재 버튼 켜기
             SetImageAlpha(clickimage, 1f);
-            currentlySelectedImage = clickimage; // 현재 켜진 버튼으로 갱신
         }
     }
 
@@ -50,8 +50,14 @@ public class Plant_Shop_BT : MonoBehaviour
             image.color = color;
     }
 
+
     public void SettingSelectBT()
     {
-        //if(currentlySelectedImage)
+        // 선택된 이미지가 없으면 실행하지 않음
+        if (currentlySelectedImage == null) return;
+
+        // 현재 선택되어 있는 이미지를 끄고 정적 변수 초기화
+        SetImageAlpha(currentlySelectedImage, 0f);
+        currentlySelectedImage = null;
     }
 }
