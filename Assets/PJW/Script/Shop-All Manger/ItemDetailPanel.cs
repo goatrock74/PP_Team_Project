@@ -12,7 +12,6 @@ public class ItemDetailPanel : MonoBehaviour
 
     [Header("구매 버튼")]
     [SerializeField] private Button buyButton;
-    [SerializeField] private TextMeshProUGUI buyButtonText; // [선택] 보유 수량을 같이 보여줄 텍스트
 
     private Item currentItem;
     private System.Action onPurchaseCallback;
@@ -49,12 +48,6 @@ public class ItemDetailPanel : MonoBehaviour
 
         // 다회 구매 가능하므로 구매 버튼은 항상 클릭 가능 상태 유지
         buyButton.interactable = true;
-
-        // [선택] 구매 버튼 텍스트에 보유 수량 표시 (예: "구매하기 (보유: 3개)")
-        if (buyButtonText != null)
-        {
-            buyButtonText.text = $"구매하기 (보유: {currentItem.Item_count}개)";
-        }
     }
 
     // [구매하기] 버튼 클릭 시 동작 (여러 번 클릭 가능)

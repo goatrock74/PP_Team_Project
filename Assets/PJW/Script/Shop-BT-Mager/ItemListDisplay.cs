@@ -20,16 +20,16 @@ public class ItemListDisplay : MonoBehaviour
     private void Start()
     {
         if (buyButton != null) buyButton.onClick.AddListener(OnClickBuy);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
     public void ShowDetail(Item item, System.Action refreshCallback = null)
     {
-        if (item == null)
-        {
-            HideDetail();
-            return;
-        }
+        //if (item == null)
+        //{
+        //    HideDetail();
+        //    return;
+        //}
 
         currentItem = item;
         onPurchaseCallback = refreshCallback;
