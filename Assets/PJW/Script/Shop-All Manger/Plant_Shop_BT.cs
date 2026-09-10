@@ -4,60 +4,125 @@ using UnityEngine.UI;
 
 public class Plant_Shop_BT : MonoBehaviour
 {
-    private static Image currentlySelectedImage = null;
+    private static Plant_Shop_BT currentlySelectedBT = null;
 
-    private Image clickimage;
+    [Header("선택 연출 테두리 Image (자식 이미지)")]
+    [SerializeField] private Image clickimage;
+
+    [Header("아이콘 표시용 Image (단일 이미지)")]
+    [SerializeField] private Image itemIconImage;
+
+    private Item currentItem;
+    private ItemDetailPanel detailPanel;
 
     private void Awake()
     {
-        // 0번: 본인(Button) Image, 1번: 자식 Image
-        clickimage = GetComponentsInChildren<Image>()[1];
+        if (clickimage == null)
+        {
+            Image[] images = GetComponentsInChildren<Image>();
+            if (images.Length > 1)
+            {
+                clickimage = images[1];
+            }
+        }
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        // 알파값은 0.0f ~ 1.0f 사이의 값이어야 합니다.
-        clickimage.color = new Color(1f, 1f, 1f, 0f);
-    }
-
-    public void ClcikItemIcon()
-    {
-        // 1. 이미 켜져 있는 자기 자신을 다시 클릭한 경우 -> 끄기
-        if (currentlySelectedImage == clickimage)
+        // 켜질 때 선택 테두리 초기화
+        if (clickimage != null)
         {
             SetImageAlpha(clickimage, 0f);
-            currentlySelectedImage = null; // 선택 해제
         }
-        // 2. 다른 버튼을 클릭했거나 아무것도 안 켜져 있던 경우 -> 기존 것 끄고 새 것 켜기
+    }
+
+    public void SetItem(Item item, ItemDetailPanel panel)
+    {
+        currentItem = item;
+        detailPanel = panel;
+
+        // 아이템 데이터가 없으면 비활성화
+        if (currentItem == null)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
+        // 아이템 데이터가 있으면 확실하게 활성화 후 UI 업데이트
+        gameObject.SetActive(true);
+        UpdateItemUI();
+    }
+
+    public void UpdateItemUI()
+    {
+        if (currentItem != null && itemIconImage != null)
+        {
+            itemIconImage.sprite = currentItem.Item_icon;
+        }
+    }
+
+    // [버튼 클릭 이벤트]
+    public void ClcikItemIcon()
+    {
+        if (currentItem == null) return;
+
+        // 1. 토글(해제)
+        if (currentlySelectedBT == this)
+        {
+            DeselectSelf();
+            currentlySelectedBT = null;
+
+            if (detailPanel != null)
+            {
+                detailPanel.HideDetail();
+            }
+        }
+        // 2. 새로운 버튼 선택
         else
         {
-            // 이전에 켜져 있던 다른 버튼이 있다면 끄기
-            if (currentlySelectedImage != null)
+            if (currentlySelectedBT != null)
             {
-                SetImageAlpha(currentlySelectedImage, 0f);
+                currentlySelectedBT.DeselectSelf();
             }
 
-            currentlySelectedImage = clickimage; // 현재 켜진 버튼으로 갱신
-            // 현재 버튼 켜기
-            SetImageAlpha(clickimage, 1f);
+            currentlySelectedBT = this;
+            SelectSelf();
+
+            if (detailPanel != null)
+            {
+                detailPanel.ShowDetail(currentItem, UpdateItemUI);
+            }
         }
     }
 
-    private void SetImageAlpha(Image image, float alpha)
+    private void SelectSelf()
     {
-            Color color = image.color;
-            color.a = alpha;
-            image.color = color;
+        if (clickimage != null) SetImageAlpha(clickimage, 1f);
     }
 
+    private void DeselectSelf()
+    {
+        if (clickimage != null) SetImageAlpha(clickimage, 0f);
+    }
+
+    private void SetImageAlpha(Image img, float alpha)
+    {
+        if (img == null) return;
+        Color c = img.color;
+        c.a = alpha;
+        img.color = c;
+    }
 
     public void SettingSelectBT()
     {
-        // 선택된 이미지가 없으면 실행하지 않음
-        if (currentlySelectedImage == null) return;
+        if (currentlySelectedBT == null) return;
 
-        // 현재 선택되어 있는 이미지를 끄고 정적 변수 초기화
-        SetImageAlpha(currentlySelectedImage, 0f);
-        currentlySelectedImage = null;
+        currentlySelectedBT.DeselectSelf();
+        currentlySelectedBT = null;
+
+        if (detailPanel != null)
+        {
+            detailPanel.HideDetail();
+        }
     }
 }

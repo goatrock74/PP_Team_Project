@@ -324,7 +324,7 @@ TextureImporter:
         height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 148, y: 68, z: 148, w: 69}
       customData: 
       outline: []
       physicsShape: []
@@ -340,13 +340,13 @@ TextureImporter:
       name: 1_wide_wooden_buttons_32x16_1000__7
       rect:
         serializedVersion: 2
-        x: 639
+        x: 640
         y: 2079
         width: 322
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 152, y: 67, z: 150, w: 65}
       customData: 
       outline: []
       physicsShape: []
@@ -368,7 +368,7 @@ TextureImporter:
         height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 148, y: 69, z: 147, w: 69}
       customData: 
       outline: []
       physicsShape: []
@@ -390,7 +390,7 @@ TextureImporter:
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 148, y: 62, z: 149, w: 64}
       customData: 
       outline: []
       physicsShape: []
@@ -412,7 +412,7 @@ TextureImporter:
         height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 150, y: 68, z: 150, w: 70}
       customData: 
       outline: []
       physicsShape: []
@@ -434,7 +434,7 @@ TextureImporter:
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 153, y: 66, z: 152, w: 67}
       customData: 
       outline: []
       physicsShape: []
@@ -456,7 +456,7 @@ TextureImporter:
         height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 149, y: 68, z: 148, w: 68}
       customData: 
       outline: []
       physicsShape: []
@@ -478,7 +478,7 @@ TextureImporter:
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 151, y: 64, z: 150, w: 67}
       customData: 
       outline: []
       physicsShape: []
@@ -500,7 +500,7 @@ TextureImporter:
         height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 142, y: 62, z: 146, w: 66}
       customData: 
       outline: []
       physicsShape: []
@@ -522,7 +522,7 @@ TextureImporter:
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 150, y: 61, z: 149, w: 62}
       customData: 
       outline: []
       physicsShape: []
@@ -544,7 +544,7 @@ TextureImporter:
         height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 143, y: 66, z: 142, w: 60}
       customData: 
       outline: []
       physicsShape: []
@@ -560,13 +560,13 @@ TextureImporter:
       name: 1_wide_wooden_buttons_32x16_1000__17
       rect:
         serializedVersion: 2
-        x: 639
+        x: 641
         y: 479
         width: 322
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 148, y: 62, z: 147, w: 61}
       customData: 
       outline: []
       physicsShape: []
@@ -588,7 +588,7 @@ TextureImporter:
         height: 162
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 146, y: 64, z: 148, w: 67}
       customData: 
       outline: []
       physicsShape: []
@@ -610,7 +610,7 @@ TextureImporter:
         height: 152
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 144, y: 61, z: 144, w: 61}
       customData: 
       outline: []
       physicsShape: []

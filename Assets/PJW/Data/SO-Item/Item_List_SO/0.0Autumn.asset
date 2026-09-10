@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: 0.0Autumn
   m_EditorClassIdentifier: Assembly-CSharp::Assets.PJW.Script.SO_Script.ItemListSO
   targetType: 0
-  <ItemList>k__BackingField: []
+  <ItemList>k__BackingField:
+  - {fileID: 11400000, guid: af70808e16e90014dbaf0ece1a5d5441, type: 2}
+  - {fileID: 11400000, guid: c5f60014626f7134f80e69278a25b7d3, type: 2}
+  - {fileID: 11400000, guid: 10a612e37a4993c47ab3076e129b8823, type: 2}
+  - {fileID: 11400000, guid: c61b820cbf895894fae7c0b91db55c79, type: 2}
+  - {fileID: 11400000, guid: dff88ed0ebe80e24f85da1cce5f3ecf9, type: 2}
+  - {fileID: 11400000, guid: e13ec3dc8bdeeb04ca2a3143ad3f5449, type: 2}
