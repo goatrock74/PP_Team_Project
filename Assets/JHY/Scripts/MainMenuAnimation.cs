@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MainMenuAnimation : MonoBehaviour
 {
+    [SerializeField] private TextFade textFade;
     [Header("Title")]
     [SerializeField] private RectTransform title;
     [SerializeField] private float titleLandingY = 150f;
@@ -45,6 +46,8 @@ public class MainMenuAnimation : MonoBehaviour
 
         Sequence sequence = DOTween.Sequence();
 
+        textFade.Textfade();
+
         sequence.Append(
             title.DOAnchorPos(
                 landingPosition,
@@ -52,27 +55,6 @@ public class MainMenuAnimation : MonoBehaviour
             )
             .SetEase(Ease.InQuad)
         );
-
-        sequence.AppendCallback(() =>
-        {
-            cameraTransform.DOShakePosition(
-                shakeDuration,
-                shakeStrength,
-                20,
-                90f,
-                false,
-                true
-            );
-
-            mainMenuTransform.DOShakeAnchorPos(
-                shakeDuration,
-                10f,
-                20,
-                90f,
-                false,
-                true
-            );
-        });
 
         sequence.AppendInterval(0.1f);
 
