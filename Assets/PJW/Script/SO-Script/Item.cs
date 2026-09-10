@@ -13,9 +13,9 @@ public class Item : ScriptableObject
 
     [field:SerializeField] public string Item_name { get;private set; }
 
-    [TextArea] [SerializeField] private string item_explanation;
+    [TextArea][field:SerializeField] public string item_explanation { get; private set; }
 
-    [field:SerializeField] public bool Itme_bought;
+    public int Item_count = 0;
 }
 
 public enum SeasonType
