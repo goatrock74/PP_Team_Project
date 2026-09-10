@@ -3394,7 +3394,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u3151\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u315D\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153\u3151\u3153"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5b02f372c89573048800fd136320ef9d, type: 2}
   m_sharedMaterial: {fileID: 3420430835014475951, guid: 5b02f372c89573048800fd136320ef9d, type: 2}
