@@ -16,17 +16,14 @@ public class SoundManager : MonoBehaviour
 
     private void Start()
     {
-        // 1. UI 슬라이더 범위 설정 (0.0001 ~ 1) - Log10 사용 시 0 전달 방지
         InitSlider(masterSlider, soundSettings.masterVolume);
         InitSlider(bgmSlider, soundSettings.bgmVolume);
         InitSlider(sfxSlider, soundSettings.sfxVolume);
 
-        // 2. 슬라이더 이벤트 등록
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
         bgmSlider.onValueChanged.AddListener(SetBGMVolume);
         sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
-        // 3. 초기 볼륨 적용
         SetMasterVolume(soundSettings.masterVolume);
         SetBGMVolume(soundSettings.bgmVolume);
         SetSFXVolume(soundSettings.sfxVolume);
