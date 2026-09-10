@@ -1663,6 +1663,7 @@ GameObject:
   - component: {fileID: 98831620}
   - component: {fileID: 98831619}
   - component: {fileID: 98831618}
+  - component: {fileID: 98831621}
   m_Layer: 5
   m_Name: Fish Slot 18
   m_TagString: Untagged
@@ -1772,6 +1773,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 98831616}
   m_CullTransparentMesh: 1
+--- !u!114 &98831621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98831616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 98831618}
+  fishIcon: {fileID: 79145979}
 --- !u!1 &145300118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1784,6 +1799,7 @@ GameObject:
   - component: {fileID: 145300122}
   - component: {fileID: 145300121}
   - component: {fileID: 145300120}
+  - component: {fileID: 145300123}
   m_Layer: 5
   m_Name: Fish Slot 33
   m_TagString: Untagged
@@ -1893,6 +1909,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145300118}
   m_CullTransparentMesh: 1
+--- !u!114 &145300123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 145300118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 145300120}
+  fishIcon: {fileID: 1048467410}
 --- !u!1 &187159867
 GameObject:
   m_ObjectHideFlags: 0
@@ -2016,6 +2046,7 @@ GameObject:
   - component: {fileID: 272130656}
   - component: {fileID: 272130655}
   - component: {fileID: 272130654}
+  - component: {fileID: 272130657}
   m_Layer: 5
   m_Name: Fish Slot 11
   m_TagString: Untagged
@@ -2125,6 +2156,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272130652}
   m_CullTransparentMesh: 1
+--- !u!114 &272130657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272130652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 272130654}
+  fishIcon: {fileID: 1577776903}
 --- !u!1 &272686055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2137,6 +2182,7 @@ GameObject:
   - component: {fileID: 272686059}
   - component: {fileID: 272686058}
   - component: {fileID: 272686057}
+  - component: {fileID: 272686060}
   m_Layer: 5
   m_Name: Fish Slot 25
   m_TagString: Untagged
@@ -2246,6 +2292,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272686055}
   m_CullTransparentMesh: 1
+--- !u!114 &272686060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272686055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 272686057}
+  fishIcon: {fileID: 713495423}
 --- !u!1 &324735639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2371,6 +2431,7 @@ GameObject:
   - component: {fileID: 347253791}
   - component: {fileID: 347253790}
   - component: {fileID: 347253789}
+  - component: {fileID: 347253792}
   m_Layer: 5
   m_Name: Fish Slot 20
   m_TagString: Untagged
@@ -2480,6 +2541,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 347253787}
   m_CullTransparentMesh: 1
+--- !u!114 &347253792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347253787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 347253789}
+  fishIcon: {fileID: 421208992}
 --- !u!1 &360123152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2538,6 +2613,7 @@ GameObject:
   - component: {fileID: 410255788}
   - component: {fileID: 410255787}
   - component: {fileID: 410255786}
+  - component: {fileID: 410255789}
   m_Layer: 5
   m_Name: Fish Slot 29
   m_TagString: Untagged
@@ -2647,6 +2723,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410255784}
   m_CullTransparentMesh: 1
+--- !u!114 &410255789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410255784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 410255786}
+  fishIcon: {fileID: 1174029989}
 --- !u!1 &421208990
 GameObject:
   m_ObjectHideFlags: 0
@@ -2828,6 +2918,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 16121131}
+  - {fileID: 2112462158}
   m_Father: {fileID: 2018547878}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2885,6 +2976,7 @@ GameObject:
   - component: {fileID: 564321171}
   - component: {fileID: 564321170}
   - component: {fileID: 564321169}
+  - component: {fileID: 564321172}
   m_Layer: 5
   m_Name: Fish Slot 26
   m_TagString: Untagged
@@ -2994,6 +3086,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 564321167}
   m_CullTransparentMesh: 1
+--- !u!114 &564321172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564321167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 564321169}
+  fishIcon: {fileID: 2034342995}
 --- !u!1 &574259566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3006,6 +3112,7 @@ GameObject:
   - component: {fileID: 574259570}
   - component: {fileID: 574259569}
   - component: {fileID: 574259568}
+  - component: {fileID: 574259571}
   m_Layer: 5
   m_Name: Fish Slot 3
   m_TagString: Untagged
@@ -3115,6 +3222,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574259566}
   m_CullTransparentMesh: 1
+--- !u!114 &574259571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 574259566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 574259568}
+  fishIcon: {fileID: 1175387540}
 --- !u!1 &588059374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,6 +3248,7 @@ GameObject:
   - component: {fileID: 588059378}
   - component: {fileID: 588059377}
   - component: {fileID: 588059376}
+  - component: {fileID: 588059379}
   m_Layer: 5
   m_Name: Fish Slot 9
   m_TagString: Untagged
@@ -3236,6 +3358,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588059374}
   m_CullTransparentMesh: 1
+--- !u!114 &588059379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 588059374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 588059376}
+  fishIcon: {fileID: 1886692416}
 --- !u!1 &662485759
 GameObject:
   m_ObjectHideFlags: 0
@@ -3248,6 +3384,7 @@ GameObject:
   - component: {fileID: 662485763}
   - component: {fileID: 662485762}
   - component: {fileID: 662485761}
+  - component: {fileID: 662485764}
   m_Layer: 5
   m_Name: Fish Slot 6
   m_TagString: Untagged
@@ -3357,6 +3494,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662485759}
   m_CullTransparentMesh: 1
+--- !u!114 &662485764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 662485759}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 662485761}
+  fishIcon: {fileID: 1588691436}
 --- !u!1 &682554083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3369,6 +3520,7 @@ GameObject:
   - component: {fileID: 682554087}
   - component: {fileID: 682554086}
   - component: {fileID: 682554085}
+  - component: {fileID: 682554088}
   m_Layer: 5
   m_Name: Fish Slot 14
   m_TagString: Untagged
@@ -3478,6 +3630,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682554083}
   m_CullTransparentMesh: 1
+--- !u!114 &682554088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682554083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 682554085}
+  fishIcon: {fileID: 1313057752}
 --- !u!1 &682694955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3869,6 +4035,7 @@ GameObject:
   - component: {fileID: 790778253}
   - component: {fileID: 790778252}
   - component: {fileID: 790778251}
+  - component: {fileID: 790778254}
   m_Layer: 5
   m_Name: Fish Slot 2
   m_TagString: Untagged
@@ -3978,6 +4145,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 790778249}
   m_CullTransparentMesh: 1
+--- !u!114 &790778254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790778249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 790778251}
+  fishIcon: {fileID: 2001280212}
 --- !u!1 &795101214
 GameObject:
   m_ObjectHideFlags: 0
@@ -3990,6 +4171,7 @@ GameObject:
   - component: {fileID: 795101218}
   - component: {fileID: 795101217}
   - component: {fileID: 795101216}
+  - component: {fileID: 795101219}
   m_Layer: 5
   m_Name: Fish Slot 22
   m_TagString: Untagged
@@ -4099,6 +4281,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 795101214}
   m_CullTransparentMesh: 1
+--- !u!114 &795101219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795101214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 795101216}
+  fishIcon: {fileID: 7168442}
 --- !u!1 &829641493
 GameObject:
   m_ObjectHideFlags: 0
@@ -4261,6 +4457,7 @@ GameObject:
   - component: {fileID: 862954094}
   - component: {fileID: 862954093}
   - component: {fileID: 862954092}
+  - component: {fileID: 862954095}
   m_Layer: 5
   m_Name: Fish Slot 13
   m_TagString: Untagged
@@ -4370,6 +4567,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862954090}
   m_CullTransparentMesh: 1
+--- !u!114 &862954095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 862954090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 862954092}
+  fishIcon: {fileID: 1122265357}
 --- !u!1 &864537089
 GameObject:
   m_ObjectHideFlags: 0
@@ -4382,6 +4593,7 @@ GameObject:
   - component: {fileID: 864537093}
   - component: {fileID: 864537092}
   - component: {fileID: 864537091}
+  - component: {fileID: 864537094}
   m_Layer: 5
   m_Name: Fish Slot 34
   m_TagString: Untagged
@@ -4491,6 +4703,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864537089}
   m_CullTransparentMesh: 1
+--- !u!114 &864537094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864537089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 864537091}
+  fishIcon: {fileID: 1414973467}
 --- !u!1 &922032686
 GameObject:
   m_ObjectHideFlags: 0
@@ -4503,6 +4729,7 @@ GameObject:
   - component: {fileID: 922032690}
   - component: {fileID: 922032689}
   - component: {fileID: 922032688}
+  - component: {fileID: 922032691}
   m_Layer: 5
   m_Name: Fish Slot 30
   m_TagString: Untagged
@@ -4612,6 +4839,157 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922032686}
   m_CullTransparentMesh: 1
+--- !u!114 &922032691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922032686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 922032688}
+  fishIcon: {fileID: 1761983883}
+--- !u!1 &1009067858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1009067859}
+  - component: {fileID: 1009067861}
+  - component: {fileID: 1009067860}
+  m_Layer: 5
+  m_Name: Fish Price Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1009067859
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009067858}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2112462158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -370}
+  m_SizeDelta: {x: 420, y: 60}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1009067860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009067858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: 
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 30
+  m_fontSizeBase: 30
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1009067861
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1009067858}
+  m_CullTransparentMesh: 1
 --- !u!1 &1048467408
 GameObject:
   m_ObjectHideFlags: 0
@@ -4699,6 +5077,7 @@ GameObject:
   - component: {fileID: 1061645787}
   - component: {fileID: 1061645786}
   - component: {fileID: 1061645785}
+  - component: {fileID: 1061645788}
   m_Layer: 5
   m_Name: Fish Slot 12
   m_TagString: Untagged
@@ -4808,6 +5187,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061645783}
   m_CullTransparentMesh: 1
+--- !u!114 &1061645788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061645783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1061645785}
+  fishIcon: {fileID: 1621205708}
 --- !u!1 &1087455993
 GameObject:
   m_ObjectHideFlags: 0
@@ -4895,6 +5288,7 @@ GameObject:
   - component: {fileID: 1094060440}
   - component: {fileID: 1094060439}
   - component: {fileID: 1094060438}
+  - component: {fileID: 1094060441}
   m_Layer: 5
   m_Name: Fish Slot 15
   m_TagString: Untagged
@@ -5004,6 +5398,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094060436}
   m_CullTransparentMesh: 1
+--- !u!114 &1094060441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1094060436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1094060438}
+  fishIcon: {fileID: 2073179733}
 --- !u!1 &1122192149
 GameObject:
   m_ObjectHideFlags: 0
@@ -5016,6 +5424,7 @@ GameObject:
   - component: {fileID: 1122192153}
   - component: {fileID: 1122192152}
   - component: {fileID: 1122192151}
+  - component: {fileID: 1122192154}
   m_Layer: 5
   m_Name: Fish Slot 28
   m_TagString: Untagged
@@ -5125,6 +5534,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1122192149}
   m_CullTransparentMesh: 1
+--- !u!114 &1122192154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1122192149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1122192151}
+  fishIcon: {fileID: 1549344476}
 --- !u!1 &1122265355
 GameObject:
   m_ObjectHideFlags: 0
@@ -5212,6 +5635,7 @@ GameObject:
   - component: {fileID: 1156609838}
   - component: {fileID: 1156609837}
   - component: {fileID: 1156609836}
+  - component: {fileID: 1156609839}
   m_Layer: 5
   m_Name: Fish Slot 19
   m_TagString: Untagged
@@ -5321,6 +5745,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156609834}
   m_CullTransparentMesh: 1
+--- !u!114 &1156609839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1156609834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1156609836}
+  fishIcon: {fileID: 829641495}
 --- !u!1 &1174029987
 GameObject:
   m_ObjectHideFlags: 0
@@ -5483,6 +5921,7 @@ GameObject:
   - component: {fileID: 1221995611}
   - component: {fileID: 1221995610}
   - component: {fileID: 1221995609}
+  - component: {fileID: 1221995612}
   m_Layer: 5
   m_Name: Fish Slot 8
   m_TagString: Untagged
@@ -5592,6 +6031,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1221995607}
   m_CullTransparentMesh: 1
+--- !u!114 &1221995612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221995607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1221995609}
+  fishIcon: {fileID: 1336468163}
 --- !u!1 &1313057750
 GameObject:
   m_ObjectHideFlags: 0
@@ -7063,6 +7516,7 @@ GameObject:
   - component: {fileID: 1390391080}
   - component: {fileID: 1390391079}
   - component: {fileID: 1390391078}
+  - component: {fileID: 1390391081}
   m_Layer: 5
   m_Name: Fish Slot 24
   m_TagString: Untagged
@@ -7172,6 +7626,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1390391076}
   m_CullTransparentMesh: 1
+--- !u!114 &1390391081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390391076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1390391078}
+  fishIcon: {fileID: 1695968940}
 --- !u!1 &1414973465
 GameObject:
   m_ObjectHideFlags: 0
@@ -7409,6 +7877,7 @@ GameObject:
   - component: {fileID: 1448621803}
   - component: {fileID: 1448621802}
   - component: {fileID: 1448621801}
+  - component: {fileID: 1448621804}
   m_Layer: 5
   m_Name: Fish Slot 23
   m_TagString: Untagged
@@ -7518,6 +7987,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1448621799}
   m_CullTransparentMesh: 1
+--- !u!114 &1448621804
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1448621799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1448621801}
+  fishIcon: {fileID: 1087455995}
 --- !u!1 &1451745041
 GameObject:
   m_ObjectHideFlags: 0
@@ -7530,6 +8013,7 @@ GameObject:
   - component: {fileID: 1451745045}
   - component: {fileID: 1451745044}
   - component: {fileID: 1451745043}
+  - component: {fileID: 1451745046}
   m_Layer: 5
   m_Name: Fish Slot 7
   m_TagString: Untagged
@@ -7639,6 +8123,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1451745041}
   m_CullTransparentMesh: 1
+--- !u!114 &1451745046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451745041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1451745043}
+  fishIcon: {fileID: 500577321}
 --- !u!1 &1502253022
 GameObject:
   m_ObjectHideFlags: 0
@@ -8026,6 +8524,7 @@ GameObject:
   - component: {fileID: 1664150557}
   - component: {fileID: 1664150556}
   - component: {fileID: 1664150555}
+  - component: {fileID: 1664150558}
   m_Layer: 5
   m_Name: Fish Slot 5
   m_TagString: Untagged
@@ -8135,6 +8634,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664150553}
   m_CullTransparentMesh: 1
+--- !u!114 &1664150558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664150553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1664150555}
+  fishIcon: {fileID: 187159869}
 --- !u!1 &1665272273
 GameObject:
   m_ObjectHideFlags: 0
@@ -8260,6 +8773,81 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1678432214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1678432215}
+  - component: {fileID: 1678432217}
+  - component: {fileID: 1678432216}
+  m_Layer: 5
+  m_Name: Fish Detail Icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1678432215
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678432214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2112462158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -70}
+  m_SizeDelta: {x: 192, y: 192}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1678432216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678432214}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 1
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1678432217
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1678432214}
+  m_CullTransparentMesh: 1
 --- !u!1 &1695968938
 GameObject:
   m_ObjectHideFlags: 0
@@ -8422,6 +9010,7 @@ GameObject:
   - component: {fileID: 1728513302}
   - component: {fileID: 1728513301}
   - component: {fileID: 1728513300}
+  - component: {fileID: 1728513303}
   m_Layer: 5
   m_Name: Fish Slot 32
   m_TagString: Untagged
@@ -8531,6 +9120,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1728513298}
   m_CullTransparentMesh: 1
+--- !u!114 &1728513303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728513298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1728513300}
+  fishIcon: {fileID: 1784487324}
 --- !u!1 &1761983881
 GameObject:
   m_ObjectHideFlags: 0
@@ -8618,6 +9221,7 @@ GameObject:
   - component: {fileID: 1764386447}
   - component: {fileID: 1764386446}
   - component: {fileID: 1764386445}
+  - component: {fileID: 1764386448}
   m_Layer: 5
   m_Name: Fish Slot 17
   m_TagString: Untagged
@@ -8727,6 +9331,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1764386443}
   m_CullTransparentMesh: 1
+--- !u!114 &1764386448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764386443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1764386445}
+  fishIcon: {fileID: 782503252}
 --- !u!1 &1784487322
 GameObject:
   m_ObjectHideFlags: 0
@@ -8814,6 +9432,7 @@ GameObject:
   - component: {fileID: 1798753468}
   - component: {fileID: 1798753467}
   - component: {fileID: 1798753466}
+  - component: {fileID: 1798753469}
   m_Layer: 5
   m_Name: Fish Slot 31
   m_TagString: Untagged
@@ -8923,6 +9542,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1798753464}
   m_CullTransparentMesh: 1
+--- !u!114 &1798753469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798753464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1798753466}
+  fishIcon: {fileID: 730533623}
 --- !u!1 &1845158138
 GameObject:
   m_ObjectHideFlags: 0
@@ -8935,6 +9568,7 @@ GameObject:
   - component: {fileID: 1845158142}
   - component: {fileID: 1845158141}
   - component: {fileID: 1845158140}
+  - component: {fileID: 1845158143}
   m_Layer: 5
   m_Name: Fish Slot 27
   m_TagString: Untagged
@@ -9044,6 +9678,157 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845158138}
   m_CullTransparentMesh: 1
+--- !u!114 &1845158143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845158138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1845158140}
+  fishIcon: {fileID: 1429983926}
+--- !u!1 &1860214801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860214802}
+  - component: {fileID: 1860214804}
+  - component: {fileID: 1860214803}
+  m_Layer: 5
+  m_Name: Fish Name Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1860214802
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860214801}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2112462158}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -300}
+  m_SizeDelta: {x: 420, y: 60}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1860214803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860214801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: "\uBB3C\uACE0\uAE30\uB97C \uC120\uD0DD\uD558\uC138\uC694"
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_characterHorizontalScale: 1
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_TextWrappingMode: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 0
+  m_ActiveFontFeatures: 6e72656b
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_EmojiFallbackSupport: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &1860214804
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860214801}
+  m_CullTransparentMesh: 1
 --- !u!1 &1886692414
 GameObject:
   m_ObjectHideFlags: 0
@@ -9131,6 +9916,7 @@ GameObject:
   - component: {fileID: 1913715913}
   - component: {fileID: 1913715912}
   - component: {fileID: 1913715911}
+  - component: {fileID: 1913715914}
   m_Layer: 5
   m_Name: Fish Slot 21
   m_TagString: Untagged
@@ -9240,6 +10026,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913715909}
   m_CullTransparentMesh: 1
+--- !u!114 &1913715914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913715909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1913715911}
+  fishIcon: {fileID: 1701319043}
 --- !u!1 &1932878018
 GameObject:
   m_ObjectHideFlags: 0
@@ -9252,6 +10052,7 @@ GameObject:
   - component: {fileID: 1932878022}
   - component: {fileID: 1932878021}
   - component: {fileID: 1932878020}
+  - component: {fileID: 1932878023}
   m_Layer: 5
   m_Name: Fish Slot 4
   m_TagString: Untagged
@@ -9361,6 +10162,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1932878018}
   m_CullTransparentMesh: 1
+--- !u!114 &1932878023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932878018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1932878020}
+  fishIcon: {fileID: 836542278}
 --- !u!1 &1968339766
 GameObject:
   m_ObjectHideFlags: 0
@@ -9373,6 +10188,7 @@ GameObject:
   - component: {fileID: 1968339770}
   - component: {fileID: 1968339769}
   - component: {fileID: 1968339768}
+  - component: {fileID: 1968339771}
   m_Layer: 5
   m_Name: Fish Slot 16
   m_TagString: Untagged
@@ -9482,6 +10298,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1968339766}
   m_CullTransparentMesh: 1
+--- !u!114 &1968339771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968339766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 1968339768}
+  fishIcon: {fileID: 1350299702}
 --- !u!1 &2001280210
 GameObject:
   m_ObjectHideFlags: 0
@@ -9569,6 +10399,7 @@ GameObject:
   - component: {fileID: 2008558390}
   - component: {fileID: 2008558389}
   - component: {fileID: 2008558388}
+  - component: {fileID: 2008558391}
   m_Layer: 5
   m_Name: Fish Slot 35
   m_TagString: Untagged
@@ -9678,6 +10509,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2008558386}
   m_CullTransparentMesh: 1
+--- !u!114 &2008558391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2008558386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 2008558388}
+  fishIcon: {fileID: 1502253024}
 --- !u!1 &2016864421
 GameObject:
   m_ObjectHideFlags: 0
@@ -9690,6 +10535,7 @@ GameObject:
   - component: {fileID: 2016864425}
   - component: {fileID: 2016864424}
   - component: {fileID: 2016864423}
+  - component: {fileID: 2016864426}
   m_Layer: 5
   m_Name: Fish Slot 1
   m_TagString: Untagged
@@ -9799,6 +10645,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2016864421}
   m_CullTransparentMesh: 1
+--- !u!114 &2016864426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2016864421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 2016864423}
+  fishIcon: {fileID: 708519772}
 --- !u!1 &2018547877
 GameObject:
   m_ObjectHideFlags: 0
@@ -9808,6 +10668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2018547878}
+  - component: {fileID: 2018547879}
   m_Layer: 5
   m_Name: FishingEncyclopediaUI
   m_TagString: Untagged
@@ -9835,6 +10696,93 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2018547879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2018547877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 468a567420f543b8a3b6befa2af8fdff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishCollectionUI
+  fishSlots:
+  - {fileID: 2016864426}
+  - {fileID: 790778254}
+  - {fileID: 574259571}
+  - {fileID: 1932878023}
+  - {fileID: 1664150558}
+  - {fileID: 662485764}
+  - {fileID: 1451745046}
+  - {fileID: 1221995612}
+  - {fileID: 588059379}
+  - {fileID: 2035271378}
+  - {fileID: 272130657}
+  - {fileID: 1061645788}
+  - {fileID: 862954095}
+  - {fileID: 682554088}
+  - {fileID: 1094060441}
+  - {fileID: 1968339771}
+  - {fileID: 1764386448}
+  - {fileID: 98831621}
+  - {fileID: 1156609839}
+  - {fileID: 347253792}
+  - {fileID: 1913715914}
+  - {fileID: 795101219}
+  - {fileID: 1448621804}
+  - {fileID: 1390391081}
+  - {fileID: 272686060}
+  - {fileID: 564321172}
+  - {fileID: 1845158143}
+  - {fileID: 1122192154}
+  - {fileID: 410255789}
+  - {fileID: 922032691}
+  - {fileID: 1798753469}
+  - {fileID: 1728513303}
+  - {fileID: 145300123}
+  - {fileID: 864537094}
+  - {fileID: 2008558391}
+  - {fileID: 2109955761}
+  fishDataList:
+  - {fileID: 11400000, guid: ea505a10af6bb44448be4f4a1eaad6e1, type: 2}
+  - {fileID: 11400000, guid: cca387ab3c8a47f4092ab4b92fe97a03, type: 2}
+  - {fileID: 11400000, guid: f2b08c87a3cb237419ab0feb49c28c69, type: 2}
+  - {fileID: 11400000, guid: 666afd11b70d2c74389458944e22e990, type: 2}
+  - {fileID: 11400000, guid: 8ac90a2e13019684c9224129061a1dab, type: 2}
+  - {fileID: 11400000, guid: 87e440d823fa83b4d9d75ba229bb6974, type: 2}
+  - {fileID: 11400000, guid: dc99e02e186179f4db599c1783cfd5b6, type: 2}
+  - {fileID: 11400000, guid: 345748c3b2ec60240a6cd20bed3d2992, type: 2}
+  - {fileID: 11400000, guid: 886ed0685cec609449a7a4a15f5d3787, type: 2}
+  - {fileID: 11400000, guid: b574b391f28656847b6a10ed7fbfd21d, type: 2}
+  - {fileID: 11400000, guid: b5dc2c4a1380e1248a5c4421c49cc5c4, type: 2}
+  - {fileID: 11400000, guid: 4acf4bc74cc2a4147badb1818f9c7a2e, type: 2}
+  - {fileID: 11400000, guid: 38401acdb0a102641bedb5363f803edc, type: 2}
+  - {fileID: 11400000, guid: e985dbae5915fc14087b1bbe8d576642, type: 2}
+  - {fileID: 11400000, guid: a76f7ebfaffabc348abbd95eae8e1cc6, type: 2}
+  - {fileID: 11400000, guid: 0f360068ffce9194a91ca0f9366e64cd, type: 2}
+  - {fileID: 11400000, guid: 6ef8eab7221fc0947942e940e3f1f1a3, type: 2}
+  - {fileID: 11400000, guid: 7dad5a0788d5f134599137b0fb323f39, type: 2}
+  - {fileID: 11400000, guid: a51febd25fcf66448aa24005c3742286, type: 2}
+  - {fileID: 11400000, guid: b719e93c4f5105846b41adda5cb203d7, type: 2}
+  - {fileID: 11400000, guid: 0e2350fc74ac9764281d7efebab03486, type: 2}
+  - {fileID: 11400000, guid: 02e19ab6f14550147bc526028d976f39, type: 2}
+  - {fileID: 11400000, guid: 85afa551688abdf47ae370d7a0ade9d6, type: 2}
+  - {fileID: 11400000, guid: 10fa242c89ff8ea4199980cbf4522891, type: 2}
+  - {fileID: 11400000, guid: 3a243aea278e01a40afbf065e2de0313, type: 2}
+  - {fileID: 11400000, guid: 2f2bd3bf12c31414da0c6f43e27b6feb, type: 2}
+  - {fileID: 11400000, guid: 82f83d822c07fa04abc5fc8c5d4ee83e, type: 2}
+  - {fileID: 11400000, guid: 8dfae2f2541a50246abc675f921994ca, type: 2}
+  - {fileID: 11400000, guid: d0f94d376ee3f1d45bbaa144853b14b0, type: 2}
+  - {fileID: 11400000, guid: 082383fa8387af44da98c65df43b23fc, type: 2}
+  - {fileID: 11400000, guid: 26ed51d922159fb4fa234bfe5c780028, type: 2}
+  - {fileID: 11400000, guid: afee1b75e1a60fe4f86acf83c0ada9dc, type: 2}
+  - {fileID: 11400000, guid: 04a95e33c3ede604fa95a47b33f1550d, type: 2}
+  - {fileID: 11400000, guid: eb9db29214a233f45af490bb2c3e9221, type: 2}
+  - {fileID: 11400000, guid: 6e5a056b9ba7ac34fb5cedd7247eb8c9, type: 2}
+  - {fileID: 11400000, guid: 295af7a3d4c50a340856fab286b3ec8d, type: 2}
+  fishDetailPanelUI: {fileID: 2112462159}
 --- !u!1 &2034342993
 GameObject:
   m_ObjectHideFlags: 0
@@ -9922,6 +10870,7 @@ GameObject:
   - component: {fileID: 2035271377}
   - component: {fileID: 2035271376}
   - component: {fileID: 2035271375}
+  - component: {fileID: 2035271378}
   m_Layer: 5
   m_Name: Fish Slot 10
   m_TagString: Untagged
@@ -10031,6 +10980,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035271373}
   m_CullTransparentMesh: 1
+--- !u!114 &2035271378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2035271373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 2035271375}
+  fishIcon: {fileID: 2103588197}
 --- !u!1 &2073179731
 GameObject:
   m_ObjectHideFlags: 0
@@ -10193,6 +11156,7 @@ GameObject:
   - component: {fileID: 2109955760}
   - component: {fileID: 2109955759}
   - component: {fileID: 2109955758}
+  - component: {fileID: 2109955761}
   m_Layer: 5
   m_Name: Fish Slot 36
   m_TagString: Untagged
@@ -10301,6 +11265,114 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109955756}
+  m_CullTransparentMesh: 1
+--- !u!114 &2109955761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109955756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4a291aaf0b0448b8ef362c1e3cbbce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
+  button: {fileID: 2109955758}
+  fishIcon: {fileID: 1439617134}
+--- !u!1 &2112462157
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2112462158}
+  - component: {fileID: 2112462161}
+  - component: {fileID: 2112462160}
+  - component: {fileID: 2112462159}
+  m_Layer: 5
+  m_Name: Fish Detail Panel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2112462158
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112462157}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1678432215}
+  - {fileID: 1860214802}
+  - {fileID: 1009067859}
+  m_Father: {fileID: 507354721}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -40, y: -120}
+  m_SizeDelta: {x: 480, y: 560}
+  m_Pivot: {x: 1, y: 1}
+--- !u!114 &2112462159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112462157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ecbd2da9b74860847624a3ca9a480d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishDetailPanelUI
+  fishIcon: {fileID: 1678432216}
+  fishName: {fileID: 1860214803}
+  fishPrice: {fileID: 1009067860}
+--- !u!114 &2112462160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112462157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.12, g: 0.22, b: 0.29, a: 0.92}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2112462161
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2112462157}
   m_CullTransparentMesh: 1
 --- !u!222 &21944583500873519
 CanvasRenderer:
