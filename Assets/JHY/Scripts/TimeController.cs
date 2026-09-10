@@ -7,7 +7,7 @@ public class TimeController : MonoBehaviour
     private SeasonPeriod seasonPeriod;
     private SeasonPassive seasonPassive;
 
-    [SerializeField]private ShopPanel shopPanel;
+    //[SerializeField]private ShopPanel shopPanel;
     [SerializeField] private LightManager lightManager;
     private void Awake()
     {
@@ -50,6 +50,6 @@ public class TimeController : MonoBehaviour
     }
     private void HandleShopPanel(TimeManager.SeasonPeriod currentSeason)
     {
-        shopPanel.ChangeSeason((int)currentSeason);
+        //shopPanel.ChangeSeason((int)currentSeason);
     }
 }
