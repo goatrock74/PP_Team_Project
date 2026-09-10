@@ -12,7 +12,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject particle;
     [SerializeField] private GameObject background;
     [SerializeField] private MainMenuAnimation mainMenuAnimation;
-
+    [SerializeField] private GameObject settingPanel;
     [Header("Fade Settings")]
     [SerializeField] private float fadeDuration = 0.5f;
     private bool isStartScreen = true;
@@ -82,7 +82,15 @@ public class MenuManager : MonoBehaviour
                     });
             });
     }
-
+    public void SettingOpen()
+    {
+        settingPanel.SetActive(true);
+    }
+    public void SettingClose()
+    {
+        settingPanel.SetActive(false);
+    }
+    
     public void NextScene()
     {
         SceneManager.LoadScene("JHY");
