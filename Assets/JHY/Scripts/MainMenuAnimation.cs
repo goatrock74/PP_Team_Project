@@ -1,4 +1,5 @@
 using DG.Tweening;
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class MainMenuAnimation : MonoBehaviour
@@ -11,8 +12,9 @@ public class MainMenuAnimation : MonoBehaviour
 
     [Header("Camera Shake")]
     [SerializeField] private Transform cameraTransform;
-    [SerializeField] private float shakeDuration = 0.2f;
-    [SerializeField] private float shakeStrength = 0.15f;
+    [SerializeField] private float shakeDuration = 0.3f;
+    [SerializeField] private float shakeStrength = 0.2f;
+    [SerializeField] private RectTransform mainMenuTransform;
 
     [Header("Buttons")]
     [SerializeField] private CanvasGroup[] buttons;
@@ -41,22 +43,41 @@ public class MainMenuAnimation : MonoBehaviour
             button.blocksRaycasts = false;
         }
 
-        title.DOAnchorPos(
-            landingPosition,
-            titleDropDuration
-        )
-        .SetEase(Ease.OutBounce)
-        .OnComplete(() =>
+        Sequence sequence = DOTween.Sequence();
+
+        sequence.Append(
+            title.DOAnchorPos(
+                landingPosition,
+                titleDropDuration
+            )
+            .SetEase(Ease.InQuad)
+        );
+
+        sequence.AppendCallback(() =>
         {
             cameraTransform.DOShakePosition(
                 shakeDuration,
                 shakeStrength,
-                10,
+                20,
                 90f,
                 false,
                 true
             );
 
+            mainMenuTransform.DOShakeAnchorPos(
+                shakeDuration,
+                10f,
+                20,
+                90f,
+                false,
+                true
+            );
+        });
+
+        sequence.AppendInterval(0.1f);
+
+        sequence.AppendCallback(() =>
+        {
             ShowButtons();
         });
     }

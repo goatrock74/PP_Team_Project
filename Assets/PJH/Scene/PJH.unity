@@ -3372,6 +3372,9 @@ MonoBehaviour:
   minigamePanel: {fileID: 7088924830246228270}
   targetHeight: 530
   duration: 1.3
+  revealMask: {fileID: 0}
+  rightPanelPosition: {x: 180, y: 0}
+  leftPanelPosition: {x: -180, y: 0}
   catchBar: {fileID: 8816770649293018347}
   catchBarImage: {fileID: 7636139923958998854}
   gaugeImage: {fileID: 2512820521410921714}
