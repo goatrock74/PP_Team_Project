@@ -31,7 +31,7 @@ namespace PJH.Scripts
             fishIcon.enabled = true;
             
             fishName.text = fishData.displayName;
-            fishPrice.text = $"{fishData.basePrice} G";
+            fishPrice.text = fishData.sellPrice.ToString();
             
             
         }
