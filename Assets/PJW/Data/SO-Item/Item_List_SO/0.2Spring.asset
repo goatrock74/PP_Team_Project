@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0.2Spring
   m_EditorClassIdentifier: Assembly-CSharp::Assets.PJW.Script.SO_Script.ItemListSO
   targetType: 2
-  <itemList>k__BackingField:
+  <ItemList>k__BackingField:
   - {fileID: 11400000, guid: 4d1bb903781e1d1429b3b367ad77ea7a, type: 2}
   - {fileID: 11400000, guid: 5629821f7f011434aa8dce61e168da05, type: 2}
   - {fileID: 11400000, guid: 9eae5907cf335c54d8c22ab3fda03fc1, type: 2}

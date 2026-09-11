@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 49d5eb829e41e7e4d83a06b516bf748e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9065569211699224351
+    second: 1_wooden_block_48x48_100__0
+  - first:
+      213: 4538936328273996271
+    second: 1_wooden_block_48x48_100__1
+  - first:
+      213: -5744928663416387479
+    second: 1_wooden_block_48x48_100__2
+  - first:
+      213: -6567729177346424900
+    second: 1_wooden_block_48x48_100__3
+  - first:
+      213: 1372456037097119236
+    second: 1_wooden_block_48x48_100__4
+  - first:
+      213: 8115726487445061434
+    second: 1_wooden_block_48x48_100__5
+  - first:
+      213: 1012064521290468858
+    second: 1_wooden_block_48x48_100__6
+  - first:
+      213: -189193565470917584
+    second: 1_wooden_block_48x48_100__7
+  - first:
+      213: -1022540525199589294
+    second: 1_wooden_block_48x48_100__8
+  - first:
+      213: -8633999263574446707
+    second: 1_wooden_block_48x48_100__9
+  - first:
+      213: 3853666424531352107
+    second: 1_wooden_block_48x48_100__10
+  - first:
+      213: -1779718712155439521
+    second: 1_wooden_block_48x48_100__11
+  - first:
+      213: -5370948790845888020
+    second: 1_wooden_block_48x48_100__12
+  - first:
+      213: 3714942559351033663
+    second: 1_wooden_block_48x48_100__13
+  - first:
+      213: -8079043316826296210
+    second: 1_wooden_block_48x48_100__14
+  - first:
+      213: -2574760357577246939
+    second: 1_wooden_block_48x48_100__15
+  - first:
+      213: -3604429926887335150
+    second: 1_wooden_block_48x48_100__16
+  - first:
+      213: -8293842065424848079
+    second: 1_wooden_block_48x48_100__17
+  - first:
+      213: 2034237586608388130
+    second: 1_wooden_block_48x48_100__18
+  - first:
+      213: 4658910064425060068
+    second: 1_wooden_block_48x48_100__19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 48
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 585
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 4, z: 3, w: 3}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1fdc06aa2f5fcd70800000000000000
+      internalID: 9065569211699224351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 585
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe923e0da8a8dfe30800000000000000
+      internalID: 4538936328273996271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 521
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9684b1d81d9e540b0800000000000000
+      internalID: -5744928663416387479
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__3
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 521
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbf3c4b4c1dbad4a0800000000000000
+      internalID: -6567729177346424900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__4
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 457
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 4, z: 3, w: 3}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40e93018e71fb0310800000000000000
+      internalID: 1372456037097119236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__5
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 457
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3f346acd3ad0a070800000000000000
+      internalID: 8115726487445061434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__6
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 393
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd4b49e1539b0e00800000000000000
+      internalID: 1012064521290468858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__7
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 393
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03cf0506479df5df0800000000000000
+      internalID: -189193565470917584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__8
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 329
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 250890b5fc43fc1f0800000000000000
+      internalID: -1022540525199589294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__9
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 329
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8d29a72a6fdd2880800000000000000
+      internalID: -8633999263574446707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__10
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 265
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2a7a0d0239fa7530800000000000000
+      internalID: 3853666424531352107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__11
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 265
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5efbd9b24b2d47e0800000000000000
+      internalID: -1779718712155439521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__12
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 201
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce921def78e8675b0800000000000000
+      internalID: -5370948790845888020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__13
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 201
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3f491b33902e8330800000000000000
+      internalID: 3714942559351033663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__14
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 137
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e60339f68e871ef80800000000000000
+      internalID: -8079043316826296210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__15
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 137
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 527b9d0b81d944cd0800000000000000
+      internalID: -2574760357577246939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__16
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 74
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21bd71e141e7afdc0800000000000000
+      internalID: -3604429926887335150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__17
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 73
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13be82b859a56ec80800000000000000
+      internalID: -8293842065424848079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__18
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 9
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 4, z: 3, w: 3}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2287a82ae401b3c10800000000000000
+      internalID: 2034237586608388130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 1_wooden_block_48x48_100__19
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 9
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e64c860506c7a040800000000000000
+      internalID: 4658910064425060068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 9983742204c477f46b37e197215f3437
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      1_wooden_block_48x48_100__0: 9065569211699224351
+      1_wooden_block_48x48_100__1: 4538936328273996271
+      1_wooden_block_48x48_100__10: 3853666424531352107
+      1_wooden_block_48x48_100__11: -1779718712155439521
+      1_wooden_block_48x48_100__12: -5370948790845888020
+      1_wooden_block_48x48_100__13: 3714942559351033663
+      1_wooden_block_48x48_100__14: -8079043316826296210
+      1_wooden_block_48x48_100__15: -2574760357577246939
+      1_wooden_block_48x48_100__16: -3604429926887335150
+      1_wooden_block_48x48_100__17: -8293842065424848079
+      1_wooden_block_48x48_100__18: 2034237586608388130
+      1_wooden_block_48x48_100__19: 4658910064425060068
+      1_wooden_block_48x48_100__2: -5744928663416387479
+      1_wooden_block_48x48_100__3: -6567729177346424900
+      1_wooden_block_48x48_100__4: 1372456037097119236
+      1_wooden_block_48x48_100__5: 8115726487445061434
+      1_wooden_block_48x48_100__6: 1012064521290468858
+      1_wooden_block_48x48_100__7: -189193565470917584
+      1_wooden_block_48x48_100__8: -1022540525199589294
+      1_wooden_block_48x48_100__9: -8633999263574446707
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

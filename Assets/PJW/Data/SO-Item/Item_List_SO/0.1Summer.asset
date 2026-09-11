@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 0.1Summer
   m_EditorClassIdentifier: Assembly-CSharp::Assets.PJW.Script.SO_Script.ItemListSO
   targetType: 1
-  <itemList>k__BackingField:
+  <ItemList>k__BackingField:
   - {fileID: 11400000, guid: 472d0b2e0921bce469c2ca6b3b6f33bb, type: 2}
   - {fileID: 11400000, guid: 43751b20e250d5f4b92854e7841fa8f9, type: 2}
   - {fileID: 11400000, guid: 365619133af93da4c8d0317afb4d6ad8, type: 2}

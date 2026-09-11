@@ -9,29 +9,27 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private CanvasGroup startScreen;
     [SerializeField] private CanvasGroup mainMenu;
     [SerializeField] private CanvasGroup fadePanel;
-
+    [SerializeField] private GameObject particle;
+    [SerializeField] private GameObject background;
+    [SerializeField] private MainMenuAnimation mainMenuAnimation;
+    [SerializeField] private GameObject settingPanel;
     [Header("Fade Settings")]
     [SerializeField] private float fadeDuration = 0.5f;
-
     private bool isStartScreen = true;
     private bool isTransitioning = false;
 
     private void Start()
     {
-        // 시작 화면
         startScreen.alpha = 1f;
         startScreen.interactable = true;
         startScreen.blocksRaycasts = true;
 
-        // 메인 메뉴 숨기기
         mainMenu.alpha = 0f;
         mainMenu.interactable = false;
         mainMenu.blocksRaycasts = false;
 
-        // 검은 화면에서 시작
         fadePanel.alpha = 1f;
 
-        // 페이드 인
         fadePanel
             .DOFade(0f, fadeDuration)
             .SetEase(Ease.InOutQuad);
@@ -39,7 +37,6 @@ public class MenuManager : MonoBehaviour
 
     private void Update()
     {
-        // 시작 화면일 때만 클릭 감지
         if (!isStartScreen)
             return;
 
@@ -57,26 +54,25 @@ public class MenuManager : MonoBehaviour
     {
         isTransitioning = true;
 
-        // 페이드 아웃
         fadePanel
             .DOFade(1f, fadeDuration)
             .SetEase(Ease.InOutQuad)
             .OnComplete(() =>
             {
-                // 시작 화면 숨김
                 startScreen.alpha = 0f;
                 startScreen.interactable = false;
                 startScreen.blocksRaycasts = false;
 
-                // 메인 메뉴 표시
                 mainMenu.alpha = 1f;
                 mainMenu.interactable = true;
                 mainMenu.blocksRaycasts = true;
 
-                // 이제 시작 화면이 아님
                 isStartScreen = false;
+                particle.SetActive(false);
+                background.SetActive(false);
 
-                // 페이드 인
+                mainMenuAnimation.PlayAnimation();
+
                 fadePanel
                     .DOFade(0f, fadeDuration)
                     .SetEase(Ease.InOutQuad)
@@ -86,9 +82,17 @@ public class MenuManager : MonoBehaviour
                     });
             });
     }
+    public void SettingOpen()
+    {
+        settingPanel.SetActive(true);
+    }
+    public void SettingClose()
+    {
+        settingPanel.SetActive(false);
+    }
+    
     public void NextScene()
     {
-        Debug.Log("NextScene"); 
         SceneManager.LoadScene("JHY");
     }
 }
