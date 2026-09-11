@@ -4,20 +4,6 @@ using UnityEngine.InputSystem;
  
 namespace KSM._00.Scripts.Items
 {
-    /// <summary>
-    /// 화면 하단 핫바. <b>가방과는 별개의 저장소</b>다.
-    /// 여기 올려둔 도구는 가방 칸을 차지하지 않는다.
-    /// 칸 수는 PlayerInventory 의 Hotbar Capacity 가 정한다.
-    ///
-    ///   숫자키 1~9 : 그 칸을 손에 든다 (같은 칸 다시 = 놓기)
-    ///   마우스 휠   : 좌우로 이동
-    ///   슬롯 클릭   : 손에 들기
-    ///
-    /// 씬 구조:
-    ///   Canvas
-    ///    └ HotbarPanel      Image(배경) + HotbarUI
-    ///       └ SlotRow       Horizontal Layout Group   ← Slot Parent 로 연결
-    /// </summary>
     public class HotbarUI : MonoBehaviour
     {
         [Header("참조")]
@@ -31,7 +17,6 @@ namespace KSM._00.Scripts.Items
         [Tooltip("마우스 휠로 칸을 옮길 수 있게 한다")]
         [SerializeField] private bool wheelSelect = true;
  
-        // Key 열거형은 Digit1~Digit9 순서가 보장되지 않을 수 있어 명시적으로 나열한다
         private static readonly Key[] NumberKeys =
         {
             Key.Digit1, Key.Digit2, Key.Digit3, Key.Digit4, Key.Digit5,
@@ -42,7 +27,6 @@ namespace KSM._00.Scripts.Items
         private PlayerInventory _player;
         private Inventory _inventory;
  
-        /// <summary>칸 수는 PlayerInventory 의 Hotbar 용량을 그대로 따른다</summary>
         private int slotCount;
  
         private void Start()
@@ -62,7 +46,7 @@ namespace KSM._00.Scripts.Items
                 return;
             }
  
-            _inventory = _player.Hotbar;        // ★ 가방이 아니라 핫바 저장소
+            _inventory = _player.Hotbar;      
             slotCount = _inventory.Capacity;
  
             BuildSlots();
@@ -84,13 +68,12 @@ namespace KSM._00.Scripts.Items
  
         private void Update()
         {
-            if (GachaUI.IsSpinning) return;   // 뽑는 중엔 조작 막기
+            if (GachaUI.IsSpinning) return;   
  
             HandleNumberKeys();
             if (wheelSelect) HandleWheel();
         }
  
-        // ════════════════════════════════════════════════════════════
  
         private void BuildSlots()
         {
@@ -119,7 +102,6 @@ namespace KSM._00.Scripts.Items
                 _views[i].SetSelected(_player.IsHeld(SlotArea.Hotbar, i));
         }
  
-        // ════════════════════════════════════════════════════════════
  
         private void HandleNumberKeys()
         {
@@ -145,18 +127,15 @@ namespace KSM._00.Scripts.Items
  
             int current = _player.HeldSlotIndex;
  
-            // 가방 쪽을 들고 있었으면 핫바 0번부터 시작
             if (_player.HeldArea != SlotArea.Hotbar || current < 0 || current >= slotCount) current = 0;
             else current += scroll > 0 ? -1 : 1;
  
-            // 양끝에서 반대편으로 돌아간다
             if (current < 0) current = slotCount - 1;
             if (current >= slotCount) current = 0;
  
             Select(current, toggleOff: false);
         }
  
-        /// <summary>같은 칸을 다시 고르면 손을 비운다 (toggleOff 가 true 일 때)</summary>
         private void Select(int index, bool toggleOff = true)
         {
             if (toggleOff && _player.IsHeld(SlotArea.Hotbar, index))

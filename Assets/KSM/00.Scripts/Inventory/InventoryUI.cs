@@ -5,18 +5,7 @@ using UnityEngine.InputSystem;
  
 namespace KSM._00.Scripts.Items
 {
-    /// <summary>
-    /// 인벤토리 화면.
-    ///
-    ///   좌클릭 : 그 칸을 손에 든다. 이미 들고 있는 칸을 다시 누르면 놓는다
-    ///   우클릭 : 손에 든 칸과 위치를 바꾼다 (같은 아이템이면 합침)
-    ///
-    /// 권장 씬 구조 — 이 스크립트는 항상 켜져 있는 오브젝트(Canvas)에 붙인다:
-    ///   Canvas                (InventoryUI 를 여기에)
-    ///    └ InventoryPanel     (Image 배경)  ← Panel 칸에 이걸 연결
-    ///       ├ SlotGrid        (Grid Layout Group)
-    ///       └ InfoText        (TextMeshPro, 선택)
-    /// </summary>
+   
     public class InventoryUI : MonoBehaviour
     {
         [Header("참조")]
@@ -41,8 +30,6 @@ namespace KSM._00.Scripts.Items
         private readonly List<InventorySlotUI> _slotViews = new();
         private PlayerInventory _player;
         private Inventory _inventory;
- 
-        // 패널 안에 자기 자신이 들어있는 경우의 대체 수단
         private CanvasGroup _canvasGroup;
         private bool _useCanvasGroup;
         private bool _isOpen;
@@ -68,10 +55,10 @@ namespace KSM._00.Scripts.Items
  
             SetupToggleMode();
  
-            _inventory = _player.Bag;                 // ★ 인벤토리 창은 가방만 본다
+            _inventory = _player.Bag;                
  
             BuildSlots();
-            if (!enabled) return;          // BuildSlots 가 실패했으면 중단
+            if (!enabled) return;         
  
             _inventory.OnChanged += Refresh;
             _player.OnHeldChanged += RefreshHighlight;
@@ -94,13 +81,6 @@ namespace KSM._00.Scripts.Items
             if (Keyboard.current == null) return;
             if (Keyboard.current[toggleKey].wasPressedThisFrame) Toggle();
         }
- 
-        // ════════════════════════════════════════════════════════════
- 
-        /// <summary>
-        /// 이 스크립트가 패널 안에 들어있으면 SetActive 로 껐을 때 자기도 같이 꺼진다.
-        /// 그러면 Update 가 멈춰서 다시 열 방법이 없어지므로 CanvasGroup 으로 전환한다.
-        /// </summary>
         private void SetupToggleMode()
         {
             _useCanvasGroup = transform.IsChildOf(panel.transform);
@@ -162,7 +142,6 @@ namespace KSM._00.Scripts.Items
             RefreshHighlight();
         }
  
-        /// <summary>손에 든 칸에만 테두리를 켠다</summary>
         private void RefreshHighlight()
         {
             for (int i = 0; i < _slotViews.Count; i++)
@@ -170,13 +149,6 @@ namespace KSM._00.Scripts.Items
  
             UpdateInfoText();
         }
- 
-        // ════════════════════════════════════════════════════════════
- 
-        /// <summary>
-        /// 좌클릭 : 손에 들기 / 같은 칸이면 놓기
-        /// 우클릭 : 손에 든 칸과 교환·병합
-        /// </summary>
         private void HandleSlotClicked(InventorySlotUI slot, bool isLeftClick)
         {
             int index = slot.Index;
@@ -190,13 +162,9 @@ namespace KSM._00.Scripts.Items
                 }
  
                 _player.HoldSlot(SlotArea.Bag, index);
- 
-                // 씨앗을 들었으면 바로 심으러 갈 수 있게 창을 닫아준다
                 if (closeOnHold && _player.HeldItem is SeedSO) SetOpen(false);
                 return;
             }
- 
-            // 우클릭 — 손에 든 칸이 있어야 옮길 수 있다 (드래그와 결과는 같다)
             if (!_player.HasHeldItem) return;
             if (_player.IsHeld(SlotArea.Bag, index)) return;
  
@@ -217,8 +185,6 @@ namespace KSM._00.Scripts.Items
             }
  
             var sb = new System.Text.StringBuilder();
- 
-            // 1) 이름 (+ 품질 등급)
             sb.Append($"<size=120%><b>{stack.item.DisplayName}</b></size>");
  
             if (stack.quality != ItemQuality.Normal)
@@ -227,17 +193,11 @@ namespace KSM._00.Scripts.Items
                 sb.Append($"  <color=#{hex}>{ItemQualityUtil.Stars(stack.quality)} " +
                           $"{ItemQualityUtil.DisplayName(stack.quality)}</color>");
             }
- 
-            // 2) 종류
             sb.Append($"\n<size=85%><color=#AAAAAA>{ItemTypeUtil.DisplayName(stack.item.itemType)}");
             if (stack.count > 1) sb.Append($"  ·  {stack.count}개");
             sb.Append("</color></size>");
- 
-            // 3) 설명
             if (!string.IsNullOrWhiteSpace(stack.item.description))
                 sb.Append($"\n\n<size=85%>{stack.item.description}</size>");
- 
-            // 4) 판매가
             if (stack.item.sellPrice > 0)
             {
                 int unit = stack.item.GetSellPrice(stack.quality);
@@ -245,8 +205,6 @@ namespace KSM._00.Scripts.Items
                 if (stack.count > 1) sb.Append($"  (전부 {stack.TotalSellPrice}G)");
                 sb.Append("</size>");
             }
- 
-            // 5) 사용 안내 — 핫바에 올려야 쓸 수 있다
             bool usable = _player.CanUseHeld;
             bool isUsableKind = stack.item is ToolSO
                              || stack.item is ItemPackSO

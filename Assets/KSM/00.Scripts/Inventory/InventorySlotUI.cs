@@ -6,18 +6,6 @@ using UnityEngine.UI;
  
 namespace KSM._00.Scripts.Items
 {
-    /// <summary>
-    /// 인벤토리 한 칸의 화면 표시. 프리팹으로 만들어 InventoryUI 가 복제해서 쓴다.
-    ///
-    /// 프리팹 구조:
-    ///   Slot            Image(칸 배경, Raycast Target 켜기) + InventorySlotUI
-    ///    ├ Icon         Image           (Raycast Target 끄기)
-    ///    ├ Count        TextMeshPro     (Raycast Target 끄기)
-    ///    └ Quality      TextMeshPro     (Raycast Target 끄기) — 선택. ★ 표기
-    ///
-    /// 선택 테두리는 Auto Outline 이 켜져 있으면 런타임에 자동으로 만들어진다.
-    /// 별도 오브젝트를 준비할 필요 없다.
-    /// </summary>
     public class InventorySlotUI : MonoBehaviour,
         IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
@@ -43,21 +31,13 @@ namespace KSM._00.Scripts.Items
         [SerializeField] private GameObject selectedFrame;
  
         public int Index { get; private set; }
- 
-        /// <summary>이 칸이 속한 저장소 (가방 / 핫바)</summary>
         public SlotArea Area { get; private set; } = SlotArea.Bag;
- 
-        /// <summary>지금 내용물이 있는가. 드래그 시작 여부를 정한다</summary>
         public bool HasItem { get; private set; }
- 
-        /// <summary>InventoryUI / HotbarUI 가 연결해준다 (슬롯, 좌클릭 여부)</summary>
         public event Action<InventorySlotUI, bool> OnClicked;
  
         private GameObject _outlineRoot;
         private ItemSO _lastWarnedItem;
         private Canvas _canvas;
- 
-        /// <summary>예전 코드 호환용. 가방 칸으로 취급한다</summary>
         public void Setup(int index) => Setup(SlotArea.Bag, index);
  
         public void Setup(SlotArea area, int index)
@@ -69,8 +49,6 @@ namespace KSM._00.Scripts.Items
  
             if (autoOutline && _outlineRoot == null) BuildOutline();
             SetSelected(false);
- 
-            // 프리팹 연결 누락은 0번 칸에서만 한 번 알린다 (30번 도배 방지)
             if (index != 0) return;
  
             if (iconImage == null)
@@ -94,7 +72,6 @@ namespace KSM._00.Scripts.Items
                     ? ItemQualityUtil.TintColor(stack.quality)
                     : Color.white;
  
-                // 아이콘이 비어있으면 흰 사각형으로만 보여서 "아무것도 없는 것"처럼 착각하기 쉽다
                 if (hasItem && stack.item.icon == null && _lastWarnedItem != stack.item)
                 {
                     _lastWarnedItem = stack.item;
@@ -105,7 +82,6 @@ namespace KSM._00.Scripts.Items
  
             if (countText != null)
             {
-                // 1개짜리는 숫자를 안 띄우는 게 깔끔하다
                 bool showCount = hasItem && stack.count > 1;
                 countText.enabled = showCount;
                 if (showCount) countText.text = stack.count.ToString();
@@ -136,14 +112,6 @@ namespace KSM._00.Scripts.Items
             OnClicked?.Invoke(this, isLeft);
         }
  
-        // ════════════════════════════════════════════════════════════
-        //  드래그 앤 드롭
-        //
-        //  EventSystem 이 "누르고 안 움직임 = 클릭", "누르고 움직임 = 드래그" 로
-        //  알아서 갈라주기 때문에, 좌클릭으로 손에 들기와 드래그가 서로 안 싸운다.
-        // ════════════════════════════════════════════════════════════
- 
-        /// <summary>지금 끌고 있는 칸. 드롭 받는 쪽이 출발지를 알아야 해서 static 으로 둔다</summary>
         private static InventorySlotUI _dragSource;
  
         public void OnBeginDrag(PointerEventData eventData)
@@ -176,13 +144,11 @@ namespace KSM._00.Scripts.Items
  
         public void OnEndDrag(PointerEventData eventData)
         {
-            // 슬롯 밖에 놓았으면 OnDrop 이 안 불리므로 여기서 정리한다
             DragGhost.Hide();
  
             if (_dragSource == this) _dragSource = null;
         }
  
-        /// <summary>다른 칸을 이 칸 위에 놓았을 때</summary>
         public void OnDrop(PointerEventData eventData)
         {
             if (_dragSource == null || _dragSource == this) return;
@@ -196,9 +162,6 @@ namespace KSM._00.Scripts.Items
             _dragSource = null;
         }
  
-        // ════════════════════════════════════════════════════════════
-        //  테두리 자동 생성 — 얇은 Image 4개로 사각 테두리를 만든다
-        // ════════════════════════════════════════════════════════════
  
         private void BuildOutline()
         {
@@ -212,12 +175,11 @@ namespace KSM._00.Scripts.Items
             root.offsetMax = Vector2.zero;
  
             float t = outlineThickness;
- 
-            //          anchorMin      anchorMax      pivot            sizeDelta
-            CreateBar(root, new Vector2(0, 1), new Vector2(1, 1), new Vector2(0.5f, 1f), new Vector2(0, t)); // 위
-            CreateBar(root, new Vector2(0, 0), new Vector2(1, 0), new Vector2(0.5f, 0f), new Vector2(0, t)); // 아래
-            CreateBar(root, new Vector2(0, 0), new Vector2(0, 1), new Vector2(0f, 0.5f), new Vector2(t, 0)); // 왼쪽
-            CreateBar(root, new Vector2(1, 0), new Vector2(1, 1), new Vector2(1f, 0.5f), new Vector2(t, 0)); // 오른쪽
+            
+            CreateBar(root, new Vector2(0, 1), new Vector2(1, 1), new Vector2(0.5f, 1f), new Vector2(0, t)); 
+            CreateBar(root, new Vector2(0, 0), new Vector2(1, 0), new Vector2(0.5f, 0f), new Vector2(0, t));
+            CreateBar(root, new Vector2(0, 0), new Vector2(0, 1), new Vector2(0f, 0.5f), new Vector2(t, 0)); 
+            CreateBar(root, new Vector2(1, 0), new Vector2(1, 1), new Vector2(1f, 0.5f), new Vector2(t, 0)); 
  
             _outlineRoot.SetActive(false);
         }
@@ -236,7 +198,7 @@ namespace KSM._00.Scripts.Items
  
             var img = go.GetComponent<Image>();
             img.color = outlineColor;
-            img.raycastTarget = false;   // 테두리가 클릭을 가로채면 안 된다
+            img.raycastTarget = false;  
         }
     }
 }

@@ -9,7 +9,7 @@ public class CropSO : ScriptableObject
 {
     [Header("기본 정보")]
     public string cropName;
-    public Sprite icon;                     // 인벤토리 아이콘
+    public Sprite icon;                     
     public HarvestType harvestType;
  
     [Header("성장 단계")]
@@ -47,10 +47,8 @@ public class CropSO : ScriptableObject
     [Tooltip("이 목록에 있는 타일 위에만 심을 수 있음 (예: 밭 타일)")]
     public TileBase[] plantableTiles;
  
-    // 런타임 전용 조회 캐시. 직렬화되지 않는다.
     private HashSet<TileBase> _plantableSet;
  
-    /// <summary>이 타일 위에 심을 수 있는가</summary>
     public bool IsPlantableTile(TileBase tile)
     {
         if (tile == null) return false;
@@ -60,7 +58,6 @@ public class CropSO : ScriptableObject
         return _plantableSet.Contains(tile);
     }
  
-    /// <summary>수확량을 굴린다 (min~max 포함)</summary>
     public int RollYield() => UnityEngine.Random.Range(minYield, maxYield + 1);
  
     private void OnValidate()
@@ -70,11 +67,9 @@ public class CropSO : ScriptableObject
         size.x = Mathf.Max(1, size.x);
         size.y = Mathf.Max(1, size.y);
  
-        _plantableSet = null;   // 인스펙터에서 목록을 고쳤을 수 있으니 캐시 폐기
+        _plantableSet = null; 
  
         if (growthStages == null || growthStages.Length == 0) return;
- 
-        // 새로 추가한 단계는 0으로 들어온다. 0이면 while 루프가 무한히 돌 수 있어 최소값을 준다
         for (int i = 0; i < growthStages.Length; i++)
         {
             if (growthStages[i].durationTime > 0f) continue;

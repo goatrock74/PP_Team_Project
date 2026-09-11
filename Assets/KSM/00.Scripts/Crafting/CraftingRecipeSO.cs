@@ -5,10 +5,6 @@ using KSM._00.Scripts.Items;
  
 namespace KSM._00.Scripts.Crafting
 {
-    /// <summary>
-    /// 재료 한 줄. 품질은 가리지 않는다 — '좋음' 딸기도 재료로 쓸 수 있다.
-    /// </summary>
-    /// <remarks>구조체라 필드 초기화식을 못 쓴다. 기본값은 CraftingRecipeSO.OnValidate 에서 넣는다.</remarks>
     [Serializable]
     public struct MaterialCost
     {
@@ -17,13 +13,6 @@ namespace KSM._00.Scripts.Crafting
         [Tooltip("1회 제작에 필요한 개수")]
         [Min(1)] public int count;
     }
- 
-    /// <summary>
-    /// 제작법 하나. "무엇을 넣으면 무엇이 나오는가" 만 담는다.
-    ///
-    /// ★ 여기에는 진행 상황을 저장하지 않는다. SO 는 읽기 전용 데이터고,
-    ///   재료가 몇 개 있는지는 전부 PlayerInventory 가 들고 있다.
-    /// </summary>
     [CreateAssetMenu(fileName = "CraftingRecipeSO", menuName = "SO/Crafting/Recipe")]
     public class CraftingRecipeSO : ScriptableObject
     {
@@ -50,12 +39,6 @@ namespace KSM._00.Scripts.Crafting
         public string DescriptionText => string.IsNullOrWhiteSpace(description)
             ? (result != null ? result.description : string.Empty)
             : description;
- 
-        // ════════════════════════════════════════════════════════════
-        //  판정
-        // ════════════════════════════════════════════════════════════
- 
-        /// <summary>이 횟수만큼 만들 재료가 있는가</summary>
         public bool HasMaterials(PlayerInventory player, int batch)
         {
             if (player == null || materials == null) return false;
@@ -70,11 +53,6 @@ namespace KSM._00.Scripts.Crafting
  
             return true;
         }
- 
-        /// <summary>
-        /// 지금 재료로 몇 번까지 만들 수 있는가 (Max Batch 로 잘린다).
-        /// 재료가 아예 없으면 0.
-        /// </summary>
         public int MaxAffordable(PlayerInventory player)
         {
             if (player == null || result == null) return 0;
@@ -94,11 +72,6 @@ namespace KSM._00.Scripts.Crafting
  
             return Mathf.Clamp(best, 0, maxBatch);
         }
- 
-        /// <summary>
-        /// 상세창에 넣을 재료 문자열. 충분하면 초록, 모자라면 빨강.
-        /// 예: <c>딸기 3/3개  ·  키위 1/3개</c>
-        /// </summary>
         public string BuildMaterialText(PlayerInventory player, int batch)
         {
             if (materials == null || materials.Length == 0) return "<color=#AAAAAA>재료 없음</color>";
@@ -126,17 +99,6 @@ namespace KSM._00.Scripts.Crafting
  
             return sb.Length == 0 ? "<color=#AAAAAA>재료 없음</color>" : sb.ToString();
         }
- 
-        // ════════════════════════════════════════════════════════════
-        //  실행
-        // ════════════════════════════════════════════════════════════
- 
-        /// <summary>
-        /// 실제로 만든다. 성공하면 true.
-        ///
-        /// ★ 재료를 빼기 <b>전에</b> 결과물이 들어갈 자리를 먼저 확인한다.
-        ///   안 그러면 가방이 꽉 찼을 때 재료만 사라진다.
-        /// </summary>
         public bool TryCraft(PlayerInventory player, int batch, out string failReason)
         {
             failReason = string.Empty;
@@ -173,16 +135,12 @@ namespace KSM._00.Scripts.Crafting
             return true;
         }
  
-        // ════════════════════════════════════════════════════════════
- 
         private void OnValidate()
         {
             resultCount = Mathf.Max(1, resultCount);
             maxBatch = Mathf.Clamp(maxBatch, 1, 10);
  
             if (materials == null) return;
- 
-            // 구조체는 필드 초기화식을 못 쓰니 여기서 기본값을 채운다
             for (int i = 0; i < materials.Length; i++)
             {
                 MaterialCost m = materials[i];

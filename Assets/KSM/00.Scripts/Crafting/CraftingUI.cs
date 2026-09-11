@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -7,24 +8,6 @@ using KSM._00.Scripts.Items;
  
 namespace KSM._00.Scripts.Crafting
 {
-    /// <summary>
-    /// 제작창. 왼쪽에 목록(세로 스크롤), 오른쪽에 선택한 것의 상세.
-    ///
-    /// 씬 구조:
-    ///   Canvas
-    ///    └ CraftingPanel                ← Panel 에 연결 (평소엔 꺼둔다)
-    ///       ├ RecipeScroll              ScrollRect
-    ///       │   └ Viewport
-    ///       │       └ Content           Vertical Layout Group + Content Size Fitter
-    ///       │                           ← List Parent 에 연결
-    ///       └ Detail
-    ///           ├ ResultIcon  ResultName  MaterialsText  DescriptionText
-    ///           ├ Amount      Btn_Minus   Btn_Plus
-    ///           └ Btn_Craft (초록)  Btn_Cancel (빨강)
-    ///
-    /// Content 는 Anchor top-stretch, Pivot (0.5, 1), Content Size Fitter 의
-    /// Vertical Fit 을 Preferred Size 로 두면 목록이 늘어날 때 스크롤이 생긴다.
-    /// </summary>
     public class CraftingUI : MonoBehaviour
     {
         [Header("참조")]
@@ -73,16 +56,25 @@ namespace KSM._00.Scripts.Crafting
         [Tooltip("이 키로도 창을 닫을 수 있다")]
         [SerializeField] private Key closeKey = Key.Escape;
  
+        [Tooltip("보조 닫기 키. 제작대의 상호작용 키(E)를 넣으면 E로 열고 E로 닫는 토글이 된다.\n" +
+                 "안 쓰면 None 으로 두면 된다")]
+        [SerializeField] private Key altCloseKey = Key.None;
+ 
         [Tooltip("창이 열려 있는 동안 캐릭터를 제자리에 묶는다")]
         [SerializeField] private bool lockMovementWhileOpen = true;
  
-        /// <summary>제작창이 열려 있는가. 다른 입력 처리기가 비켜주는 데 쓴다</summary>
+        [Tooltip("열릴 때마다 '왜 안 보이는지' 를 콘솔에 찍는다. 다 고치면 꺼둘 것")]
+        [SerializeField] private bool diagnoseOnOpen = true;
         public static bool IsOpen { get; private set; }
- 
-        // Enter Play Mode Options 에서 Reload Domain 을 꺼두면 static 이 남아 있는다.
-        // true 로 굳어버리면 제작대 안내가 영영 안 뜨니 플레이 시작 때 되돌린다.
+        
+        public static int LastCloseFrame { get; private set; } = -1;
+        private int _openedFrame = -1;
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-        private static void ResetStatics() => IsOpen = false;
+        private static void ResetStatics()
+        {
+            IsOpen = false;
+            LastCloseFrame = -1;
+        }
  
         private readonly List<CraftingRecipeEntryUI> _entries = new();
  
@@ -91,18 +83,12 @@ namespace KSM._00.Scripts.Crafting
         private int _amount = 1;
  
         private PlayerInventory _player;
-        private KSM._00.Scripts.PlayerMovement _movement;
- 
-        // ════════════════════════════════════════════════════════════
-        //  수명 주기
-        // ════════════════════════════════════════════════════════════
+        private PlayerMovement _movement;
  
         private void Awake()
         {
             if (panel == null)
             {
-                // 이 스크립트는 Canvas 에 붙는다. Panel 을 비워두면 Canvas 를 통째로 꺼버려서
-                // 인벤토리·핫바까지 사라진다. 그래서 조용히 넘어가지 않고 크게 알린다
                 panel = gameObject;
  
                 Debug.LogError(
@@ -133,14 +119,13 @@ namespace KSM._00.Scripts.Crafting
         private void Update()
         {
             if (!IsOpen || Keyboard.current == null) return;
-            if (overlay != null && overlay.IsPlaying) return;   // 연출 중엔 닫지 않는다
+            if (overlay != null && overlay.IsPlaying) return;   
+            if (Time.frameCount == _openedFrame) return;
  
-            if (Keyboard.current[closeKey].wasPressedThisFrame) Close();
+            if (WasPressed(closeKey) || WasPressed(altCloseKey)) Close();
         }
- 
-        // ════════════════════════════════════════════════════════════
-        //  열고 닫기
-        // ════════════════════════════════════════════════════════════
+        private static bool WasPressed(Key key)
+            => key != Key.None && Keyboard.current[key].wasPressedThisFrame;
  
         public void Open(CraftingStationSO station)
         {
@@ -161,21 +146,20 @@ namespace KSM._00.Scripts.Crafting
  
             panel.SetActive(true);
             IsOpen = true;
+            _openedFrame = Time.frameCount;
  
             if (titleText != null) titleText.text = station.Title;
  
             BuildList();
- 
-            // 재료가 바뀌면 색과 버튼 상태가 따라와야 한다
             _player.Bag.OnChanged += RefreshDetail;
             _player.Hotbar.OnChanged += RefreshDetail;
  
             LockMovement(true);
- 
-            // 첫 항목을 자동으로 선택해준다
             Select(_entries.Count > 0 ? _entries[0].Recipe : null);
  
             if (scrollRect != null) scrollRect.verticalNormalizedPosition = 1f;
+ 
+            if (diagnoseOnOpen) DiagnoseVisibility();
         }
  
         public void Close()
@@ -187,6 +171,7 @@ namespace KSM._00.Scripts.Crafting
  
             panel.SetActive(false);
             IsOpen = false;
+            LastCloseFrame = Time.frameCount;
  
             _station = null;
             _selected = null;
@@ -209,10 +194,6 @@ namespace KSM._00.Scripts.Crafting
  
             if (_movement != null) _movement.HoldLocked = on;
         }
- 
-        // ════════════════════════════════════════════════════════════
-        //  목록
-        // ════════════════════════════════════════════════════════════
  
         private void BuildList()
         {
@@ -267,10 +248,6 @@ namespace KSM._00.Scripts.Crafting
             RefreshDetail();
         }
  
-        // ════════════════════════════════════════════════════════════
-        //  상세
-        // ════════════════════════════════════════════════════════════
- 
         private void ChangeAmount(int delta)
         {
             if (_selected == null) return;
@@ -305,8 +282,6 @@ namespace KSM._00.Scripts.Crafting
  
             if (amountText != null)
                 amountText.text = has ? _amount.ToString() : "-";
- 
-            // 목록 쪽도 재료 상태에 맞춰 흐리게 / 선명하게
             foreach (CraftingRecipeEntryUI e in _entries)
                 if (e != null && e.Recipe != null)
                     e.SetAffordable(e.Recipe.MaxAffordable(_player) > 0);
@@ -328,17 +303,10 @@ namespace KSM._00.Scripts.Crafting
                 craftButtonImage.color = canCraft ? craftReadyColor : craftBlockedColor;
         }
  
-        // ════════════════════════════════════════════════════════════
-        //  제작
-        // ════════════════════════════════════════════════════════════
- 
         private void Craft()
         {
             if (_selected == null || _player == null) return;
             if (overlay != null && overlay.IsPlaying) return;   // 연타 방지
- 
-            // ★ 먼저 실제로 만들고, 연출은 그 뒤에 보여준다.
-            //   연출이 끝나고 만들면 도중에 창을 닫았을 때 결과가 새어나간다
             if (!_selected.TryCraft(_player, _amount, out string reason))
             {
                 Debug.Log($"[제작] 실패 — {reason}");
@@ -355,6 +323,144 @@ namespace KSM._00.Scripts.Crafting
             RefreshDetail();
  
             if (overlay != null) overlay.Play();
+        }
+ 
+        [ContextMenu("제작창 표시 진단")]
+        private void DiagnoseVisibility()
+        {
+            if (panel == null) { Debug.LogError("[제작창진단] Panel 이 비어 있습니다.", this); return; }
+ 
+            StringBuilder sb = new StringBuilder();
+            int problems = 0;
+ 
+            sb.AppendLine($"═══ 제작창 표시 진단 : {panel.name} ═══");
+            sb.AppendLine($"· 활성 : {panel.activeSelf} / 계층 전체 {panel.activeInHierarchy}");
+ 
+            if (!panel.activeInHierarchy)
+            {
+                sb.AppendLine("  ★ 부모 중 하나가 꺼져 있습니다");
+                problems++;
+            }
+            RectTransform rt = panel.transform as RectTransform;
+ 
+            if (rt == null)
+            {
+                sb.AppendLine("· RectTransform : 없음  ★ UI 오브젝트가 아닙니다. Canvas 밑에 UI→Panel 로 다시 만드세요");
+                problems++;
+            }
+            else
+            {
+                Rect r = rt.rect;
+                sb.AppendLine($"· anchoredPosition : {rt.anchoredPosition}");
+                sb.AppendLine($"· rect 크기 : {r.width:0.#} x {r.height:0.#}");
+ 
+                if (r.width < 1f || r.height < 1f)
+                {
+                    sb.AppendLine("  ★ 폭이나 높이가 0 입니다. Width/Height 를 넣거나 Anchor 를 stretch 로 두세요");
+                    problems++;
+                }
+ 
+                sb.AppendLine($"· localScale : {rt.localScale} / 최종 {rt.lossyScale}");
+ 
+                if (Mathf.Abs(rt.lossyScale.x) < 0.001f || Mathf.Abs(rt.lossyScale.y) < 0.001f)
+                {
+                    sb.AppendLine("  ★ Scale 이 0 입니다");
+                    problems++;
+                }
+                Canvas canvas = panel.GetComponentInParent<Canvas>();
+                Camera cam = canvas != null && canvas.renderMode != RenderMode.ScreenSpaceOverlay
+                           ? canvas.worldCamera
+                           : null;
+ 
+                Vector3[] corners = new Vector3[4];
+                rt.GetWorldCorners(corners);
+ 
+                Vector2 min = new Vector2(float.MaxValue, float.MaxValue);
+                Vector2 max = new Vector2(float.MinValue, float.MinValue);
+ 
+                foreach (Vector3 c in corners)
+                {
+                    Vector2 sp = RectTransformUtility.WorldToScreenPoint(cam, c);
+                    min = Vector2.Min(min, sp);
+                    max = Vector2.Max(max, sp);
+                }
+ 
+                sb.AppendLine($"· 화면 좌표 : ({min.x:0}, {min.y:0}) ~ ({max.x:0}, {max.y:0})   [화면 {Screen.width}x{Screen.height}]");
+ 
+                bool onScreen = max.x > 0f && min.x < Screen.width && max.y > 0f && min.y < Screen.height;
+ 
+                if (!onScreen)
+                {
+                    sb.AppendLine("  ★ 화면 밖에 있습니다. Pos X / Pos Y 를 0 으로 되돌리세요");
+                    problems++;
+                }
+            }
+ 
+            Transform t = panel.transform;
+            while (t != null)
+            {
+                CanvasGroup cg = t.GetComponent<CanvasGroup>();
+ 
+                if (cg != null)
+                {
+                    sb.AppendLine($"· CanvasGroup [{t.name}] : alpha {cg.alpha:0.##}, interactable {cg.interactable}");
+ 
+                    if (cg.alpha < 0.01f)
+                    {
+                        sb.AppendLine("  ★ alpha 가 0 이라 투명합니다");
+                        problems++;
+                    }
+                }
+ 
+                t = t.parent;
+            }
+ 
+            Canvas root = panel.GetComponentInParent<Canvas>();
+ 
+            if (root == null)
+            {
+                sb.AppendLine("· Canvas : 없음  ★ Canvas 밖에 있습니다");
+                problems++;
+            }
+            else
+            {
+                sb.AppendLine($"· Canvas [{root.name}] : enabled {root.enabled}, {root.renderMode}, sortingOrder {root.sortingOrder}");
+ 
+                if (!root.enabled)
+                {
+                    sb.AppendLine("  ★ Canvas 컴포넌트가 꺼져 있습니다");
+                    problems++;
+                }
+ 
+                if (root.renderMode != RenderMode.ScreenSpaceOverlay && root.worldCamera == null)
+                {
+                    sb.AppendLine("  ★ Render Camera 가 비어 있습니다");
+                    problems++;
+                }
+            }
+ 
+            Graphic[] graphics = panel.GetComponentsInChildren<Graphic>(false);
+            int visible = 0;
+ 
+            foreach (Graphic g in graphics)
+                if (g.enabled && g.color.a > 0.01f) visible++;
+ 
+            sb.AppendLine($"· 자식 Graphic : 전체 {graphics.Length}개 중 보이는 것 {visible}개");
+ 
+            if (visible == 0)
+            {
+                sb.AppendLine("  ★ 그려지는 게 하나도 없습니다. Image 색의 알파나 TMP 색을 확인하세요");
+                problems++;
+            }
+ 
+            sb.AppendLine($"· 형제 순서 : {panel.transform.GetSiblingIndex()} / {panel.transform.parent.childCount - 1}  (숫자가 클수록 위에 그려짐)");
+ 
+            sb.AppendLine(problems == 0
+                ? "→ 표시 자체엔 문제가 없습니다. 화면을 다시 보세요"
+                : $"→ ★ 표시된 {problems}곳이 원인입니다");
+ 
+            if (problems == 0) Debug.Log(sb.ToString(), panel);
+            else Debug.LogError(sb.ToString(), panel);
         }
     }
 }

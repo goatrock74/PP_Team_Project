@@ -2,13 +2,6 @@
  
 namespace KSM._00.Scripts.Crafting
 {
-    /// <summary>
-    /// 제작대 한 종류가 어떤 것들을 만들 수 있는지.
-    ///
-    /// 지금은 대장간 하나뿐이지만, 나중에 요리대·연금대를 추가할 때
-    /// <b>이 에셋을 하나 더 만들고 제작대 오브젝트에 꽂기만</b> 하면 된다.
-    /// 코드는 한 줄도 안 바뀐다.
-    /// </summary>
     [CreateAssetMenu(fileName = "CraftingStationSO", menuName = "SO/Crafting/Station")]
     public class CraftingStationSO : ScriptableObject
     {
