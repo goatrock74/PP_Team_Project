@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec6549a3d9440d5a4739ee0c82107e1, type: 3}
+  m_Name: KoiCrafting
+  m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingRecipeSO
+  result: {fileID: 11400000, guid: afee1b75e1a60fe4f86acf83c0ada9dc, type: 2}
+  resultCount: 1
+  materials:
+  - item: {fileID: 11400000, guid: b5d571315543dcf44881f8bcbb81df05, type: 2}
+    count: 2
+  - item: {fileID: 11400000, guid: cad8daf0889875043bbb9330f244b001, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: a20aefdce20259e48a28a0af021b178c, type: 2}
+    count: 1
+  maxBatch: 3
+  description: fishfish!

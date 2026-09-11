@@ -2370,6 +2370,10 @@ MonoBehaviour:
   fishingAreaCheck: {fileID: 5022662610120601307}
   fishSelector: {fileID: 2901346291419793180}
   splashParticle: {fileID: 7751772685987678850, guid: 0387cf995dbbb494f8d615397183d20e, type: 3}
+<<<<<<< HEAD
+  requireWaterToCast: 0
+=======
+>>>>>>> Base
   movement: {fileID: 0}
 --- !u!114 &324735642
 MonoBehaviour:

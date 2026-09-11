@@ -3,27 +3,6 @@ using UnityEngine;
  
 namespace KSM._00.Scripts.Items
 {
-    /// <summary>
-    /// 아이템을 얻을 때 화면 오른쪽에서 알림이 미끄러져 나오게 한다.
-    ///
-    /// 같은 아이템이 연달아 들어오면 새 줄을 만들지 않고 <b>기존 줄의 숫자를 올린다.</b>
-    /// 안 그러면 3개짜리 수확 한 번에 알림이 세 줄 쌓여서 화면이 시끄러워진다.
-    ///
-    /// 씬 구조:
-    ///   Canvas
-    ///    └ ToastArea       RectTransform + Vertical Layout Group + Content Size Fitter
-    ///                      + PickupToastUI          ← Container 칸에 자기 자신 연결
-    ///
-    /// <b>새 알림이 아래에서 위로 쌓이게 하려면</b> (Newest At Bottom = true 기준)
-    ///   · ToastArea 의 Anchor 와 Pivot 을 <b>둘 다 오른쪽 아래</b>로 (Pivot = 1, 0)
-    ///   · Content Size Fitter → Vertical Fit = Preferred Size
-    ///     (아래 모서리가 고정된 채 위로 늘어난다 = 기존 알림이 위로 밀린다)
-    ///   · Vertical Layout Group → Child Alignment = Lower Right,
-    ///     Child Force Expand 둘 다 끄기, Spacing 6 정도
-    ///
-    /// Pivot 이 (1, 1) 이면 위 모서리가 고정돼서 아래로 늘어난다.
-    /// 그게 지금 "위에서 아래로 뜨는" 이유다.
-    /// </summary>
     public class PickupToastUI : MonoBehaviour
     {
         [Header("참조")]
@@ -73,13 +52,9 @@ namespace KSM._00.Scripts.Items
             _player = null;
         }
  
-        // ════════════════════════════════════════════════════════════
- 
         private void HandleItemGained(ItemSO item, int count, ItemQuality quality)
         {
             if (item == null || count <= 0) return;
- 
-            // 이미 떠 있는 같은 아이템이 있으면 숫자만 올린다
             PickupToast existing = FindActive(item, quality);
             if (existing != null)
             {
@@ -89,9 +64,6 @@ namespace KSM._00.Scripts.Items
  
             PickupToast toast = Rent();
             if (toast == null) return;
- 
-            // Vertical Layout Group 은 형제 순서대로 위에서 아래로 놓는다.
-            // 마지막 형제 = 맨 아래 줄
             if (newestAtBottom) toast.transform.SetAsLastSibling();
             else toast.transform.SetAsFirstSibling();
  
@@ -113,7 +85,6 @@ namespace KSM._00.Scripts.Items
             return null;
         }
  
-        // ════════════════════════════════════════════════════════════
  
         private PickupToast Rent()
         {
@@ -123,11 +94,9 @@ namespace KSM._00.Scripts.Items
                 return null;
             }
  
-            // 쉬고 있는 것 먼저
             foreach (PickupToast t in _pool)
                 if (t != null && !t.IsActive) return t;
  
-            // 너무 많으면 가장 오래된 걸 밀어낸다
             if (_active.Count >= maxVisible && _active.Count > 0)
             {
                 PickupToast oldest = _active[0];

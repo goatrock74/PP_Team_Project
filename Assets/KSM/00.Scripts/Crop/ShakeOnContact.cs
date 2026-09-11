@@ -2,14 +2,6 @@
  
 namespace KSM._00.Scripts.Effects
 {
-    /// <summary>
-    /// 플레이어가 지나가면 살짝 흔들린다. 풀숲을 헤치고 지나가는 느낌을 준다.
-    ///
-    /// <b>Collider2D 의 Is Trigger 를 켜야 한다.</b> 안 켜면 플레이어가 막혀서
-    /// 애초에 닿을 일이 없다.
-    ///
-    /// 붙일 곳: 작물 프리팹, 풀숲 등
-    /// </summary>
     [RequireComponent(typeof(Collider2D))]
     public class ShakeOnContact : MonoBehaviour
     {
@@ -50,8 +42,6 @@ namespace KSM._00.Scripts.Effects
             if (Time.time < _nextShakeTime) return;
  
             _nextShakeTime = Time.time + cooldown;
- 
-            // Shaker 의 기본 세기를 비율로 줄여서 스치는 느낌만 낸다
             shaker.Shake(shaker.Duration, shaker.Strength * strengthScale);
         }
     }

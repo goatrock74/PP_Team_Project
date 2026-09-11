@@ -4,18 +4,6 @@ using UnityEngine.UI;
  
 namespace KSM._00.Scripts.Items
 {
-    /// <summary>
-    /// 룰렛 띠에 늘어서는 카드 한 장.
-    ///
-    /// 프리팹 구조:
-    ///   Card          Image(배경) + GachaCardUI
-    ///    ├ Frame      Image        ← 등급 색이 칠해지는 테두리 (선택)
-    ///    ├ Icon       Image
-    ///    ├ Name       TextMeshPro
-    ///    └ Rarity     TextMeshPro
-    ///
-    /// 모든 자식의 Raycast Target 은 꺼두는 게 좋다 (클릭할 일이 없다).
-    /// </summary>
     public class GachaCardUI : MonoBehaviour
     {
         [SerializeField] private Image iconImage;

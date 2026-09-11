@@ -11,21 +11,18 @@ namespace KSM._00.Scripts.Crop
         private SpriteRenderer _renderer;
         private CropManager _manager;
         private bool _initialized;
-        private bool _harvested;   // 1회용 작물이 흔들리는 동안 두 번 캐이는 걸 막는다
+        private bool _harvested;   
  
         [field: SerializeField] public int NowGrowthStage { get; private set; }
         [field: SerializeField] public float CurrentTimeStage { get; private set; }
         [field: SerializeField] public bool IsGrowFinished { get; private set; }
  
-        /// <summary>이 작물이 차지한 영역의 좌하단 칸</summary>
         public Vector3Int OriginCell { get; private set; }
  
         public CropSO Data => cropSO;
  
-        /// <summary>단계가 바뀔 때 (파티클, 사운드 등이 구독)</summary>
         public event Action<int> OnStageChanged;
  
-        // ── IHarvestable ────────────────────────────────────────────────
         public bool CanHarvest => _initialized && IsGrowFinished && !_harvested;
  
         public string HarvestPrompt
@@ -36,8 +33,6 @@ namespace KSM._00.Scripts.Crop
                 return IsGrowFinished ? $"{cropSO.cropName} 수확" : $"{cropSO.cropName} (자라는 중)";
             }
         }
-        // ────────────────────────────────────────────────────────────────
- 
         private void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
@@ -55,10 +50,6 @@ namespace KSM._00.Scripts.Crop
             _manager = null;
         }
  
-        /// <summary>
-        /// 씬에 미리 배치해둔 테스트용 작물을 자동으로 등록한다.
-        /// TryPlant로 심은 작물은 이미 _initialized라 여기서 건너뛴다.
-        /// </summary>
         private void Start()
         {
             if (_initialized || cropSO == null) return;
@@ -73,7 +64,6 @@ namespace KSM._00.Scripts.Crop
             mgr.OccupyCells(this);
         }
  
-        /// <summary>심을 때 CropManager.TryPlant가 호출한다.</summary>
         public void Init(CropSO crop, Vector3Int originCell)
         {
             if (crop == null || crop.growthStages == null || crop.growthStages.Length == 0)
@@ -100,7 +90,6 @@ namespace KSM._00.Scripts.Crop
  
             float needTime = cropSO.growthStages[NowGrowthStage].durationTime;
  
-            // while + 빼기: 큰 delta 하나로 여러 단계를 건너뛰어도 시간이 새지 않는다
             while (!IsGrowFinished && CurrentTimeStage >= needTime)
             {
                 CurrentTimeStage -= needTime;
@@ -127,21 +116,12 @@ namespace KSM._00.Scripts.Crop
         {
             if (!CanHarvest) return false;
  
-            // Unity의 == 는 파괴된 오브젝트도 null로 판정하므로 ??= 대신 이렇게 쓴다
             if (_manager == null) _manager = CropManager.Instance;
- 
-            // 계절·날씨 보정을 곱한다 (해당 시스템이 없으면 배수 1, 보너스 0)
             float yieldMul = _manager != null ? _manager.YieldMultiplier : 1f;
             float qualityBonus = _manager != null ? _manager.QualityBonus : 0f;
  
             int amount = Mathf.Max(1, Mathf.RoundToInt(cropSO.RollYield() * yieldMul));
- 
-            // 농사 마스터리 10레벨 전에는 최상 등급이 '좋음'으로 강등된다.
-            // 보정자가 하나도 안 꽂혀 있으면 제한 없음
             bool allowBest = _manager == null || _manager.AllowBestQuality;
- 
-            // 한 번 수확에 품질을 한 번 굴린다.
-            // 열매 하나하나 다르게 하고 싶으면 amount 만큼 반복해서 굴리고 품질별로 나눠 보내면 된다
             ItemQuality quality = cropSO.qualityChance.Roll(qualityBonus, allowBest);
  
             if (cropSO.harvestItem == null)
@@ -150,7 +130,6 @@ namespace KSM._00.Scripts.Crop
             }
             else if (_manager != null)
             {
-                // ★ 자리가 없으면 아예 수확하지 않는다. 안 그러면 수확물이 조용히 증발한다
                 if (!_manager.CheckCanAccept(cropSO.harvestItem, amount, quality))
                 {
                     _manager.NotifyHarvestBlocked("가방이 가득 찼습니다");
@@ -159,16 +138,12 @@ namespace KSM._00.Scripts.Crop
  
                 _manager.NotifyHarvested(cropSO.harvestItem, amount, quality);
             }
- 
-            // 농사 경험치는 수확물의 가치로 정해진다. 비싼 작물일수록, 등급이 좋을수록 많이 준다.
-            // 씬에 MasteryManager 가 없으면 아무 일도 일어나지 않는다
             if (cropSO.harvestItem != null)
                 MasteryManager.GainByValue(MasteryType.Farming, cropSO.harvestItem.GetSellPrice(quality) * amount);
  
             switch (cropSO.harvestType)
             {
                 case HarvestType.Single:
-                    // 한 번 캐면 끝. 칸을 반납하고 바로 치운다
                     if (_manager != null) _manager.ReleaseCells(this);
  
                     _harvested = true;
@@ -176,7 +151,6 @@ namespace KSM._00.Scripts.Crop
                     break;
  
                 case HarvestType.Multiple:
-                    // 다시 자라는 작물. 지정된 단계로 되돌린다
                     NowGrowthStage = Mathf.Clamp(cropSO.regrowStageIndex, 0, cropSO.harvestStageIndex);
                     CurrentTimeStage = 0f;
                     IsGrowFinished = NowGrowthStage >= cropSO.harvestStageIndex;
@@ -186,11 +160,6 @@ namespace KSM._00.Scripts.Crop
  
             return true;
         }
- 
-        /// <summary>
-        /// 성장을 즉시 앞당긴다 (물주기, 비료 등). 단위는 인게임 일수.
-        /// 여러 단계를 한 번에 건너뛰어도 Tick 안의 while 이 알아서 처리한다.
-        /// </summary>
         public bool AddGrowth(float days)
         {
             if (!_initialized || IsGrowFinished || days <= 0f) return false;
@@ -198,8 +167,6 @@ namespace KSM._00.Scripts.Crop
             Tick(days);
             return true;
         }
- 
-        /// <summary>세이브 로드용. Init 다음에 호출한다.</summary>
         public void LoadState(int stage, float stageTime)
         {
             if (!_initialized) return;

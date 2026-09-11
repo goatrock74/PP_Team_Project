@@ -6,8 +6,8 @@ using UnityEngine.UI;
  
 namespace KSM._00.Scripts.Items
 {
-   
-    public class InventorySlotUI : MonoBehaviour, IPointerClickHandler
+    public class InventorySlotUI : MonoBehaviour,
+        IPointerClickHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IDropHandler
     {
         [Header("표시")]
         [SerializeField] private Image iconImage;
@@ -31,18 +31,24 @@ namespace KSM._00.Scripts.Items
         [SerializeField] private GameObject selectedFrame;
  
         public int Index { get; private set; }
-        public event Action<int, bool> OnClicked;
+        public SlotArea Area { get; private set; } = SlotArea.Bag;
+        public bool HasItem { get; private set; }
+        public event Action<InventorySlotUI, bool> OnClicked;
  
         private GameObject _outlineRoot;
         private ItemSO _lastWarnedItem;
+        private Canvas _canvas;
+        public void Setup(int index) => Setup(SlotArea.Bag, index);
  
-        public void Setup(int index)
+        public void Setup(SlotArea area, int index)
         {
+            Area = area;
             Index = index;
+ 
+            if (_canvas == null) _canvas = GetComponentInParent<Canvas>();
  
             if (autoOutline && _outlineRoot == null) BuildOutline();
             SetSelected(false);
-            
             if (index != 0) return;
  
             if (iconImage == null)
@@ -56,6 +62,7 @@ namespace KSM._00.Scripts.Items
         public void SetSlot(ItemStack stack)
         {
             bool hasItem = stack != null && !stack.IsEmpty;
+            HasItem = hasItem;
  
             if (iconImage != null)
             {
@@ -102,8 +109,59 @@ namespace KSM._00.Scripts.Items
         public void OnPointerClick(PointerEventData eventData)
         {
             bool isLeft = eventData.button == PointerEventData.InputButton.Left;
-            OnClicked?.Invoke(Index, isLeft);
+            OnClicked?.Invoke(this, isLeft);
         }
+ 
+        private static InventorySlotUI _dragSource;
+ 
+        public void OnBeginDrag(PointerEventData eventData)
+        {
+            if (eventData.button != PointerEventData.InputButton.Left) return;
+            if (!HasItem) return;
+ 
+            PlayerInventory player = PlayerInventory.Instance;
+            ItemStack stack = player != null ? player.GetSlot(Area, Index) : null;
+            if (stack == null || stack.IsEmpty) return;
+ 
+            _dragSource = this;
+ 
+            Vector2 size = iconImage != null
+                ? ((RectTransform)iconImage.transform).rect.size
+                : new Vector2(64f, 64f);
+ 
+            Color tint = tintIconByQuality ? ItemQualityUtil.TintColor(stack.quality) : Color.white;
+ 
+            DragGhost.Show(stack.item.icon, tint, size, _canvas);
+            DragGhost.Move(eventData.position);
+        }
+ 
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (_dragSource != this) return;
+ 
+            DragGhost.Move(eventData.position);
+        }
+ 
+        public void OnEndDrag(PointerEventData eventData)
+        {
+            DragGhost.Hide();
+ 
+            if (_dragSource == this) _dragSource = null;
+        }
+ 
+        public void OnDrop(PointerEventData eventData)
+        {
+            if (_dragSource == null || _dragSource == this) return;
+ 
+            PlayerInventory player = PlayerInventory.Instance;
+            if (player == null) return;
+ 
+            player.MoveOrSwap(_dragSource.Area, _dragSource.Index, Area, Index);
+ 
+            DragGhost.Hide();
+            _dragSource = null;
+        }
+ 
  
         private void BuildOutline()
         {
@@ -117,10 +175,11 @@ namespace KSM._00.Scripts.Items
             root.offsetMax = Vector2.zero;
  
             float t = outlineThickness;
-            CreateBar(root, new Vector2(0, 1), new Vector2(1, 1), new Vector2(0.5f, 1f), new Vector2(0, t)); // 위
-            CreateBar(root, new Vector2(0, 0), new Vector2(1, 0), new Vector2(0.5f, 0f), new Vector2(0, t)); // 아래
-            CreateBar(root, new Vector2(0, 0), new Vector2(0, 1), new Vector2(0f, 0.5f), new Vector2(t, 0)); // 왼쪽
-            CreateBar(root, new Vector2(1, 0), new Vector2(1, 1), new Vector2(1f, 0.5f), new Vector2(t, 0)); // 오른쪽
+            
+            CreateBar(root, new Vector2(0, 1), new Vector2(1, 1), new Vector2(0.5f, 1f), new Vector2(0, t)); 
+            CreateBar(root, new Vector2(0, 0), new Vector2(1, 0), new Vector2(0.5f, 0f), new Vector2(0, t));
+            CreateBar(root, new Vector2(0, 0), new Vector2(0, 1), new Vector2(0f, 0.5f), new Vector2(t, 0)); 
+            CreateBar(root, new Vector2(1, 0), new Vector2(1, 1), new Vector2(1f, 0.5f), new Vector2(t, 0)); 
  
             _outlineRoot.SetActive(false);
         }
@@ -143,3 +202,4 @@ namespace KSM._00.Scripts.Items
         }
     }
 }
+ 

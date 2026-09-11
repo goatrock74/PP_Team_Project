@@ -20,10 +20,11 @@ MonoBehaviour:
   maxStack: 1
   sellPrice: 0
   tier: 0
-  areaSize: {x: 1, y: 1}
+  areaSize: {x: 5, y: 5}
   hitBoxSize: {x: 1.2, y: 1.2}
   hitBoxDistance: 0.8
   verboseLog: 1
+  showPreview: 1
   animationTrigger: Hoe
   heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
   impactDelay: 0.15

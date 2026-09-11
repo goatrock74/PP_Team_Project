@@ -2,15 +2,6 @@
 using PJH.Scripts;
 using KSM._00.Scripts.Items;
  
-/// <summary>
-/// 낚시 시스템과 인벤토리 · 마스터리를 잇는 <b>유일한</b> 다리.
-///
-/// 친구 코드는 한 줄도 안 고친다. FishingMiniGame 이 이미 쏘고 있는
-/// OnFishingSucceeded 이벤트를 그냥 옆에서 같이 구독할 뿐이다.
-/// (FishingController 도 같은 이벤트를 듣고 있는데, 구독자는 여럿이어도 된다)
-///
-/// 씬 배치: FishingMiniGame 이 붙어 있는 오브젝트에 같이 붙이면 편하다.
-/// </summary>
 public class FishingInventoryAdapter : MonoBehaviour
 {
     [Header("참조")]
@@ -49,7 +40,6 @@ public class FishingInventoryAdapter : MonoBehaviour
         if (miniGame != null) miniGame.OnFishingSucceeded -= HandleCaught;
     }
  
-    // ════════════════════════════════════════════════════════════
  
     private void HandleCaught(FishDataSO fish)
     {
@@ -65,7 +55,6 @@ public class FishingInventoryAdapter : MonoBehaviour
  
         ItemQuality quality = RollQuality(fish);
  
-        // 가방이 가득 찼으면 알려주고 끝낸다. 조용히 사라지는 게 제일 나쁘다
         if (!player.CanAccept(fish, 1, quality))
         {
             Debug.LogWarning($"[낚시연동] 가방이 가득 차서 {fish.DisplayName} 을(를) 놓쳤습니다.", this);
@@ -74,8 +63,6 @@ public class FishingInventoryAdapter : MonoBehaviour
  
         player.Add(fish, 1, quality);
  
-        // 낚시 마스터리 경험치는 물고기 등급으로 정해진다.
-        // 씬에 MasteryManager 가 없으면 아무 일도 일어나지 않는다
         MasteryManager.GainByRarity(MasteryType.Fishing, fish.rarity);
  
         if (verboseLog)
@@ -86,7 +73,6 @@ public class FishingInventoryAdapter : MonoBehaviour
     {
         if (!rollQuality) return ItemQuality.Normal;
  
-        // 마스터리의 낚시 행운 + 물고기 난이도만큼 좋은 등급 확률이 오른다
         float bonus = MasteryManager.Stat(MasteryStat.FishLuck)
                     + fish.difficulty * difficultyQualityBonus;
  
