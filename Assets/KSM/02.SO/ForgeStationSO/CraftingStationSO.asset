@@ -16,7 +16,5 @@ MonoBehaviour:
   icon: {fileID: -2524474611125963301, guid: 1c06702e3e302ac4b95bf37a14009349, type: 3}
   recipes:
   - {fileID: 11400000, guid: a78e6ca29d76db949a53b2212cc6390b, type: 2}
-  - {fileID: 11400000, guid: a78e6ca29d76db949a53b2212cc6390b, type: 2}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 8fba4c2cf5854a34bb7b148c7785e552, type: 2}
+  - {fileID: 11400000, guid: 1137ea11c7906494a96798a2181c2dbc, type: 2}

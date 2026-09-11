@@ -79,6 +79,11 @@ namespace KSM._00.Scripts.Crafting
         /// <summary>제작창이 열려 있는가. 다른 입력 처리기가 비켜주는 데 쓴다</summary>
         public static bool IsOpen { get; private set; }
  
+        // Enter Play Mode Options 에서 Reload Domain 을 꺼두면 static 이 남아 있는다.
+        // true 로 굳어버리면 제작대 안내가 영영 안 뜨니 플레이 시작 때 되돌린다.
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics() => IsOpen = false;
+ 
         private readonly List<CraftingRecipeEntryUI> _entries = new();
  
         private CraftingStationSO _station;
@@ -94,7 +99,16 @@ namespace KSM._00.Scripts.Crafting
  
         private void Awake()
         {
-            if (panel == null) panel = gameObject;
+            if (panel == null)
+            {
+                // 이 스크립트는 Canvas 에 붙는다. Panel 을 비워두면 Canvas 를 통째로 꺼버려서
+                // 인벤토리·핫바까지 사라진다. 그래서 조용히 넘어가지 않고 크게 알린다
+                panel = gameObject;
+ 
+                Debug.LogError(
+                    "[제작] Panel 칸이 비어 있습니다. CraftingPanel 을 연결하세요. " +
+                    "이대로 두면 Canvas 전체가 꺼집니다.", this);
+            }
  
             if (minusButton != null) minusButton.onClick.AddListener(() => ChangeAmount(-1));
             if (plusButton != null) plusButton.onClick.AddListener(() => ChangeAmount(+1));
