@@ -17,6 +17,7 @@ MonoBehaviour:
   icon: {fileID: 5475462288572003310, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
   description: "깊은 바다의 높은 압력에 적응한 부드럽고 젤리 같은 몸을 지녔다."
+  rarity: 4
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

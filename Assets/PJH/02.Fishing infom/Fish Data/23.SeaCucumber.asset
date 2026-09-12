@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
-  m_Name: 27.LeopardCoralGrouper
+  m_Name: 23.SeaCucumber
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  fishID: LeopardCoralGrouper
-  displayName: "\uBB34\uB2AC\uBC14\uB9AC"
-  icon: {fileID: -5002341440523500963, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  fishID: SeaCucumber
+  displayName: "\uB3CC\uAE30\uD574\uC0BC"
+  icon: {fileID: 8334380433764311953, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "화려한 점무늬를 지니고 산호초에서 먹이를 기다리는 바리류 물고기."
+  description: "몸의 돌기를 오므렸다 펴며 해저의 유기물을 먹는 해양생물."
   rarity: 2
   difficulty: 0
   moveSpeed: 0.18

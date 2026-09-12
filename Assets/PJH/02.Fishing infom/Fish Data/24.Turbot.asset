@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
-  m_Name: 27.LeopardCoralGrouper
+  m_Name: 24.Turbot
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  fishID: LeopardCoralGrouper
-  displayName: "\uBB34\uB2AC\uBC14\uB9AC"
-  icon: {fileID: -5002341440523500963, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  fishID: Turbot
+  displayName: "\uD130\uBD07"
+  icon: {fileID: -8071675455219793797, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "화려한 점무늬를 지니고 산호초에서 먹이를 기다리는 바리류 물고기."
+  description: "두 눈이 한쪽으로 몰린 납작한 몸으로 모래 바닥에 숨어 지낸다."
   rarity: 2
   difficulty: 0
   moveSpeed: 0.18

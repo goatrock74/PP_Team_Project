@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 22.YessoScallop
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  fishID: YessoScallop
+  displayName: "\uD070\uAC00\uB9AC\uBE44"
+  icon: {fileID: -2678372718066289977, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  basePrice: 100
+  description: "\uBD80\uCC44 \uBAA8\uC591 \uAECD\uB370\uAE30\uB97C \uBE60\uB974\uAC8C \uC5EC\uB2EB\uC544 \uC9E7\uC740 \uAC70\uB9AC\uB97C \uD5E4\uC5C4\uCE58\uB294 \uD070 \uAC00\uB9AC\uBE44."
+  rarity: 2
+  difficulty: 2
+  moveSpeed: 0.25
+  minTargetChangeTime: 0.85
+  maxTargetChangeTime: 1.35
+  maxMoveDistance: 0.28
