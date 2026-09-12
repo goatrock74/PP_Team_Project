@@ -19,7 +19,7 @@ public class ItemSO : ScriptableObject
     [Header("표시")]
     public string displayName;
     public Sprite icon;
-    [TextArea(2, 4)] public string description;
+    [TextArea(2, 5)] public string description;
  
     [Header("분류")]
     public ItemType itemType;
