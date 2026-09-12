@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 18.ScrewTurretSnail
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  itemId: ScrewTurretSnail
+  displayName: "\uB098\uC0AC\uACE0\uB465"
+  icon: {fileID: 3135833260886424519, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  description: "\ub098\uc0ac\ucc98\ub7fc \uae38\uac8c \uac10\uae34 \uaecd\ub370\uae30\ub97c \uc9c0\ub2c8\uace0 \ubaa8\ub798 \ubc14\ub2e5\uc744 \ucc9c\ucc9c\ud788 <nobr>\uae30\uc5b4</nobr> \ub2e4\ub2cc\ub2e4."
+  itemType: 2
+  maxStack: 99
+  sellPrice: 0
+  fishID: ScrewTurretSnail
+  rarity: 1
+  difficulty: 1
+  moveSpeed: 0.14
+  minTargetChangeTime: 1.6
+  maxTargetChangeTime: 2.4
+  maxMoveDistance: 0.12

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 33.RedCoral
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  fishID: RedCoral
+  displayName: "\uBD89\uC740\uC0B0\uD638"
+  icon: {fileID: 6641867529930725128, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  basePrice: 100
+  description: "\ubd89\uc740 \uac00\uc9c0\ucc98\ub7fc \ubcf4\uc774\uc9c0\ub9cc \uc218\ub9ce\uc740 \uc791\uc740 \ud3f4\ub9bd\uc774 \ud568\uaed8 \ub9cc\ub4e0 \uc0b0\ud638 <nobr>\uad70\uccb4.</nobr>"
+  rarity: 3
+  difficulty: 2
+  moveSpeed: 0.19
+  minTargetChangeTime: 1.2
+  maxTargetChangeTime: 2
+  maxMoveDistance: 0.18

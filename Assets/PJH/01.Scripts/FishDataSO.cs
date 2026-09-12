@@ -19,6 +19,7 @@ namespace PJH.Scripts
  
         // displayName  → ItemSO 에 있음
         // icon         → ItemSO 에 있음
+        // description  → ItemSO 에 있음 (도감의 한 줄 설명)
         // basePrice    → ItemSO 의 Sell Price 를 쓴다 (품질 배수까지 자동 적용)
         [Header("등급")]
         [Tooltip("낚시 마스터리 경험치가 이 등급으로 정해진다")]

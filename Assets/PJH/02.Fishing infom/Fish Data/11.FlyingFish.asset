@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 11.FlyingFish
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  fishID: FlyingFish
+  displayName: "\uB0A0\uCE58"
+  icon: {fileID: -1866886771451610932, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  basePrice: 100
+  description: "\ucee4\ub2e4\ub780 \uac00\uc2b4\uc9c0\ub290\ub7ec\ubbf8\ub97c \ud3bc\uccd0 <nobr>\uc218\uba74</nobr> \uc704\ub97c \ud65c\uacf5\ud558\ub294 \ubb3c\uace0\uae30."
+  rarity: 1
+  difficulty: 0
+  moveSpeed: 0.18
+  minTargetChangeTime: 1.5
+  maxTargetChangeTime: 2.22
+  maxMoveDistance: 0.14

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 08.SpanishMackerel
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  fishID: SpanishMackerel
+  displayName: "\uC0BC\uCE58"
+  icon: {fileID: 4932627652362033286, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  basePrice: 100
+  description: "\ub0a0\ub835\ud55c \ubab8\uc73c\ub85c \uc5f0\uc548\uc744 \ube60\ub974\uac8c \ud5e4\uc5c4\uce58\uba70 \uc791\uc740 \ubb3c\uace0\uae30\ub97c <nobr>\uc0ac\ub0e5\ud55c\ub2e4.</nobr>"
+  rarity: 0
+  difficulty: 0
+  moveSpeed: 0.18
+  minTargetChangeTime: 1.5
+  maxTargetChangeTime: 2.22
+  maxMoveDistance: 0.14

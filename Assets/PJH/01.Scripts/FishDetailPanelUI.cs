@@ -10,6 +10,7 @@ namespace PJH.Scripts
         [SerializeField] private Image fishIcon;
         [SerializeField] private TextMeshProUGUI fishName;
         [SerializeField] private TextMeshProUGUI fishPrice;
+        [SerializeField] private TextMeshProUGUI fishDescription;
         
         private FishDataSO currentFishData;
 
@@ -31,7 +32,8 @@ namespace PJH.Scripts
             fishIcon.enabled = true;
             
             fishName.text = fishData.displayName;
-            fishPrice.text = fishData.sellPrice.ToString();
+            fishPrice.text = $"가격 : {fishData.sellPrice.ToString()}";
+            fishDescription.text = fishData.description;
             
             
         }
