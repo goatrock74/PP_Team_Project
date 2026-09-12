@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uAC80\uC740\uD574\uC0BC"
   icon: {fileID: -4505679722818219865, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "검은 몸으로 산호초와 얕은 바다 바닥을 천천히 기어 다니는 해삼."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uD130\uBD07"
   icon: {fileID: -8071675455219793797, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "두 눈이 한쪽으로 몰린 납작한 몸으로 모래 바닥에 숨어 지낸다."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

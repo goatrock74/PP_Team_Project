@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uBCF5\uD574\uB9C8"
   icon: {fileID: -4737547748415161889, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "꼬리로 해초를 붙잡고 몸을 곧게 세운 채 헤엄치는 점박이 해마."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

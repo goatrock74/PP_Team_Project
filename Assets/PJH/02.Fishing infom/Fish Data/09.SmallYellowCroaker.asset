@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uCC38\uC870\uAE30"
   icon: {fileID: -1798974703447100460, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "노란빛 지느러미와 황금빛 몸을 지닌 동아시아 연안 물고기."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uBB34\uC810\uB9E4\uAC00\uB9AC"
   icon: {fileID: -3632933600622661128, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "둥근 이마와 은빛 몸을 지닌 따뜻한 연안의 빠른 물고기."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

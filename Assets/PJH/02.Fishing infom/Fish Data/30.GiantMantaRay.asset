@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uB300\uC655\uC9C0\uAC00\uC624\uB9AC"
   icon: {fileID: -337284965171754829, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "거대한 가슴지느러미를 펼쳐 열린 바다를 우아하게 헤엄치는 가오리."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

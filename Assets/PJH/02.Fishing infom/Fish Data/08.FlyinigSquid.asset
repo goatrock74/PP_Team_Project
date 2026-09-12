@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uC0B4\uC624\uC9D5\uC5B4"
   icon: {fileID: -7321172944869395153, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "물을 뿜어 빠르게 헤엄치고 때로 수면 위로 튀어 오르는 오징어."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

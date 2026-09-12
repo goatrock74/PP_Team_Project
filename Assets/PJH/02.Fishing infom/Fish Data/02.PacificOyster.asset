@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
-  m_Name: 01.Guppy Data
+  m_Name: 02.PacificOyster
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  itemId: 
-  displayName: "\uAD6C\uD53C"
-  icon: {fileID: -5127773444435267930, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  description: 
+  itemId: PacificOyster
+  displayName: "\uCC38\uAD74"
+  icon: {fileID: 3577579951278017853, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  description: "\uBC14\uC704\uC5D0 \uB2E8\uB2E8\uD788 \uBD99\uC5B4 \uBC14\uB2F7\uBB3C\uC744 \uAC78\uB7EC \uBA39\uC774\uB97C \uC5BB\uB294 \uD07C\uC9C1\uD55C \uAD74."
   itemType: 2
   maxStack: 99
   sellPrice: 0
-  fishID: Guppy
+  fishID: PacificOyster
   rarity: 0
   difficulty: 1
-  moveSpeed: 0.18
-  minTargetChangeTime: 1.5
-  maxTargetChangeTime: 2.22
-  maxMoveDistance: 0.14
+  moveSpeed: 0.12
+  minTargetChangeTime: 1.8
+  maxTargetChangeTime: 2.6
+  maxMoveDistance: 0.1

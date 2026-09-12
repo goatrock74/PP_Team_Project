@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 15.MediterraneanRedSeaStar
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  fishID: MediterraneanRedSeaStar
+  displayName: "\uC9C0\uC911\uD574\uBD89\uC740\uBD88\uAC00\uC0AC\uB9AC"
+  icon: {fileID: 5393911257231448588, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  basePrice: 100
+  description: "\uAE38\uACE0 \uBD89\uC740 \uB2E4\uC12F \uD314\uB85C \uBC14\uC704 \uD45C\uBA74\uC744 \uCC9C\uCC9C\uD788 \uC774\uB3D9\uD558\uB294 \uBD88\uAC00\uC0AC\uB9AC."
+  rarity: 2
+  difficulty: 2
+  moveSpeed: 0.15
+  minTargetChangeTime: 1.6
+  maxTargetChangeTime: 2.4
+  maxMoveDistance: 0.14

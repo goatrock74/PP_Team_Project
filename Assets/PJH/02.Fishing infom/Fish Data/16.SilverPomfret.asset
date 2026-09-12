@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uC2E4\uBC84\uD3FC\uD504\uB81B"
   icon: {fileID: 6427948120561219084, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "은빛의 납작하고 둥근 몸으로 따뜻한 연안 바다를 헤엄치는 물고기."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

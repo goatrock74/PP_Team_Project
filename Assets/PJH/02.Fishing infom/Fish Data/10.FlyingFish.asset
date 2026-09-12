@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uB0A0\uCE58"
   icon: {fileID: -1866886771451610932, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "커다란 가슴지느러미를 펼쳐 수면 위를 활공하는 물고기."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

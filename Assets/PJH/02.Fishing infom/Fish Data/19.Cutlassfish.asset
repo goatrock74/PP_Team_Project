@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uAC08\uCE58"
   icon: {fileID: 3188902910344226571, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "칼날처럼 길고 은빛 나는 몸으로 밤바다를 누비는 포식성 물고기."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

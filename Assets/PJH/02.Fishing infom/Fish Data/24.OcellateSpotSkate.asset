@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uD64D\uC5B4"
   icon: {fileID: -5332480648177596821, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "날개 같은 지느러미의 커다란 눈무늬가 특징인 해저 가오리."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5
