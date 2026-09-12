@@ -6,16 +6,6 @@ using UnityEngine.UI;
  
 namespace KSM._00.Scripts.Crafting
 {
-    /// <summary>
-    /// 제작할 때 화면을 덮는 "제작중" 연출.
-    ///
-    /// 씬 구조 (Canvas 밑, 다른 UI 보다 <b>아래쪽 형제</b>여야 위에 그려진다):
-    ///   CraftingOverlay    Image(반투명 검정, 화면 전체 stretch) + CanvasGroup + 이 스크립트
-    ///    ├ Icon            Image        ← 모루 그림
-    ///    └ Label           TextMeshPro  ← "제작중"
-    ///
-    /// 실제 제작은 이미 끝난 뒤에 재생된다. 순수 연출이라 없어도 게임은 돈다.
-    /// </summary>
     public class CraftingOverlay : MonoBehaviour
     {
         [Header("참조")]
@@ -48,21 +38,40 @@ namespace KSM._00.Scripts.Crafting
         public bool IsPlaying { get; private set; }
  
         private Coroutine _routine;
+        private bool _init;
  
         private void Awake()
         {
-            if (root == null) root = gameObject;
-            if (group == null) group = root.GetComponent<CanvasGroup>();
- 
+            EnsureInit();
             root.SetActive(false);
         }
+        private void EnsureInit()
+        {
+            if (_init) return;
+            _init = true;
  
-        /// <summary>연출을 재생하고, 끝나면 onDone 을 부른다</summary>
+            if (root == null) root = gameObject;
+            if (group == null) group = root.GetComponent<CanvasGroup>();
+        }
         public void Play(Action onDone = null)
         {
+            EnsureInit();
+            root.SetActive(true);
+ 
+            if (!isActiveAndEnabled || !gameObject.activeInHierarchy)
+            {
+                Debug.LogWarning("[제작연출] 이 오브젝트가 꺼져 있어 연출을 건너뜁니다. " +
+                                 "CraftingOverlay 는 켜지는 오브젝트(root) 위에 두세요.", this);
+ 
+                root.SetActive(false);
+                onDone?.Invoke();
+                return;
+            }
+ 
             if (_routine != null) StopCoroutine(_routine);
  
             if (label != null) label.text = message;
+            if (group != null) group.alpha = 0f;     
  
             _routine = StartCoroutine(Routine(onDone));
         }
@@ -71,8 +80,8 @@ namespace KSM._00.Scripts.Crafting
         {
             IsPlaying = true;
  
-            root.SetActive(true);
-            transform.SetAsLastSibling();          // 다른 UI 위에 덮는다
+            root.SetActive(true);                 
+            root.transform.SetAsLastSibling();    
  
             yield return Fade(0f, 1f, fadeInTime);
  
@@ -115,7 +124,7 @@ namespace KSM._00.Scripts.Crafting
             float t = 0f;
             while (t < time)
             {
-                t += Time.unscaledDeltaTime;      // 시간을 멈춰도 연출은 흐른다
+                t += Time.unscaledDeltaTime;    
                 group.alpha = Mathf.Lerp(from, to, Mathf.Clamp01(t / time));
  
                 yield return null;

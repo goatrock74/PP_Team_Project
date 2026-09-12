@@ -112,9 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4904b5879814a9d8e12b1d29f956584, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingRecipeEntryUI
-  iconImage: {fileID: 0}
-  nameText: {fileID: 0}
-  selectedFrame: {fileID: 0}
+  iconImage: {fileID: 7548286247754880861}
+  nameText: {fileID: 3256931312733547894}
+  selectedFrame: {fileID: 5595020872196364310}
   unaffordableColor: {r: 0.6, g: 0.6, b: 0.6, a: 1}
 --- !u!1 &5595020872196364310
 GameObject:
