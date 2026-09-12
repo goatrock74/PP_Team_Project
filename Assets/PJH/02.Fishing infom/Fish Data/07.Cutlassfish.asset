@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uAC08\uCE58"
   icon: {fileID: 3188902910344226571, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "칼날처럼 길고 은빛 나는 몸으로 밤바다를 누비는 포식성 물고기."
+  description: "\uce7c\ub0a0\ucc98\ub7fc \uae38\uace0 \uc740\ube5b \ub098\ub294 <nobr>\ubab8\uc73c\ub85c</nobr> \ubc24\ubc14\ub2e4\ub97c \ub204\ube44\ub294 \ud3ec\uc2dd\uc131 <nobr>\ubb3c\uace0\uae30.</nobr>"
   rarity: 0
   difficulty: 0
   moveSpeed: 0.18

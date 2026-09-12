@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uAC80\uC740\uC810\uBCF5"
   icon: {fileID: 4791415189481405875, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "몸을 크게 부풀려 위협하고 검은 반점으로 몸을 꾸민 복어."
+  description: "<nobr>\ubab8\uc744</nobr> \ud06c\uac8c \ubd80\ud480\ub824 \uc704\ud611\ud558\uace0 <nobr>\uac80\uc740</nobr> \ubc18\uc810\uc73c\ub85c <nobr>\ubab8\uc744</nobr> \uafb8\ubbfc \ubcf5\uc5b4."
   rarity: 1
   difficulty: 0
   moveSpeed: 0.18

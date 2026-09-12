@@ -15,7 +15,7 @@ MonoBehaviour:
   itemId: ScrewTurretSnail
   displayName: "\uB098\uC0AC\uACE0\uB465"
   icon: {fileID: 3135833260886424519, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  description: "\uB098\uC0AC\uCC98\uB7FC \uAE38\uAC8C \uAC10\uAE34 \uAECD\uB370\uAE30\uB97C \uC9C0\uB2C8\uACE0 \uBAA8\uB798 \uBC14\uB2E5\uC744 \uCC9C\uCC9C\uD788 \uAE30\uC5B4 \uB2E4\uB2CC\uB2E4."
+  description: "\ub098\uc0ac\ucc98\ub7fc \uae38\uac8c \uac10\uae34 \uaecd\ub370\uae30\ub97c \uc9c0\ub2c8\uace0 \ubaa8\ub798 \ubc14\ub2e5\uc744 \ucc9c\ucc9c\ud788 <nobr>\uae30\uc5b4</nobr> \ub2e4\ub2cc\ub2e4."
   itemType: 2
   maxStack: 99
   sellPrice: 0

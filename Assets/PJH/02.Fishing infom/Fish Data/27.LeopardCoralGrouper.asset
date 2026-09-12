@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uBB34\uB2AC\uBC14\uB9AC"
   icon: {fileID: -5002341440523500963, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "화려한 점무늬를 지니고 산호초에서 먹이를 기다리는 바리류 물고기."
+  description: "\ud654\ub824\ud55c \uc810\ubb34\ub2ac\ub97c \uc9c0\ub2c8\uace0 <nobr>\uc0b0\ud638\ucd08\uc5d0\uc11c</nobr> \uba39\uc774\ub97c \uae30\ub2e4\ub9ac\ub294 <nobr>\ubc14\ub9ac\ub958</nobr> \ubb3c\uace0\uae30."
   rarity: 2
   difficulty: 0
   moveSpeed: 0.18

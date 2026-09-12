@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uD30C\uB780\uC810\uB9AC\uBCF8\uAF2C\uB9AC\uAC00\uC624\uB9AC"
   icon: {fileID: -2601493398178661349, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "푸른 반점과 길고 가느다란 꼬리가 돋보이는 열대 가오리."
+  description: "\ud478\ub978 \ubc18\uc810\uacfc \uae38\uace0 \uac00\ub290\ub2e4\ub780 <nobr>\uaf2c\ub9ac\uac00</nobr> \ub3cb\ubcf4\uc774\ub294 \uc5f4\ub300 \uac00\uc624\ub9ac."
   rarity: 2
   difficulty: 0
   moveSpeed: 0.18

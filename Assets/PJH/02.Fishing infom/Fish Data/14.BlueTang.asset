@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uBE14\uB8E8\uD0F1"
   icon: {fileID: -7710691783942265315, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "선명한 푸른 몸과 노란 꼬리로 산호초 사이를 헤엄치는 물고기."
+  description: "\uc120\uba85\ud55c \ud478\ub978 \ubab8\uacfc \ub178\ub780 \uaf2c\ub9ac\ub85c \uc0b0\ud638\ucd08 \uc0ac\uc774\ub97c \ud5e4\uc5c4\uce58\ub294 <nobr>\ubb3c\uace0\uae30.</nobr>"
   rarity: 1
   difficulty: 0
   moveSpeed: 0.18

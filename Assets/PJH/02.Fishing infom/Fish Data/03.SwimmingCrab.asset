@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uAF43\uAC8C"
   icon: {fileID: -7530179445663768607, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "\uB178\uCC98\uB7FC \uB0A9\uC791\uD55C \uB4B7\uB2E4\uB9AC\uB85C \uD5E4\uC5C4\uCE58\uBA70 \uBAA8\uB798\uC640 \uC9C4\uD759 \uBC14\uB2E5\uC744 \uB204\uBE44\uB294 \uAF43\uAC8C."
+  description: "\ub178\ucc98\ub7fc \ub0a9\uc791\ud55c \ub4b7\ub2e4\ub9ac\ub85c <nobr>\ud5e4\uc5c4\uce58\uba70</nobr> \ubaa8\ub798\uc640 \uc9c4\ud759 \ubc14\ub2e5\uc744 \ub204\ube44\ub294 \uaf43\uac8c."
   rarity: 0
   difficulty: 2
   moveSpeed: 0.32

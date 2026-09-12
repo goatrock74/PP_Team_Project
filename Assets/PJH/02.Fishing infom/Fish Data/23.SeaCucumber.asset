@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uB3CC\uAE30\uD574\uC0BC"
   icon: {fileID: 8334380433764311953, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "몸의 돌기를 오므렸다 펴며 해저의 유기물을 먹는 해양생물."
+  description: "\ubab8\uc758 \ub3cc\uae30\ub97c \uc624\ubbc0\ub838\ub2e4 \ud3b4\uba70 <nobr>\ud574\uc800\uc758</nobr> \uc720\uae30\ubb3c\uc744 \uba39\ub294 <nobr>\ud574\uc591\uc0dd\ubb3c.</nobr>"
   rarity: 2
   difficulty: 0
   moveSpeed: 0.18

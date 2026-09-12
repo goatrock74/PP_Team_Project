@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uAC80\uC740\uD574\uC0BC"
   icon: {fileID: -4505679722818219865, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "검은 몸으로 산호초와 얕은 바다 바닥을 천천히 기어 다니는 해삼."
+  description: "\uac80\uc740 \ubab8\uc73c\ub85c \uc0b0\ud638\ucd08\uc640 \uc595\uc740 <nobr>\ubc14\ub2e4</nobr> \ubc14\ub2e5\uc744 \ucc9c\ucc9c\ud788 \uae30\uc5b4 <nobr>\ub2e4\ub2c8\ub294</nobr> \ud574\uc0bc."
   rarity: 0
   difficulty: 0
   moveSpeed: 0.18

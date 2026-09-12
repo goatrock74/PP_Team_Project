@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uBCF5\uD574\uB9C8"
   icon: {fileID: -4737547748415161889, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "꼬리로 해초를 붙잡고 몸을 곧게 세운 채 헤엄치는 점박이 해마."
+  description: "\uaf2c\ub9ac\ub85c \ud574\ucd08\ub97c \ubd99\uc7a1\uace0 \ubab8\uc744 <nobr>\uace7\uac8c</nobr> \uc138\uc6b4 \ucc44 \ud5e4\uc5c4\uce58\ub294 \uc810\ubc15\uc774 <nobr>\ud574\ub9c8.</nobr>"
   rarity: 3
   difficulty: 0
   moveSpeed: 0.18

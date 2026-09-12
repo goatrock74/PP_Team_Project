@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uB300\uC655\uC9C0\uAC00\uC624\uB9AC"
   icon: {fileID: -337284965171754829, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "거대한 가슴지느러미를 펼쳐 열린 바다를 우아하게 헤엄치는 가오리."
+  description: "\uac70\ub300\ud55c \uac00\uc2b4\uc9c0\ub290\ub7ec\ubbf8\ub97c \ud3bc\uccd0 <nobr>\uc5f4\ub9b0</nobr> \ubc14\ub2e4\ub97c \uc6b0\uc544\ud558\uac8c \ud5e4\uc5c4\uce58\ub294 \uac00\uc624\ub9ac."
   rarity: 4
   difficulty: 0
   moveSpeed: 0.18

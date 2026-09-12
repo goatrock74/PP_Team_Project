@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uCC38\uBB38\uC5B4"
   icon: {fileID: -6537236270591662994, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "여덟 팔로 바위틈에 숨고 몸빛을 바꾸는 영리한 연체동물."
+  description: "\uc5ec\ub35f \ud314\ub85c \ubc14\uc704\ud2c8\uc5d0 \uc228\uace0 <nobr>\ubab8\ube5b\uc744</nobr> \ubc14\uafb8\ub294 \uc601\ub9ac\ud55c <nobr>\uc5f0\uccb4\ub3d9\ubb3c.</nobr>"
   rarity: 1
   difficulty: 0
   moveSpeed: 0.18

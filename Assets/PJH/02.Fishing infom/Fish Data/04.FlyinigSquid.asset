@@ -15,8 +15,7 @@ MonoBehaviour:
   itemId: 
   displayName: "\uC0B4\uC624\uC9D5\uC5B4"
   icon: {fileID: -7321172944869395153, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  description: "\uBB3C\uC744 \uBFDC\uC5B4 \uBE60\uB974\uAC8C \uD5E4\uC5C4\uCE58\uACE0
-    \uB54C\uB85C \uC218\uBA74 \uC704\uB85C \uD280\uC5B4 \uC624\uB974\uB294 <nobr>\uC624\uC9D5\uC5B4.</nobr>"
+  description: "\ubb3c\uc744 \ubfdc\uc5b4 \ube60\ub974\uac8c \ud5e4\uc5c4\uce58\uace0 <nobr>\ub54c\ub85c</nobr> \uc218\uba74 \uc704\ub85c \ud280\uc5b4 \uc624\ub974\ub294 <nobr>\uc624\uc9d5\uc5b4.</nobr>"
   itemType: 2
   maxStack: 99
   sellPrice: 0

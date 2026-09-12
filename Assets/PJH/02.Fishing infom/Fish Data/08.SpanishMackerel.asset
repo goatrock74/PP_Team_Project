@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uC0BC\uCE58"
   icon: {fileID: 4932627652362033286, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "날렵한 몸으로 연안을 빠르게 헤엄치며 작은 물고기를 사냥한다."
+  description: "\ub0a0\ub835\ud55c \ubab8\uc73c\ub85c \uc5f0\uc548\uc744 \ube60\ub974\uac8c \ud5e4\uc5c4\uce58\uba70 \uc791\uc740 \ubb3c\uace0\uae30\ub97c <nobr>\uc0ac\ub0e5\ud55c\ub2e4.</nobr>"
   rarity: 0
   difficulty: 0
   moveSpeed: 0.18

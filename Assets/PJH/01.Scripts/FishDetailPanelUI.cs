@@ -32,7 +32,7 @@ namespace PJH.Scripts
             fishIcon.enabled = true;
             
             fishName.text = fishData.displayName;
-            fishPrice.text = fishData.sellPrice.ToString();
+            fishPrice.text = $"가격 : {fishData.sellPrice.ToString()}";
             fishDescription.text = fishData.description;
             
             
