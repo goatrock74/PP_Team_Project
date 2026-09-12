@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
   m_Name: 04.FlyinigSquid
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  fishID: FlyinigSquid
+  itemId: 
   displayName: "\uC0B4\uC624\uC9D5\uC5B4"
   icon: {fileID: -7321172944869395153, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  basePrice: 100
-  description: "물을 뿜어 빠르게 헤엄치고 때로 수면 위로 튀어 오르는 오징어."
+  description: "\uBB3C\uC744 \uBFDC\uC5B4 \uBE60\uB974\uAC8C \uD5E4\uC5C4\uCE58\uACE0
+    \uB54C\uB85C \uC218\uBA74 \uC704\uB85C \uD280\uC5B4 \uC624\uB974\uB294 <nobr>\uC624\uC9D5\uC5B4.</nobr>"
+  itemType: 2
+  maxStack: 99
+  sellPrice: 0
+  fishID: FlyinigSquid
   rarity: 0
   difficulty: 0
   moveSpeed: 0.18
