@@ -1,5 +1,6 @@
 ﻿
 using System.Collections;
+using PJH._01.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -17,6 +18,7 @@ namespace PJH.Scripts
         }
  
         [Header("Fishing Components")]
+        [SerializeField] private FishCollectionManager fishCollectionManager;
         [SerializeField] private FishingAreaCheck fishingAreaCheck;
         [SerializeField] private FishSelector fishSelector;
         [SerializeField] private FishingMiniGame fishingMiniGame;
@@ -253,6 +255,8 @@ namespace PJH.Scripts
                 $"{caughtFish.name} 낚시 성공"
             );
             PlayCaughtFishEffect(caughtFish);
+            fishCollectionManager.DiscoverFish(caughtFish);
+            
             FinishFishingProcess();
         }
  

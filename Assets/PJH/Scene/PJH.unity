@@ -1787,6 +1787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 98831618}
   fishIcon: {fileID: 79145979}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &145300118
 GameObject:
   m_ObjectHideFlags: 0
@@ -1923,6 +1925,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 145300120}
   fishIcon: {fileID: 1048467410}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &187159867
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 272130654}
   fishIcon: {fileID: 1577776903}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &272686055
 GameObject:
   m_ObjectHideFlags: 0
@@ -2427,6 +2433,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 272686057}
   fishIcon: {fileID: 713495423}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &312215827
 GameObject:
   m_ObjectHideFlags: 0
@@ -2752,6 +2760,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 347253789}
   fishIcon: {fileID: 421208992}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &360123152
 GameObject:
   m_ObjectHideFlags: 0
@@ -2934,6 +2944,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 410255786}
   fishIcon: {fileID: 1174029989}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &421208990
 GameObject:
   m_ObjectHideFlags: 0
@@ -3457,6 +3469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 564321169}
   fishIcon: {fileID: 2034342995}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &574259566
 GameObject:
   m_ObjectHideFlags: 0
@@ -3593,6 +3607,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 574259568}
   fishIcon: {fileID: 1175387540}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &588059374
 GameObject:
   m_ObjectHideFlags: 0
@@ -3729,6 +3745,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 588059376}
   fishIcon: {fileID: 1886692416}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &627840903
 GameObject:
   m_ObjectHideFlags: 0
@@ -3986,6 +4004,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 662485761}
   fishIcon: {fileID: 1588691436}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &682554083
 GameObject:
   m_ObjectHideFlags: 0
@@ -4122,6 +4142,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 682554085}
   fishIcon: {fileID: 1313057752}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &682694955
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,6 +4695,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 790778251}
   fishIcon: {fileID: 2001280212}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &795101214
 GameObject:
   m_ObjectHideFlags: 0
@@ -4809,6 +4833,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 795101216}
   fishIcon: {fileID: 7168442}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &796791333
 GameObject:
   m_ObjectHideFlags: 0
@@ -5307,6 +5333,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 862954092}
   fishIcon: {fileID: 1122265357}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &864537089
 GameObject:
   m_ObjectHideFlags: 0
@@ -5443,6 +5471,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 864537091}
   fishIcon: {fileID: 1414973467}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &873455271
 GameObject:
   m_ObjectHideFlags: 0
@@ -5836,6 +5866,104 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 922032688}
   fishIcon: {fileID: 1761983883}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
+--- !u!1 &922998599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 922998601}
+  - component: {fileID: 922998600}
+  - component: {fileID: 922998602}
+  m_Layer: 0
+  m_Name: FishingCollectionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &922998600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922998599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8381ae3b2d344e71aadacea7df789251, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishCollectionManager
+  fishUI: {fileID: 2018547877}
+--- !u!4 &922998601
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922998599}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 705.35254, y: 351.86053, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &922998602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 922998599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca0f66f052714b709db071de580bb6e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishCollectionDebugTest
+  collectionManager: {fileID: 922998600}
+  fishDataList:
+  - {fileID: 11400000, guid: cca387ab3c8a47f4092ab4b92fe97a03, type: 2}
+  - {fileID: 11400000, guid: dc99e02e186179f4db599c1783cfd5b6, type: 2}
+  - {fileID: 11400000, guid: afee1b75e1a60fe4f86acf83c0ada9dc, type: 2}
+  - {fileID: 11400000, guid: 345748c3b2ec60240a6cd20bed3d2992, type: 2}
+  - {fileID: 11400000, guid: f2b08c87a3cb237419ab0feb49c28c69, type: 2}
+  - {fileID: 11400000, guid: b5dc2c4a1380e1248a5c4421c49cc5c4, type: 2}
+  - {fileID: 11400000, guid: a51febd25fcf66448aa24005c3742286, type: 2}
+  - {fileID: 11400000, guid: 4acf4bc74cc2a4147badb1818f9c7a2e, type: 2}
+  - {fileID: 11400000, guid: 666afd11b70d2c74389458944e22e990, type: 2}
+  - {fileID: 11400000, guid: 886ed0685cec609449a7a4a15f5d3787, type: 2}
+  - {fileID: 11400000, guid: b574b391f28656847b6a10ed7fbfd21d, type: 2}
+  - {fileID: 11400000, guid: 6ef8eab7221fc0947942e940e3f1f1a3, type: 2}
+  - {fileID: 11400000, guid: 7dad5a0788d5f134599137b0fb323f39, type: 2}
+  - {fileID: 11400000, guid: 02e19ab6f14550147bc526028d976f39, type: 2}
+  - {fileID: 11400000, guid: 85afa551688abdf47ae370d7a0ade9d6, type: 2}
+  - {fileID: 11400000, guid: b719e93c4f5105846b41adda5cb203d7, type: 2}
+  - {fileID: 11400000, guid: 04a95e33c3ede604fa95a47b33f1550d, type: 2}
+  - {fileID: 11400000, guid: ea505a10af6bb44448be4f4a1eaad6e1, type: 2}
+  - {fileID: 11400000, guid: 8ac90a2e13019684c9224129061a1dab, type: 2}
+  - {fileID: 11400000, guid: eb9db29214a233f45af490bb2c3e9221, type: 2}
+  - {fileID: 11400000, guid: a76f7ebfaffabc348abbd95eae8e1cc6, type: 2}
+  - {fileID: 11400000, guid: 38401acdb0a102641bedb5363f803edc, type: 2}
+  - {fileID: 11400000, guid: 87e440d823fa83b4d9d75ba229bb6974, type: 2}
+  - {fileID: 11400000, guid: 3a243aea278e01a40afbf065e2de0313, type: 2}
+  - {fileID: 11400000, guid: 0e2350fc74ac9764281d7efebab03486, type: 2}
+  - {fileID: 11400000, guid: 0f360068ffce9194a91ca0f9366e64cd, type: 2}
+  - {fileID: 11400000, guid: 82f83d822c07fa04abc5fc8c5d4ee83e, type: 2}
+  - {fileID: 11400000, guid: 8dfae2f2541a50246abc675f921994ca, type: 2}
+  - {fileID: 11400000, guid: d0f94d376ee3f1d45bbaa144853b14b0, type: 2}
+  - {fileID: 11400000, guid: e985dbae5915fc14087b1bbe8d576642, type: 2}
+  - {fileID: 11400000, guid: 10fa242c89ff8ea4199980cbf4522891, type: 2}
+  - {fileID: 11400000, guid: 2f2bd3bf12c31414da0c6f43e27b6feb, type: 2}
+  - {fileID: 11400000, guid: 26ed51d922159fb4fa234bfe5c780028, type: 2}
+  - {fileID: 11400000, guid: 6e5a056b9ba7ac34fb5cedd7247eb8c9, type: 2}
+  - {fileID: 11400000, guid: 082383fa8387af44da98c65df43b23fc, type: 2}
+  - {fileID: 11400000, guid: 295af7a3d4c50a340856fab286b3ec8d, type: 2}
 --- !u!1 &1009067858
 GameObject:
   m_ObjectHideFlags: 0
@@ -6184,6 +6312,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1061645785}
   fishIcon: {fileID: 1621205708}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1087455993
 GameObject:
   m_ObjectHideFlags: 0
@@ -6395,6 +6525,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1094060438}
   fishIcon: {fileID: 2073179733}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1122192149
 GameObject:
   m_ObjectHideFlags: 0
@@ -6531,6 +6663,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1122192151}
   fishIcon: {fileID: 1549344476}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1122265355
 GameObject:
   m_ObjectHideFlags: 0
@@ -6742,6 +6876,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1156609836}
   fishIcon: {fileID: 829641495}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1174029987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7105,6 +7241,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1221995609}
   fishIcon: {fileID: 1336468163}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1287491441
 GameObject:
   m_ObjectHideFlags: 0
@@ -8850,6 +8988,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1390391078}
   fishIcon: {fileID: 1695968940}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1414973465
 GameObject:
   m_ObjectHideFlags: 0
@@ -9211,6 +9351,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1448621801}
   fishIcon: {fileID: 1087455995}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1451745041
 GameObject:
   m_ObjectHideFlags: 0
@@ -9347,6 +9489,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1451745043}
   fishIcon: {fileID: 500577321}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1502253022
 GameObject:
   m_ObjectHideFlags: 0
@@ -10070,6 +10214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1664150555}
   fishIcon: {fileID: 187159869}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1665272273
 GameObject:
   m_ObjectHideFlags: 0
@@ -10631,6 +10777,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1728513300}
   fishIcon: {fileID: 1784487324}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1761983881
 GameObject:
   m_ObjectHideFlags: 0
@@ -10842,6 +10990,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1764386445}
   fishIcon: {fileID: 782503252}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1784487322
 GameObject:
   m_ObjectHideFlags: 0
@@ -11053,6 +11203,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1798753466}
   fishIcon: {fileID: 730533623}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1845158138
 GameObject:
   m_ObjectHideFlags: 0
@@ -11189,6 +11341,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1845158140}
   fishIcon: {fileID: 1429983926}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1860214801
 GameObject:
   m_ObjectHideFlags: 0
@@ -11537,6 +11691,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1913715911}
   fishIcon: {fileID: 1701319043}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1932878018
 GameObject:
   m_ObjectHideFlags: 0
@@ -11673,6 +11829,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1932878020}
   fishIcon: {fileID: 836542278}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &1936435701
 GameObject:
   m_ObjectHideFlags: 0
@@ -11884,6 +12042,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 1968339768}
   fishIcon: {fileID: 1350299702}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2001280210
 GameObject:
   m_ObjectHideFlags: 0
@@ -12095,6 +12255,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 2008558388}
   fishIcon: {fileID: 1502253024}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2016864421
 GameObject:
   m_ObjectHideFlags: 0
@@ -12231,6 +12393,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 2016864423}
   fishIcon: {fileID: 708519772}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2018547877
 GameObject:
   m_ObjectHideFlags: 0
@@ -12355,6 +12519,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 082383fa8387af44da98c65df43b23fc, type: 2}
   - {fileID: 11400000, guid: 295af7a3d4c50a340856fab286b3ec8d, type: 2}
   fishDetailPanelUI: {fileID: 2112462159}
+  collectionManager: {fileID: 922998600}
 --- !u!1 &2034342993
 GameObject:
   m_ObjectHideFlags: 0
@@ -12566,6 +12731,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 2035271375}
   fishIcon: {fileID: 2103588197}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2037361534
 GameObject:
   m_ObjectHideFlags: 0
@@ -13110,6 +13277,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSlotUI
   button: {fileID: 2109955758}
   fishIcon: {fileID: 1439617134}
+  discoveredColor: {r: 1, g: 1, b: 1, a: 1}
+  unDiscoveredColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!1 &2112462157
 GameObject:
   m_ObjectHideFlags: 0
@@ -13618,7 +13787,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385a377fe6014da5a614c16e971118ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSelector
-  fishTable: []
+  fishTable:
+  - fish: {fileID: 11400000, guid: cca387ab3c8a47f4092ab4b92fe97a03, type: 2}
+    weight: 1
+  - fish: {fileID: 11400000, guid: dc99e02e186179f4db599c1783cfd5b6, type: 2}
+    weight: 1
+  - fish: {fileID: 11400000, guid: afee1b75e1a60fe4f86acf83c0ada9dc, type: 2}
+    weight: 1
+  - fish: {fileID: 11400000, guid: 345748c3b2ec60240a6cd20bed3d2992, type: 2}
+    weight: 1
   useMasteryLuck: 1
 --- !u!1 &2967419505288977588
 GameObject:
@@ -14241,6 +14418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900bc521349d472fb7fb46a61d4c1563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingController
+  fishCollectionManager: {fileID: 922998600}
   fishingAreaCheck: {fileID: 5022662610120601307}
   fishSelector: {fileID: 2901346291419793180}
   fishingMiniGame: {fileID: 6820266594769326791}
@@ -14541,3 +14719,4 @@ SceneRoots:
   - {fileID: 131071755956395896}
   - {fileID: 682694958}
   - {fileID: 1665272277}
+  - {fileID: 922998601}
