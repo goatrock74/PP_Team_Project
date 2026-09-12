@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uB300\uAD6C"
   icon: {fileID: 7566067655048766943, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "차가운 북태평양의 바닥 가까이에서 살아가는 커다란 물고기."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

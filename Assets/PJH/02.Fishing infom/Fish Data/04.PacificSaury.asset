@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uAF41\uCE58"
   icon: {fileID: 251521240896720111, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "가늘고 긴 몸으로 북태평양 표층을 떼 지어 이동하는 회유성 물고기."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

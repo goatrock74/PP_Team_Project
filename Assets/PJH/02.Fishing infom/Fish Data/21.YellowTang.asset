@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uC610\uB85C\uD0F1"
   icon: {fileID: 7109507640038802138, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 0
+  description: "선명한 노란 몸과 날카로운 꼬리 가시를 지닌 산호초 물고기."
   difficulty: 0
   moveSpeed: 0.25
   minTargetChangeTime: 1

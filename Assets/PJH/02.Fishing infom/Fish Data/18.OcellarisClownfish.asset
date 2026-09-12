@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uC624\uC140\uB77C\uB9AC\uC2A4 \uD770\uB3D9\uAC00\uB9AC"
   icon: {fileID: 499921086759859872, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "말미잘 촉수 사이에서 보호받으며 살아가는 주황빛 산호초 물고기."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

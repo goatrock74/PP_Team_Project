@@ -11,6 +11,8 @@ namespace PJH.Scripts
 
         private FishDataSO fishData;
         private Action<FishDataSO> OnSelected;
+        
+        private static FishSlotUI selectedSlot;
 
 
         public void SetUp(FishDataSO data, Action<FishDataSO> selectedCallback)
@@ -27,7 +29,22 @@ namespace PJH.Scripts
 
         private void SelectFish()
         {
+            if (selectedSlot != null && selectedSlot != this)
+            {
+                selectedSlot.SetSelected(false);
+            }
+
+            selectedSlot = this;
+            SetSelected(true);
+            
+            
+            
             OnSelected?.Invoke(fishData);
+        }
+
+        public void SetSelected(bool isSelected)
+        {
+            fishIcon.color = isSelected ? new Color(0.55f, 0.55f, 0.55f, 1f) : Color.white;
         }
     }
 }

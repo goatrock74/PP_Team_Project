@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uAC80\uC740\uBC14\uB2E4\uC545\uB9C8\uC544\uADC0"
   icon: {fileID: 4978214498202090734, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  description: "깊은 바다에서 머리 위의 빛나는 미끼로 먹이를 유인하는 아귀류."
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5
