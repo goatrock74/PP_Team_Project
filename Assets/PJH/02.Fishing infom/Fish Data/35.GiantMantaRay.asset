@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
-  m_Name: 27.LeopardCoralGrouper
+  m_Name: 35.GiantMantaRay
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  fishID: LeopardCoralGrouper
-  displayName: "\uBB34\uB2AC\uBC14\uB9AC"
-  icon: {fileID: -5002341440523500963, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  fishID: GiantMantaRay
+  displayName: "\uB300\uC655\uC9C0\uAC00\uC624\uB9AC"
+  icon: {fileID: -337284965171754829, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "화려한 점무늬를 지니고 산호초에서 먹이를 기다리는 바리류 물고기."
-  rarity: 2
+  description: "거대한 가슴지느러미를 펼쳐 열린 바다를 우아하게 헤엄치는 가오리."
+  rarity: 4
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5

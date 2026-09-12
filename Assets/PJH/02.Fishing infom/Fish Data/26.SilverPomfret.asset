@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
-  m_Name: 27.LeopardCoralGrouper
+  m_Name: 26.SilverPomfret
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  fishID: LeopardCoralGrouper
-  displayName: "\uBB34\uB2AC\uBC14\uB9AC"
-  icon: {fileID: -5002341440523500963, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  fishID: SilverPomfret
+  displayName: "\uC2E4\uBC84\uD3FC\uD504\uB81B"
+  icon: {fileID: 6427948120561219084, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
-  description: "화려한 점무늬를 지니고 산호초에서 먹이를 기다리는 바리류 물고기."
+  description: "은빛의 납작하고 둥근 몸으로 따뜻한 연안 바다를 헤엄치는 물고기."
   rarity: 2
   difficulty: 0
   moveSpeed: 0.18

@@ -17,6 +17,7 @@ MonoBehaviour:
   icon: {fileID: 3588814779657223358, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
   description: "넓은 바다를 빠르게 이동하며 몸을 따뜻하게 유지하는 대형 참치."
+  rarity: 3
   difficulty: 0
   moveSpeed: 0.18
   minTargetChangeTime: 1.5
