@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd3e6cf01c2143f59ca2f254d6f6be2d, type: 3}
+  m_Name: SilverWateringCan
+  m_EditorClassIdentifier: Assembly-CSharp::WateringCanSO
+  itemId: 
+  displayName: Watering Can Wood
+  icon: {fileID: 1021413968437411507, guid: 34aaa314d6fdae04cae43d8806f7113b, type: 3}
+  description: 
+  itemType: 5
+  maxStack: 1
+  sellPrice: 0
+  tier: 0
+  areaSize: {x: 2, y: 2}
+  hitBoxSize: {x: 1.2, y: 1.2}
+  hitBoxDistance: 0.8
+  verboseLog: 1
+  showPreview: 1
+  animationTrigger: Water
+  baseClip: {fileID: 7400000, guid: 9508077c652559741b08b696f253de86, type: 2}
+  tierClip: {fileID: 7400000, guid: 8ab53d740892be6499acce0299242081, type: 2}
+  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 9ed1562efada2ad4c9589307c397a16e, type: 3}
+  impactDelay: 0.15
+  useCooldown: 0.4
+  lockMovementWhileUsing: 1
+  movementLockDuration: 0
+  wetTile: {fileID: 11400000, guid: 3202142844fe58e409e9ae3a99045145, type: 2}
+  wettableTiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}
+  wetDurationDays: 1
+  growthDays: 0.25
+  waterMatureCrops: 0

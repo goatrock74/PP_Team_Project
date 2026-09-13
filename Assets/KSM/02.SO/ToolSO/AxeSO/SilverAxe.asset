@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a69613adec14febb42d0ece277c87b5, type: 3}
-  m_Name: WoodAxe
+  m_Name: SilverAxe
   m_EditorClassIdentifier: Assembly-CSharp::AxeSO
   itemId: 
-  displayName: Wood Axe
-  icon: {fileID: 5858095290441030764, guid: 653ca9fcc4ce53646b250d325bcb7829, type: 3}
+  displayName: Silver Axe
+  icon: {fileID: 5281419394592009982, guid: 58adc06f83c7b48468a3842df70b33bc, type: 3}
   description: 
   itemType: 5
   maxStack: 1
@@ -27,11 +27,11 @@ MonoBehaviour:
   showPreview: 0
   animationTrigger: Chop
   baseClip: {fileID: 7400000, guid: 96709a1e4eae0144faafd06b417f9ac8, type: 2}
-  tierClip: {fileID: 7400000, guid: 96709a1e4eae0144faafd06b417f9ac8, type: 2}
-  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
+  tierClip: {fileID: 7400000, guid: 275e7a64275154b48afa7c76a10c1a9b, type: 2}
+  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 9ed1562efada2ad4c9589307c397a16e, type: 3}
   impactDelay: 0.15
   useCooldown: 0.5
   lockMovementWhileUsing: 1
   movementLockDuration: 0
-  power: 1
+  power: 2
   extraDropRolls: 0

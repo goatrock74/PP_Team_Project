@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a69613adec14febb42d0ece277c87b5, type: 3}
-  m_Name: WoodAxe
-  m_EditorClassIdentifier: Assembly-CSharp::AxeSO
+  m_Script: {fileID: 11500000, guid: 31a2e59b91e048ed8b81a9f9f717d4d9, type: 3}
+  m_Name: WoodHoe
+  m_EditorClassIdentifier: Assembly-CSharp::HoeSO
   itemId: 
-  displayName: Wood Axe
-  icon: {fileID: 5858095290441030764, guid: 653ca9fcc4ce53646b250d325bcb7829, type: 3}
+  displayName: Hoe Wood
+  icon: {fileID: -1249109064242409673, guid: c687d774894d93242948d0cfd5ab3c75, type: 3}
   description: 
   itemType: 5
   maxStack: 1
@@ -24,14 +24,15 @@ MonoBehaviour:
   hitBoxSize: {x: 1.2, y: 1.2}
   hitBoxDistance: 0.8
   verboseLog: 1
-  showPreview: 0
-  animationTrigger: Chop
-  baseClip: {fileID: 7400000, guid: 96709a1e4eae0144faafd06b417f9ac8, type: 2}
-  tierClip: {fileID: 7400000, guid: 96709a1e4eae0144faafd06b417f9ac8, type: 2}
+  showPreview: 1
+  animationTrigger: Hoe
+  baseClip: {fileID: 7400000, guid: 817d3581ecf9f5c4d86b0a51f0f00035, type: 2}
+  tierClip: {fileID: 0}
   heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
   impactDelay: 0.15
-  useCooldown: 0.5
+  useCooldown: 0.4
   lockMovementWhileUsing: 1
   movementLockDuration: 0
-  power: 1
-  extraDropRolls: 0
+  tillableTiles:
+  - {fileID: 11400000, guid: 970f2bf7bd3c08840b73a6ebca96b32c, type: 2}
+  tilledTile: {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

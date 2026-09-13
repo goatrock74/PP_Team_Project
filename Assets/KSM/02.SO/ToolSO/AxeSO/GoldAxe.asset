@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a69613adec14febb42d0ece277c87b5, type: 3}
-  m_Name: WoodAxe
+  m_Name: GoldAxe
   m_EditorClassIdentifier: Assembly-CSharp::AxeSO
   itemId: 
-  displayName: Wood Axe
-  icon: {fileID: 5858095290441030764, guid: 653ca9fcc4ce53646b250d325bcb7829, type: 3}
+  displayName: Silver Axe
+  icon: {fileID: -3181690021497195007, guid: c4fb1c5ba8fc0ea4095931db58e706f3, type: 3}
   description: 
   itemType: 5
   maxStack: 1
   sellPrice: 0
-  tier: 0
+  tier: 1
   areaSize: {x: 1, y: 1}
   hitBoxSize: {x: 1.2, y: 1.2}
   hitBoxDistance: 0.8
@@ -27,11 +27,11 @@ MonoBehaviour:
   showPreview: 0
   animationTrigger: Chop
   baseClip: {fileID: 7400000, guid: 96709a1e4eae0144faafd06b417f9ac8, type: 2}
-  tierClip: {fileID: 7400000, guid: 96709a1e4eae0144faafd06b417f9ac8, type: 2}
-  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
+  tierClip: {fileID: 7400000, guid: 10d792076ac46a8428bd9b760ca17ce5, type: 2}
+  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 51abb2056f26871449130a28a9923ff6, type: 3}
   impactDelay: 0.15
   useCooldown: 0.5
   lockMovementWhileUsing: 1
   movementLockDuration: 0
-  power: 1
+  power: 4
   extraDropRolls: 0

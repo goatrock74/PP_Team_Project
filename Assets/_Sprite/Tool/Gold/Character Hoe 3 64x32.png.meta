@@ -157,8 +157,8 @@ TextureImporter:
         y: 0
         width: 19
         height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.65277904, y: 0.0016514687}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -179,8 +179,8 @@ TextureImporter:
         y: 0
         width: 20
         height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.662418, y: -0.0019861122}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -199,10 +199,10 @@ TextureImporter:
         serializedVersion: 2
         x: 150
         y: 0
-        width: 25
+        width: 32
         height: 19
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.3423338, y: 0.1107789}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -216,28 +216,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Character Hoe 3 64x32_3
-      rect:
-        serializedVersion: 2
-        x: 174
-        y: 0
-        width: 8
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: dc23c1d62de7e7480800000000000000
-      internalID: -8899536371398724915
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Character Hoe 3 64x32_4
       rect:
         serializedVersion: 2
@@ -245,8 +223,8 @@ TextureImporter:
         y: 0
         width: 31
         height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.26144508, y: 0.056857236}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -267,8 +245,8 @@ TextureImporter:
         y: 0
         width: 32
         height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2559414, y: -0.00819127}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -289,8 +267,8 @@ TextureImporter:
         y: 0
         width: 23
         height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.26260775, y: -0.012256802}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -311,8 +289,8 @@ TextureImporter:
         y: 0
         width: 23
         height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.2716237, y: -0.004125739}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -333,8 +311,8 @@ TextureImporter:
         y: 0
         width: 22
         height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.28637418, y: -0.004125739}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -351,7 +329,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ab950d693f47f3746ba2b3e15d3e4c3a
     internalID: 0
     vertices: []
     indices: 

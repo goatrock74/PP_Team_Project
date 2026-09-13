@@ -80,8 +80,16 @@ public abstract class ToolSO : ItemSO
              "예: 일반 괭이도 강화 괭이도 \"Hoe\"")]
     public string animationTrigger = "Hoe";
  
-    [Tooltip("이 도구를 들었을 때 갈아끼울 스프라이트 라이브러리.\n" +
-             "애니메이션 클립은 그대로 두고 그림만 바뀐다 — 등급별 외형은 여기로 처리한다")]
+    [Tooltip("Animator 에 원래 꽂혀 있는 클립. 이걸 아래 Tier Clip 으로 바꿔 끼운다.\n" +
+             "예: 도끼 계열은 전부 AxeWood 를 넣는다")]
+    public AnimationClip baseClip;
+ 
+    [Tooltip("이 등급이 실제로 재생할 클립. 비우면 Base Clip 이 그대로 나온다.\n" +
+             "예: 금 도끼면 AxeGold")]
+    public AnimationClip tierClip;
+ 
+    [Tooltip("[구버전] 스프라이트 라이브러리 방식용. Tool Animator 의 Visual Mode 가 " +
+             "Sprite Library 일 때만 쓰인다")]
     public SpriteLibraryAsset heldSpriteLibrary;
  
     [Tooltip("휘두르기 시작하고 실제 효과가 나기까지의 시간(초).\n" +
@@ -229,4 +237,3 @@ public abstract class ToolSO : ItemSO
         hitBoxSize.y = Mathf.Max(0.1f, hitBoxSize.y);
     }
 }
- 

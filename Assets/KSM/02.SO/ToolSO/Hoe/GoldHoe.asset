@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31a2e59b91e048ed8b81a9f9f717d4d9, type: 3}
-  m_Name: HoeSO
+  m_Name: GoldHoe
   m_EditorClassIdentifier: Assembly-CSharp::HoeSO
   itemId: 
   displayName: Hoe Wood
@@ -20,13 +20,15 @@ MonoBehaviour:
   maxStack: 1
   sellPrice: 0
   tier: 0
-  areaSize: {x: 5, y: 5}
+  areaSize: {x: 3, y: 3}
   hitBoxSize: {x: 1.2, y: 1.2}
   hitBoxDistance: 0.8
   verboseLog: 1
   showPreview: 1
   animationTrigger: Hoe
-  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
+  baseClip: {fileID: 7400000, guid: 817d3581ecf9f5c4d86b0a51f0f00035, type: 2}
+  tierClip: {fileID: 7400000, guid: 3f7d83214dc7e62409b5f10e5de76407, type: 2}
+  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 51abb2056f26871449130a28a9923ff6, type: 3}
   impactDelay: 0.15
   useCooldown: 0.4
   lockMovementWhileUsing: 1

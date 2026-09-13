@@ -1,41 +1,106 @@
-﻿using UnityEngine;
-using UnityEngine.U2D.Animation;   // 2D Animation 패키지 필요
+﻿using System.Collections.Generic;
+using System.Text;
+using UnityEngine;
+using UnityEngine.U2D.Animation;   // 2D Animation 패키지 (구버전 방식에서만 사용)
 using KSM._00.Scripts;
 using KSM._00.Scripts.Items;
  
 /// <summary>
-/// 손에 든 도구에 따라 그림(SpriteLibrary)을 갈아끼우고, 사용할 때 애니메이션을 재생한다.
+/// 손에 든 도구에 따라 <b>애니메이션 클립</b>을 갈아끼우고, 사용할 때 재생한다.
 /// 플레이어에 붙인다.
 ///
-/// 핵심 아이디어 — <b>애니메이션 클립은 한 벌만 만든다.</b>
-/// 괭이질 클립 하나를 만들어두고, 나무 괭이와 다이아 괭이는 SpriteLibraryAsset 만 바꾼다.
-/// 그러면 티어가 늘어나도 클립은 늘어나지 않는다.
+/// ── 클립 교체 방식 (Clip Override) ─────────────────────────────
+/// Animator 상태와 트리거는 도구 종류당 하나만 둔다. 등급이 바뀌면
+/// <b>AnimatorOverrideController 안의 클립만</b> 바꿔 끼운다.
 ///
-/// 바라보는 방향은 직접 건드리지 않고 PlayerAnimator 에게 부탁한다.
-/// 두 스크립트가 같은 파라미터를 각자 쓰면 매 프레임 서로 덮어쓰기 때문이다.
+///   상태 : AxeWood (하나)   ← 이름은 그대로 둬도 된다
+///   클립 : AxeWood / AxeIron / AxeGold …  (등급마다 하나)
+///
+/// ToolSO 에 Base Clip(= Animator 에 원래 꽂힌 것)과 Tier Clip(= 이 등급용)을
+/// 넣어주면 된다. 상태·트리거·코드는 등급이 늘어나도 그대로다.
+///
+/// ★ 이 방식은 Animator 의 상태나 파라미터를 초기화하지 않는다.
+///   runtimeAnimatorController 를 통째로 바꾸면 재생 중인 상태가 끊기는데,
+///   여기서는 오버라이드 컨트롤러 <b>하나</b>를 계속 쓰고 그 안의 클립만 교체한다.
 /// </summary>
 public class ToolAnimator : MonoBehaviour
 {
+    public enum VisualMode
+    {
+        /// <summary>등급마다 클립을 따로 두고 갈아끼운다 (권장)</summary>
+        ClipOverride = 0,
+ 
+        /// <summary>클립 하나로 두고 SpriteLibraryAsset 만 바꾼다 (구버전)</summary>
+        SpriteLibrary = 1,
+    }
+ 
+    [Header("방식")]
+    [SerializeField] private VisualMode visualMode = VisualMode.ClipOverride;
+ 
     [Header("참조 (비우면 자동으로 찾음)")]
     [SerializeField] private Animator animator;
+ 
+    [Tooltip("Sprite Library 방식에서만 쓴다")]
     [SerializeField] private SpriteLibrary spriteLibrary;
  
-    [Tooltip("아무것도 안 들었을 때 돌아갈 라이브러리. 비우면 시작 시점 것을 기본으로 잡는다")]
+    [Tooltip("Sprite Library 방식에서 아무것도 안 들었을 때 돌아갈 라이브러리")]
     [SerializeField] private SpriteLibraryAsset defaultLibrary;
  
-    [Tooltip("어떤 Trigger 를 쐈는지 콘솔에 찍는다. 애니메이션이 엉뚱하게 나올 때 켜기")]
+    [Header("로그")]
+    [Tooltip("어떤 Trigger 를 쐈는지 콘솔에 찍는다")]
     [SerializeField] private bool verboseLog = true;
+ 
+    [Tooltip("클립을 갈아끼울 때마다 콘솔에 찍는다. 그림이 안 바뀔 때 켜기")]
+    [SerializeField] private bool logSwap = true;
  
     /// <summary>아직 휘두르는 중인가. 이 동안에는 다시 못 쓴다</summary>
     public bool IsBusy => Time.time < _busyUntil;
  
-    private SpriteResolver[] _resolvers;
     private float _busyUntil;
     private PlayerInventory _player;
+ 
+    private AnimatorOverrideController _overrides;
+    private readonly List<KeyValuePair<AnimationClip, AnimationClip>> _pairs = new();
+ 
+    private SpriteResolver[] _resolvers;
+ 
+    // ════════════════════════════════════════════════════════════
+    //  수명 주기
+    // ════════════════════════════════════════════════════════════
  
     private void Awake()
     {
         if (animator == null) animator = GetComponentInChildren<Animator>();
+ 
+        if (visualMode == VisualMode.ClipOverride) SetUpOverrideController();
+        else SetUpSpriteLibrary();
+    }
+ 
+    private void SetUpOverrideController()
+    {
+        if (animator == null)
+        {
+            Debug.LogError("[도구] Animator 를 못 찾았습니다.", this);
+            return;
+        }
+ 
+        RuntimeAnimatorController baseController = animator.runtimeAnimatorController;
+ 
+        if (baseController == null)
+        {
+            Debug.LogError("[도구] Animator 에 Controller 가 없습니다.", this);
+            return;
+        }
+ 
+        // 이미 오버라이드 컨트롤러가 꽂혀 있으면 그걸 그대로 쓴다
+        _overrides = baseController as AnimatorOverrideController
+                     ?? new AnimatorOverrideController(baseController) { name = baseController.name + " (Runtime Override)" };
+ 
+        animator.runtimeAnimatorController = _overrides;
+    }
+ 
+    private void SetUpSpriteLibrary()
+    {
         if (spriteLibrary == null) spriteLibrary = GetComponentInChildren<SpriteLibrary>();
  
         _resolvers = GetComponentsInChildren<SpriteResolver>(true);
@@ -60,27 +125,101 @@ public class ToolAnimator : MonoBehaviour
     }
  
     // ════════════════════════════════════════════════════════════
+    //  외형 교체
+    // ════════════════════════════════════════════════════════════
  
-    /// <summary>손에 든 것이 바뀔 때 그림을 갈아끼운다</summary>
     private void ApplyHeldVisual()
     {
-        if (spriteLibrary == null || _player == null) return;
+        if (_player == null) return;
  
-        SpriteLibraryAsset target = (_player.HeldItem is ToolSO tool && tool.heldSpriteLibrary != null)
+        ToolSO tool = _player.HeldItem as ToolSO;
+ 
+        if (visualMode == VisualMode.ClipOverride) ApplyClipOverride(tool);
+        else ApplySpriteLibrary(tool);
+    }
+ 
+    /// <summary>이 도구용 클립으로 갈아끼운다. 다른 도구의 교체는 원래대로 되돌린다</summary>
+    private void ApplyClipOverride(ToolSO tool)
+    {
+        if (_overrides == null) return;
+ 
+        // 1) 먼저 전부 원본으로 되돌린다.
+        //    안 그러면 금 도끼를 들었다가 나무 도끼로 바꿔도 금 클립이 남는다
+        _overrides.GetOverrides(_pairs);
+ 
+        bool changed = false;
+ 
+        for (int i = 0; i < _pairs.Count; i++)
+        {
+            if (_pairs[i].Value == null) continue;
+ 
+            _pairs[i] = new KeyValuePair<AnimationClip, AnimationClip>(_pairs[i].Key, null);
+            changed = true;
+        }
+ 
+        // 2) 이 도구가 쓸 클립만 얹는다
+        if (tool != null && tool.baseClip != null && tool.tierClip != null && tool.tierClip != tool.baseClip)
+        {
+            int at = _pairs.FindIndex(p => p.Key == tool.baseClip);
+ 
+            if (at < 0)
+            {
+                Debug.LogWarning(
+                    $"[도구] '{tool.DisplayName}' 의 Base Clip '{tool.baseClip.name}' 이 " +
+                    $"Animator 에 없습니다. Animator 상태에 실제로 꽂혀 있는 클립을 넣어주세요.", this);
+            }
+            else
+            {
+                _pairs[at] = new KeyValuePair<AnimationClip, AnimationClip>(tool.baseClip, tool.tierClip);
+                changed = true;
+ 
+                if (logSwap)
+                    Debug.Log($"[도구] 클립 교체 : {tool.baseClip.name} → {tool.tierClip.name} " +
+                              $"(손 : {tool.DisplayName})", this);
+            }
+        }
+        else if (logSwap && tool != null && tool.baseClip == null)
+        {
+            Debug.Log($"[도구] '{tool.DisplayName}' 은 Base Clip 이 비어 있어 원본 클립으로 나옵니다.", this);
+        }
+ 
+        if (changed) _overrides.ApplyOverrides(_pairs);
+    }
+ 
+    /// <summary>[구버전] 라이브러리만 갈아끼운다</summary>
+    private void ApplySpriteLibrary(ToolSO tool)
+    {
+        if (spriteLibrary == null) return;
+ 
+        SpriteLibraryAsset target = tool != null && tool.heldSpriteLibrary != null
             ? tool.heldSpriteLibrary
             : defaultLibrary;
  
         if (target == null || spriteLibrary.spriteLibraryAsset == target) return;
  
         spriteLibrary.spriteLibraryAsset = target;
-        RefreshResolvers();
+ 
+        if (_resolvers != null)
+            foreach (SpriteResolver r in _resolvers)
+            {
+                if (r == null) continue;
+ 
+                string category = r.GetCategory();
+                if (!string.IsNullOrEmpty(category)) r.SetCategoryAndLabel(category, r.GetLabel());
+ 
+                r.ResolveSpriteToSpriteRenderer();
+            }
+ 
+        if (logSwap) Debug.Log($"[도구] 라이브러리 교체 → {target.name}", this);
     }
+ 
+    // ════════════════════════════════════════════════════════════
+    //  재생
+    // ════════════════════════════════════════════════════════════
  
     /// <summary>
     /// 도구 사용 애니메이션 재생. 쿨다운을 걸고, 실제 효과가 언제 나야 하는지 초를 돌려준다.
-    ///
-    /// 바라보는 방향은 건드리지 않는다. 방향은 이동 입력의 좌우가 정하고
-    /// PlayerAnimator 가 관리한다.
+    /// 바라보는 방향은 PlayerAnimator 가 관리하므로 건드리지 않는다.
     /// </summary>
     public float PlayUse(ToolSO tool)
     {
@@ -96,7 +235,6 @@ public class ToolAnimator : MonoBehaviour
     {
         if (animator == null || string.IsNullOrWhiteSpace(tool.animationTrigger)) return;
  
-        // 없는 Trigger 를 쏘면 조용히 아무 일도 안 일어난다. 그래서 먼저 확인한다
         if (!HasTrigger(tool.animationTrigger))
         {
             Debug.LogWarning(
@@ -121,13 +259,51 @@ public class ToolAnimator : MonoBehaviour
     }
  
     // ════════════════════════════════════════════════════════════
+    //  진단
+    // ════════════════════════════════════════════════════════════
  
-    /// <summary>라이브러리를 바꾼 뒤 실제 렌더러에 반영한다</summary>
-    private void RefreshResolvers()
+    [ContextMenu("손에 든 것 다시 적용")]
+    private void ForceApply()
     {
-        if (_resolvers == null) return;
+        _player = PlayerInventory.Instance;
+        ApplyHeldVisual();
+    }
  
-        foreach (SpriteResolver r in _resolvers)
-            if (r != null) r.ResolveSpriteToSpriteRenderer();
+    [ContextMenu("도구 애니메이션 진단")]
+    private void Diagnose()
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine($"═══ 도구 애니메이션 진단 ({visualMode}) ═══");
+ 
+        PlayerInventory player = _player != null ? _player : PlayerInventory.Instance;
+        ToolSO tool = player != null ? player.HeldItem as ToolSO : null;
+ 
+        sb.AppendLine($"[1] 손 : {(tool == null ? (player?.HeldItem == null ? "빈손" : player.HeldItem.DisplayName + " (도구 아님)") : tool.DisplayName)}");
+ 
+        if (tool != null)
+        {
+            sb.AppendLine($"    Base Clip : {(tool.baseClip == null ? "★ 비어 있음" : tool.baseClip.name)}");
+            sb.AppendLine($"    Tier Clip : {(tool.tierClip == null ? "★ 비어 있음" : tool.tierClip.name)}");
+            sb.AppendLine($"    Trigger   : {tool.animationTrigger}");
+        }
+ 
+        if (_overrides == null)
+            sb.AppendLine("[2] Override Controller : ★ 없음");
+        else
+        {
+            _overrides.GetOverrides(_pairs);
+            sb.AppendLine($"[2] Override Controller : {_overrides.name}   슬롯 {_pairs.Count}개");
+ 
+            foreach (KeyValuePair<AnimationClip, AnimationClip> p in _pairs)
+                sb.AppendLine($"    {p.Key.name}  →  {(p.Value == null ? "(원본)" : p.Value.name)}");
+        }
+ 
+        if (animator != null)
+        {
+            AnimatorStateInfo si = animator.GetCurrentAnimatorStateInfo(0);
+            sb.AppendLine($"[3] 현재 상태 진행도 : {si.normalizedTime:0.00}   길이 {si.length:0.###}초");
+        }
+ 
+        Debug.Log(sb.ToString(), this);
     }
 }
