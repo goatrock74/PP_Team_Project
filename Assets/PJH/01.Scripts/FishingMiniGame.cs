@@ -150,6 +150,8 @@ namespace PJH.Scripts
             isOpeningPanel = true;
             fishingMiniGameUI.OpenPanel();
         }
+        
+        
  
         #region 미니게임 결과 및 종료
  
