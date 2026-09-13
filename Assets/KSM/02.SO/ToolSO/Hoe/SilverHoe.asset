@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SilverHoe
   m_EditorClassIdentifier: Assembly-CSharp::HoeSO
   itemId: 
-  displayName: Hoe Wood
-  icon: {fileID: -1249109064242409673, guid: c687d774894d93242948d0cfd5ab3c75, type: 3}
+  displayName: Hoe Silver
+  icon: {fileID: 2755791814373377763, guid: c31c3d9b384be2e44be35bb0f709e692, type: 3}
   description: 
   itemType: 5
   maxStack: 1

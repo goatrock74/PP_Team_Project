@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GoldScythe
   m_EditorClassIdentifier: Assembly-CSharp::ScytheSO
   itemId: 
-  displayName: Scyyhe Wood
-  icon: {fileID: -4420145649186828028, guid: a087c8238574c1346b2ebd451bc78a8c, type: 3}
+  displayName: Scyyhe Gold
+  icon: {fileID: -6034745283014601720, guid: 12253f8e01f6ca843b79e06becf9d663, type: 3}
   description: 
   itemType: 5
   maxStack: 1

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScytheSO
   itemId: 
   displayName: Scyyhe Wood
-  icon: {fileID: -4420145649186828028, guid: a087c8238574c1346b2ebd451bc78a8c, type: 3}
+  icon: {fileID: 8868822052718785673, guid: 02f587f587716844c966c0245e83481d, type: 3}
   description: 
   itemType: 5
   maxStack: 1

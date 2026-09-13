@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoldAxe
   m_EditorClassIdentifier: Assembly-CSharp::AxeSO
   itemId: 
-  displayName: Silver Axe
+  displayName: Gold Axe
   icon: {fileID: -3181690021497195007, guid: c4fb1c5ba8fc0ea4095931db58e706f3, type: 3}
   description: 
   itemType: 5

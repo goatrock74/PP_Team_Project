@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GoldHoe
   m_EditorClassIdentifier: Assembly-CSharp::HoeSO
   itemId: 
-  displayName: Hoe Wood
-  icon: {fileID: -1249109064242409673, guid: c687d774894d93242948d0cfd5ab3c75, type: 3}
+  displayName: Hoe Gold
+  icon: {fileID: -6585077684713107077, guid: 540b7b0765a06f546855fe64005abc7b, type: 3}
   description: 
   itemType: 5
   maxStack: 1

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: GoldWateringCan
   m_EditorClassIdentifier: Assembly-CSharp::WateringCanSO
   itemId: 
-  displayName: Watering Can Wood
-  icon: {fileID: 1021413968437411507, guid: 34aaa314d6fdae04cae43d8806f7113b, type: 3}
+  displayName: Watering Can Gold
+  icon: {fileID: -8521515244362334774, guid: 825c102988e22e045a5dcc8189da1951, type: 3}
   description: 
   itemType: 5
   maxStack: 1

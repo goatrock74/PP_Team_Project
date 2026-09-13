@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SilverWateringCan
   m_EditorClassIdentifier: Assembly-CSharp::WateringCanSO
   itemId: 
-  displayName: Watering Can Wood
-  icon: {fileID: 1021413968437411507, guid: 34aaa314d6fdae04cae43d8806f7113b, type: 3}
+  displayName: Watering Can Silver
+  icon: {fileID: -4030080287875928419, guid: 4c6cc875def6a4444b6a7bcb20fbd33e, type: 3}
   description: 
   itemType: 5
   maxStack: 1

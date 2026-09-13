@@ -8950,7 +8950,7 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 950f2b0e1efb8f7448daaf42ebdc892e, type: 2}
     count: 1
     quality: 0
-  - item: {fileID: 11400000, guid: e072039f62025af46827d5fa233f2382, type: 2}
+  - item: {fileID: 11400000, guid: bf5852cbd33358c4e968870154d10aaf, type: 2}
     count: 1
     quality: 0
   - item: {fileID: 11400000, guid: 943a9cb01abf2ec4bb2a5557f9751ff7, type: 2}
@@ -25252,6 +25252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 900bc521349d472fb7fb46a61d4c1563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingController
+  fishCollectionManager: {fileID: 0}
   fishingAreaCheck: {fileID: 4264461902319953042}
   fishSelector: {fileID: 6258274627472133461}
   fishingMiniGame: {fileID: 40923896187291616}
