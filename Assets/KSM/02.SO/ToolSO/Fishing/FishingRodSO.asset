@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FishingRodSO
   itemId: 
   displayName: FishingRod
-  icon: {fileID: 3259921014678051045, guid: 1f92e8e6bfb53bd4fb22f1d4bb9f0148, type: 3}
+  icon: {fileID: -6646212337641880122, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
   description: 
   itemType: 5
   maxStack: 1
@@ -26,6 +26,8 @@ MonoBehaviour:
   verboseLog: 1
   showPreview: 0
   animationTrigger: 
+  baseClip: {fileID: 0}
+  tierClip: {fileID: 0}
   heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
   impactDelay: 0.15
   useCooldown: 0.4

@@ -8,7 +8,19 @@ namespace KSM._00.Scripts.Crop
     {
         [SerializeField] private CropSO cropSO;
  
+        [Header("자연스러움")]
+        [Tooltip("칸 중앙에서 상하좌우로 어긋나는 최대 거리. 칸 크기 대비 비율이다.\n" +
+                 "0.06 이면 한 칸의 6% 안에서 흔들린다. 0 이면 정확히 중앙")]
+        [SerializeField, Range(0f, 0.3f)] private float positionJitter = 0.06f;
+ 
+        [Tooltip("작물 크기 배수 범위. x=최소, y=최대")]
+        [SerializeField] private Vector2 scaleRange = new Vector2(1f, 1.15f);
+ 
+        [Tooltip("가끔 좌우를 뒤집는다. 좌우 대칭이 아닌 그림에서만 켤 것")]
+        [SerializeField] private bool randomFlipX;
+ 
         private SpriteRenderer _renderer;
+        private bool _lookApplied;
         private CropManager _manager;
         private bool _initialized;
         private bool _harvested;   
@@ -16,13 +28,10 @@ namespace KSM._00.Scripts.Crop
         [field: SerializeField] public int NowGrowthStage { get; private set; }
         [field: SerializeField] public float CurrentTimeStage { get; private set; }
         [field: SerializeField] public bool IsGrowFinished { get; private set; }
- 
         public Vector3Int OriginCell { get; private set; }
  
         public CropSO Data => cropSO;
- 
         public event Action<int> OnStageChanged;
- 
         public bool CanHarvest => _initialized && IsGrowFinished && !_harvested;
  
         public string HarvestPrompt
@@ -33,6 +42,7 @@ namespace KSM._00.Scripts.Crop
                 return IsGrowFinished ? $"{cropSO.cropName} 수확" : $"{cropSO.cropName} (자라는 중)";
             }
         }
+ 
         private void Awake()
         {
             _renderer = GetComponent<SpriteRenderer>();
@@ -79,8 +89,49 @@ namespace KSM._00.Scripts.Crop
             IsGrowFinished = NowGrowthStage >= cropSO.harvestStageIndex;
             _initialized = true;
  
+            ApplyNaturalLook();
             ApplyStage();
         }
+        private void ApplyNaturalLook()
+        {
+            if (_lookApplied) return;
+            _lookApplied = true;
+ 
+            var rng = new System.Random(CellSeed(OriginCell));
+ 
+            float Next01() => (float)rng.NextDouble();
+            float Signed() => Next01() * 2f - 1f;   // -1 ~ +1
+ 
+            // ── 크기 ──
+            float scale = Mathf.Lerp(
+                Mathf.Min(scaleRange.x, scaleRange.y),
+                Mathf.Max(scaleRange.x, scaleRange.y),
+                Next01());
+ 
+            if (randomFlipX && Next01() < 0.5f) _renderer.flipX = true;
+ 
+            if (!Mathf.Approximately(scale, 1f))
+            {
+                Vector3 s = transform.localScale;
+                transform.localScale = new Vector3(s.x * scale, s.y * scale, s.z);
+                if (TryGetComponent<BoxCollider2D>(out var box))
+                {
+                    box.size /= scale;
+                    box.offset /= scale;
+                }
+            }
+            if (positionJitter <= 0f) return;
+ 
+            CropManager mgr = _manager != null ? _manager : CropManager.Instance;
+            Vector3 cell = mgr != null ? mgr.CellSize : Vector3.one;
+ 
+            transform.position += new Vector3(
+                Signed() * positionJitter * cell.x,
+                Signed() * positionJitter * cell.y,
+                0f);
+        }
+        private static int CellSeed(Vector3Int c)
+            => unchecked(c.x * 73856093 ^ c.y * 19349663 ^ c.z * 83492791);
  
         public void Tick(float delta)
         {
@@ -89,7 +140,6 @@ namespace KSM._00.Scripts.Crop
             CurrentTimeStage += delta;
  
             float needTime = cropSO.growthStages[NowGrowthStage].durationTime;
- 
             while (!IsGrowFinished && CurrentTimeStage >= needTime)
             {
                 CurrentTimeStage -= needTime;
@@ -115,13 +165,14 @@ namespace KSM._00.Scripts.Crop
         public bool TryHarvest()
         {
             if (!CanHarvest) return false;
- 
             if (_manager == null) _manager = CropManager.Instance;
             float yieldMul = _manager != null ? _manager.YieldMultiplier : 1f;
             float qualityBonus = _manager != null ? _manager.QualityBonus : 0f;
  
             int amount = Mathf.Max(1, Mathf.RoundToInt(cropSO.RollYield() * yieldMul));
+ 
             bool allowBest = _manager == null || _manager.AllowBestQuality;
+ 
             ItemQuality quality = cropSO.qualityChance.Roll(qualityBonus, allowBest);
  
             if (cropSO.harvestItem == null)
@@ -179,3 +230,4 @@ namespace KSM._00.Scripts.Crop
         }
     }
 }
+ 

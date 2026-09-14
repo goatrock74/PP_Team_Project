@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AxeSO
   itemId: 
   displayName: Silver Axe
-  icon: {fileID: 5281419394592009982, guid: 58adc06f83c7b48468a3842df70b33bc, type: 3}
+  icon: {fileID: 4917790942070779115, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
   description: 
   itemType: 5
   maxStack: 1

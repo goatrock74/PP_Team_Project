@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::WateringCanSO
   itemId: 
   displayName: Watering Can Gold
-  icon: {fileID: -8521515244362334774, guid: 825c102988e22e045a5dcc8189da1951, type: 3}
+  icon: {fileID: -4901811203898126652, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
   description: 
   itemType: 5
   maxStack: 1

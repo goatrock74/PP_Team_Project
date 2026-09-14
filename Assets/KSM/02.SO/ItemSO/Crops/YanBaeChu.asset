@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 2
   displayName: YangBaeChue
-  icon: {fileID: -1023979755758424161, guid: e738ae0d8610cc142968a0d0f2d319c6, type: 3}
+  icon: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
   description: YangBae
   itemType: 0
   maxStack: 99

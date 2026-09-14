@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ScytheSO
   itemId: 
   displayName: Scyyhe Gold
-  icon: {fileID: -6034745283014601720, guid: 12253f8e01f6ca843b79e06becf9d663, type: 3}
+  icon: {fileID: -1188281052349622202, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
   description: 
   itemType: 5
   maxStack: 1

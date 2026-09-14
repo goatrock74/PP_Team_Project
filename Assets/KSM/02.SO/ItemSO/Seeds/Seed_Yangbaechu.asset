@@ -10,15 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6f09d5f542a4e95ab92d1a9cb35d24d, type: 3}
-  m_Name: SeedSO
+  m_Name: Seed_Yangbaechu
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
-  itemId: 
-  displayName: WaaterMelon
-  icon: {fileID: 4144650804457457310, guid: b19222d54095e714dbbf9c817bfeb0c1, type: 3}
-  description: 'siupark
-
-'
+  itemId: yangbaechu_seed
+  displayName: "\uC591\uBC30\uCD94\uC528\uC557\uD329"
+  icon: {fileID: -8102348181575854170, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  description: "\uC591\uBC30\uCD94\uC528\uC557\uC744 \uC2EC\uC744\uC218\uC788\uB2E4"
   itemType: 1
   maxStack: 99
   sellPrice: 0
-  crop: {fileID: 11400000, guid: c7cd0afdbd932c841b4b369b6a87610f, type: 2}
+  crop: {fileID: 11400000, guid: 630d567480a2bbf429716745dc68a1ad, type: 2}

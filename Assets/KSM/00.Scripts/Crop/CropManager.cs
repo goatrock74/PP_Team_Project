@@ -73,11 +73,10 @@ namespace KSM._00.Scripts.Crop
             if (_instance == this) _instance = null;
         }
  
-   
  
         public void Register(GrowCrop crop)
         {
-            if (crop != null && !_crops.Contains(crop)) _crops.Add(crop);   
+            if (crop != null && !_crops.Contains(crop)) _crops.Add(crop);   // 중복 등록 = 2배속 성장
         }
  
         public void Unregister(GrowCrop crop) => _crops.Remove(crop);
@@ -92,16 +91,20 @@ namespace KSM._00.Scripts.Crop
  
             float gameDays = ConsumeGameDays(realElapsed);
             if (gameDays <= 0f) return;
+ 
             CurrentGameDays = GameClock != null ? GameClock.TotalGameDays : CurrentGameDays + gameDays;
  
-            UpdateWetCells();   
+            UpdateWetCells();  
             TickAll(gameDays * GrowthSpeedMultiplier);
         }
+ 
+      
         private float ConsumeGameDays(float realElapsed)
         {
             if (GameClock != null)
             {
                 float now = GameClock.TotalGameDays;
+ 
                 if (!_clockPrimed)
                 {
                     _lastClockDays = now;
@@ -119,9 +122,13 @@ namespace KSM._00.Scripts.Crop
  
             return realElapsed * timeScale / Mathf.Max(1f, fallbackSecondsPerDay);
         }
+        
         public IGameClock GameClock { get; set; }
+ 
         public float CurrentGameDays { get; private set; }
+ 
         private readonly List<IGrowthModifier> _modifiers = new();
+ 
         public void AddGrowthModifier(IGrowthModifier modifier)
         {
             if (modifier == null || _modifiers.Contains(modifier)) return;
@@ -129,6 +136,7 @@ namespace KSM._00.Scripts.Crop
         }
  
         public void RemoveGrowthModifier(IGrowthModifier modifier) => _modifiers.Remove(modifier);
+ 
         public IGrowthModifier GrowthModifier
         {
             get => _modifiers.Count > 0 ? _modifiers[0] : null;
@@ -138,6 +146,7 @@ namespace KSM._00.Scripts.Crop
                 if (value != null) _modifiers.Insert(0, value);
             }
         }
+ 
  
         public float GrowthSpeedMultiplier
         {
@@ -168,6 +177,7 @@ namespace KSM._00.Scripts.Crop
                 return v;
             }
         }
+ 
         public bool AllowBestQuality
         {
             get
@@ -193,15 +203,17 @@ namespace KSM._00.Scripts.Crop
             {
                 GrowCrop crop = _crops[i];
                 if (crop == null) continue;
+ 
                 float mul = IsWet(crop.OriginCell) ? wetGrowthMultiplier : 1f;
                 crop.Tick(delta * mul);
             }
         }
  
+ 
         private struct WetData
         {
             public TileBase originalTile;  
-            public float dryAtDay;          
+            public float dryAtDay;         
         }
  
         private readonly Dictionary<Vector3Int, WetData> _wet = new();
@@ -248,7 +260,6 @@ namespace KSM._00.Scripts.Crop
         }
  
         public void SkipGameDays(float days) => TickAll(Mathf.Max(0f, days));
- 
         [ContextMenu("성장 상태 진단")]
         public void DebugGrowthStatus()
         {
@@ -289,20 +300,20 @@ namespace KSM._00.Scripts.Crop
                           $"{(c.IsGrowFinished ? "(수확 가능)" : string.Empty)}", c);
             }
         }
- 
         public Vector3Int WorldToCell(Vector3 world) => groundTilemap.WorldToCell(world);
  
         public Vector3 CellToWorldCenter(Vector3Int cell) => groundTilemap.GetCellCenterWorld(cell);
         public Vector3 CellSize => groundTilemap != null ? groundTilemap.cellSize : Vector3.one;
         public TileBase GetGroundTile(Vector3Int cell)
             => groundTilemap != null ? groundTilemap.GetTile(cell) : null;
+ 
         public TileBase GetEffectiveGroundTile(Vector3Int cell)
             => _wet.TryGetValue(cell, out WetData data) ? data.originalTile : GetGroundTile(cell);
         public void SetGroundTile(Vector3Int cell, TileBase tile)
         {
             if (groundTilemap != null) groundTilemap.SetTile(cell, tile);
         }
-        
+ 
         public static Vector3Int GetOrigin(Vector3Int clickedCell, Vector2Int size)
         {
             return new Vector3Int(
@@ -311,6 +322,7 @@ namespace KSM._00.Scripts.Crop
                 clickedCell.z);
         }
  
+    
         public Vector3 GetPlantWorldPos(Vector3Int origin, Vector2Int size)
         {
             Vector3 left = groundTilemap.GetCellCenterWorld(origin);
@@ -341,7 +353,7 @@ namespace KSM._00.Scripts.Crop
                 {
                     var cell = new Vector3Int(origin.x + x, origin.y + y, origin.z);
  
-                    if (_occupied.ContainsKey(cell)) return false;  
+                    if (_occupied.ContainsKey(cell)) return false;   
  
                     if (!crop.IsPlantableTile(GetEffectiveGroundTile(cell))) return false;
                 }
@@ -349,6 +361,7 @@ namespace KSM._00.Scripts.Crop
  
             return true;
         }
+ 
         public bool TryPlant(Vector3Int clickedCell, CropSO crop)
         {
             if (crop == null || cropPrefab == null || groundTilemap == null) return false;
@@ -366,6 +379,7 @@ namespace KSM._00.Scripts.Crop
                 Destroy(go);
                 return false;
             }
+ 
             if (go.TryGetComponent<BoxCollider2D>(out var box))
             {
                 Vector3 cs = groundTilemap.cellSize;
@@ -380,6 +394,7 @@ namespace KSM._00.Scripts.Crop
  
             return true;
         }
+ 
         public void OccupyCells(GrowCrop crop)
         {
             if (crop == null || crop.Data == null) return;
@@ -391,6 +406,8 @@ namespace KSM._00.Scripts.Crop
                 for (int y = 0; y < size.y; y++)
                     _occupied[new Vector3Int(origin.x + x, origin.y + y, origin.z)] = crop;
         }
+ 
+       
         public void ReleaseCells(GrowCrop crop)
         {
             if (crop == null || crop.Data == null) return;
@@ -410,6 +427,7 @@ namespace KSM._00.Scripts.Crop
                 }
             }
         }
+ 
         public GrowCrop GetOccupant(Vector3Int cell)
             => _occupied.TryGetValue(cell, out var crop) ? crop : null;
  
@@ -430,8 +448,8 @@ namespace KSM._00.Scripts.Crop
  
             return true;
         }
+ 
         public void NotifyHarvested(ItemSO item, int amount, ItemQuality quality)
             => OnHarvested?.Invoke(item, amount, quality);
     }
 }
- 

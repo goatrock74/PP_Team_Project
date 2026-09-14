@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoeSO
   itemId: 
   displayName: Hoe Wood
-  icon: {fileID: -1249109064242409673, guid: c687d774894d93242948d0cfd5ab3c75, type: 3}
+  icon: {fileID: 2473628287554250871, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
   description: 
   itemType: 5
   maxStack: 1
