@@ -34,7 +34,7 @@ public class TimeController : MonoBehaviour
     }
     private void HandleLight(TimeManager.TimePeriod currentPeriod)
     {
-        lightManager.ChangeTimePeriod(currentPeriod);
+        lightManager.LightChangeTimePeriod(currentPeriod);
     }
     private void HandleSeasonPassive(TimeManager.SeasonPeriod currentSeason)
     {
