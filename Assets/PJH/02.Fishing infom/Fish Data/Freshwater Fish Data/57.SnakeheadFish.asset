@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 57.SnakeheadFish
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  itemId: SnakeheadFish
+  displayName: "가물치"
+  icon: {fileID: -5896054680631302605, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  description: "수초 많은 늪과 하천에 살며 공기 호흡으로 산소가 적은 물도 견딘다."
+  itemType: 2
+  maxStack: 99
+  sellPrice: 0
+  fishID: SnakeheadFish
+  rarity: 3
+  collectionCategory: 1
+  difficulty: 3
+  moveSpeed: 0.29
+  minTargetChangeTime: 0.65
+  maxTargetChangeTime: 1.1
+  maxMoveDistance: 0.36
+

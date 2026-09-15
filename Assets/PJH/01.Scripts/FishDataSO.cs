@@ -1,7 +1,12 @@
 ﻿using UnityEngine;
- 
-namespace PJH.Scripts
+
+public enum FishCollectionCategory
 {
+    Sea,
+    FreshWater,
+    Trash
+}
+    
     /// <summary>
     /// 물고기 데이터. <b>ItemSO 를 상속</b>해서 인벤토리·핫바·상점·정보창에 그대로 들어간다.
     ///
@@ -25,6 +30,10 @@ namespace PJH.Scripts
         [Tooltip("낚시 마스터리 경험치가 이 등급으로 정해진다")]
         public ItemRarity rarity = ItemRarity.Common;
  
+        
+        [Header("도감 분류")]
+        public FishCollectionCategory collectionCategory;
+        
         [Header("난이도")]
         [Tooltip("미니게임 난이도. 품질 보정에도 쓸 수 있다")]
         public float difficulty;
@@ -56,5 +65,4 @@ namespace PJH.Scripts
             if (maxTargetChangeTime < minTargetChangeTime)
                 maxTargetChangeTime = minTargetChangeTime;
         }
-    }
 }

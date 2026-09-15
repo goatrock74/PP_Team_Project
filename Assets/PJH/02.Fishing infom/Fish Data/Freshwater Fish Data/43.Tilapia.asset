@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 43.Tilapia
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  itemId: Tilapia
+  displayName: "틸라피아"
+  icon: {fileID: -7859941883448481352, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  description: "따뜻한 강과 호수에 잘 적응하며 먹성이 좋은 시클리드류 물고기."
+  itemType: 2
+  maxStack: 99
+  sellPrice: 0
+  fishID: Tilapia
+  rarity: 0
+  collectionCategory: 1
+  difficulty: 1
+  moveSpeed: 0.16
+  minTargetChangeTime: 1.5
+  maxTargetChangeTime: 2.25
+  maxMoveDistance: 0.15
+
