@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 41.OpsariichthysBidens
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  itemId: OpsariichthysBidens
+  displayName: "끄리"
+  icon: {fileID: -861228602180299206, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  description: "동아시아의 흐르는 강에 살며 작은 물고기와 수서생물을 쫓는 민물고기."
+  itemType: 2
+  maxStack: 99
+  sellPrice: 0
+  fishID: OpsariichthysBidens
+  rarity: 0
+  collectionCategory: 1
+  difficulty: 1
+  moveSpeed: 0.17
+  minTargetChangeTime: 1.45
+  maxTargetChangeTime: 2.2
+  maxMoveDistance: 0.16
+
