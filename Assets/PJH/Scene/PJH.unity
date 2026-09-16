@@ -13631,22 +13631,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8240298336214009830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1284175417770746478
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2217803957244311420}
-  m_Layer: 0
-  m_Name: OnBobberPointRight
-  m_TagString: Untagged
-  m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &1375209975940378156
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13733,21 +13717,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7263034700221121538}
   m_CullTransparentMesh: 1
---- !u!4 &2217803957244311420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1284175417770746478}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.5, y: 0.12, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6222415032637461927}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!222 &2473593956388860186
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13899,328 +13868,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8414701440771080996}
   m_CullTransparentMesh: 1
---- !u!114 &2901346291419793180
+--- !u!114 &2901346291419793180 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+  m_PrefabInstance: {fileID: 6399321534053349369}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2967419505288977588}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 385a377fe6014da5a614c16e971118ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSelector
-  timeManager: {fileID: 1301231008}
-  fishTable:
-  - fish: {fileID: 11400000, guid: cca387ab3c8a47f4092ab4b92fe97a03, type: 2}
-    springMultiplier: 1
-    summerMultiplier: 1
-    autumnMultiplier: 1
-    winterMultiplier: 1
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0.5
-  - fish: {fileID: 11400000, guid: dc99e02e186179f4db599c1783cfd5b6, type: 2}
-    springMultiplier: 0.45
-    summerMultiplier: 0
-    autumnMultiplier: 1
-    winterMultiplier: 1
-    morningMultiplier: 0
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: afee1b75e1a60fe4f86acf83c0ada9dc, type: 2}
-    springMultiplier: 1
-    summerMultiplier: 1
-    autumnMultiplier: 0.45
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 1.6
-    nightMultiplier: 0.5
-  - fish: {fileID: 11400000, guid: 345748c3b2ec60240a6cd20bed3d2992, type: 2}
-    springMultiplier: 0.45
-    summerMultiplier: 1
-    autumnMultiplier: 0.45
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: f2b08c87a3cb237419ab0feb49c28c69, type: 2}
-    springMultiplier: 0.45
-    summerMultiplier: 1
-    autumnMultiplier: 0.45
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: b5dc2c4a1380e1248a5c4421c49cc5c4, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0.45
-    winterMultiplier: 1
-    morningMultiplier: 1
-    afternoonMultiplier: 0
-    nightMultiplier: 0.5
-  - fish: {fileID: 11400000, guid: a51febd25fcf66448aa24005c3742286, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 1
-    autumnMultiplier: 1
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 1.6
-    nightMultiplier: 0.5
-  - fish: {fileID: 11400000, guid: 4acf4bc74cc2a4147badb1818f9c7a2e, type: 2}
-    springMultiplier: 0.45
-    summerMultiplier: 1
-    autumnMultiplier: 0.45
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 666afd11b70d2c74389458944e22e990, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 1
-    winterMultiplier: 0.45
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 886ed0685cec609449a7a4a15f5d3787, type: 2}
-    springMultiplier: 1
-    summerMultiplier: 0.45
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: b574b391f28656847b6a10ed7fbfd21d, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 1
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 6ef8eab7221fc0947942e940e3f1f1a3, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 1
-    autumnMultiplier: 0.45
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 7dad5a0788d5f134599137b0fb323f39, type: 2}
-    springMultiplier: 1
-    summerMultiplier: 1
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 02e19ab6f14550147bc526028d976f39, type: 2}
-    springMultiplier: 0.45
-    summerMultiplier: 1
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 85afa551688abdf47ae370d7a0ade9d6, type: 2}
-    springMultiplier: 1
-    summerMultiplier: 0.45
-    autumnMultiplier: 1
-    winterMultiplier: 0
-    morningMultiplier: 0.5
-    afternoonMultiplier: 1.6
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: b719e93c4f5105846b41adda5cb203d7, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0.45
-    autumnMultiplier: 1
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: 04a95e33c3ede604fa95a47b33f1550d, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0.45
-    winterMultiplier: 1
-    morningMultiplier: 0
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: ea505a10af6bb44448be4f4a1eaad6e1, type: 2}
-    springMultiplier: 1
-    summerMultiplier: 1
-    autumnMultiplier: 1
-    winterMultiplier: 1
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: 8ac90a2e13019684c9224129061a1dab, type: 2}
-    springMultiplier: 1
-    summerMultiplier: 1
-    autumnMultiplier: 0.45
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: eb9db29214a233f45af490bb2c3e9221, type: 2}
-    springMultiplier: 1
-    summerMultiplier: 1
-    autumnMultiplier: 1
-    winterMultiplier: 1
-    morningMultiplier: 0
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: a76f7ebfaffabc348abbd95eae8e1cc6, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0.45
-    autumnMultiplier: 1
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 1.6
-    nightMultiplier: 0.5
-  - fish: {fileID: 11400000, guid: 38401acdb0a102641bedb5363f803edc, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0.45
-    winterMultiplier: 1
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 87e440d823fa83b4d9d75ba229bb6974, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0.45
-    winterMultiplier: 1
-    morningMultiplier: 0
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: 3a243aea278e01a40afbf065e2de0313, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0.45
-    winterMultiplier: 1
-    morningMultiplier: 1
-    afternoonMultiplier: 0
-    nightMultiplier: 0.5
-  - fish: {fileID: 11400000, guid: 0e2350fc74ac9764281d7efebab03486, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 1
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 0f360068ffce9194a91ca0f9366e64cd, type: 2}
-    springMultiplier: 0.45
-    summerMultiplier: 1
-    autumnMultiplier: 0.45
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 82f83d822c07fa04abc5fc8c5d4ee83e, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 1
-    autumnMultiplier: 0.45
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 1.6
-    nightMultiplier: 0.5
-  - fish: {fileID: 11400000, guid: 8dfae2f2541a50246abc675f921994ca, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 1
-    autumnMultiplier: 0.45
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: d0f94d376ee3f1d45bbaa144853b14b0, type: 2}
-    springMultiplier: 0.45
-    summerMultiplier: 0
-    autumnMultiplier: 0.45
-    winterMultiplier: 1
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: e985dbae5915fc14087b1bbe8d576642, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 1
-    winterMultiplier: 1
-    morningMultiplier: 1
-    afternoonMultiplier: 0
-    nightMultiplier: 0.5
-  - fish: {fileID: 11400000, guid: 10fa242c89ff8ea4199980cbf4522891, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0.45
-    winterMultiplier: 1
-    morningMultiplier: 0
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: 2f2bd3bf12c31414da0c6f43e27b6feb, type: 2}
-    springMultiplier: 1
-    summerMultiplier: 0.45
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 26ed51d922159fb4fa234bfe5c780028, type: 2}
-    springMultiplier: 0.45
-    summerMultiplier: 0.45
-    autumnMultiplier: 1
-    winterMultiplier: 1
-    morningMultiplier: 0
-    afternoonMultiplier: 0.5
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: 6e5a056b9ba7ac34fb5cedd7247eb8c9, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0
-    winterMultiplier: 1
-    morningMultiplier: 0
-    afternoonMultiplier: 0
-    nightMultiplier: 1.3
-  - fish: {fileID: 11400000, guid: 082383fa8387af44da98c65df43b23fc, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 1
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 1
-    afternoonMultiplier: 0.5
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: 295af7a3d4c50a340856fab286b3ec8d, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0
-    winterMultiplier: 1
-    morningMultiplier: 0
-    afternoonMultiplier: 0
-    nightMultiplier: 1.3
-  useMasteryLuck: 1
---- !u!1 &2967419505288977588
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6222415032637461927}
-  - component: {fileID: 5022662610120601307}
-  - component: {fileID: 7288665619009897472}
-  - component: {fileID: 2901346291419793180}
-  m_Layer: 0
-  m_Name: FishingController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!114 &2970884434999001729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14430,25 +14088,17 @@ RectTransform:
   m_AnchoredPosition: {x: 60.809, y: -0}
   m_SizeDelta: {x: 28.456, y: 487.306}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5022662610120601307
+--- !u!114 &5022662610120601307 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 7169688697578472792, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+  m_PrefabInstance: {fileID: 6399321534053349369}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2967419505288977588}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 84cc55cfbd2ef304aa6e48f78ef53baa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishingAreaCheck
-  fishingAreaLayer:
-    serializedVersion: 2
-    m_Bits: 16
-  bobberPoint: {fileID: 2217803957244311420}
-  mirrorByFacing: 1
-  movement: {fileID: 0}
-  pivot: {fileID: 0}
 --- !u!222 &5023347285878315709
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14632,22 +14282,84 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6222415032637461927
+--- !u!4 &6222415032637461927 stripped
 Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+  m_PrefabInstance: {fileID: 6399321534053349369}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2967419505288977588}
+--- !u!1001 &6399321534053349369
+PrefabInstance:
+  m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2217803957244311420}
-  m_Father: {fileID: 324735644}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 324735644}
+    m_Modifications:
+    - target: {fileID: 95114240070959544, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: caughtFishPoint
+      value: 
+      objectReference: {fileID: 390264483775927818}
+    - target: {fileID: 95114240070959544, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: fishingMiniGame
+      value: 
+      objectReference: {fileID: 6820266594769326791}
+    - target: {fileID: 95114240070959544, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: fishCollectionManager
+      value: 
+      objectReference: {fileID: 922998600}
+    - target: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: timeManager
+      value: 
+      objectReference: {fileID: 1301231008}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078033570607346116, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_Name
+      value: FishingController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
 --- !u!114 &6560108254286260478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14811,27 +14523,17 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7288665619009897472
+--- !u!114 &7288665619009897472 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 95114240070959544, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+  m_PrefabInstance: {fileID: 6399321534053349369}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2967419505288977588}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 900bc521349d472fb7fb46a61d4c1563, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingController
-  fishCollectionManager: {fileID: 922998600}
-  fishingAreaCheck: {fileID: 5022662610120601307}
-  fishSelector: {fileID: 2901346291419793180}
-  fishingMiniGame: {fileID: 6820266594769326791}
-  fishingSettingSO: {fileID: 11400000, guid: 37da06c8686be284682586644239fcab, type: 2}
-  splashParticlePrefab: {fileID: 7751772685987678850, guid: 0387cf995dbbb494f8d615397183d20e, type: 3}
-  biteReactionTime: 1
-  catchEffectPrefab: {fileID: 618196433143026379, guid: 0f34367616e5e6d40b13b3e75d1b0142, type: 3}
-  caughtFishPoint: {fileID: 390264483775927818}
 --- !u!4 &7327344103193202187
 Transform:
   m_ObjectHideFlags: 0

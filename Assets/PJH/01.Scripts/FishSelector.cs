@@ -9,6 +9,7 @@ namespace PJH.Scripts
         [System.Serializable]
         public struct FishChance
         {
+
             public FishDataSO fish;
 
             [Header("계절 배율")]
@@ -50,19 +51,21 @@ namespace PJH.Scripts
 
         #region 외부에서 호출하는 메서드
 
-        public FishDataSO RandomFish()
+        public FishDataSO RandomFish(FishCollectionCategory category)
         {
             if (timeManager == null)
             {
                 Debug.LogError(
                     "FishSelector에 TimeManager가 연결되지 않았습니다.");
+                
 
                 return null;
             }
 
-            selctedFishDataSO = Draw();
+            selctedFishDataSO = Draw(category);
 
-            ApplyFishingLuck();
+            ApplyFishingLuck(category);
+            
 
             return selctedFishDataSO;
         }
@@ -71,9 +74,9 @@ namespace PJH.Scripts
 
         #region 물고기 추첨
 
-        private FishDataSO Draw()
+        private FishDataSO Draw(FishCollectionCategory category)
         {
-            float totalWeight = GetTotalWeight();
+            float totalWeight = GetTotalWeight(category);
 
             if (totalWeight <= 0f)
             {
@@ -91,6 +94,11 @@ namespace PJH.Scripts
             foreach (FishChance entry in fishTable)
             {
                 if (entry.fish == null)
+                {
+                    continue;
+                }
+
+                if (entry.fish.collectionCategory != category)
                 {
                     continue;
                 }
@@ -115,7 +123,7 @@ namespace PJH.Scripts
             return lastAvailableFish;
         }
 
-        private float GetTotalWeight()
+        private float GetTotalWeight(FishCollectionCategory category)
         {
             if (fishTable == null)
             {
@@ -127,6 +135,11 @@ namespace PJH.Scripts
             foreach (FishChance entry in fishTable)
             {
                 if (entry.fish == null)
+                {
+                    continue;
+                }
+
+                if (entry.fish.collectionCategory != category)
                 {
                     continue;
                 }
@@ -203,7 +216,7 @@ namespace PJH.Scripts
 
         #region 행운 적용
 
-        private void ApplyFishingLuck()
+        private void ApplyFishingLuck(FishCollectionCategory category)
         {
             if (!useMasteryLuck ||
                 selctedFishDataSO == null)
@@ -229,7 +242,7 @@ namespace PJH.Scripts
 
             for (int i = 0; i < extraDrawCount; i++)
             {
-                FishDataSO candidate = Draw();
+                FishDataSO candidate = Draw(category);
 
                 if (candidate != null &&
                     IsRarer(candidate, selctedFishDataSO))

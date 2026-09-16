@@ -23,6 +23,7 @@ namespace PJH.Scripts
         [SerializeField] private FishSelector fishSelector;
         [SerializeField] private FishingMiniGame fishingMiniGame;
         [SerializeField] private FishingSettingSO fishingSettingSO;
+        
  
         [Header("Bite Effect")]
         [SerializeField] private GameObject splashParticlePrefab;
@@ -33,6 +34,8 @@ namespace PJH.Scripts
         private FishingState currentState = FishingState.Idle;
  
         private FishDataSO currentFish;
+        private FishCollectionCategory currentFishingCategory;
+        
         private Vector3 bobberPosition;
  
         private Coroutine fishingRoutine;
@@ -87,13 +90,16 @@ namespace PJH.Scripts
         public bool HandleBobberLanding()
         {
             bool canFish =
-                fishingAreaCheck.IsFishingLayer();
+                fishingAreaCheck.TryGetFishingCategory(out currentFishingCategory);
  
             if (!canFish)
             {
                 Debug.Log("낚시할 수 없는 위치입니다.");
                 return false;
             }
+
+            Debug.Log($"현재 낚시터 {currentFishingCategory}");
+            
  
             bobberPosition =
                 fishingAreaCheck.FishingPointPosition;
@@ -135,7 +141,7 @@ namespace PJH.Scripts
         {
             while (true)
             {
-                currentFish = fishSelector.RandomFish();
+                currentFish = fishSelector.RandomFish(currentFishingCategory);
  
                 currentState = FishingState.WaitingBite;
  

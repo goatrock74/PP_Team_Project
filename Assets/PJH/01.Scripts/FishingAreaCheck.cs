@@ -1,6 +1,7 @@
 using UnityEngine;
 using KSM._00.Scripts;
- 
+using PJH._01.Scripts;
+
 namespace PJH.Scripts
 {
     /// <summary>
@@ -62,6 +63,23 @@ namespace PJH.Scripts
             Collider2D result = Physics2D.OverlapPoint(FishingPointPosition, fishingAreaLayer);
  
             return result != null;
+        }
+
+        public bool TryGetFishingCategory(out FishCollectionCategory category)
+        {
+            Collider2D result = Physics2D.OverlapPoint(FishingPointPosition, fishingAreaLayer);
+
+            if (result == null)
+            {
+                category = FishCollectionCategory.Sea;
+                return false;
+            }
+            
+            FishingWaterArea waterArea =
+                result.GetComponentInParent<FishingWaterArea>();
+            
+            category = waterArea.Category;
+            return true;
         }
  
         // ════════════════════════════════════════════════════════════
