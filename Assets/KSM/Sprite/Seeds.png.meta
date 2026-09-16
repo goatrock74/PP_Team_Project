@@ -1,46 +1,31 @@
 fileFormatVersion: 2
-guid: 6b4c68cfe261ee7409c84dfe08828080
+guid: 8545cde07834f5249a731efc0605eb77
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1918350770981437987
-    second: YangBaeChu_0
+      213: 8558203965515749781
+    second: Seeds_0
   - first:
-      213: -7069893274671939910
-    second: YangBaeChu_1
+      213: 1131535281375055967
+    second: Seeds_1
   - first:
-      213: -1977006426138126513
-    second: YangBaeChu_2
+      213: -5925890003656416073
+    second: Seeds_2
   - first:
-      213: 6099856594759639329
-    second: YangBaeChu_3
+      213: -3901715911805076996
+    second: Seeds_3
   - first:
-      213: -170226672039657399
-    second: YangBaeChu_4
+      213: 2514004559234900711
+    second: Seeds_4
   - first:
-      213: 6983519117003226336
-    second: YangBaeChu_5
+      213: 3719439311941371724
+    second: Seeds_5
   - first:
-      213: 5102928882488456478
-    second: YangBaeChu_6
+      213: 3507544636904330049
+    second: Seeds_6
   - first:
-      213: 4897552274312168063
-    second: YangBaeChu_7
-  - first:
-      213: 7845366852038185261
-    second: YangBaeChu_8
-  - first:
-      213: -2946741677843482011
-    second: YangBaeChu_9
-  - first:
-      213: -583194581789986267
-    second: YangBaeChu_10
-  - first:
-      213: -8102348181575854170
-    second: YangBaeChu_11
-  - first:
-      213: 8958590452691962893
-    second: YangBaeChu_12
+      213: -5089623308421081650
+    second: Seeds_7
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -87,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 16
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -136,188 +121,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: YangBaeChu_0
+      name: Seeds_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 7
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 32202f2ccd95f9a10800000000000000
-      internalID: 1918350770981437987
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YangBaeChu_1
-      rect:
-        serializedVersion: 2
-        x: 6
-        y: 3
-        width: 8
-        height: 6
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: abe714b4681b2ed90800000000000000
-      internalID: -7069893274671939910
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YangBaeChu_2
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 4
-        width: 9
-        height: 6
-      alignment: 9
-      pivot: {x: 0.5022227, y: 0.3000002}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f475f5b41234094e0800000000000000
-      internalID: -1977006426138126513
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YangBaeChu_3
-      rect:
-        serializedVersion: 2
-        x: 34
-        y: 4
-        width: 12
-        height: 10
-      alignment: 9
-      pivot: {x: 0.4783338, y: 0.18400016}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 121e877214b07a450800000000000000
-      internalID: 6099856594759639329
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YangBaeChu_4
-      rect:
-        serializedVersion: 2
-        x: 49
-        y: 3
+        x: 1
+        y: 16
         width: 14
-        height: 12
-      alignment: 9
-      pivot: {x: 0.49988064, y: 0.37403083}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 94087c16ebb33adf0800000000000000
-      internalID: -170226672039657399
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YangBaeChu_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 2
-        width: 16
-        height: 15
-      alignment: 9
-      pivot: {x: 0.4980712, y: 0.35798123}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 0ec702bf2a17ae060800000000000000
-      internalID: 6983519117003226336
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YangBaeChu_6
-      rect:
-        serializedVersion: 2
-        x: 79
-        y: 0
-        width: 18
-        height: 18
-      alignment: 9
-      pivot: {x: 0.5, y: 0.42453098}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e153eca38ce31d640800000000000000
-      internalID: 5102928882488456478
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YangBaeChu_7
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 4
-        width: 10
-        height: 10
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f72884b58d997f340800000000000000
-      internalID: 4897552274312168063
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: YangBaeChu_8
-      rect:
-        serializedVersion: 2
-        x: 130
-        y: 1
-        width: 12
         height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -327,20 +136,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d215c5cd59750ec60800000000000000
-      internalID: 7845366852038185261
+      spriteID: 599d7efc929d4c670800000000000000
+      internalID: 8558203965515749781
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YangBaeChu_9
+      name: Seeds_1
       rect:
         serializedVersion: 2
-        x: 175
-        y: 0
-        width: 18
-        height: 18
+        x: 17
+        y: 16
+        width: 14
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -349,20 +158,130 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 56afc477e021b17d0800000000000000
-      internalID: -2946741677843482011
+      spriteID: f509e21e75504bf00800000000000000
+      internalID: 1131535281375055967
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YangBaeChu_10
+      name: Seeds_2
       rect:
         serializedVersion: 2
-        x: 193
+        x: 33
+        y: 16
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b4650a307203cda0800000000000000
+      internalID: -5925890003656416073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_3
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 16
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf97e56ec025ad9c0800000000000000
+      internalID: -3901715911805076996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_4
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 16
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e2a8eca3d983e220800000000000000
+      internalID: 2514004559234900711
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 16
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4783e7095a1e9330800000000000000
+      internalID: 3719439311941371724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_6
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 16
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1435284734d4da030800000000000000
+      internalID: 3507544636904330049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_7
+      rect:
+        serializedVersion: 2
+        x: 113
         y: 0
         width: 14
-        height: 18
+        height: 32
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -371,52 +290,118 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 522b9752e9318e7f0800000000000000
-      internalID: -583194581789986267
+      spriteID: ec5530521960e59b0800000000000000
+      internalID: -5089623308421081650
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YangBaeChu_11
+      name: Seeds_8
       rect:
         serializedVersion: 2
-        x: 209
+        x: 1
         y: 0
         width: 14
-        height: 18
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 6a793a6c14dae8f80800000000000000
-      internalID: -8102348181575854170
+      spriteID: 7a8093bb49bfc444bae93b07e127be8c
+      internalID: 1470304246
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: YangBaeChu_12
+      name: Seeds_9
       rect:
         serializedVersion: 2
-        x: 223
+        x: 17
         y: 0
-        width: 49
-        height: 20
+        width: 14
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: d0c09e45d8e435c70800000000000000
-      internalID: 8958590452691962893
+      spriteID: f1c46275d8292524786418da2fe767b0
+      internalID: -992370689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_10
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 0
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f63592d13efc9734d805ba8fff438c6b
+      internalID: -57533290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_11
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 0
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49143a36f030c824ba4ee5e92b75daa9
+      internalID: 1974956134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Seeds_12
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f67dd4f6d2cec2b4ab6e791e5eebeee9
+      internalID: 226861689
       vertices: []
       indices: 
       edges: []
@@ -425,7 +410,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: aac1e1bc26d542c4a883de43b46ea5d1
+    spriteID: b143bebb7cd2722428f8c7bc9ddb6a66
     internalID: 0
     vertices: []
     indices: 
@@ -435,20 +420,19 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      YangBaeChu_0: 1918350770981437987
-      YangBaeChu_1: -7069893274671939910
-      YangBaeChu_10: -583194581789986267
-      YangBaeChu_11: -8102348181575854170
-      YangBaeChu_12: 8958590452691962893
-      YangBaeChu_13: -406079557
-      YangBaeChu_2: -1977006426138126513
-      YangBaeChu_3: 6099856594759639329
-      YangBaeChu_4: -170226672039657399
-      YangBaeChu_5: 6983519117003226336
-      YangBaeChu_6: 5102928882488456478
-      YangBaeChu_7: 4897552274312168063
-      YangBaeChu_8: 7845366852038185261
-      YangBaeChu_9: -2946741677843482011
+      Seeds_0: 8558203965515749781
+      Seeds_1: 1131535281375055967
+      Seeds_10: -57533290
+      Seeds_11: 1974956134
+      Seeds_12: 226861689
+      Seeds_2: -5925890003656416073
+      Seeds_3: -3901715911805076996
+      Seeds_4: 2514004559234900711
+      Seeds_5: 3719439311941371724
+      Seeds_6: 3507544636904330049
+      Seeds_7: -5089623308421081650
+      Seeds_8: 1470304246
+      Seeds_9: -992370689
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
