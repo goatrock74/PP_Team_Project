@@ -52,24 +52,24 @@ public class Itemdatamanager : MonoBehaviour
         }
     }
 
-    // 특정 계절의 아이템 배열 가져오기 (0:봄, 1:여름, 2:가을, 3:겨울)
-    public Item[] GetItemsForSeason(int seasonIndex)
-    {
-        if (itemListSO == null || seasonIndex < 0 || seasonIndex >= itemListSO.Count)
-        {
-            Debug.LogError($"[Itemdatamanager] seasonIndex 범위 초과! (입력값: {seasonIndex})");
-            return null;
-        }
+    //// 특정 계절의 아이템 배열 가져오기 (0:봄, 1:여름, 2:가을, 3:겨울)
+    ////public Item[] GetItemsForSeason(int seasonIndex)
+    //{
+    //    if (itemListSO == null || seasonIndex < 0 || seasonIndex >= itemListSO.Count)
+    //    {
+    //        Debug.LogError($"[Itemdatamanager] seasonIndex 범위 초과! (입력값: {seasonIndex})");
+    //        return null;
+    //    }
 
-        var so = itemListSO[seasonIndex];
-        if (so == null)
-        {
-            Debug.LogError($"[Itemdatamanager] {seasonIndex}번 인덱스의 ItemListSO가 Null입니다!");
-            return null;
-        }
+    //    var so = itemListSO[seasonIndex];
+    //    if (so == null)
+    //    {
+    //        Debug.LogError($"[Itemdatamanager] {seasonIndex}번 인덱스의 ItemListSO가 Null입니다!");
+    //        return null;
+    //    }
 
-        return so.ItemList;
-    }
+    //    //return so.ItemList;
+    //}
 
     // 등록된 모든 SO의 아이템을 하나의 리스트로 합쳐서 반환
     public List<Item> GetAllItems()
@@ -84,7 +84,7 @@ public class Itemdatamanager : MonoBehaviour
 
             foreach (var item in seasonSO.ItemList)
             {
-                if (item != null) all.Add(item);
+               // if (item != null) all.Add(item);
             }
         }
 

@@ -72,9 +72,9 @@ public class Input_SO_Data : MonoBehaviour
         }
 
         // 해당 계절의 Item[] 가져오기
-        Item[] currentItems = itemListSO[currentSeasonIndex].ItemList;
+      //  Item[] currentItems = itemListSO[currentSeasonIndex].ItemList;
 
-        if (currentItems == null || currentItems.Length == 0)
+       // if (currentItems == null || currentItems.Length == 0)
         {
             Debug.LogWarning($"[Input_SO_Data] {currentSeasonIndex}번 계절의 ItemList가 비어있습니다.");
         }
@@ -86,18 +86,18 @@ public class Input_SO_Data : MonoBehaviour
         }
 
         // 버튼 리스트에 데이터 세팅
-        for (int i = 0; i < shopButtons.Count; i++)
-        {
-            if (shopButtons[i] == null) continue;
+        //for (int i = 0; i < shopButtons.Count; i++)
+        //{
+        //    if (shopButtons[i] == null) continue;
 
-            if (currentItems != null && i < currentItems.Length)
-            {
-                shopButtons[i].SetItem(currentItems[i], detailPanel);
-            }
-            else
-            {
-                shopButtons[i].SetItem(null, detailPanel);
-            }
-        }
+        //    if (currentItems != null && i < currentItems.Length)
+        //    {
+        //        shopButtons[i].SetItem(currentItems[i], detailPanel);
+        //    }
+        //    else
+        //    {
+        //        shopButtons[i].SetItem(null, detailPanel);
+        //    }
+        //}
     }
 }

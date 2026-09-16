@@ -8,9 +8,8 @@ namespace Assets.PJW.Script.SO_Script
     public class ItemListSO : ScriptableObject
     {
         [SerializeField] private SeasonType targetType;
-        [SerializeField] private IsTool istool = IsTool.no;
 
-        [field: SerializeField] public Item[] ItemList { get; private set; }
+        [field: SerializeField] public ItemSO[] ItemList { get; private set; }
 
         private void OnValidate()
         {
@@ -18,18 +17,12 @@ namespace Assets.PJW.Script.SO_Script
             {
                 if (ItemList[i] == null)
                     continue;
-               /* if (ItemList[i].Season != targetType )
+               if (ItemList[i].season != targetType )
                 {
-                    Debug.LogError($"{name}의 목록에 맞지 않는 타입이 있습니다. {ItemList[i].name}");
+                    Debug.LogError($"{name}의 목록에 맞지 않는 타입이 있습니다. {ItemList[i].displayName}");
                     ItemList[i] = null;
-                }*/
+                }
             }
         }
-    }
-
-    public enum IsTool
-    {
-        yes,
-        no
     }
 }
