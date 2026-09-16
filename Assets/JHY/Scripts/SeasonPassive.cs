@@ -5,18 +5,23 @@ using UnityEngine;
 public class SeasonPassive : MonoBehaviour
 {
     [SerializeField] private GameObject snowEffect;
+    [SerializeField] private GameObject rainEffect;
+    [SerializeField] private GameObject flowerEffect;
+    [SerializeField] private GameObject leavesEffect;
+
+    
     public void ApplySeasonPassive(TimeManager.SeasonPeriod season) //각 특성
     {
         switch (season)
         {
             case TimeManager.SeasonPeriod.Spring:
-                ApplyRain();
+                StartCoroutine(ApplyFlower());
                 break;
             case TimeManager.SeasonPeriod.Summer:
-                ApplyHot();
+                StartCoroutine(ApplyRain());
                 break;
             case TimeManager.SeasonPeriod.Autumn:
-                ApplyLeaves();
+                StartCoroutine(ApplyLeaves());
                 break;
             case TimeManager.SeasonPeriod.Winter:
                StartCoroutine(ApplySnow());
@@ -24,11 +29,17 @@ public class SeasonPassive : MonoBehaviour
         }
     }
 
-    private void ApplyRain()
+    private IEnumerator ApplyRain()
     {
         if(UnityEngine.Random.Range(0,3) == 0)
         {
+            int start = UnityEngine.Random.Range(0, 1);
+            int end = UnityEngine.Random.Range(5, 8);
+            yield return new WaitForSeconds(start);
             Debug.Log("Rain");
+            rainEffect.SetActive(true);
+            yield return new WaitForSeconds(end);
+            rainEffect.SetActive(false);
         }
     }
 
@@ -37,7 +48,7 @@ public class SeasonPassive : MonoBehaviour
         if (UnityEngine.Random.Range(0, 3) == 0)
         {
             int start = UnityEngine.Random.Range(0, 1);
-            int end = UnityEngine.Random.Range(3,5);
+            int end = UnityEngine.Random.Range(5,8);
             yield return new WaitForSeconds(start);
             Debug.Log("Snow");
             snowEffect.SetActive(true);
@@ -45,18 +56,30 @@ public class SeasonPassive : MonoBehaviour
             snowEffect.SetActive(false);
         }
     }
-    private void ApplyLeaves()
+    private IEnumerator ApplyLeaves()
     {
         if (UnityEngine.Random.Range(0, 3) == 0)
         {
+            int start = UnityEngine.Random.Range(0, 1);
+            int end = UnityEngine.Random.Range(5, 8);
+            yield return new WaitForSeconds(start);
             Debug.Log("Leaves");
+            leavesEffect.SetActive(true);
+            yield return new WaitForSeconds(end);
+            leavesEffect.SetActive(false);
         }
     }
-    private void ApplyHot()
+    private IEnumerator ApplyFlower()
     {
         if (UnityEngine.Random.Range(0, 3) == 0)
         {
-            Debug.Log("Hot");
+            int start = UnityEngine.Random.Range(0, 1);
+            int end = UnityEngine.Random.Range(5, 8);
+            yield return new WaitForSeconds(start);
+            Debug.Log("Flower");
+            flowerEffect.SetActive(true);
+            yield return new WaitForSeconds(end);
+            flowerEffect.SetActive(false);
         }
     }
 }

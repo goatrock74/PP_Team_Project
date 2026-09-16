@@ -50,12 +50,18 @@ public class TimeManager : MonoBehaviour
         if (currentTimeInSeconds >= dayDuration)
         {
             currentTimeInSeconds -= dayDuration;
-            currentDay++;
-            OnDayChange?.Invoke(currentSeason);
-            Debug.Log("Day: " + currentDay);
-            UpdateSeasonPeriod();
+            AdvanceDay();
         }
         UpdateTimePeriod();
+    }
+    private void AdvanceDay()
+    {
+        currentDay++;
+
+        UpdateSeasonPeriod();
+
+        OnDayChange?.Invoke(currentSeason);
+        Debug.Log("Day: " + currentDay + " / Season: " + currentSeason);
     }
     private void UpdateSeasonPeriod()
     {
@@ -91,5 +97,16 @@ public class TimeManager : MonoBehaviour
             currentPeriod = newPeriod;
             OnTimePeriodChange?.Invoke(currentPeriod);
         }
+    }
+    public void SkipToNextDay()
+    {
+        currentTimeInSeconds = 0f;
+
+        currentDay++;
+        OnDayChange?.Invoke(currentSeason);
+        Debug.Log("Day: " + currentDay);
+
+        UpdateSeasonPeriod();
+        UpdateTimePeriod();
     }
 }

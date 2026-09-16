@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9a59d87da237f4eb57b8f5b1916628, type: 3}
+  m_Name: ToolLIstSO
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.PJW.Script.SO_Script.ItemListSO
+  targetType: 0
+  istool: 0
+  <ItemList>k__BackingField:
+  - {fileID: 11400000, guid: 3c1e5bb1c855494419fa0f360573d3b5, type: 2}
+  - {fileID: 11400000, guid: dad2d81244683544daa6fae2427a0430, type: 2}
+  - {fileID: 11400000, guid: 370c105d481a7e44cb1c9a0cc89cd18f, type: 2}
+  - {fileID: 11400000, guid: 4af7258e10b14364198e6bfb8cbe8000, type: 2}
+  - {fileID: 11400000, guid: 198dac5d477f6254bbc74ebec4d5026c, type: 2}

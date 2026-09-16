@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 56.MandarinFish
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  itemId: MandarinFish
+  displayName: "쏘가리"
+  icon: {fileID: 7683519950050145049, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  description: "동아시아의 강과 호수에 숨어 있다가 작은 물고기를 덮치는 포식자."
+  itemType: 2
+  maxStack: 99
+  sellPrice: 0
+  fishID: MandarinFish
+  rarity: 3
+  collectionCategory: 1
+  difficulty: 3
+  moveSpeed: 0.31
+  minTargetChangeTime: 0.6
+  maxTargetChangeTime: 1.05
+  maxMoveDistance: 0.35
+

@@ -8,7 +8,7 @@ public class LightManager : MonoBehaviour
 
     private Coroutine lightCoroutine;
 
-    public void ChangeTimePeriod(TimeManager.TimePeriod newPeriod)
+    public void LightChangeTimePeriod(TimeManager.TimePeriod newPeriod)
     {
         Color targetColor;
         float targetIntensity;

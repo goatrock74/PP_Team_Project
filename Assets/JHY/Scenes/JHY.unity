@@ -5624,8 +5624,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9eab9792179d84685048a3d973790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopBT
-  itemNameText: {fileID: 944104369}
-  itemPriceText: {fileID: 142369587}
 --- !u!114 &429521737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10609,8 +10607,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9eab9792179d84685048a3d973790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopBT
-  itemNameText: {fileID: 1071381859}
-  itemPriceText: {fileID: 1038509278}
 --- !u!114 &571930590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10970,8 +10966,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9eab9792179d84685048a3d973790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopBT
-  itemNameText: {fileID: 1477946230}
-  itemPriceText: {fileID: 1790694768}
 --- !u!114 &653276648
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16151,18 +16145,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1917f7103e89dd149a9c1c6faee77de0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopPanel
-  itemLists:
-  - {fileID: 11400000, guid: 218057a4b01136544826d190d95ce071, type: 2}
-  - {fileID: 11400000, guid: ab62fb06b3d19e04d9f1e4399ce98519, type: 2}
-  - {fileID: 11400000, guid: bd2f5114ef251c242b131c7ab04dbe74, type: 2}
-  - {fileID: 11400000, guid: e7b9e4bc9c9a86b45a4150ce11bed2ef, type: 2}
-  itemButtons:
-  - {fileID: 939921468}
-  - {fileID: 571930589}
-  - {fileID: 1811145009}
-  - {fileID: 429521736}
-  - {fileID: 797189179}
-  - {fileID: 653276647}
 --- !u!114 &758878417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16278,8 +16260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9eab9792179d84685048a3d973790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopBT
-  itemNameText: {fileID: 1252878869}
-  itemPriceText: {fileID: 2122960907}
 --- !u!114 &797189180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16834,8 +16814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9eab9792179d84685048a3d973790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopBT
-  itemNameText: {fileID: 1490472630}
-  itemPriceText: {fileID: 1444450353}
 --- !u!114 &939921469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17358,7 +17336,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1222001019
 ParticleSystemRenderer:
   serializedVersion: 7
@@ -22771,7 +22749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1de01625610e1404fa313a7d9eb5cbd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayPeriodController
-  shopPanel: {fileID: 758878416}
   lightManager: {fileID: 1890233704}
 --- !u!114 &1605480116
 MonoBehaviour:
@@ -22833,6 +22810,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeasonPassive
   snowEffect: {fileID: 413575889}
+  rainEffect: {fileID: 477645907}
+  flowerEffect: {fileID: 1222001018}
+  leavesEffect: {fileID: 1636840551}
 --- !u!1 &1610809612
 GameObject:
   m_ObjectHideFlags: 0
@@ -22955,7 +22935,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!199 &1636840552
 ParticleSystemRenderer:
   serializedVersion: 7
@@ -28100,8 +28080,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd9eab9792179d84685048a3d973790b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopBT
-  itemNameText: {fileID: 2084322718}
-  itemPriceText: {fileID: 389194146}
 --- !u!114 &1811145010
 MonoBehaviour:
   m_ObjectHideFlags: 0
