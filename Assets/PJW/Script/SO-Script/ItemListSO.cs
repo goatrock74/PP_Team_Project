@@ -8,6 +8,8 @@ namespace Assets.PJW.Script.SO_Script
     public class ItemListSO : ScriptableObject
     {
         [SerializeField] private SeasonType targetType;
+        [SerializeField] private IsTool istool = IsTool.no;
+
         [field: SerializeField] public Item[] ItemList { get; private set; }
 
         private void OnValidate()
@@ -23,5 +25,11 @@ namespace Assets.PJW.Script.SO_Script
                 }
             }
         }
+    }
+
+    public enum IsTool
+    {
+        yes,
+        no
     }
 }

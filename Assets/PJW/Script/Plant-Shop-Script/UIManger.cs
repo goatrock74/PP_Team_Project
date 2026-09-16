@@ -19,6 +19,7 @@ public class UIManger : MonoBehaviour
         sellPanel.SetActive(false);
     }
 
+
     // BUY 버튼에 연결
     public void OpenBuyPanel()
     {
