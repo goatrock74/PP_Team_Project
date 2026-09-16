@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b2d6aece3f99941a609e051e495b86, type: 3}
+  m_Name: 0.7WaterMelon
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  <Item_icon>k__BackingField: {fileID: 0}
+  <Item_price>k__BackingField: 0
+  item_sellPrice: 0
+  <Item_name>k__BackingField: "\uC218\uBC15"
+  <item_explanation>k__BackingField: "\uC5EC\uB984\uC5D0 \uC5F0\uD55C \uB204\uB7F0\uC0C9
+    \uAF43\uC774 \uD540\uB2E4. \uC5F4\uB9E4\uB294 \uD06C\uACE0 \uB465\uAE00\uBA70
+    \uBB34\uAC8C\uB294 5~6kg\uAE4C\uC9C0 \uB098\uAC00\uB294 \uAC83\uC774 \uBCF4\uD1B5\uC774\uB2E4."
+  Item_count: 0
