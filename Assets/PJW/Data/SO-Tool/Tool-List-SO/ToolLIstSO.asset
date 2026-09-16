@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ToolLIstSO
   m_EditorClassIdentifier: Assembly-CSharp::Assets.PJW.Script.SO_Script.ItemListSO
   targetType: 0
+  istool: 0
   <ItemList>k__BackingField:
   - {fileID: 11400000, guid: 3c1e5bb1c855494419fa0f360573d3b5, type: 2}
   - {fileID: 11400000, guid: dad2d81244683544daa6fae2427a0430, type: 2}
