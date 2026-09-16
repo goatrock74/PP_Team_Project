@@ -91,6 +91,8 @@ namespace PJH.Scripts
         {
             bool canFish =
                 fishingAreaCheck.TryGetFishingCategory(out currentFishingCategory);
+            
+            
  
             if (!canFish)
             {

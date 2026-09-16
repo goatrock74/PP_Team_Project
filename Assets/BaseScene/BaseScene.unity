@@ -4976,6 +4976,7 @@ GameObject:
   - component: {fileID: 339302761}
   - component: {fileID: 339302760}
   - component: {fileID: 339302759}
+  - component: {fileID: 339302764}
   m_Layer: 4
   m_Name: Tilemap
   m_TagString: Untagged
@@ -6326,6 +6327,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &339302764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339302757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8d719a210c4a438e23c83442489c21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishingWaterArea
+  category: 0
 --- !u!1 &347411490
 GameObject:
   m_ObjectHideFlags: 0
@@ -7026,6 +7040,83 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -20, y: -20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &537201127
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 914049186}
+    m_Modifications:
+    - target: {fileID: 95114240070959544, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: caughtFishPoint
+      value: 
+      objectReference: {fileID: 8977490870511174187}
+    - target: {fileID: 95114240070959544, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: fishingMiniGame
+      value: 
+      objectReference: {fileID: 40923896187291616}
+    - target: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: timeManager
+      value: 
+      objectReference: {fileID: 227905865}
+    - target: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: useMasteryLuck
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169688697578472792, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: mirrorByFacing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078033570607346116, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: m_Name
+      value: FishingController New
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
 --- !u!1 &543285193
 GameObject:
   m_ObjectHideFlags: 0
@@ -9209,8 +9300,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6943781495784406325}
-  - {fileID: 2936356891074256878}
   - {fileID: 8977490870511174187}
+  - {fileID: 2021095612}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &914049187
@@ -9331,10 +9422,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.PlayerFishing
   animator: {fileID: 914049190}
-  fishingController: {fileID: 1998743135028006473}
+  fishingController: {fileID: 2021095614}
   fishingMiniGame: {fileID: 40923896187291616}
-  fishingAreaCheck: {fileID: 4264461902319953042}
-  fishSelector: {fileID: 6258274627472133461}
+  fishingAreaCheck: {fileID: 0}
+  fishSelector: {fileID: 2021095613}
   splashParticle: {fileID: 7751772685987678850, guid: 0387cf995dbbb494f8d615397183d20e, type: 3}
   requireWaterToCast: 0
   movement: {fileID: 914049182}
@@ -24788,6 +24879,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1961012415}
   m_CullTransparentMesh: 1
+--- !u!4 &2021095612 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+  m_PrefabInstance: {fileID: 537201127}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2021095613 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+  m_PrefabInstance: {fileID: 537201127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 385a377fe6014da5a614c16e971118ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSelector
+--- !u!114 &2021095614 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 95114240070959544, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+  m_PrefabInstance: {fileID: 537201127}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 900bc521349d472fb7fb46a61d4c1563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingController
 --- !u!114 &2043594763
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25282,27 +25400,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4965152286338209720}
   m_CullTransparentMesh: 1
---- !u!114 &1998743135028006473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6319703496244909821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 900bc521349d472fb7fb46a61d4c1563, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingController
-  fishCollectionManager: {fileID: 0}
-  fishingAreaCheck: {fileID: 4264461902319953042}
-  fishSelector: {fileID: 6258274627472133461}
-  fishingMiniGame: {fileID: 40923896187291616}
-  fishingSettingSO: {fileID: 11400000, guid: 37da06c8686be284682586644239fcab, type: 2}
-  splashParticlePrefab: {fileID: 7751772685987678850, guid: 0387cf995dbbb494f8d615397183d20e, type: 3}
-  biteReactionTime: 1
-  catchEffectPrefab: {fileID: 618196433143026379, guid: 0f34367616e5e6d40b13b3e75d1b0142, type: 3}
-  caughtFishPoint: {fileID: 8977490870511174187}
 --- !u!224 &2292972763204266323
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25360,21 +25457,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.0759, y: 56}
   m_SizeDelta: {x: 57.186, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!4 &2936356891074256878
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6319703496244909821}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 914049186}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3093997290789082627
 GameObject:
   m_ObjectHideFlags: 0
@@ -25648,25 +25730,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4264461902319953042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6319703496244909821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84cc55cfbd2ef304aa6e48f78ef53baa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::FishingAreaCheck
-  fishingAreaLayer:
-    serializedVersion: 2
-    m_Bits: 16
-  bobberPoint: {fileID: 6943781495784406325}
-  mirrorByFacing: 0
-  movement: {fileID: 0}
-  pivot: {fileID: 0}
 --- !u!224 &4348220867090842633
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25752,64 +25815,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6258274627472133461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6319703496244909821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 385a377fe6014da5a614c16e971118ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSelector
-  timeManager: {fileID: 227905865}
-  fishTable:
-  - fish: {fileID: 11400000, guid: ea505a10af6bb44448be4f4a1eaad6e1, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 0
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: cca387ab3c8a47f4092ab4b92fe97a03, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 0
-    nightMultiplier: 0
-  - fish: {fileID: 11400000, guid: f2b08c87a3cb237419ab0feb49c28c69, type: 2}
-    springMultiplier: 0
-    summerMultiplier: 0
-    autumnMultiplier: 0
-    winterMultiplier: 0
-    morningMultiplier: 0
-    afternoonMultiplier: 0
-    nightMultiplier: 0
-  useMasteryLuck: 1
---- !u!1 &6319703496244909821
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2936356891074256878}
-  - component: {fileID: 4264461902319953042}
-  - component: {fileID: 1998743135028006473}
-  - component: {fileID: 6258274627472133461}
-  m_Layer: 0
-  m_Name: FishingController
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!222 &6808006947966675464
 CanvasRenderer:
   m_ObjectHideFlags: 0
