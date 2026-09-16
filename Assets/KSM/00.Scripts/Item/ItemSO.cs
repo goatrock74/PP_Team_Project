@@ -32,7 +32,7 @@ public class ItemSO : ScriptableObject
     [Tooltip("일반 품질 기준 판매가. 좋음/최상은 여기에 배수가 곱해진다")]
     [Min(0)] public int sellPrice;
 
-    [Header("가격")] [Tooltip("계절을 추가해라")]
+    [Header("계절")] [Tooltip("계절을 추가해라")]
     public SeasonType season;
  
     /// <summary>

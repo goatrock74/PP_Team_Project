@@ -10,23 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
-  m_Name: DaikonSO
+  m_Name: SpringCabbege
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: Daikon
+  cropName: Watermelon
   icon: {fileID: 0}
   harvestType: 0
   growthStages:
-  - sprite: {fileID: 5735533114237087093, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
+  - sprite: {fileID: -2155779162585079897, guid: 5dd28ff2a73805446a688448b86aa99a, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: -534061224, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
+  - sprite: {fileID: -941773328, guid: 5dd28ff2a73805446a688448b86aa99a, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: -6946984286048669819, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
+  - sprite: {fileID: 6745451761592927278, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 901214324115098773, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
+  - sprite: {fileID: -55836324096021250, guid: 5dd28ff2a73805446a688448b86aa99a, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 1535087401, guid: f079276f7c1e0894588ee398577ebd9e, type: 3}
-    durationTime: 0.02
-  harvestStageIndex: 4
+  harvestStageIndex: 3
   regrowStageIndex: 0
   harvestItem: {fileID: 0}
   minYield: 1

@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
-  m_Name: StarFruit
+  m_Name: YangBaeChu 1
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: StarFruit
+  cropName: Watermelon
   icon: {fileID: 0}
   harvestType: 0
   growthStages:
-  - sprite: {fileID: 7795490948088002752, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
+  - sprite: {fileID: -7069893274671939910, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 3663803177217524484, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
+  - sprite: {fileID: -1977006426138126513, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 8742547545663111499, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
+  - sprite: {fileID: 6099856594759639329, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 8726232953406911417, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
+  - sprite: {fileID: -170226672039657399, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: -3476102740026331020, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
+  - sprite: {fileID: 6983519117003226336, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 2466950333354143792, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
+  - sprite: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 4083344397794873436, guid: b0568f837a2ad604a83fa2393300dd81, type: 3}
+  - sprite: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
     durationTime: 0.02
   harvestStageIndex: 6
   regrowStageIndex: 0
-  harvestItem: {fileID: 11400000, guid: 5ef770815851c034ba59d246883d08ca, type: 2}
+  harvestItem: {fileID: 11400000, guid: 98d63895027322949b7abf2ee77ac4af, type: 2}
   minYield: 1
   maxYield: 1
   qualityChance:

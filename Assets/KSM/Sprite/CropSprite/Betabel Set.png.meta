@@ -1,0 +1,693 @@
+fileFormatVersion: 2
+guid: 10c0a54bd91a4c94fa00feb356d01beb
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2555452557930385362
+    second: Betabel Set_0
+  - first:
+      213: -6999671926426218304
+    second: Betabel Set_1
+  - first:
+      213: 132137841857223407
+    second: Betabel Set_2
+  - first:
+      213: -3393786338880322403
+    second: Betabel Set_3
+  - first:
+      213: 2239977829711326888
+    second: Betabel Set_4
+  - first:
+      213: 5113072583845772778
+    second: Betabel Set_5
+  - first:
+      213: -7468274050170932139
+    second: Betabel Set_6
+  - first:
+      213: 4895176629164583185
+    second: Betabel Set_7
+  - first:
+      213: 5594530927398907269
+    second: Betabel Set_8
+  - first:
+      213: -2951645053799317972
+    second: Betabel Set_9
+  - first:
+      213: -4070326398115418544
+    second: Betabel Set_10
+  - first:
+      213: -5866474261078216862
+    second: Betabel Set_11
+  - first:
+      213: -5050720804075216632
+    second: Betabel Set_12
+  - first:
+      213: 3639985962212810663
+    second: Betabel Set_13
+  - first:
+      213: 8902360228579721020
+    second: Betabel Set_14
+  - first:
+      213: 650948631385359141
+    second: Betabel Set_15
+  - first:
+      213: -2269475506126779933
+    second: Betabel Set_16
+  - first:
+      213: -1131987367887755069
+    second: Betabel Set_17
+  - first:
+      213: -2348417998822619911
+    second: Betabel Set_18
+  - first:
+      213: 7312371443449713870
+    second: Betabel Set_19
+  - first:
+      213: 5575226841437803021
+    second: Betabel Set_20
+  - first:
+      213: 2981630521704716304
+    second: Betabel Set_21
+  - first:
+      213: 8873607477685234248
+    second: Betabel Set_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Betabel Set_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dfcdc3ef8ac67320800000000000000
+      internalID: 2555452557930385362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c05711087b2cde90800000000000000
+      internalID: -6999671926426218304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fea5945caa275d100800000000000000
+      internalID: 132137841857223407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d94077b4e49d6e0d0800000000000000
+      internalID: -3393786338880322403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_4
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 2
+        width: 18
+        height: 13
+      alignment: 9
+      pivot: {x: 0.4825825, y: 0.31510797}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aea1bcd7fff51f10800000000000000
+      internalID: 2239977829711326888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aed7aeebc6845f640800000000000000
+      internalID: 5113072583845772778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_6
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5543b4ae15c5b5890800000000000000
+      internalID: -7468274050170932139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 119262e55392fe340800000000000000
+      internalID: 4895176629164583185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_8
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d6c84cc34c3ad40800000000000000
+      internalID: 5594530927398907269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_9
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2eb0494676a907d0800000000000000
+      internalID: -2951645053799317972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_10
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 17
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05e6f68d4bb4387c0800000000000000
+      internalID: -4070326398115418544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_11
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 15
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26fe570ddb8169ea0800000000000000
+      internalID: -5866474261078216862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_12
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 801eb65403c38e9b0800000000000000
+      internalID: -5050720804075216632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_13
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 0
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7af5a1972f3d38230800000000000000
+      internalID: 3639985962212810663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_14
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 0
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3f3f0f06798b8b70800000000000000
+      internalID: 8902360228579721020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_15
+      rect:
+        serializedVersion: 2
+        x: 209
+        y: 0
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52340c4d452a80900800000000000000
+      internalID: 650948631385359141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_16
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 0
+        width: 49
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e90dd62d043180e0800000000000000
+      internalID: -2269475506126779933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_18
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 1
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f44b04c54eb86fd0800000000000000
+      internalID: -2348417998822619911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_19
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 2
+        width: 14
+        height: 12
+      alignment: 9
+      pivot: {x: 0.39810848, y: 0.4484882}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec4d780d513ca7560800000000000000
+      internalID: 7312371443449713870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_20
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 2
+        width: 14
+        height: 12
+      alignment: 9
+      pivot: {x: 0.4524509, y: 0.46830046}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d029f12064f2f5d40800000000000000
+      internalID: 5575226841437803021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_21
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 2
+        width: 14
+        height: 12
+      alignment: 9
+      pivot: {x: 0.46603638, y: 0.42867598}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0181ca18921e06920800000000000000
+      internalID: 2981630521704716304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Betabel Set_22
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 3
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84aadaf8cf2652b70800000000000000
+      internalID: 8873607477685234248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 34be71d4ad448de4fb48e935d820294a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Betabel Set_0: 2555452557930385362
+      Betabel Set_1: -6999671926426218304
+      Betabel Set_10: -4070326398115418544
+      Betabel Set_11: -5866474261078216862
+      Betabel Set_12: -5050720804075216632
+      Betabel Set_13: 3639985962212810663
+      Betabel Set_14: 8902360228579721020
+      Betabel Set_15: 650948631385359141
+      Betabel Set_16: -2269475506126779933
+      Betabel Set_17: -1131987367887755069
+      Betabel Set_18: -2348417998822619911
+      Betabel Set_19: 7312371443449713870
+      Betabel Set_2: 132137841857223407
+      Betabel Set_20: 5575226841437803021
+      Betabel Set_21: 2981630521704716304
+      Betabel Set_22: 8873607477685234248
+      Betabel Set_3: -3393786338880322403
+      Betabel Set_4: 2239977829711326888
+      Betabel Set_5: 5113072583845772778
+      Betabel Set_6: -7468274050170932139
+      Betabel Set_7: 4895176629164583185
+      Betabel Set_8: 5594530927398907269
+      Betabel Set_9: -2951645053799317972
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

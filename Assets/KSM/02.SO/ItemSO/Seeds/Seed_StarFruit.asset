@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6f09d5f542a4e95ab92d1a9cb35d24d, type: 3}
-  m_Name: Seed_ColeFlower
+  m_Name: Seed_StarFruit
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
-  itemId: ColeFlower_seed
-  displayName: "\uCF5C\uB9AC\uD50C\uB77C\uC6CC"
-  icon: {fileID: -8102348181575854170, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
-  description: "\uCF5C\uB9AC\uD50C\uB77C\uC6CC\uC744 \uC2EC\uC744\uC218\uC788\uB2E4"
+  itemId: starfruit_seed
+  displayName: "\uC2A4\uD0C0\uD504\uB8E8\uD2B8 \uC528\uC557"
+  icon: {fileID: 226861689, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
+  description: "\uC2A4\uD0C0\uD504\uB8E8\uD2B8\uB97C \uC2EC\uC744\uC218\uC788\uB2E4
+    \uBC18\uC9DD\uBC18\uC9DD!"
   itemType: 1
   maxStack: 99
   sellPrice: 0
   season: 0
-  crop: {fileID: 11400000, guid: 4dca27a259c49cf4dba97a1b07cb2fb4, type: 2}
+  crop: {fileID: 11400000, guid: e6535c8d29caded40a9b537cb2c2c227, type: 2}

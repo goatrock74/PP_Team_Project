@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6f09d5f542a4e95ab92d1a9cb35d24d, type: 3}
-  m_Name: Seed_Yangbaechu 1
+  m_Name: Seed_Daikon
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
-  itemId: yangbaechu_seed
-  displayName: "\uC591\uBC30\uCD94\uC528\uC557\uD329"
-  icon: {fileID: -8102348181575854170, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
-  description: "\uC591\uBC30\uCD94\uC528\uC557\uC744 \uC2EC\uC744\uC218\uC788\uB2E4"
+  itemId: daikon_seed
+  displayName: "\uBB34 \uC528\uC557\uD329"
+  icon: {fileID: -57533290, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
+  description: "\uBB34\uC528\uC557\uC744 \uC2EC\uC744\uC218\uC788\uB2E4"
   itemType: 1
   maxStack: 99
   sellPrice: 0
-  crop: {fileID: 11400000, guid: 630d567480a2bbf429716745dc68a1ad, type: 2}
+  season: 0
+  crop: {fileID: 11400000, guid: b973a62d1906c6a4089af82e3f6216a8, type: 2}
