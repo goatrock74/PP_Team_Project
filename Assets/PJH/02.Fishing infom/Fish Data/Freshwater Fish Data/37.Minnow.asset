@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: Minnow
   rarity: 0
   collectionCategory: 1
-  difficulty: 1
-  moveSpeed: 0.12
-  minTargetChangeTime: 1.9
-  maxTargetChangeTime: 2.7
-  maxMoveDistance: 0.1
+  difficulty: 1.2
+  baseCatchWeight: 120
+  springMultiplier: 1
+  summerMultiplier: 1
+  autumnMultiplier: 1
+  winterMultiplier: 1
+  morningMultiplier: 1
+  afternoonMultiplier: 0.5
+  nightMultiplier: 0
+  moveSpeed: 0.18
+  minTargetChangeTime: 0.8
+  maxTargetChangeTime: 1.4
+  maxMoveDistance: 0.2
 

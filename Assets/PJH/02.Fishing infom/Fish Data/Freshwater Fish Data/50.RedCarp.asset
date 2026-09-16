@@ -23,8 +23,16 @@ MonoBehaviour:
   rarity: 1
   collectionCategory: 1
   difficulty: 2
-  moveSpeed: 0.21
-  minTargetChangeTime: 1.05
-  maxTargetChangeTime: 1.7
-  maxMoveDistance: 0.23
+  baseCatchWeight: 40
+  springMultiplier: 1
+  summerMultiplier: 0.45
+  autumnMultiplier: 1
+  winterMultiplier: 0.45
+  morningMultiplier: 0.5
+  afternoonMultiplier: 1.6
+  nightMultiplier: 0
+  moveSpeed: 0.24
+  minTargetChangeTime: 0.9
+  maxTargetChangeTime: 1.4
+  maxMoveDistance: 0.3
 

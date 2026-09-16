@@ -57,6 +57,14 @@ namespace PJH.Scripts
             OnSelected?.Invoke(fishData);
         }
 
+        public static void ClearSelection()
+        {
+            if (selectedSlot == null) return;
+            
+            selectedSlot.SetSelected(false);
+            selectedSlot = null;
+        }
+
         public void SetSelected(bool isSelected)
         {
             fishIcon.color = isSelected ? new Color(0.55f, 0.55f, 0.55f, 1f) : Color.white;

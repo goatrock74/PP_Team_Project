@@ -6,6 +6,7 @@ public enum FishCollectionCategory
     FreshWater,
     Trash
 }
+
     
     /// <summary>
     /// 물고기 데이터. <b>ItemSO 를 상속</b>해서 인벤토리·핫바·상점·정보창에 그대로 들어간다.
@@ -37,7 +38,30 @@ public enum FishCollectionCategory
         [Header("난이도")]
         [Tooltip("미니게임 난이도. 품질 보정에도 쓸 수 있다")]
         public float difficulty;
- 
+
+        [Header("기본 출현 가중치")] [SerializeField, Min(1)]
+        private int baseCatchWeight = 100;
+        public int BaseCatchWeight => baseCatchWeight;
+
+        [Header("계절 출현 배율")]
+        [SerializeField, Min(0f)] private float springMultiplier = 1f;
+        [SerializeField, Min(0f)] private float summerMultiplier = 1f;
+        [SerializeField, Min(0f)] private float autumnMultiplier = 1f;
+        [SerializeField, Min(0f)] private float winterMultiplier = 1f;
+
+        [Header("시간대 출현 배율")]
+        [SerializeField, Min(0f)] private float morningMultiplier = 1f;
+        [SerializeField, Min(0f)] private float afternoonMultiplier = 1f;
+        [SerializeField, Min(0f)] private float nightMultiplier = 1f;
+
+        public float SpringMultiplier => springMultiplier;
+        public float SummerMultiplier => summerMultiplier;
+        public float AutumnMultiplier => autumnMultiplier;
+        public float WinterMultiplier => winterMultiplier;
+        public float MorningMultiplier => morningMultiplier;
+        public float AfternoonMultiplier => afternoonMultiplier;
+        public float NightMultiplier => nightMultiplier;
+
         [Header("MiniGame Movement")]
         [SerializeField, Min(0.01f)]
         private float moveSpeed = 0.25f;
@@ -61,6 +85,16 @@ public enum FishCollectionCategory
             base.OnValidate();
  
             itemType = ItemType.Fish;   // 인벤토리 정보창에 "물고기" 로 표시된다
+            
+            baseCatchWeight = Mathf.Max(1, baseCatchWeight);
+
+            springMultiplier = Mathf.Max(0f, springMultiplier);
+            summerMultiplier = Mathf.Max(0f, summerMultiplier);
+            autumnMultiplier = Mathf.Max(0f, autumnMultiplier);
+            winterMultiplier = Mathf.Max(0f, winterMultiplier);
+            morningMultiplier = Mathf.Max(0f, morningMultiplier);
+            afternoonMultiplier = Mathf.Max(0f, afternoonMultiplier);
+            nightMultiplier = Mathf.Max(0f, nightMultiplier);
  
             if (maxTargetChangeTime < minTargetChangeTime)
                 maxTargetChangeTime = minTargetChangeTime;

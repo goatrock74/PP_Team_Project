@@ -18,8 +18,9 @@ MonoBehaviour:
   basePrice: 100
   description: "은빛의 납작하고 둥근 몸으로 따뜻한 연안 바다를 헤엄치는 물고기."
   rarity: 2
-  difficulty: 0
-  moveSpeed: 0.18
-  minTargetChangeTime: 1.5
-  maxTargetChangeTime: 2.22
-  maxMoveDistance: 0.14
+  difficulty: 2.5
+  baseCatchWeight: 25
+  moveSpeed: 0.32
+  minTargetChangeTime: 0.6
+  maxTargetChangeTime: 0.98
+  maxMoveDistance: 0.34

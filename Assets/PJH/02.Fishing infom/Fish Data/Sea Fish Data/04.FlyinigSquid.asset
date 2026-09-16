@@ -21,8 +21,9 @@ MonoBehaviour:
   sellPrice: 0
   fishID: FlyinigSquid
   rarity: 0
-  difficulty: 0
-  moveSpeed: 0.18
-  minTargetChangeTime: 1.5
-  maxTargetChangeTime: 2.22
-  maxMoveDistance: 0.14
+  difficulty: 1.7
+  baseCatchWeight: 90
+  moveSpeed: 0.24
+  minTargetChangeTime: 0.85
+  maxTargetChangeTime: 1.3
+  maxMoveDistance: 0.24
