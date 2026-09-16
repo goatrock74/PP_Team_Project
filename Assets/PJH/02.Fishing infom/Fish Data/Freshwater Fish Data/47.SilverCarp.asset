@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: SilverCarp
   rarity: 1
   collectionCategory: 1
-  difficulty: 2
-  moveSpeed: 0.2
-  minTargetChangeTime: 1.15
-  maxTargetChangeTime: 1.8
-  maxMoveDistance: 0.21
+  difficulty: 2.4
+  baseCatchWeight: 55
+  springMultiplier: 0.45
+  summerMultiplier: 1
+  autumnMultiplier: 0.45
+  winterMultiplier: 0
+  morningMultiplier: 1
+  afternoonMultiplier: 0.5
+  nightMultiplier: 0
+  moveSpeed: 0.3
+  minTargetChangeTime: 0.65
+  maxTargetChangeTime: 1.05
+  maxMoveDistance: 0.34
 

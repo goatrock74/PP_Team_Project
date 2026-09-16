@@ -22,8 +22,9 @@ MonoBehaviour:
   sellPrice: 0
   fishID: SeaNettle
   rarity: 0
-  difficulty: 3
-  moveSpeed: 0.18
-  minTargetChangeTime: 1.5
-  maxTargetChangeTime: 2.22
-  maxMoveDistance: 0.14
+  difficulty: 0.9
+  baseCatchWeight: 85
+  moveSpeed: 0.13
+  minTargetChangeTime: 1.6
+  maxTargetChangeTime: 2.5
+  maxMoveDistance: 0.18

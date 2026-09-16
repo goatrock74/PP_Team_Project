@@ -18,8 +18,9 @@ MonoBehaviour:
   basePrice: 100
   description: "\uce7c\ub0a0\ucc98\ub7fc \uae38\uace0 \uc740\ube5b \ub098\ub294 <nobr>\ubab8\uc73c\ub85c</nobr> \ubc24\ubc14\ub2e4\ub97c \ub204\ube44\ub294 \ud3ec\uc2dd\uc131 <nobr>\ubb3c\uace0\uae30.</nobr>"
   rarity: 0
-  difficulty: 0
-  moveSpeed: 0.18
-  minTargetChangeTime: 1.5
-  maxTargetChangeTime: 2.22
-  maxMoveDistance: 0.14
+  difficulty: 1.8
+  baseCatchWeight: 90
+  moveSpeed: 0.25
+  minTargetChangeTime: 0.75
+  maxTargetChangeTime: 1.2
+  maxMoveDistance: 0.28

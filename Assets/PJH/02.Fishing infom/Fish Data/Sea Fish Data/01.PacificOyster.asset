@@ -21,8 +21,9 @@ MonoBehaviour:
   sellPrice: 0
   fishID: PacificOyster
   rarity: 0
-  difficulty: 1
-  moveSpeed: 0.12
-  minTargetChangeTime: 1.8
-  maxTargetChangeTime: 2.6
-  maxMoveDistance: 0.1
+  difficulty: 0.5
+  baseCatchWeight: 120
+  moveSpeed: 0.08
+  minTargetChangeTime: 2.4
+  maxTargetChangeTime: 3.4
+  maxMoveDistance: 0.06

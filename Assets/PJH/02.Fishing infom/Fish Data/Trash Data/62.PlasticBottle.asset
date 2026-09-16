@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 62.PlasticBottle
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  itemId: PlasticBottle
+  displayName: 플라스틱병
+  icon: {fileID: 5743897758420222410, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  description: 물 위를 떠다니다 낚싯줄에 걸린 낡은 플라스틱병.
+  itemType: 2
+  maxStack: 99
+  sellPrice: 0
+  fishID: PlasticBottle
+  rarity: 0
+  collectionCategory: 2
+  difficulty: 0
+  moveSpeed: 0.08
+  minTargetChangeTime: 2.5
+  maxTargetChangeTime: 3.5
+  maxMoveDistance: 0.05

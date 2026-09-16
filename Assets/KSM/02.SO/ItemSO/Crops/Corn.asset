@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32947cefe9f4382a9a2d6d43769fc19, type: 3}
+  m_Name: Corn
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSO
+  itemId: 2
+  displayName: "\uC625\uC218\uC218"
+  icon: {fileID: -7558945269520815051, guid: 0eecae1d1487fdd4c887969305343a1f, type: 3}
+  description: "\uC625\uC218\uC218"
+  itemType: 0
+  maxStack: 99
+  sellPrice: 0
+  season: 0

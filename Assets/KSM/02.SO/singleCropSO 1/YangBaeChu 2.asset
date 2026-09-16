@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
+  m_Name: YangBaeChu 2
+  m_EditorClassIdentifier: Assembly-CSharp::CropSO
+  cropName: Watermelon
+  icon: {fileID: 0}
+  harvestType: 0
+  growthStages:
+  - sprite: {fileID: -7069893274671939910, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: -1977006426138126513, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: 6099856594759639329, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: -170226672039657399, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: 6983519117003226336, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+    durationTime: 0.02
+  harvestStageIndex: 6
+  regrowStageIndex: 0
+  harvestItem: {fileID: 11400000, guid: 98d63895027322949b7abf2ee77ac4af, type: 2}
+  minYield: 1
+  maxYield: 1
+  qualityChance:
+    goodChance: 0.2
+    bestChance: 0.05
+  plantableSeasons: -1
+  size: {x: 1, y: 1}
+  plantableTiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

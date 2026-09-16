@@ -17,19 +17,19 @@ MonoBehaviour:
   harvestType: 0
   growthStages:
   - sprite: {fileID: 7795490948088002752, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
-    durationTime: 2
+    durationTime: 0.02
   - sprite: {fileID: 3663803177217524484, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
-    durationTime: 2
+    durationTime: 0.02
   - sprite: {fileID: 8742547545663111499, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
-    durationTime: 2
+    durationTime: 0.02
   - sprite: {fileID: 8726232953406911417, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
-    durationTime: 2
+    durationTime: 0.02
   - sprite: {fileID: -3476102740026331020, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
-    durationTime: 2
+    durationTime: 0.02
   - sprite: {fileID: 2466950333354143792, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
-    durationTime: 2
-  - sprite: {fileID: -6794951881440583090, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
-    durationTime: 2
+    durationTime: 0.02
+  - sprite: {fileID: 4083344397794873436, guid: b0568f837a2ad604a83fa2393300dd81, type: 3}
+    durationTime: 0.02
   harvestStageIndex: 6
   regrowStageIndex: 0
   harvestItem: {fileID: 11400000, guid: 5ef770815851c034ba59d246883d08ca, type: 2}

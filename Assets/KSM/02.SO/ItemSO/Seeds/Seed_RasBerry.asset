@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6f09d5f542a4e95ab92d1a9cb35d24d, type: 3}
+  m_Name: Seed_RasBerry
+  m_EditorClassIdentifier: Assembly-CSharp::SeedSO
+  itemId: rasberry_seed
+  displayName: "\uB77C\uC988\uBCA0\uB9AC \uC528\uC557\uD329"
+  icon: {fileID: -3901715911805076996, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
+  description: "\uB77C\uC988\uBCA0\uB9AC\uB97C \uC2EC\uC744\uC218\uC788\uB2E4"
+  itemType: 1
+  maxStack: 99
+  sellPrice: 0
+  season: 0
+  crop: {fileID: 11400000, guid: 5021d7c0c961fdd48afcc5f91897039a, type: 2}

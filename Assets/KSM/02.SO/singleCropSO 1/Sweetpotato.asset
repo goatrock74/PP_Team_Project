@@ -13,17 +13,17 @@ MonoBehaviour:
   m_Name: Sweetpotato
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
   cropName: SweetPotato
-  icon: {fileID: 0}
+  icon: {fileID: 2819145520907352866, guid: ab7d8742b39e7464ca8f0385d184e1f8, type: 3}
   harvestType: 0
   growthStages:
   - sprite: {fileID: 6620452713725882549, guid: ab7d8742b39e7464ca8f0385d184e1f8, type: 3}
-    durationTime: 2
+    durationTime: 0.02
   - sprite: {fileID: -2591765654125634359, guid: ab7d8742b39e7464ca8f0385d184e1f8, type: 3}
-    durationTime: 2
+    durationTime: 0.02
   - sprite: {fileID: 3235847827436437570, guid: ab7d8742b39e7464ca8f0385d184e1f8, type: 3}
-    durationTime: 2
+    durationTime: 0.02
   - sprite: {fileID: 3235847827436437570, guid: ab7d8742b39e7464ca8f0385d184e1f8, type: 3}
-    durationTime: 2
+    durationTime: 0.02
   harvestStageIndex: 2
   regrowStageIndex: 0
   harvestItem: {fileID: 11400000, guid: 1f50ea3520a07054cabaaaeb4cb7c0c5, type: 2}

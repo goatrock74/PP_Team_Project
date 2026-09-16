@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: CrucianCarp
   rarity: 0
   collectionCategory: 1
-  difficulty: 1
-  moveSpeed: 0.13
+  difficulty: 0.7
+  baseCatchWeight: 110
+  springMultiplier: 1
+  summerMultiplier: 1
+  autumnMultiplier: 1
+  winterMultiplier: 1
+  morningMultiplier: 1
+  afternoonMultiplier: 0.5
+  nightMultiplier: 0.5
+  moveSpeed: 0.12
   minTargetChangeTime: 1.8
   maxTargetChangeTime: 2.6
-  maxMoveDistance: 0.11
+  maxMoveDistance: 0.12
 

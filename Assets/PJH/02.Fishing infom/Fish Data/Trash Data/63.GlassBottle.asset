@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
+  m_Name: 63.GlassBottle
+  m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
+  itemId: GlassBottle
+  displayName: 유리병
+  icon: {fileID: 6430331807209016311, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  description: 물가 바닥에 가라앉아 있던 오래된 유리병. 안에는 아무것도 들어 있지 않다.
+  itemType: 2
+  maxStack: 99
+  sellPrice: 0
+  fishID: GlassBottle
+  rarity: 0
+  collectionCategory: 2
+  difficulty: 0
+  moveSpeed: 0.08
+  minTargetChangeTime: 2.5
+  maxTargetChangeTime: 3.5
+  maxMoveDistance: 0.05
