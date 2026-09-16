@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: LandlockedMasuSalmon
   rarity: 4
   collectionCategory: 1
-  difficulty: 3
-  moveSpeed: 0.34
-  minTargetChangeTime: 0.5
-  maxTargetChangeTime: 0.9
-  maxMoveDistance: 0.4
+  difficulty: 4.5
+  baseCatchWeight: 4
+  springMultiplier: 0.45
+  summerMultiplier: 0
+  autumnMultiplier: 1
+  winterMultiplier: 1
+  morningMultiplier: 1
+  afternoonMultiplier: 0.5
+  nightMultiplier: 0
+  moveSpeed: 0.42
+  minTargetChangeTime: 0.3
+  maxTargetChangeTime: 0.6
+  maxMoveDistance: 0.46
 

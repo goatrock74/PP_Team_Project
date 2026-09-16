@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 07a245dac3154bb4a22d87ba103dd9d8, type: 3}
-  m_Name: 01.PacificOyster
+  m_Name: 62.PlasticBottle
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
-  itemId: PacificOyster
-  displayName: "\uCC38\uAD74"
-  icon: {fileID: 3577579951278017853, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  description: "\uBC14\uC704\uC5D0 \uB2E8\uB2E8\uD788 \uBD99\uC5B4 \uBC14\uB2F7\uBB3C\uC744 \uAC78\uB7EC \uBA39\uC774\uB97C \uC5BB\uB294 \uD07C\uC9C1\uD55C \uAD74."
+  itemId: PlasticBottle
+  displayName: 플라스틱병
+  icon: {fileID: 5743897758420222410, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
+  description: 물 위를 떠다니다 낚싯줄에 걸린 낡은 플라스틱병.
   itemType: 2
   maxStack: 99
   sellPrice: 0
-  fishID: PacificOyster
+  fishID: PlasticBottle
   rarity: 0
-  difficulty: 0.5
-  baseCatchWeight: 120
+  collectionCategory: 2
+  difficulty: 0
   moveSpeed: 0.08
-  minTargetChangeTime: 2.4
-  maxTargetChangeTime: 3.4
-  maxMoveDistance: 0.06
+  minTargetChangeTime: 2.5
+  maxTargetChangeTime: 3.5
+  maxMoveDistance: 0.05

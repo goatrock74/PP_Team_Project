@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: SwampEel
   rarity: 3
   collectionCategory: 1
-  difficulty: 3
-  moveSpeed: 0.3
-  minTargetChangeTime: 0.6
-  maxTargetChangeTime: 1
-  maxMoveDistance: 0.37
+  difficulty: 3.1
+  baseCatchWeight: 8
+  springMultiplier: 0.45
+  summerMultiplier: 1
+  autumnMultiplier: 1
+  winterMultiplier: 0
+  morningMultiplier: 0
+  afternoonMultiplier: 0.5
+  nightMultiplier: 1.3
+  moveSpeed: 0.31
+  minTargetChangeTime: 0.5
+  maxTargetChangeTime: 0.9
+  maxMoveDistance: 0.38
 

@@ -18,8 +18,9 @@ MonoBehaviour:
   basePrice: 100
   description: "노란빛 지느러미와 황금빛 몸을 지닌 동아시아 연안 물고기."
   rarity: 0
-  difficulty: 0
+  difficulty: 1.2
+  baseCatchWeight: 100
   moveSpeed: 0.18
-  minTargetChangeTime: 1.5
-  maxTargetChangeTime: 2.22
-  maxMoveDistance: 0.14
+  minTargetChangeTime: 1.15
+  maxTargetChangeTime: 1.8
+  maxMoveDistance: 0.18

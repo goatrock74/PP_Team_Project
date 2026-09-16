@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: BigheadCarp
   rarity: 1
   collectionCategory: 1
-  difficulty: 2
-  moveSpeed: 0.19
-  minTargetChangeTime: 1.2
-  maxTargetChangeTime: 1.9
-  maxMoveDistance: 0.2
+  difficulty: 2.2
+  baseCatchWeight: 50
+  springMultiplier: 0.45
+  summerMultiplier: 1
+  autumnMultiplier: 0.45
+  winterMultiplier: 0
+  morningMultiplier: 1
+  afternoonMultiplier: 0.5
+  nightMultiplier: 0
+  moveSpeed: 0.27
+  minTargetChangeTime: 0.85
+  maxTargetChangeTime: 1.3
+  maxMoveDistance: 0.36
 

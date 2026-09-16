@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: AmurCatfish
   rarity: 0
   collectionCategory: 1
-  difficulty: 1
-  moveSpeed: 0.14
-  minTargetChangeTime: 1.7
-  maxTargetChangeTime: 2.45
-  maxMoveDistance: 0.12
+  difficulty: 1.5
+  baseCatchWeight: 80
+  springMultiplier: 0.45
+  summerMultiplier: 1
+  autumnMultiplier: 1
+  winterMultiplier: 0
+  morningMultiplier: 0
+  afternoonMultiplier: 0.5
+  nightMultiplier: 1.3
+  moveSpeed: 0.17
+  minTargetChangeTime: 1.25
+  maxTargetChangeTime: 2
+  maxMoveDistance: 0.26
 

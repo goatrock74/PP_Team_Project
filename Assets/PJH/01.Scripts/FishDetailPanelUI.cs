@@ -38,7 +38,7 @@ namespace PJH.Scripts
             
         }
 
-        private void ClearFishData()
+        public void ClearFishData()
         {
             currentFishData = null;
             fishIcon.sprite = null;

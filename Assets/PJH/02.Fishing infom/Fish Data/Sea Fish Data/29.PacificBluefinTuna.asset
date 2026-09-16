@@ -18,8 +18,9 @@ MonoBehaviour:
   basePrice: 100
   description: "넓은 바다를 빠르게 이동하며 몸을 따뜻하게 유지하는 대형 참치."
   rarity: 3
-  difficulty: 0
-  moveSpeed: 0.18
-  minTargetChangeTime: 1.5
-  maxTargetChangeTime: 2.22
-  maxMoveDistance: 0.14
+  difficulty: 4
+  baseCatchWeight: 10
+  moveSpeed: 0.42
+  minTargetChangeTime: 0.35
+  maxTargetChangeTime: 0.65
+  maxMoveDistance: 0.45
