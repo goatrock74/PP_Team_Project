@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
+  m_Name: Bit
+  m_EditorClassIdentifier: Assembly-CSharp::CropSO
+  cropName: "\uBE44\uD2B8"
+  icon: {fileID: 0}
+  harvestType: 0
+  growthStages:
+  - sprite: {fileID: -2348417998822619911, guid: 10c0a54bd91a4c94fa00feb356d01beb, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: 7312371443449713870, guid: 10c0a54bd91a4c94fa00feb356d01beb, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: 5575226841437803021, guid: 10c0a54bd91a4c94fa00feb356d01beb, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: 2981630521704716304, guid: 10c0a54bd91a4c94fa00feb356d01beb, type: 3}
+    durationTime: 0.02
+  - sprite: {fileID: 2239977829711326888, guid: 10c0a54bd91a4c94fa00feb356d01beb, type: 3}
+    durationTime: 0.02
+  harvestStageIndex: 4
+  regrowStageIndex: 0
+  harvestItem: {fileID: 0}
+  minYield: 1
+  maxYield: 1
+  qualityChance:
+    goodChance: 0.2
+    bestChance: 0.05
+  plantableSeasons: -1
+  size: {x: 1, y: 1}
+  plantableTiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

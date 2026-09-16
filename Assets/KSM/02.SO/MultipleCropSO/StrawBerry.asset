@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
+  m_Name: StrawBerry
+  m_EditorClassIdentifier: Assembly-CSharp::CropSO
+  cropName: "\uB538\uAE30"
+  icon: {fileID: 0}
+  harvestType: 1
+  growthStages:
+  - sprite: {fileID: 4718627164128032214, guid: d1c1fadd5185e6f42b53c535f4567c95, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: 4133853225809855152, guid: d1c1fadd5185e6f42b53c535f4567c95, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: -4028309600575906610, guid: d1c1fadd5185e6f42b53c535f4567c95, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: -235969854481956619, guid: d1c1fadd5185e6f42b53c535f4567c95, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: 8068836819975636051, guid: d1c1fadd5185e6f42b53c535f4567c95, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: -5727443669989853292, guid: d1c1fadd5185e6f42b53c535f4567c95, type: 3}
+    durationTime: 0.05
+  harvestStageIndex: 5
+  regrowStageIndex: 4
+  harvestItem: {fileID: 11400000, guid: dc483cd4fac22a4458076d6ad59915fd, type: 2}
+  minYield: 1
+  maxYield: 3
+  qualityChance:
+    goodChance: 0.2
+    bestChance: 0.05
+  plantableSeasons: -1
+  size: {x: 1, y: 1}
+  plantableTiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

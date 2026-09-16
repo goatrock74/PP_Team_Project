@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
   m_Name: SpringCabbege
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: Watermelon
+  cropName: "\uBD04\uB3D9"
   icon: {fileID: 0}
   harvestType: 0
   growthStages:
@@ -26,7 +26,7 @@ MonoBehaviour:
     durationTime: 0.02
   harvestStageIndex: 3
   regrowStageIndex: 0
-  harvestItem: {fileID: 0}
+  harvestItem: {fileID: 11400000, guid: 0224c39d0343acb44b1bdcbb131c64e8, type: 2}
   minYield: 1
   maxYield: 1
   qualityChance:

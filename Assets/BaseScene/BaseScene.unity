@@ -3855,6 +3855,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SeasonPassive
   snowEffect: {fileID: 1325250701}
+  rainEffect: {fileID: 0}
+  flowerEffect: {fileID: 0}
+  leavesEffect: {fileID: 0}
 --- !u!114 &227905864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9001,6 +9004,42 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 90899681bb36ae747be0225a5197b69d, type: 2}
     count: 1
     quality: 0
+  - item: {fileID: 11400000, guid: b2b207d2ffd500c47bb9eec26466e544, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 5bdf1f3837cd4864182ed5193141b368, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 3bd3d5416264712439deb4b1833eed20, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 4e58c6c244201e04199c855b89c87145, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: ba3aeeff11d80ad46bc652544038373f, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 5fbc33b8a3160dd49b98fa0ec372beab, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: cad8daf0889875043bbb9330f244b001, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: db580e2def7e34244a78fdf631b6f918, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 858c924c1b48b724bb03e1f3628101d1, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 801d3ecd76cbb374fa18e5cd73b51d68, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 54bf3c90ca1d6fe418107b169fc922f4, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 4fd59bdf6ab66ae40a9b8fa054bf23fc, type: 2}
+    count: 1
+    quality: 0
   startingHotbarItems: []
 --- !u!50 &914049181
 Rigidbody2D:
@@ -10611,8 +10650,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: '-'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
+  m_sharedMaterial: {fileID: -8396427149083634700, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25725,13 +25764,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385a377fe6014da5a614c16e971118ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSelector
+  timeManager: {fileID: 227905865}
   fishTable:
   - fish: {fileID: 11400000, guid: ea505a10af6bb44448be4f4a1eaad6e1, type: 2}
-    weight: 1
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 0
+    nightMultiplier: 0
   - fish: {fileID: 11400000, guid: cca387ab3c8a47f4092ab4b92fe97a03, type: 2}
-    weight: 1
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 0
+    nightMultiplier: 0
   - fish: {fileID: 11400000, guid: f2b08c87a3cb237419ab0feb49c28c69, type: 2}
-    weight: 1
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 0
+    nightMultiplier: 0
   useMasteryLuck: 1
 --- !u!1 &6319703496244909821
 GameObject:

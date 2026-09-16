@@ -10,29 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
-  m_Name: YangBaeChu 1
+  m_Name: SunFlower
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: Watermelon
+  cropName: "\uD574\uBC14\uB77C\uAE30"
   icon: {fileID: 0}
   harvestType: 0
   growthStages:
-  - sprite: {fileID: -7069893274671939910, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -5802497010087645433, guid: b784dbf0091619f4a86a5f7c1fb7bc2b, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: -1977006426138126513, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -6307156791989908763, guid: b784dbf0091619f4a86a5f7c1fb7bc2b, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 6099856594759639329, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -6307156791989908763, guid: b784dbf0091619f4a86a5f7c1fb7bc2b, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: -170226672039657399, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -8570518264828308685, guid: b784dbf0091619f4a86a5f7c1fb7bc2b, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 6983519117003226336, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -4670093777493137269, guid: b784dbf0091619f4a86a5f7c1fb7bc2b, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: 4339654812882585802, guid: b784dbf0091619f4a86a5f7c1fb7bc2b, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -2335362953810702586, guid: b784dbf0091619f4a86a5f7c1fb7bc2b, type: 3}
     durationTime: 0.02
-  harvestStageIndex: 6
+  harvestStageIndex: 4
   regrowStageIndex: 0
-  harvestItem: {fileID: 11400000, guid: 98d63895027322949b7abf2ee77ac4af, type: 2}
+  harvestItem: {fileID: 11400000, guid: 85ecfb90dd45c9c4485f9b654acf505a, type: 2}
   minYield: 1
   maxYield: 1
   qualityChance:

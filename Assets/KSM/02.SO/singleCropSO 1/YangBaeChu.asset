@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
   m_Name: YangBaeChu
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: Watermelon
+  cropName: YangBaeChu
   icon: {fileID: 0}
   harvestType: 0
   growthStages:

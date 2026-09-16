@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32947cefe9f4382a9a2d6d43769fc19, type: 3}
+  m_Name: ColeFlower
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSO
+  itemId: 2
+  displayName: "\uCF5C\uB9AC\uD50C\uB77C\uC6CC"
+  icon: {fileID: 5149754710327669038, guid: 371272ea8b568974985176cc939103fc, type: 3}
+  description: "\uCF5C\uB77C\uCF5C\uB77C\uC6CC"
+  itemType: 0
+  maxStack: 99
+  sellPrice: 0
+  season: 0

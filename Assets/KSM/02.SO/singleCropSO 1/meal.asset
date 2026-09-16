@@ -10,29 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
-  m_Name: YangBaeChu 2
+  m_Name: meal
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: Watermelon
+  cropName: "\uC300"
   icon: {fileID: 0}
   harvestType: 0
   growthStages:
-  - sprite: {fileID: -7069893274671939910, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -4011353500662580267, guid: 364a1430c40fbb44b8a6f9f60cf2ae23, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: -1977006426138126513, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -1386812797139969919, guid: 364a1430c40fbb44b8a6f9f60cf2ae23, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 6099856594759639329, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -4193934942205531046, guid: 364a1430c40fbb44b8a6f9f60cf2ae23, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: -170226672039657399, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: 6833336173039078232, guid: 364a1430c40fbb44b8a6f9f60cf2ae23, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 6983519117003226336, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: -2617569439685716836, guid: 364a1430c40fbb44b8a6f9f60cf2ae23, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  - sprite: {fileID: 4997174744295652944, guid: 364a1430c40fbb44b8a6f9f60cf2ae23, type: 3}
     durationTime: 0.02
-  - sprite: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
-    durationTime: 0.02
-  harvestStageIndex: 6
+  harvestStageIndex: 5
   regrowStageIndex: 0
-  harvestItem: {fileID: 11400000, guid: 98d63895027322949b7abf2ee77ac4af, type: 2}
+  harvestItem: {fileID: 11400000, guid: dd7186a2d5ea6c2448fb1f48296b8086, type: 2}
   minYield: 1
   maxYield: 1
   qualityChance:

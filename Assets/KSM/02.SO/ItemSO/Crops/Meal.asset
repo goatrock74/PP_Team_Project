@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d32947cefe9f4382a9a2d6d43769fc19, type: 3}
+  m_Name: Meal
+  m_EditorClassIdentifier: Assembly-CSharp::ItemSO
+  itemId: meal_Crop
+  displayName: "\uBC00"
+  icon: {fileID: -3241636517105013344, guid: 364a1430c40fbb44b8a6f9f60cf2ae23, type: 3}
+  description: "\uD55C\uAD6D\uC740 \uBC25\uC2EC\uC774\uC9C0"
+  itemType: 0
+  maxStack: 99
+  sellPrice: 0
+  season: 0

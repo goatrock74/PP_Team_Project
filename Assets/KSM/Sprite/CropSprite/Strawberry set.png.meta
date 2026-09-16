@@ -75,7 +75,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -127,10 +127,10 @@ TextureImporter:
       name: Strawberry set_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 1
-        width: 26
-        height: 13
+        x: 8
+        y: 4
+        width: 5
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,12 +149,12 @@ TextureImporter:
       name: Strawberry set_1
       rect:
         serializedVersion: 2
-        x: 34
-        y: 3
-        width: 14
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 18
+        y: 4
+        width: 10
+        height: 5
+      alignment: 9
+      pivot: {x: 0.5180004, y: 0.204}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -171,12 +171,12 @@ TextureImporter:
       name: Strawberry set_2
       rect:
         serializedVersion: 2
-        x: 48
-        y: 2
-        width: 16
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 35
+        y: 4
+        width: 12
+        height: 6
+      alignment: 9
+      pivot: {x: 0.45616817, y: 0.16802852}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -193,12 +193,12 @@ TextureImporter:
       name: Strawberry set_3
       rect:
         serializedVersion: 2
-        x: 63
-        y: 0
-        width: 114
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 49
+        y: 3
+        width: 14
+        height: 10
+      alignment: 9
+      pivot: {x: 0.53253365, y: 0.20842095}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -215,12 +215,12 @@ TextureImporter:
       name: Strawberry set_4
       rect:
         serializedVersion: 2
-        x: 176
-        y: 0
+        x: 64
+        y: 3
         width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        height: 17
+      alignment: 9
+      pivot: {x: 0.52955914, y: 0.121119894}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -237,12 +237,12 @@ TextureImporter:
       name: Strawberry set_5
       rect:
         serializedVersion: 2
-        x: 191
-        y: 0
-        width: 18
+        x: 80
+        y: 3
+        width: 16
         height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.53330183, y: 0.11482076}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -259,10 +259,10 @@ TextureImporter:
       name: Strawberry set_6
       rect:
         serializedVersion: 2
-        x: 209
+        x: 96
         y: 0
-        width: 14
-        height: 17
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,55 +277,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Strawberry set_7
-      rect:
-        serializedVersion: 2
-        x: 225
-        y: 0
-        width: 14
-        height: 17
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 8896b8c87a9427280800000000000000
-      internalID: -9047087717467592312
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Strawberry set_8
-      rect:
-        serializedVersion: 2
-        x: 239
-        y: 0
-        width: 49
-        height: 20
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2219844b9b918f710800000000000000
-      internalID: 1727158742480884002
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 68d09b9b8b155be438f07e381c6c3a54
     internalID: 0
     vertices: []
     indices: 

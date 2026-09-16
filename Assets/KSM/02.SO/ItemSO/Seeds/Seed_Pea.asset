@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
   itemId: pea_seed
   displayName: "\uC644\uB450\uCF69 \uC528\uC557"
-  icon: {fileID: 626981310, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
+  icon: {fileID: -6488932899349650322, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
   description: "\uC644\uB450\uCF69\uC744 \uC2EC\uC744\uC218\uC788\uB2E4(\uC7AC\uC218\uD655\uAC00\uB2A5)"
   itemType: 1
   maxStack: 99
   sellPrice: 0
-  crop: {fileID: 0}
+  season: 0
+  crop: {fileID: 11400000, guid: bd55b96902a2d7b48ae4460c997c8151, type: 2}

@@ -28,7 +28,7 @@ MonoBehaviour:
     durationTime: 0.02
   harvestStageIndex: 4
   regrowStageIndex: 0
-  harvestItem: {fileID: 0}
+  harvestItem: {fileID: 11400000, guid: 4124fe0ae7ea2b442a1413da1243504a, type: 2}
   minYield: 1
   maxYield: 1
   qualityChance:

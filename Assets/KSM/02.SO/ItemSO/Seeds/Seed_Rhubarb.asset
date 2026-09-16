@@ -19,4 +19,5 @@ MonoBehaviour:
   itemType: 1
   maxStack: 99
   sellPrice: 0
-  crop: {fileID: 0}
+  season: 0
+  crop: {fileID: 11400000, guid: a966ec7240231dc4bafe9676896aa257, type: 2}

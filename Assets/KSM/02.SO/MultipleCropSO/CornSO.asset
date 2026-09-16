@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
+  m_Name: CornSO
+  m_EditorClassIdentifier: Assembly-CSharp::CropSO
+  cropName: Corn
+  icon: {fileID: 0}
+  harvestType: 1
+  growthStages:
+  - sprite: {fileID: 5608883658788314520, guid: 8b5988c0cc091eb4fbfddc4e54d76adc, type: 3}
+    durationTime: 3
+  - sprite: {fileID: 3787708996723833491, guid: 8b5988c0cc091eb4fbfddc4e54d76adc, type: 3}
+    durationTime: 3
+  - sprite: {fileID: -1099433485152855868, guid: 8b5988c0cc091eb4fbfddc4e54d76adc, type: 3}
+    durationTime: 3
+  - sprite: {fileID: 8115637898631620500, guid: 8b5988c0cc091eb4fbfddc4e54d76adc, type: 3}
+    durationTime: 3
+  - sprite: {fileID: 457711314933424331, guid: 8b5988c0cc091eb4fbfddc4e54d76adc, type: 3}
+    durationTime: 3
+  - sprite: {fileID: -4933229138422924533, guid: 8b5988c0cc091eb4fbfddc4e54d76adc, type: 3}
+    durationTime: 3
+  harvestStageIndex: 4
+  regrowStageIndex: 3
+  harvestItem: {fileID: 11400000, guid: 78ecc30dcbbdb064ab03657805e8c562, type: 2}
+  minYield: 1
+  maxYield: 3
+  qualityChance:
+    goodChance: 0.2
+    bestChance: 0.05
+  plantableSeasons: -1
+  size: {x: 1, y: 1}
+  plantableTiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
+  m_Name: Bean
+  m_EditorClassIdentifier: Assembly-CSharp::CropSO
+  cropName: "\uCF69"
+  icon: {fileID: 0}
+  harvestType: 1
+  growthStages:
+  - sprite: {fileID: 3867730644245218921, guid: ac27602ad7a96b4449c0cc5bc96fce52, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: -7548881349773955483, guid: ac27602ad7a96b4449c0cc5bc96fce52, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: -3765027845890634321, guid: ac27602ad7a96b4449c0cc5bc96fce52, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: -6928388016148620198, guid: ac27602ad7a96b4449c0cc5bc96fce52, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: 4047977883475878191, guid: ac27602ad7a96b4449c0cc5bc96fce52, type: 3}
+    durationTime: 0.05
+  - sprite: {fileID: -3444922196128600375, guid: ac27602ad7a96b4449c0cc5bc96fce52, type: 3}
+    durationTime: 0.05
+  harvestStageIndex: 5
+  regrowStageIndex: 4
+  harvestItem: {fileID: 11400000, guid: 4901743d8bdfed841b406138ee5f988a, type: 2}
+  minYield: 1
+  maxYield: 3
+  qualityChance:
+    goodChance: 0.2
+    bestChance: 0.05
+  plantableSeasons: -1
+  size: {x: 1, y: 1}
+  plantableTiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}
