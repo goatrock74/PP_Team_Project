@@ -72,7 +72,7 @@ namespace PJH.Scripts
             if (result == null)
             {
                 category = FishCollectionCategory.Sea;
-                Debug.Log("응애");
+                Debug.Log("안됨");
                 return false;
             }
             
