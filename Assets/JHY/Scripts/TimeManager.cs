@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
+    
     public enum TimePeriod
     {
         Morning,

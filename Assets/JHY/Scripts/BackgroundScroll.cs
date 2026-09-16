@@ -2,14 +2,36 @@ using UnityEngine;
 
 public class BackgroundScroll : MonoBehaviour
 {
-    [SerializeField] private float speed = 2f;
-    [SerializeField] private float width = 20f;
+    [SerializeField] private float scrollSpeed = 2f;
 
-    void Update()
+    private SpriteRenderer spriteRenderer;
+    private float width;
+
+    private void Start()
     {
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        if (transform.position.x <= -width)
+        if (spriteRenderer != null)
+        {
+            width = spriteRenderer.bounds.size.x;
+
+            Debug.Log("배경 가로 크기: " + width);
+        }
+        else
+        {
+            Debug.LogError("SpriteRenderer를 찾을 수 없습니다!");
+        }
+    }
+
+    private void Update()
+    {
+        transform.Translate(Vector3.left * scrollSpeed * Time.deltaTime);
+
+        float screenLeft =
+            Camera.main.transform.position.x -
+            Camera.main.orthographicSize * Camera.main.aspect;
+
+        if (spriteRenderer.bounds.max.x <= screenLeft)
         {
             transform.position += Vector3.right * width * 2f;
         }

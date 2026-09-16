@@ -69,7 +69,7 @@ public class MenuManager : MonoBehaviour
 
                 isStartScreen = false;
                 particle.SetActive(false);
-                background.SetActive(false);
+                background.SetActive(true);
 
                 mainMenuAnimation.PlayAnimation();
 
