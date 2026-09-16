@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: RedcapOranda
   rarity: 2
   collectionCategory: 1
-  difficulty: 2
-  moveSpeed: 0.26
-  minTargetChangeTime: 0.85
-  maxTargetChangeTime: 1.4
-  maxMoveDistance: 0.28
+  difficulty: 1
+  baseCatchWeight: 26
+  springMultiplier: 1
+  summerMultiplier: 1
+  autumnMultiplier: 0.45
+  winterMultiplier: 0
+  morningMultiplier: 1
+  afternoonMultiplier: 0.5
+  nightMultiplier: 0
+  moveSpeed: 0.15
+  minTargetChangeTime: 1.5
+  maxTargetChangeTime: 2.3
+  maxMoveDistance: 0.18
 

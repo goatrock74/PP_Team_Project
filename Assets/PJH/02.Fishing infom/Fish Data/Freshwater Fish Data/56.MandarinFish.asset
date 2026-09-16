@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: MandarinFish
   rarity: 3
   collectionCategory: 1
-  difficulty: 3
-  moveSpeed: 0.31
-  minTargetChangeTime: 0.6
-  maxTargetChangeTime: 1.05
-  maxMoveDistance: 0.35
+  difficulty: 3.4
+  baseCatchWeight: 12
+  springMultiplier: 1
+  summerMultiplier: 1
+  autumnMultiplier: 0.45
+  winterMultiplier: 0
+  morningMultiplier: 0
+  afternoonMultiplier: 1.6
+  nightMultiplier: 0.5
+  moveSpeed: 0.34
+  minTargetChangeTime: 0.4
+  maxTargetChangeTime: 0.75
+  maxMoveDistance: 0.36
 

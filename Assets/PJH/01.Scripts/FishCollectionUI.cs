@@ -2,42 +2,107 @@
 using System.Collections.Generic;
 using PJH._01.Scripts;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PJH.Scripts
 {
     public class FishCollectionUI : MonoBehaviour
     {
+        [Header("도감 분류")]
         [SerializeField] private FishSlotUI[]  fishSlots;
         [SerializeField] private FishDataSO[] fishDataList;
+        
+        [Header("상세 정보")]
         [SerializeField] private FishDetailPanelUI fishDetailPanelUI;
 
 
-
+        [Header("도감 관리")]
         [SerializeField] private FishCollectionManager collectionManager;
+        
+        [Header("분류 버튼")]
+        [SerializeField] private Button seaButton;
+        [SerializeField] private Button freshwaterButton;
+        [SerializeField] private Button trashButton;
+
+        private FishCollectionCategory currentCategory;
 
         private void OnEnable()
         {
             collectionManager.OnCollectionChanged += RefreshSlots;
-            RefreshSlots();
+            ShowSeaFish();
         }
 
-        private void OnDisable()
+
+        private void ChangeCategory(FishCollectionCategory category)
+        {
+            currentCategory = category;
+            
+            FishSlotUI.ClearSelection();
+            fishDetailPanelUI.ClearFishData();
+
+            UpdateCategoryButtons();
+            RefreshSlots();
+
+        }
+
+        private void UpdateCategoryButtons()
+        {
+            seaButton.interactable = currentCategory !=  FishCollectionCategory.Sea;
+            freshwaterButton.interactable = currentCategory != FishCollectionCategory.FreshWater;
+            trashButton.interactable = currentCategory != FishCollectionCategory.Trash;
+        }
+        public void ShowSeaFish()
+        {
+            ChangeCategory(FishCollectionCategory.Sea);
+        }
+
+        public void CloseCollection()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public void ShowFreshwaterFish()
+        {
+            ChangeCategory(FishCollectionCategory.FreshWater);
+        }
+
+        public void ShowTrash()
+        {
+            ChangeCategory(FishCollectionCategory.Trash);
+        }
+
+        public void OnDisable()
         {
             collectionManager.OnCollectionChanged -= RefreshSlots;
         }
 
         private void RefreshSlots()
         {
-            int count = Mathf.Min(fishSlots.Length, fishDataList.Length);
+            List<FishDataSO> filteredFishList = new();
 
-            for (int i = 0; i < count; i++)
+            foreach (FishDataSO fishData in fishDataList)
             {
-                FishDataSO fishData = fishDataList[i];
+                if (fishData == null) continue;
+
+                if (fishData.collectionCategory == currentCategory)
+                {
+                    filteredFishList.Add(fishData);
+                }
+            }
+
+            for (int i = 0; i < fishSlots.Length; i++)
+            {
+                if (i >= filteredFishList.Count)
+                {
+                    fishSlots[i].gameObject.SetActive(false);
+                    continue;
+                }
+                
+                FishDataSO fishData =  filteredFishList[i];
 
                 bool isDiscovered = collectionManager.IsDiscovered(fishData);
-                Debug.Log(
-                    $"{fishData.displayName} 발견 여부: {isDiscovered}");
-
+                
+                fishSlots[i].gameObject.SetActive(true);
                 fishSlots[i].SetUp(fishData, isDiscovered, fishDetailPanelUI.ShowFishData);
             }
         }

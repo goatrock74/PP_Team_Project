@@ -21,8 +21,9 @@ MonoBehaviour:
   sellPrice: 0
   fishID: ScrewTurretSnail
   rarity: 1
-  difficulty: 1
-  moveSpeed: 0.14
-  minTargetChangeTime: 1.6
-  maxTargetChangeTime: 2.4
-  maxMoveDistance: 0.12
+  difficulty: 0.3
+  baseCatchWeight: 60
+  moveSpeed: 0.09
+  minTargetChangeTime: 2.4
+  maxTargetChangeTime: 3.3
+  maxMoveDistance: 0.07

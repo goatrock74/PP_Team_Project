@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: RainbowTrout
   rarity: 2
   collectionCategory: 1
-  difficulty: 3
-  moveSpeed: 0.3
-  minTargetChangeTime: 0.65
-  maxTargetChangeTime: 1.15
-  maxMoveDistance: 0.34
+  difficulty: 3.2
+  baseCatchWeight: 22
+  springMultiplier: 1
+  summerMultiplier: 0
+  autumnMultiplier: 1
+  winterMultiplier: 0.45
+  morningMultiplier: 1
+  afternoonMultiplier: 0.5
+  nightMultiplier: 0
+  moveSpeed: 0.35
+  minTargetChangeTime: 0.45
+  maxTargetChangeTime: 0.8
+  maxMoveDistance: 0.38
 

@@ -2065,7 +2065,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+    m_SelectedColor: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -2084,7 +2084,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 227487064}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2018547879}
+        m_TargetAssemblyTypeName: PJH.Scripts.FishCollectionUI, Assembly-CSharp
+        m_MethodName: ShowFreshwaterFish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &227487064
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3810,7 +3822,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+    m_SelectedColor: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -3829,7 +3841,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 627840906}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2018547879}
+        m_TargetAssemblyTypeName: PJH.Scripts.FishCollectionUI, Assembly-CSharp
+        m_MethodName: ShowSeaFish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &627840906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5691,7 +5715,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902801636}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2018547879}
+        m_TargetAssemblyTypeName: PJH.Scripts.FishCollectionUI, Assembly-CSharp
+        m_MethodName: CloseCollection
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &902801636
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7393,6 +7429,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1297277660}
   m_CullTransparentMesh: 1
+--- !u!1 &1301231006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1301231007}
+  - component: {fileID: 1301231008}
+  m_Layer: 0
+  m_Name: TimeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1301231007
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301231006}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 758.8178, y: 339.11713, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1301231008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301231006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac69b086e433f704aa6f6bfcdf701047, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeManager
+  dayDuration: 720
 --- !u!1 &1313057750
 GameObject:
   m_ObjectHideFlags: 0
@@ -12406,7 +12487,7 @@ GameObject:
   - component: {fileID: 2018547878}
   - component: {fileID: 2018547879}
   m_Layer: 5
-  m_Name: FishingEncyclopediaUI
+  m_Name: FishCollectionUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12518,8 +12599,39 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6e5a056b9ba7ac34fb5cedd7247eb8c9, type: 2}
   - {fileID: 11400000, guid: 082383fa8387af44da98c65df43b23fc, type: 2}
   - {fileID: 11400000, guid: 295af7a3d4c50a340856fab286b3ec8d, type: 2}
+  - {fileID: 11400000, guid: 3a03a2c885be165b579bbc90ee1d767b, type: 2}
+  - {fileID: 11400000, guid: 135f477baecaad79e5573b9b9e76e279, type: 2}
+  - {fileID: 11400000, guid: 529eba256ebc03146926563cab59d1b1, type: 2}
+  - {fileID: 11400000, guid: 74ad455f9ae14d641bcd2c5e7284ab9c, type: 2}
+  - {fileID: 11400000, guid: 55dd9d428f5945fbfe8b52cc100adf6c, type: 2}
+  - {fileID: 11400000, guid: feaac13ca157d9a91d399f5da25d0b84, type: 2}
+  - {fileID: 11400000, guid: af729622d2d892dbb735e5311da6c53e, type: 2}
+  - {fileID: 11400000, guid: d37dcd6ea0c173ac7e5f63b10ec91d7d, type: 2}
+  - {fileID: 11400000, guid: acdcabc7ba8930c977142315cb2c3f9e, type: 2}
+  - {fileID: 11400000, guid: 6d9d82eb8d1c40eb8327fb6e8980334b, type: 2}
+  - {fileID: 11400000, guid: d9216b13260e0bd43ce459bfe4d13e8d, type: 2}
+  - {fileID: 11400000, guid: c3bb3b3e3aa7fc836b18746507577a2e, type: 2}
+  - {fileID: 11400000, guid: 54d7d2981406099eebcd374fd7669e86, type: 2}
+  - {fileID: 11400000, guid: 29c7778a8759b53611c4b5c26e0c8c26, type: 2}
+  - {fileID: 11400000, guid: 8aa5ff9de6c9e69498a2b5c75f11833b, type: 2}
+  - {fileID: 11400000, guid: 08dd6a29c2a3411b75efaf06916d82c3, type: 2}
+  - {fileID: 11400000, guid: 2ac6bd2ab67f172874ae65f5eef38e9f, type: 2}
+  - {fileID: 11400000, guid: 7d95216d91e1d9d37aa655b60d551bdc, type: 2}
+  - {fileID: 11400000, guid: edb07e3705ef51e608f536d055ff40cf, type: 2}
+  - {fileID: 11400000, guid: 193aab1f06e4e813f755b7bf7b93e2b4, type: 2}
+  - {fileID: 11400000, guid: 5700c35012b71480e73d18c642c6fa99, type: 2}
+  - {fileID: 11400000, guid: cff73ce7f6f927f2dacf5035373a4199, type: 2}
+  - {fileID: 11400000, guid: 4117dd97798af9a6f14aca98dcadd45c, type: 2}
+  - {fileID: 11400000, guid: dd529580af709ecb26751e14047626b0, type: 2}
+  - {fileID: 11400000, guid: a3f17d9e6b124c7490d8245824211a61, type: 2}
+  - {fileID: 11400000, guid: b6842e1fb9324ff8894113ccb1c2ba62, type: 2}
+  - {fileID: 11400000, guid: c95d35c832b841bbadc7ecf226f40363, type: 2}
+  - {fileID: 11400000, guid: d26a50eb4ae54e17bfc8274c1f471164, type: 2}
   fishDetailPanelUI: {fileID: 2112462159}
   collectionManager: {fileID: 922998600}
+  seaButton: {fileID: 627840905}
+  freshwaterButton: {fileID: 227487063}
+  trashButton: {fileID: 2037361536}
 --- !u!1 &2034342993
 GameObject:
   m_ObjectHideFlags: 0
@@ -12796,7 +12908,7 @@ MonoBehaviour:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
+    m_SelectedColor: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -12815,7 +12927,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2037361537}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2018547879}
+        m_TargetAssemblyTypeName: PJH.Scripts.FishCollectionUI, Assembly-CSharp
+        m_MethodName: ShowTrash
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2037361537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13787,15 +13911,296 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 385a377fe6014da5a614c16e971118ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishSelector
+  timeManager: {fileID: 1301231008}
   fishTable:
   - fish: {fileID: 11400000, guid: cca387ab3c8a47f4092ab4b92fe97a03, type: 2}
-    weight: 1
+    springMultiplier: 1
+    summerMultiplier: 1
+    autumnMultiplier: 1
+    winterMultiplier: 1
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0.5
   - fish: {fileID: 11400000, guid: dc99e02e186179f4db599c1783cfd5b6, type: 2}
-    weight: 1
+    springMultiplier: 0.45
+    summerMultiplier: 0
+    autumnMultiplier: 1
+    winterMultiplier: 1
+    morningMultiplier: 0
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
   - fish: {fileID: 11400000, guid: afee1b75e1a60fe4f86acf83c0ada9dc, type: 2}
-    weight: 1
+    springMultiplier: 1
+    summerMultiplier: 1
+    autumnMultiplier: 0.45
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 1.6
+    nightMultiplier: 0.5
   - fish: {fileID: 11400000, guid: 345748c3b2ec60240a6cd20bed3d2992, type: 2}
-    weight: 1
+    springMultiplier: 0.45
+    summerMultiplier: 1
+    autumnMultiplier: 0.45
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: f2b08c87a3cb237419ab0feb49c28c69, type: 2}
+    springMultiplier: 0.45
+    summerMultiplier: 1
+    autumnMultiplier: 0.45
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: b5dc2c4a1380e1248a5c4421c49cc5c4, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0.45
+    winterMultiplier: 1
+    morningMultiplier: 1
+    afternoonMultiplier: 0
+    nightMultiplier: 0.5
+  - fish: {fileID: 11400000, guid: a51febd25fcf66448aa24005c3742286, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 1
+    autumnMultiplier: 1
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 1.6
+    nightMultiplier: 0.5
+  - fish: {fileID: 11400000, guid: 4acf4bc74cc2a4147badb1818f9c7a2e, type: 2}
+    springMultiplier: 0.45
+    summerMultiplier: 1
+    autumnMultiplier: 0.45
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 666afd11b70d2c74389458944e22e990, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 1
+    winterMultiplier: 0.45
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 886ed0685cec609449a7a4a15f5d3787, type: 2}
+    springMultiplier: 1
+    summerMultiplier: 0.45
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: b574b391f28656847b6a10ed7fbfd21d, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 1
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 6ef8eab7221fc0947942e940e3f1f1a3, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 1
+    autumnMultiplier: 0.45
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 7dad5a0788d5f134599137b0fb323f39, type: 2}
+    springMultiplier: 1
+    summerMultiplier: 1
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 02e19ab6f14550147bc526028d976f39, type: 2}
+    springMultiplier: 0.45
+    summerMultiplier: 1
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 85afa551688abdf47ae370d7a0ade9d6, type: 2}
+    springMultiplier: 1
+    summerMultiplier: 0.45
+    autumnMultiplier: 1
+    winterMultiplier: 0
+    morningMultiplier: 0.5
+    afternoonMultiplier: 1.6
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: b719e93c4f5105846b41adda5cb203d7, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0.45
+    autumnMultiplier: 1
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: 04a95e33c3ede604fa95a47b33f1550d, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0.45
+    winterMultiplier: 1
+    morningMultiplier: 0
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: ea505a10af6bb44448be4f4a1eaad6e1, type: 2}
+    springMultiplier: 1
+    summerMultiplier: 1
+    autumnMultiplier: 1
+    winterMultiplier: 1
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: 8ac90a2e13019684c9224129061a1dab, type: 2}
+    springMultiplier: 1
+    summerMultiplier: 1
+    autumnMultiplier: 0.45
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: eb9db29214a233f45af490bb2c3e9221, type: 2}
+    springMultiplier: 1
+    summerMultiplier: 1
+    autumnMultiplier: 1
+    winterMultiplier: 1
+    morningMultiplier: 0
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: a76f7ebfaffabc348abbd95eae8e1cc6, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0.45
+    autumnMultiplier: 1
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 1.6
+    nightMultiplier: 0.5
+  - fish: {fileID: 11400000, guid: 38401acdb0a102641bedb5363f803edc, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0.45
+    winterMultiplier: 1
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 87e440d823fa83b4d9d75ba229bb6974, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0.45
+    winterMultiplier: 1
+    morningMultiplier: 0
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: 3a243aea278e01a40afbf065e2de0313, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0.45
+    winterMultiplier: 1
+    morningMultiplier: 1
+    afternoonMultiplier: 0
+    nightMultiplier: 0.5
+  - fish: {fileID: 11400000, guid: 0e2350fc74ac9764281d7efebab03486, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 1
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 0f360068ffce9194a91ca0f9366e64cd, type: 2}
+    springMultiplier: 0.45
+    summerMultiplier: 1
+    autumnMultiplier: 0.45
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 82f83d822c07fa04abc5fc8c5d4ee83e, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 1
+    autumnMultiplier: 0.45
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 1.6
+    nightMultiplier: 0.5
+  - fish: {fileID: 11400000, guid: 8dfae2f2541a50246abc675f921994ca, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 1
+    autumnMultiplier: 0.45
+    winterMultiplier: 0
+    morningMultiplier: 0
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: d0f94d376ee3f1d45bbaa144853b14b0, type: 2}
+    springMultiplier: 0.45
+    summerMultiplier: 0
+    autumnMultiplier: 0.45
+    winterMultiplier: 1
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: e985dbae5915fc14087b1bbe8d576642, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 1
+    winterMultiplier: 1
+    morningMultiplier: 1
+    afternoonMultiplier: 0
+    nightMultiplier: 0.5
+  - fish: {fileID: 11400000, guid: 10fa242c89ff8ea4199980cbf4522891, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0.45
+    winterMultiplier: 1
+    morningMultiplier: 0
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: 2f2bd3bf12c31414da0c6f43e27b6feb, type: 2}
+    springMultiplier: 1
+    summerMultiplier: 0.45
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 26ed51d922159fb4fa234bfe5c780028, type: 2}
+    springMultiplier: 0.45
+    summerMultiplier: 0.45
+    autumnMultiplier: 1
+    winterMultiplier: 1
+    morningMultiplier: 0
+    afternoonMultiplier: 0.5
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: 6e5a056b9ba7ac34fb5cedd7247eb8c9, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0
+    winterMultiplier: 1
+    morningMultiplier: 0
+    afternoonMultiplier: 0
+    nightMultiplier: 1.3
+  - fish: {fileID: 11400000, guid: 082383fa8387af44da98c65df43b23fc, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 1
+    autumnMultiplier: 0
+    winterMultiplier: 0
+    morningMultiplier: 1
+    afternoonMultiplier: 0.5
+    nightMultiplier: 0
+  - fish: {fileID: 11400000, guid: 295af7a3d4c50a340856fab286b3ec8d, type: 2}
+    springMultiplier: 0
+    summerMultiplier: 0
+    autumnMultiplier: 0
+    winterMultiplier: 1
+    morningMultiplier: 0
+    afternoonMultiplier: 0
+    nightMultiplier: 1.3
   useMasteryLuck: 1
 --- !u!1 &2967419505288977588
 GameObject:
@@ -14720,3 +15125,4 @@ SceneRoots:
   - {fileID: 682694958}
   - {fileID: 1665272277}
   - {fileID: 922998601}
+  - {fileID: 1301231007}

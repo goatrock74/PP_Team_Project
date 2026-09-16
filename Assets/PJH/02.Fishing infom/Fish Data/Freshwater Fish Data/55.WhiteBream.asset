@@ -22,9 +22,17 @@ MonoBehaviour:
   fishID: WhiteBream
   rarity: 2
   collectionCategory: 1
-  difficulty: 2
+  difficulty: 1.9
+  baseCatchWeight: 25
+  springMultiplier: 1
+  summerMultiplier: 1
+  autumnMultiplier: 0.45
+  winterMultiplier: 0
+  morningMultiplier: 1
+  afternoonMultiplier: 0.5
+  nightMultiplier: 0
   moveSpeed: 0.23
-  minTargetChangeTime: 0.95
-  maxTargetChangeTime: 1.55
-  maxMoveDistance: 0.25
+  minTargetChangeTime: 0.9
+  maxTargetChangeTime: 1.35
+  maxMoveDistance: 0.28
 
