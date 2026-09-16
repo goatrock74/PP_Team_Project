@@ -45,6 +45,7 @@ namespace PJH.Scripts
             fishIcon.enabled = false;
 
             fishName.text = "물고기를 선택하세요";
+            fishDescription.text = string.Empty;
             fishPrice.text = string.Empty;
         }
     }
