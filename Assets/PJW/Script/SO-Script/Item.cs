@@ -5,16 +5,16 @@ using UnityEngine.Rendering;
 [CreateAssetMenu(fileName = "new ItemSO", menuName = "PJW/Item/ItemSO")]
 public class Item : ScriptableObject
 {
-    [field: SerializeField] public SeasonType Season { get; private set; }
+    //[field: SerializeField] public SeasonType Season { get; private set; }
 
     [field: SerializeField] public Sprite Item_icon { get; private set; }
 
     [field: SerializeField] public int Item_price { get; private set; }
 
-    [Header("ÆÇ¸Å °¡°Ý (0À¸·Î µÎ¸é ±¸¸Å°¡ÀÇ Àý¹ÝÀ¸·Î ÀÚµ¿ °è»ê)")]
+    [Header("ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ (0ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½)")]
     [SerializeField] private int item_sellPrice = 0;
 
-    // ½ÇÁ¦ ÆÇ¸Å ½Ã »ç¿ëÇÏ´Â °¡°Ý. ÀÎ½ºÆåÅÍ¿¡ °ªÀ» ¾È ³ÖÀ¸¸é ±¸¸Å°¡ÀÇ Àý¹ÝÀ¸·Î ÀÚµ¿ °è»êµÊ
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¸ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Î½ï¿½ï¿½ï¿½ï¿½Í¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
     public int Item_SellPrice => item_sellPrice > 0 ? item_sellPrice : Item_price / 2;
 
     [field: SerializeField] public string Item_name { get; private set; }
@@ -24,10 +24,3 @@ public class Item : ScriptableObject
     public int Item_count = 0;
 }
 
-public enum SeasonType
-{
-    Autumn,
-    Summer,
-    Spring,
-    Winter
-}

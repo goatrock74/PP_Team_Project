@@ -18,11 +18,11 @@ namespace Assets.PJW.Script.SO_Script
             {
                 if (ItemList[i] == null)
                     continue;
-                if (ItemList[i].Season != targetType )
+               /* if (ItemList[i].Season != targetType )
                 {
                     Debug.LogError($"{name}의 목록에 맞지 않는 타입이 있습니다. {ItemList[i].name}");
                     ItemList[i] = null;
-                }
+                }*/
             }
         }
     }

@@ -31,6 +31,9 @@ public class ItemSO : ScriptableObject
     [Header("가격")]
     [Tooltip("일반 품질 기준 판매가. 좋음/최상은 여기에 배수가 곱해진다")]
     [Min(0)] public int sellPrice;
+
+    [Header("가격")] [Tooltip("계절을 추가해라")]
+    public SeasonType season;
  
     /// <summary>
     /// 품질을 반영한 판매가. 상점은 작물이든 물고기든 이것만 부르면 된다.
@@ -77,5 +80,13 @@ public static class ItemTypeUtil
         ItemType.Tool => "도구",
         _ => "기타",
     };
+}
+
+public enum SeasonType
+{
+    Autumn,
+    Summer,
+    Spring,
+    Winter
 }
  
