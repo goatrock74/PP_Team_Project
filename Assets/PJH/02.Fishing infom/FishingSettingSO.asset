@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f817e10e8bf84bffb7ebbc1a8b34438c, type: 3}
   m_Name: FishingSettingSO
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishingSettingSO
+  <MinBiteTime>k__BackingField: 4
+  <MaxBiteTime>k__BackingField: 10

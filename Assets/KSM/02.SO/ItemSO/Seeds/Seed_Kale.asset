@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
   itemId: kale_seed
   displayName: "\uCF00\uC77C \uC528\uC557\uD329"
-  icon: {fileID: 7845366852038185261, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  icon: {fileID: 1145249469158254179, guid: b84ae9bd49ed25b489a831ad20d36ed1, type: 3}
   description: "\uC591\uBC30\uCD94\uC528\uC557\uC744 \uC2EC\uC744\uC218\uC788\uB2E4"
   itemType: 1
   maxStack: 99

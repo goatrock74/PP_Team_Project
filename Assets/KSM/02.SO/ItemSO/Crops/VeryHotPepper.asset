@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d32947cefe9f4382a9a2d6d43769fc19, type: 3}
-  m_Name: Pepper
+  m_Name: VeryHotPepper
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 1
-  displayName: "\uACE0\uCD94"
-  icon: {fileID: -1754454707592799777, guid: 9be6430bb675d944c98b02f47f665859, type: 3}
-  description: 'Look so Spy
-
-'
+  displayName: "\uCCAD\uC591\uACE0\uCD94"
+  icon: {fileID: 2005249565581438610, guid: 9be6430bb675d944c98b02f47f665859, type: 3}
+  description: "\uCCAD\uC591\uACE0\uCD94"
   itemType: 0
   maxStack: 99
   sellPrice: 0

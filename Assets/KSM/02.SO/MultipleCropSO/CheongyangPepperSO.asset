@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
-  m_Name: PepperSO
+  m_Name: CheongyangPepperSO
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
   cropName: "\uACE0\uCD94"
   icon: {fileID: 0}
@@ -26,11 +26,11 @@ MonoBehaviour:
     durationTime: 3
   - sprite: {fileID: -4314110541975525844, guid: 9be6430bb675d944c98b02f47f665859, type: 3}
     durationTime: 3
-  - sprite: {fileID: 6130110577358793742, guid: 9be6430bb675d944c98b02f47f665859, type: 3}
+  - sprite: {fileID: -5566386628271204186, guid: 9be6430bb675d944c98b02f47f665859, type: 3}
     durationTime: 3
   harvestStageIndex: 5
   regrowStageIndex: 4
-  harvestItem: {fileID: 11400000, guid: b91ac00e45786324589130df4229913c, type: 2}
+  harvestItem: {fileID: 11400000, guid: 685819b564eb41c45ad99e83ca96d4ad, type: 2}
   minYield: 1
   maxYield: 4
   qualityChance:

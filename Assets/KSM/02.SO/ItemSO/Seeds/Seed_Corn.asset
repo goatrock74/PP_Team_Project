@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
   itemId: corn_seed
   displayName: "\uC625\uC218\uC218\uC528\uC557"
-  icon: {fileID: -1266855699, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
+  icon: {fileID: -2497253875686455361, guid: 8b5988c0cc091eb4fbfddc4e54d76adc, type: 3}
   description: "\uAC15\uB0C9\uC774 \uC2EC\uAE30"
   itemType: 1
   maxStack: 99

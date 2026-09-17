@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
   itemId: rasberry_seed
   displayName: "\uB77C\uC988\uBCA0\uB9AC \uC528\uC557\uD329"
-  icon: {fileID: -3901715911805076996, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
+  icon: {fileID: 1974956134, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
   description: "\uB77C\uC988\uBCA0\uB9AC\uB97C \uC2EC\uC744\uC218\uC788\uB2E4"
   itemType: 1
   maxStack: 99

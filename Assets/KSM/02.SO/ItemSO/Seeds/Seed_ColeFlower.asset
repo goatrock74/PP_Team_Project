@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
   itemId: ColeFlower_seed
   displayName: "\uCF5C\uB9AC\uD50C\uB77C\uC6CC"
-  icon: {fileID: -8102348181575854170, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  icon: {fileID: 2514004559234900711, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
   description: "\uCF5C\uB9AC\uD50C\uB77C\uC6CC\uC744 \uC2EC\uC744\uC218\uC788\uB2E4"
   itemType: 1
   maxStack: 99

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6f09d5f542a4e95ab92d1a9cb35d24d, type: 3}
-  m_Name: Seed_WaterMelon
+  m_Name: Seed_CheongyangPepper
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
-  itemId: watermelon_seed
-  displayName: "\uC218\uBC15\uC528\uC557"
-  icon: {fileID: 1470304246, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
-  description: "\uC218\uBC15\uC528\uC557\uC744 \uC2EC\uC744\uC218\uC788\uB2E4"
+  itemId: cheongyangpepper_seed
+  displayName: "\uCCAD\uC591\uACE0\uCD94 \uC528\uC557"
+  icon: {fileID: -5925890003656416073, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
+  description: "\uCCAD\uC591\uACE0\uCD94\uB9E4\uC6B0\uB9F5\uB2E4"
   itemType: 1
   maxStack: 99
   sellPrice: 0
   season: 0
-  crop: {fileID: 11400000, guid: c7cd0afdbd932c841b4b369b6a87610f, type: 2}
+  crop: {fileID: 11400000, guid: 1bd38575ab77e0e4b9ea466e7035b862, type: 2}
