@@ -27,7 +27,7 @@ namespace PJH.Scripts
 
         private void Awake()
         {
-            ClearFishData();
+            ShowUndiscoveredData(currentFishData);
         }
 
         public void ShowFishData(FishDataSO fishData, bool isDiscovered)
@@ -36,7 +36,7 @@ namespace PJH.Scripts
             
             if (!isDiscovered)
             {
-                ShowUndiscoveredData();
+                ShowUndiscoveredData(fishData);
                 return;
             }
             
@@ -58,9 +58,15 @@ namespace PJH.Scripts
             fishDescription.text = fishData.description;
         }
 
-        private void ShowUndiscoveredData()
+        private void ShowUndiscoveredData(FishDataSO fishData)
         {
-            ClearFishData();
+            currentFishData = fishData;
+            fishIcon.sprite = fishData.icon;
+            fishIcon.enabled = false;
+
+            fishName.text = "???";
+            fishDescription.text = "???";
+            fishPrice.text = $"가격 : ???";
         }
 
         private void UpdateSpawnTags(FishDataSO fishData)
@@ -89,13 +95,13 @@ namespace PJH.Scripts
 
         public void ClearFishData()
         {
-            currentFishData = null;
-            fishIcon.sprite = null;
             fishIcon.enabled = false;
 
-            fishName.text = "물고기를 선택하세요";
-            fishDescription.text = string.Empty;
-            fishPrice.text = string.Empty;
+            fishName.text = null;
+            fishDescription.text = null;
+            fishPrice.text = $"가격 : {null}" ;
         }
+
+       
     }
 }
