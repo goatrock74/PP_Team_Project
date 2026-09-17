@@ -1,5 +1,4 @@
 ﻿using TMPro;
-using UnityEditor.ShaderGraph.Drawing;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,7 +26,7 @@ namespace PJH.Scripts
 
         private void Awake()
         {
-            ShowUndiscoveredData(currentFishData);
+            ClearFishData();
         }
 
         public void ShowFishData(FishDataSO fishData, bool isDiscovered)
@@ -50,6 +49,12 @@ namespace PJH.Scripts
 
         private void ShowDiscoveredData(FishDataSO fishData)
         {
+            
+            if (fishData == null)
+            {
+                ClearFishData();
+                return;
+            }
             fishIcon.sprite = fishData.icon;
             fishIcon.enabled = true;
 

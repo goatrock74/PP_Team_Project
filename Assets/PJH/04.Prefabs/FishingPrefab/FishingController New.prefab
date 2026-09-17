@@ -156,4 +156,28 @@ MonoBehaviour:
   - fish: {fileID: 11400000, guid: 6e5a056b9ba7ac34fb5cedd7247eb8c9, type: 2}
   - fish: {fileID: 11400000, guid: 082383fa8387af44da98c65df43b23fc, type: 2}
   - fish: {fileID: 11400000, guid: 295af7a3d4c50a340856fab286b3ec8d, type: 2}
+  - fish: {fileID: 11400000, guid: 3a03a2c885be165b579bbc90ee1d767b, type: 2}
+  - fish: {fileID: 11400000, guid: 135f477baecaad79e5573b9b9e76e279, type: 2}
+  - fish: {fileID: 11400000, guid: 529eba256ebc03146926563cab59d1b1, type: 2}
+  - fish: {fileID: 11400000, guid: 74ad455f9ae14d641bcd2c5e7284ab9c, type: 2}
+  - fish: {fileID: 11400000, guid: 55dd9d428f5945fbfe8b52cc100adf6c, type: 2}
+  - fish: {fileID: 11400000, guid: feaac13ca157d9a91d399f5da25d0b84, type: 2}
+  - fish: {fileID: 11400000, guid: af729622d2d892dbb735e5311da6c53e, type: 2}
+  - fish: {fileID: 11400000, guid: d37dcd6ea0c173ac7e5f63b10ec91d7d, type: 2}
+  - fish: {fileID: 11400000, guid: acdcabc7ba8930c977142315cb2c3f9e, type: 2}
+  - fish: {fileID: 11400000, guid: 6d9d82eb8d1c40eb8327fb6e8980334b, type: 2}
+  - fish: {fileID: 11400000, guid: d9216b13260e0bd43ce459bfe4d13e8d, type: 2}
+  - fish: {fileID: 11400000, guid: c3bb3b3e3aa7fc836b18746507577a2e, type: 2}
+  - fish: {fileID: 11400000, guid: 54d7d2981406099eebcd374fd7669e86, type: 2}
+  - fish: {fileID: 11400000, guid: 29c7778a8759b53611c4b5c26e0c8c26, type: 2}
+  - fish: {fileID: 11400000, guid: 8aa5ff9de6c9e69498a2b5c75f11833b, type: 2}
+  - fish: {fileID: 11400000, guid: 08dd6a29c2a3411b75efaf06916d82c3, type: 2}
+  - fish: {fileID: 11400000, guid: 2ac6bd2ab67f172874ae65f5eef38e9f, type: 2}
+  - fish: {fileID: 11400000, guid: 7d95216d91e1d9d37aa655b60d551bdc, type: 2}
+  - fish: {fileID: 11400000, guid: edb07e3705ef51e608f536d055ff40cf, type: 2}
+  - fish: {fileID: 11400000, guid: 193aab1f06e4e813f755b7bf7b93e2b4, type: 2}
+  - fish: {fileID: 11400000, guid: 5700c35012b71480e73d18c642c6fa99, type: 2}
+  - fish: {fileID: 11400000, guid: cff73ce7f6f927f2dacf5035373a4199, type: 2}
+  - fish: {fileID: 11400000, guid: 4117dd97798af9a6f14aca98dcadd45c, type: 2}
+  - fish: {fileID: 11400000, guid: dd529580af709ecb26751e14047626b0, type: 2}
   useMasteryLuck: 1
