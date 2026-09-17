@@ -3922,6 +3922,26 @@ PrefabInstance:
       propertyPath: timeManager
       value: 
       objectReference: {fileID: 1301231008}
+    - target: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: fishTable.Array.size
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: fishTable.Array.data[60].fish
+      value: 
+      objectReference: {fileID: 11400000, guid: a3f17d9e6b124c7490d8245824211a61, type: 2}
+    - target: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: fishTable.Array.data[61].fish
+      value: 
+      objectReference: {fileID: 11400000, guid: b6842e1fb9324ff8894113ccb1c2ba62, type: 2}
+    - target: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: fishTable.Array.data[62].fish
+      value: 
+      objectReference: {fileID: 11400000, guid: c95d35c832b841bbadc7ecf226f40363, type: 2}
+    - target: {fileID: 2391322356764793083, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: fishTable.Array.data[63].fish
+      value: 
+      objectReference: {fileID: 11400000, guid: d26a50eb4ae54e17bfc8274c1f471164, type: 2}
     - target: {fileID: 8419076451879341617, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

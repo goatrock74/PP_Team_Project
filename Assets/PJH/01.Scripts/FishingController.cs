@@ -202,8 +202,11 @@ namespace PJH.Scripts
             // 패널을 열기 직전에 한 번 더 방향을 맞춘다.
             // 던진 뒤에 방향이 바뀌었을 경우를 대비한 안전장치
             if (fishingMiniGame != null) fishingMiniGame.SetPanelSide(fishingFacingLeft);
- 
-            fishingMiniGame.OpenMiniGame(currentFish);
+
+            if (currentFish != null)
+            {
+                fishingMiniGame.OpenMiniGame(currentFish);
+            }
         }
  
         private void MissBite()
