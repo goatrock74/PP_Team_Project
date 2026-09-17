@@ -56,7 +56,11 @@ public class Itemselldetailpanel : MonoBehaviour
         if (currentItem == null || currentItem.Item_count <= 0) return;
 
         // 보유 수량 1 감소
-        currentItem.Item_count--;
+        //int sold = ShopInventoryBridge.Sell(currentItem, amount, out int gold);
+
+        //if (sold <= 0) return;          // 실제로 없었음
+        //MoneyManager.Add(gold);         // 친구 쪽 돈 처리
+        //refreshCallback?.Invoke();      // 목록 다시 그리기
 
         // 소지금에 판매가 지급
         if (PlayerWallet.Instance != null)
