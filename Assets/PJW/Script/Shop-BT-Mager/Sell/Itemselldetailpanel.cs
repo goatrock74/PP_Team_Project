@@ -13,6 +13,10 @@ public class Itemselldetailpanel : MonoBehaviour
     [Header("판매 버튼")]
     [SerializeField] private Button sellButton;
 
+    [Header("지갑")]
+    [SerializeField] private PlayerWallet playerWalletcomp;
+
+
     private Item currentItem;
     private System.Action onSellCallback;
 
@@ -56,7 +60,11 @@ public class Itemselldetailpanel : MonoBehaviour
         if (currentItem == null || currentItem.Item_count <= 0) return;
 
         // 보유 수량 1 감소
-        currentItem.Item_count--;
+        int sold = ShopInventoryBridge.Sell(currentItem, currentItem.Item_count, out int gold);
+
+        if (sold <= 0) return;          // 실제로 없었음
+        playerWalletcomp.AddMoney(gold);         // 친구 쪽 돈 처리
+        onSellCallback?.Invoke();      // 목록 다시 그리기
 
         // 소지금에 판매가 지급
         if (PlayerWallet.Instance != null)

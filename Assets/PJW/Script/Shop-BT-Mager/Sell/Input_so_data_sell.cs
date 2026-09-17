@@ -24,6 +24,8 @@ public class Input_so_data_sell : MonoBehaviour
 
     public void RefreshSellUI()
     {
+        ShopInventoryBridge.SyncCounts();
+
         if (itemListSO == null || itemListSO.Length == 0)
         {
             Debug.LogError("[Input_SO_Data_Sell] itemListSO 배열이 할당되지 않았습니다!");
@@ -35,15 +37,15 @@ public class Input_so_data_sell : MonoBehaviour
         // 4계절 SO를 전부 훑어서 보유 중인 아이템만 모으기
         List<ItemSO> ownedItems = new List<ItemSO>();
 
-        //foreach (var seasonSO in itemListSO)
+        //foreach (var seasonso in itemlistso)
         //{
-        //    if (seasonSO == null || seasonSO.ItemList == null) continue;
+        //    if (seasonso == null || seasonso.itemlist == null) continue;
 
-        //    foreach (var item in seasonSO.ItemList)
+        //    foreach (var item in seasonso.itemlist)
         //    {
         //        if (item != null && item. > 0)
         //        {
-        //            ownedItems.Add(item);
+        //            owneditems.add(item);
         //        }
         //    }
         //}

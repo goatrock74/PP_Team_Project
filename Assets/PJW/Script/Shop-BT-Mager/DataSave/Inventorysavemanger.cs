@@ -49,6 +49,8 @@ public class Inventorysavemanger : MonoBehaviour
             return;
         }
 
+        Vector2.Distance
+
         LoadInventory();
     }
 
