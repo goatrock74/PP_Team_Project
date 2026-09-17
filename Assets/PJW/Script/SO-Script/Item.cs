@@ -11,16 +11,15 @@ public class Item : ScriptableObject
 
     [field: SerializeField] public int Item_price { get; private set; }
 
-    [Header("�Ǹ� ���� (0���� �θ� ���Ű��� �������� �ڵ� ���)")]
+    [Header("price")]
     [SerializeField] private int item_sellPrice = 0;
 
-    // ���� �Ǹ� �� ����ϴ� ����. �ν����Ϳ� ���� �� ������ ���Ű��� �������� �ڵ� ����
     public int Item_SellPrice => item_sellPrice > 0 ? item_sellPrice : Item_price / 2;
 
     [field: SerializeField] public string Item_name { get; private set; }
 
     [TextArea][field: SerializeField] public string item_explanation { get; private set; }
 
-    public int Item_count = 0;
+    [SerializeField] public int Item_count;
 }
 

@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 995569d6c3753a04da7884be2cc95c6b, type: 3}
+  m_Name: Map
+  m_EditorClassIdentifier: Assembly-CSharp::ShopItemMapSO
+  pairs:
+  - shopItem: {fileID: 11400000, guid: a8818d22ae4a56d4e88eba78e30f1f32, type: 2}
+    inventoryItem: {fileID: 11400000, guid: f2ed89dc165546d41a1c6c551a783ce8, type: 2}
+  - shopItem: {fileID: 11400000, guid: a21231a0cdd9f0243ad76cd0c3157113, type: 2}
+    inventoryItem: {fileID: 11400000, guid: 54bf3c90ca1d6fe418107b169fc922f4, type: 2}
+  - shopItem: {fileID: 11400000, guid: b585756330e90094ab72294f15a1498b, type: 2}
+    inventoryItem: {fileID: 11400000, guid: 7c383881d50a6c846a3623db83fb6a8d, type: 2}
+  - shopItem: {fileID: 11400000, guid: 4502e797d974d9f46ae4a4127029fafa, type: 2}
+    inventoryItem: {fileID: 11400000, guid: 858c924c1b48b724bb03e1f3628101d1, type: 2}
+  - shopItem: {fileID: 11400000, guid: a4b4094966d177541970bee4e9095196, type: 2}
+    inventoryItem: {fileID: 0}
+  - shopItem: {fileID: 11400000, guid: 3a02ceee67a8b32458a5d86c8e6a8615, type: 2}
+    inventoryItem: {fileID: 11400000, guid: db580e2def7e34244a78fdf631b6f918, type: 2}
+  - shopItem: {fileID: 11400000, guid: ca613a2e1b2044a4ab43ee32e9353e2a, type: 2}
+    inventoryItem: {fileID: 11400000, guid: cad8daf0889875043bbb9330f244b001, type: 2}
+  - shopItem: {fileID: 11400000, guid: 7d673abb00d94ff48a919e7ea443fdf2, type: 2}
+    inventoryItem: {fileID: 11400000, guid: f10371de528d32e48a3c5b75655ec30d, type: 2}
+  - shopItem: {fileID: 11400000, guid: 8a9a18d404fe83c4b8bc4d9eee730942, type: 2}
+    inventoryItem: {fileID: 11400000, guid: d97d5de04dc7dfd45a8e1127354f72bb, type: 2}
+  - shopItem: {fileID: 11400000, guid: d908a71fb69e7b943af5bedf8d96d468, type: 2}
+    inventoryItem: {fileID: 0}
+  - shopItem: {fileID: 11400000, guid: 2c17fce2f07558748a5f992109aec444, type: 2}
+    inventoryItem: {fileID: 11400000, guid: 5bdf1f3837cd4864182ed5193141b368, type: 2}
+  - shopItem: {fileID: 11400000, guid: 2f85c0c18f1c01f47ab5887b095a4a5a, type: 2}
+    inventoryItem: {fileID: 11400000, guid: 4fd59bdf6ab66ae40a9b8fa054bf23fc, type: 2}
+  - shopItem: {fileID: 11400000, guid: f490d749b1ca16e478656101f788e7e8, type: 2}
+    inventoryItem: {fileID: 11400000, guid: 477ac5be604781f478cf26ca12c94070, type: 2}
+  - shopItem: {fileID: 11400000, guid: a05869197c46e72418b8925e133a2cf6, type: 2}
+    inventoryItem: {fileID: 11400000, guid: 26436520f3d21b44dbaf9d8fd80ec3cb, type: 2}
+  - shopItem: {fileID: 11400000, guid: b5d66cac87e7c054e8b03d782e72306e, type: 2}
+    inventoryItem: {fileID: 11400000, guid: 4e58c6c244201e04199c855b89c87145, type: 2}
+  - shopItem: {fileID: 11400000, guid: 043bbc45f7a668a4cbc73194424968cc, type: 2}
+    inventoryItem: {fileID: 11400000, guid: b2b207d2ffd500c47bb9eec26466e544, type: 2}

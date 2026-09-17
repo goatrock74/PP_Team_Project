@@ -51,7 +51,9 @@ public class Input_SO_Data : MonoBehaviour
 
     public void RefreshShopUI(int seasonIndex)
     {
-        currentSeasonIndex = seasonIndex;
+        ShopInventoryBridge.SyncCounts();
+
+        //currentSeasonIndex = seasonIndex;
 
         if (itemListSO == null || itemListSO.Length == 0)
         {
@@ -86,17 +88,17 @@ public class Input_SO_Data : MonoBehaviour
         }
 
         // 버튼 리스트에 데이터 세팅
-        //for (int i = 0; i < shopButtons.Count; i++)
+        //for (int i = 0; i < shopbuttons.count; i++)
         //{
-        //    if (shopButtons[i] == null) continue;
+        //    if (shopbuttons[i] == null) continue;
 
-        //    if (currentItems != null && i < currentItems.Length)
+        //    if (currentitems != null && i < currentitems.length)
         //    {
-        //        shopButtons[i].SetItem(currentItems[i], detailPanel);
+        //        shopbuttons[i].setitem(currentitems[i], detailpanel);
         //    }
         //    else
         //    {
-        //        shopButtons[i].SetItem(null, detailPanel);
+        //        shopbuttons[i].setitem(null, detailpanel);
         //    }
         //}
     }
