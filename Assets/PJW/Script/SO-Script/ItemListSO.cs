@@ -9,7 +9,7 @@ namespace Assets.PJW.Script.SO_Script
     {
         [SerializeField] private SeasonType targetType;
 
-        [field: SerializeField] public ItemSO[] ItemList { get; private set; }
-        
+        // ★ ItemSO 가 아니라 Item. 상점 진열 목록이다
+        [field: SerializeField] public Item[] ItemList { get; private set; }
     }
 }
