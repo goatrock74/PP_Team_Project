@@ -107,9 +107,9 @@ namespace PJH.Scripts
             }
         }
 
-        private void ShowFishDetail(FishDataSO fishData)
+        /*private void ShowFishDetail(FishDataSO fishData)
         {
             fishDetailPanelUI.ShowFishData(fishData);
-        }
+        }*/
     }
 }
