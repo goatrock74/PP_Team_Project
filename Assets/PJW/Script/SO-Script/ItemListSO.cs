@@ -10,19 +10,6 @@ namespace Assets.PJW.Script.SO_Script
         [SerializeField] private SeasonType targetType;
 
         [field: SerializeField] public ItemSO[] ItemList { get; private set; }
-
-        private void OnValidate()
-        {
-            for (int i = 0; i < ItemList.Length; ++i)
-            {
-                if (ItemList[i] == null)
-                    continue;
-               if (ItemList[i].season != targetType )
-                {
-                    Debug.LogError($"{name}의 목록에 맞지 않는 타입이 있습니다. {ItemList[i].displayName}");
-                    ItemList[i] = null;
-                }
-            }
-        }
+        
     }
 }
