@@ -51,8 +51,9 @@ public class Input_SO_Data : MonoBehaviour
 
     public void RefreshShopUI(int seasonIndex)
     {
-        ShopInventoryBridge.SyncCounts();
+        ShopInventoryBridge.SyncCounts();   // ← 이 한 줄만 추가
 
+        // 나머지는 그대로. item.Item_count > 0 도 그대로 쓰면 돼
         //currentSeasonIndex = seasonIndex;
 
         if (itemListSO == null || itemListSO.Length == 0)
