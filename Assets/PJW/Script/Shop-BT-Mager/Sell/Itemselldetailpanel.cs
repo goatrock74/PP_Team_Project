@@ -76,8 +76,6 @@ public class Itemselldetailpanel : MonoBehaviour
         int gold = have > 0 ? ShopInventoryBridge.PreviewSellValue(currentItem, AmountToSell(have)) : 0;
 
         if (priceText != null) priceText.text = $"{gold:#,##0} G";
-
-        if (sellButton != null) sellButton.interactable = have > 0;
     }
 
     private int AmountToSell(int have)

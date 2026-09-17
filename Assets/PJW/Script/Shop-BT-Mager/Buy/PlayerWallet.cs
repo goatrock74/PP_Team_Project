@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerWallet : MonoBehaviour
 {
-    public static PlayerWallet Instance { get; private set; }
+    public static PlayerWallet Instance;
 
     [Header("플레이어 소지금")]
     [SerializeField] private int currentMoney = 10000;
@@ -38,6 +38,7 @@ public class PlayerWallet : MonoBehaviour
         if (currentMoney >= amount)
         {
             currentMoney -= amount;
+            Debug.Log("asd");
             UpdateMoneyUI();
             return true;
         }
@@ -57,6 +58,8 @@ public class PlayerWallet : MonoBehaviour
     {
         if (moneyText != null)
             moneyText.text = $"{currentMoney:#,##0} G";
+
+        Debug.Log("asd2");
 
         OnMoneyChanged?.Invoke(currentMoney);
     }

@@ -11,6 +11,7 @@ public class Input_so_data_sell : MonoBehaviour
     [SerializeField] private List<Plant_sell_bt> sellButtons;
     [SerializeField] private Itemselldetailpanel detailPanel;
 
+
     private void Start()
     {
         RefreshSellUI();

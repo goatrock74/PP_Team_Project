@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Assets.PJW.Script.SO_Script.ItemListSO
   targetType: 0
   <ItemList>k__BackingField:
-  - {fileID: 11400000, guid: f2ed89dc165546d41a1c6c551a783ce8, type: 2}
-  - {fileID: 11400000, guid: 54bf3c90ca1d6fe418107b169fc922f4, type: 2}
-  - {fileID: 11400000, guid: 7c383881d50a6c846a3623db83fb6a8d, type: 2}
-  - {fileID: 11400000, guid: 801d3ecd76cbb374fa18e5cd73b51d68, type: 2}
-  - {fileID: 11400000, guid: cad8daf0889875043bbb9330f244b001, type: 2}
-  - {fileID: 11400000, guid: db580e2def7e34244a78fdf631b6f918, type: 2}
+  - {fileID: 11400000, guid: a8818d22ae4a56d4e88eba78e30f1f32, type: 2}
+  - {fileID: 11400000, guid: a21231a0cdd9f0243ad76cd0c3157113, type: 2}
+  - {fileID: 11400000, guid: b585756330e90094ab72294f15a1498b, type: 2}
+  - {fileID: 11400000, guid: 4502e797d974d9f46ae4a4127029fafa, type: 2}
+  - {fileID: 11400000, guid: a4b4094966d177541970bee4e9095196, type: 2}
+  - {fileID: 11400000, guid: 3a02ceee67a8b32458a5d86c8e6a8615, type: 2}

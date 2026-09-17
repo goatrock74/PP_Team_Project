@@ -22,7 +22,7 @@ MonoBehaviour:
   - shopItem: {fileID: 11400000, guid: 4502e797d974d9f46ae4a4127029fafa, type: 2}
     inventoryItem: {fileID: 11400000, guid: 858c924c1b48b724bb03e1f3628101d1, type: 2}
   - shopItem: {fileID: 11400000, guid: a4b4094966d177541970bee4e9095196, type: 2}
-    inventoryItem: {fileID: 0}
+    inventoryItem: {fileID: 11400000, guid: 90899681bb36ae747be0225a5197b69d, type: 2}
   - shopItem: {fileID: 11400000, guid: 3a02ceee67a8b32458a5d86c8e6a8615, type: 2}
     inventoryItem: {fileID: 11400000, guid: db580e2def7e34244a78fdf631b6f918, type: 2}
   - shopItem: {fileID: 11400000, guid: ca613a2e1b2044a4ab43ee32e9353e2a, type: 2}
@@ -32,7 +32,7 @@ MonoBehaviour:
   - shopItem: {fileID: 11400000, guid: 8a9a18d404fe83c4b8bc4d9eee730942, type: 2}
     inventoryItem: {fileID: 11400000, guid: d97d5de04dc7dfd45a8e1127354f72bb, type: 2}
   - shopItem: {fileID: 11400000, guid: d908a71fb69e7b943af5bedf8d96d468, type: 2}
-    inventoryItem: {fileID: 0}
+    inventoryItem: {fileID: 11400000, guid: 5a83dd608541cd74ca2ff0d4920baa17, type: 2}
   - shopItem: {fileID: 11400000, guid: 2c17fce2f07558748a5f992109aec444, type: 2}
     inventoryItem: {fileID: 11400000, guid: 5bdf1f3837cd4864182ed5193141b368, type: 2}
   - shopItem: {fileID: 11400000, guid: 2f85c0c18f1c01f47ab5887b095a4a5a, type: 2}

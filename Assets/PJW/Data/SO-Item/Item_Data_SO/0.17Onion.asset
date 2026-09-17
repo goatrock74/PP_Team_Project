@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2b2d6aece3f99941a609e051e495b86, type: 3}
-  m_Name: 0.11Raspberry
+  m_Name: 0.17Onion
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  <Item_icon>k__BackingField: {fileID: 1974956134, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
+  <Item_icon>k__BackingField: {fileID: 1807604636, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
   <Item_price>k__BackingField: 2500
   item_sellPrice: 0
-  <Item_name>k__BackingField: "\uB77C\uC988\uBCA0\uB9AC"
-  <item_explanation>k__BackingField: "\uAC00\uC9C0\uC5D0 \uAC00\uC2DC\uAC00 \uC788\uC73C\uBA70
-    \uC78E\uC740 \uC5B4\uAE0B\uB09C\uB2E4. \uD770\uC0C9\uC758 \uAF43\uC774 \uD540\uB2E4."
+  <Item_name>k__BackingField: "\uC591\uD30C"
+  <item_explanation>k__BackingField: "\uC5F0\uD55C \uC790\uC8FC\uC0C9\uC758 \uAF43\uC774
+    \uD53C\uACE0 \uB545\uC18D\uC758 \uC904\uAE30\uB294 \uB9E4\uC6B4\uB9DB\uACFC \uD2B9\uC774\uD55C
+    \uD5A5\uAE30"
   Item_count: 0
