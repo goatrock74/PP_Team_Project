@@ -13,6 +13,10 @@ public class ItemDetailPanel : MonoBehaviour
     [Header("구매 버튼")]
     [SerializeField] private Button buyButton;
 
+    [Header("설정")]
+    [Tooltip("한 번 클릭에 몇 개를 살지")]
+    [SerializeField, Min(1)] private int buyAmount = 1;
+
     private Item currentItem;
     private System.Action onPurchaseCallback;
 
@@ -20,6 +24,11 @@ public class ItemDetailPanel : MonoBehaviour
     {
         if (buyButton != null) buyButton.onClick.AddListener(OnClickBuy);
         gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        if (buyButton != null) buyButton.onClick.RemoveListener(OnClickBuy);
     }
 
     public void ShowDetail(Item item, System.Action refreshCallback = null)
@@ -35,7 +44,7 @@ public class ItemDetailPanel : MonoBehaviour
         gameObject.SetActive(true);
 
         if (nameText != null) nameText.text = item.Item_name;
-        if (priceText != null) priceText.text = $"{item.Item_price:#,##0} G";
+        if (priceText != null) priceText.text = $"{item.Item_price * buyAmount:#,##0} G";
         if (explanationText != null) explanationText.text = item.item_explanation;
         if (iconImage != null && item.Item_icon != null) iconImage.sprite = item.Item_icon;
 
@@ -46,35 +55,66 @@ public class ItemDetailPanel : MonoBehaviour
     {
         if (currentItem == null || buyButton == null) return;
 
-        // 다회 구매 가능하므로 구매 버튼은 항상 클릭 가능 상태 유지
-        buyButton.interactable = true;
+        PlayerWallet wallet = PlayerWallet.Instance;
+
+        bool canAfford = wallet != null && wallet.CurrentMoney >= currentItem.Item_price * buyAmount;
+        bool hasRoom = ShopInventoryBridge.CanReceive(currentItem, buyAmount);
+
+        buyButton.interactable = canAfford && hasRoom;
     }
 
-    // [구매하기] 버튼 클릭 시 동작 (여러 번 클릭 가능)
+    // [구매하기] 버튼 클릭 시 동작
     private void OnClickBuy()
     {
         if (currentItem == null) return;
 
-        // 플레이어 소지금이 충분한지 확인 후 차감
-        if (PlayerWallet.Instance != null && PlayerWallet.Instance.TrySpendMoney(currentItem.Item_price))
-        {
-            // 수량 1 증가
-            currentItem.Item_count++;
+        PlayerWallet wallet = PlayerWallet.Instance;
 
-            // 버튼 텍스트 및 UI 업데이트
+        if (wallet == null)
+        {
+            Debug.LogWarning("[상점] PlayerWallet 이 없습니다!");
+            return;
+        }
+
+        // ★ 자리 확인을 돈 차감보다 먼저.
+        //   순서가 바뀌면 가방이 꽉 찼을 때 돈만 사라진다
+        if (!ShopInventoryBridge.CanReceive(currentItem, buyAmount))
+        {
+            Debug.LogWarning("[상점] 가방에 자리가 없습니다.");
             UpdateButtonState();
-            onPurchaseCallback?.Invoke();
+            return;
+        }
 
-            Debug.Log($"{currentItem.Item_name} 구매 성공! (현재 보유량: {currentItem.Item_count}개)");
-        }
-        else
+        int price = currentItem.Item_price * buyAmount;
+
+        if (!wallet.TrySpendMoney(price))
         {
-            Debug.LogWarning("소지금이 부족하거나 Wallet이 없습니다!");
+            Debug.LogWarning("[상점] 소지금이 부족합니다.");
+            UpdateButtonState();
+            return;
         }
+
+        // ★ Item_count++ 가 아니라 진짜 인벤토리에 넣는다
+        int got = ShopInventoryBridge.Buy(currentItem, buyAmount);
+
+        if (got <= 0)
+        {
+            // 못 넣었으면 돈을 돌려준다
+            wallet.AddMoney(price);
+            Debug.LogError("[상점] 아이템을 넣지 못해 구매를 취소했습니다. 매핑 표를 확인하세요.");
+            return;
+        }
+
+        Debug.Log($"[상점] {currentItem.Item_name} {got}개 구매 · {price}G " +
+                  $"(현재 보유 {ShopInventoryBridge.CountOf(currentItem)}개)");
+
+        UpdateButtonState();
+        onPurchaseCallback?.Invoke();
     }
 
     public void HideDetail()
     {
+        currentItem = null;
         gameObject.SetActive(false);
     }
 }

@@ -5137,7 +5137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Input_so_data_sell
   itemListSO:
-  - {fileID: 11400000, guid: 218057a4b01136544826d190d95ce071, type: 2}
+  - {fileID: 11400000, guid: ce4093f7de69b1644802f53ce7baa641, type: 2}
   - {fileID: 11400000, guid: ab62fb06b3d19e04d9f1e4399ce98519, type: 2}
   - {fileID: 11400000, guid: bd2f5114ef251c242b131c7ab04dbe74, type: 2}
   - {fileID: 11400000, guid: e7b9e4bc9c9a86b45a4150ce11bed2ef, type: 2}
@@ -8477,8 +8477,11 @@ MonoBehaviour:
   priceText: {fileID: 1891114810}
   explanationText: {fileID: 665890185}
   iconImage: {fileID: 1900634083}
+  countText: {fileID: 0}
   sellButton: {fileID: 81790196}
   playerWalletcomp: {fileID: 0}
+  sellAmount: 1
+  sellAll: 0
 --- !u!114 &1396119773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11151,6 +11154,7 @@ MonoBehaviour:
   explanationText: {fileID: 1039841501}
   iconImage: {fileID: 110831319}
   buyButton: {fileID: 461217352}
+  buyAmount: 1
 --- !u!114 &1859091136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11849,8 +11853,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
-  m_sharedMaterial: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
