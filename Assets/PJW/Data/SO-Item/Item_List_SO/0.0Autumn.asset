@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e9a59d87da237f4eb57b8f5b1916628, type: 3}
+  m_Name: 0.0Autumn
+  m_EditorClassIdentifier: Assembly-CSharp::Assets.PJW.Script.SO_Script.ItemListSO
+  targetType: 0
+  <ItemList>k__BackingField:
+  - {fileID: 11400000, guid: f2ed89dc165546d41a1c6c551a783ce8, type: 2}
+  - {fileID: 11400000, guid: 54bf3c90ca1d6fe418107b169fc922f4, type: 2}
+  - {fileID: 11400000, guid: 7c383881d50a6c846a3623db83fb6a8d, type: 2}
+  - {fileID: 11400000, guid: cad8daf0889875043bbb9330f244b001, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}

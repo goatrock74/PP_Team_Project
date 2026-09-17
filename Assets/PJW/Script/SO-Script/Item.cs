@@ -20,6 +20,6 @@ public class Item : ScriptableObject
 
     [TextArea][field: SerializeField] public string item_explanation { get; private set; }
 
-    public int Item_count = 0;
+    [SerializeField] public int Item_count;
 }
 
