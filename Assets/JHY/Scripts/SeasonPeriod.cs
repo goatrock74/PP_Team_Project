@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -55,10 +56,12 @@ public class SeasonPeriod : MonoBehaviour
     }
     private IEnumerator FadeInOut() 
     {
+        //Sequence sequence = DOTween.Sequence();
+
+        //sequence.Append(DarkPannel.DOFade(0, 0.3f));
         DarkPannel.SetActive(true);
-
         yield return new WaitForSeconds(1f);
-
         DarkPannel.SetActive(false);
+        //sequence.Append(DarkPannel.DOFade(1, 0.3f));
     }
 }
