@@ -1,140 +1,200 @@
+using System;
 using System.Collections.Generic;
+using KSM._00.Scripts.Items;
 using UnityEngine;
 
+// Inventory/PlayerInventory를 변경하지 않고 슬롯 변경을 구독해 저장한다.
+[DefaultExecutionOrder(1000)]
 public class Inventorysavemanger : MonoBehaviour
 {
+    public const string SaveKey = "PlayerInventorySaveDataV2";
     private static Inventorysavemanger _instance;
+    public static Inventorysavemanger Instance => _instance;
+    public string Status { get; private set; } = "인벤토리 대기 중";
+    public bool IsReady => bag != null && hotbar != null && canSave;
+    public int SaveCount { get; private set; }
 
-    // 처음 호출되는 순간, 씬에 없으면 Resources 프리팹에서 자동으로 만들어냄
-    public static Inventorysavemanger Instance
+    private PlayerInventory player;
+    private Inventory bag;
+    private Inventory hotbar;
+    private bool dirty;
+    private string storageKey = SaveKey;
+    private bool canSave;
+    private readonly Dictionary<string, ItemSO> items = new Dictionary<string, ItemSO>();
+    private readonly Dictionary<ItemSO, string> itemKeys = new Dictionary<ItemSO, string>();
+
+    [Serializable]
+    public class SlotData
     {
-        get
-        {
-            if (_instance == null)
-            {
-                _instance = FindObjectOfType<Inventorysavemanger>();
-
-                if (_instance == null)
-                {
-                    GameObject prefab = Resources.Load<GameObject>("Managers/InventorySaveManager");
-                    if (prefab != null)
-                    {
-                        GameObject obj = Instantiate(prefab);
-                        obj.name = "InventorySaveManager";
-                        _instance = obj.GetComponent<Inventorysavemanger>();
-                    }
-                    else
-                    {
-                        Debug.LogError("[InventorySaveManager] Resources/Managers/InventorySaveManager 프리팹을 찾을 수 없습니다!");
-                    }
-                }
-            }
-
-            return _instance;
-        }
+        public string itemId;
+        public int count;
+        public ItemQuality quality;
     }
 
-    private const string SaveKey = "InventorySaveData";
+    [Serializable]
+    public class SaveData
+    {
+        public int version = 2;
+        public SlotData[] bag;
+        public SlotData[] hotbar;
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatic() => _instance = null;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    private static void Bootstrap()
+    {
+        if (_instance == null)
+            new GameObject("Inventory Auto Save").AddComponent<Inventorysavemanger>();
+    }
 
     private void Awake()
     {
-        if (_instance == null)
-        {
-            _instance = this;
-            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 이 오브젝트는 파괴되지 않음
-        }
-        else if (_instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        LoadInventory();
+        if (_instance != null && _instance != this) { Destroy(this); return; }
+        _instance = this;
+        if (transform.parent != null) transform.SetParent(null);
+        DontDestroyOnLoad(gameObject);
     }
 
-    private void OnApplicationQuit()
+    private void LateUpdate()
     {
-        SaveInventory();
+        PlayerInventory current = PlayerInventory.Instance;
+        if (current != player || (bag == null && current != null))
+        {
+            if (dirty) SaveInventory();
+            Unsubscribe();
+            player = current;
+            bag = null;
+            hotbar = null;
+            canSave = false;
+            if (current != null && current.Bag != null && current.Hotbar != null)
+            {
+                bag = current.Bag;
+                hotbar = current.Hotbar;
+                LoadInventory(); // Start의 초기 지급이 끝난 뒤 저장 슬롯으로 교체한다.
+                bag.OnChanged += MarkDirty;
+                hotbar.OnChanged += MarkDirty;
+            }
+        }
+        if (dirty) SaveInventory();
     }
 
-    private void OnApplicationPause(bool pause)
+    private void MarkDirty() => dirty = true;
+    private void Unsubscribe()
     {
-        if (pause) SaveInventory();
+        if (bag != null) bag.OnChanged -= MarkDirty;
+        if (hotbar != null) hotbar.OnChanged -= MarkDirty;
     }
+
+    private void OnDestroy()
+    {
+        if (_instance != this) return;
+        if (dirty) SaveInventory();
+        Unsubscribe();
+        _instance = null;
+    }
+    private void OnApplicationQuit() { if (dirty) SaveInventory(); }
+    private void OnApplicationPause(bool pause) { if (pause && dirty) SaveInventory(); }
 
     public void SaveInventory()
     {
-        // ItemDataManager가 있어야 전체 아이템 목록을 받아올 수 있음
-        if (Itemdatamanager.Instance == null)
+        if (!IsReady) return;
+        try
         {
-            Debug.LogError("[InventorySaveManager] ItemDataManager를 찾을 수 없습니다!");
-            return;
+            var data = new SaveData { bag = Capture(bag), hotbar = Capture(hotbar) };
+            PlayerPrefs.SetString(storageKey, JsonUtility.ToJson(data));
+            PlayerPrefs.Save();
+            dirty = false;
+            SaveCount++;
+            Status = $"자동 저장 완료 {DateTime.Now:HH:mm:ss} ({SaveCount}회)";
         }
-
-        // 저장용 데이터 컨테이너는 InventorySaveData 타입이어야 함 (자기 자신 타입 X)
-        InventorySaveData data = new InventorySaveData();
-
-        // 중앙 매니저에게서 전체 아이템 목록을 받아와서 저장
-        List<Item> allItems = Itemdatamanager.Instance.GetAllItems();
-
-        foreach (var item in allItems)
+        catch (Exception exception)
         {
-            data.items.Add(new ItemSaveEntry
-            {
-                itemName = item.Item_name,
-                count = item.Item_count
-            });
+            canSave = false;
+            Status = "저장 실패: " + exception.Message;
+            Debug.LogError("[인벤토리 저장] " + Status, this);
         }
+    }
 
-        string json = JsonUtility.ToJson(data);
-        PlayerPrefs.SetString(SaveKey, json);
-        PlayerPrefs.Save();
-
-        Debug.Log($"[InventorySaveManager] 저장 완료 (아이템 {data.items.Count}종)");
+    private SlotData[] Capture(Inventory inventory)
+    {
+        var slots = new SlotData[inventory.Capacity];
+        for (int i = 0; i < slots.Length; i++)
+        {
+            ItemStack slot = inventory.GetSlot(i);
+            if (slot == null) { slots[i] = new SlotData(); continue; }
+            if (!itemKeys.TryGetValue(slot.item, out string key))
+                throw new InvalidOperationException($"카탈로그에 없는 아이템: {slot.item.name}");
+            slots[i] = new SlotData { itemId = key, count = slot.count, quality = slot.quality };
+        }
+        return slots;
     }
 
     public void LoadInventory()
     {
-        // ItemDataManager가 있어야 전체 아이템 목록을 받아올 수 있음
-        if (Itemdatamanager.Instance == null)
+        if (bag == null || hotbar == null) return;
+        canSave = false;
+        dirty = false;
+        try
         {
-            Debug.LogError("[InventorySaveManager] ItemDataManager를 찾을 수 없습니다!");
-            return;
+            items.Clear();
+            itemKeys.Clear();
+            InventoryItemCatalog catalog = Resources.Load<InventoryItemCatalog>("InventoryItemCatalog");
+            if (catalog == null || catalog.items == null)
+                throw new InvalidOperationException("InventoryItemCatalog가 없습니다.");
+            foreach (InventoryItemCatalog.Entry entry in catalog.items)
+            {
+                if (entry == null || entry.item == null || string.IsNullOrEmpty(entry.id))
+                    throw new InvalidOperationException("아이템 카탈로그 참조 누락");
+                items.Add(entry.id, entry.item);
+                itemKeys.Add(entry.item, entry.id);
+            }
+            if (PlayerPrefs.HasKey(storageKey))
+            {
+                SaveData data = JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString(storageKey));
+                if (data == null || data.version != 2) throw new InvalidOperationException("지원하지 않는 저장 형식");
+                ItemStack[] savedBag = Decode(data.bag, bag.Capacity);
+                ItemStack[] savedHotbar = Decode(data.hotbar, hotbar.Capacity);
+                bag.Restore(savedBag);
+                hotbar.Restore(savedHotbar);
+                ShopInventoryBridge.SyncCounts();
+                Status = "가방·핫바 복원 완료";
+            }
+            else Status = "새 인벤토리 저장 준비";
+            canSave = true;
+            dirty = true;
         }
-
-        if (!PlayerPrefs.HasKey(SaveKey))
+        catch (Exception exception)
         {
-            Debug.Log("[InventorySaveManager] 저장된 데이터가 없습니다. (최초 실행)");
-            return;
+            Status = "복원 실패 (기존 저장 보호): " + exception.Message;
+            Debug.LogError("[인벤토리 저장] " + Status, this);
         }
+    }
 
-        string json = PlayerPrefs.GetString(SaveKey);
-        InventorySaveData data = JsonUtility.FromJson<InventorySaveData>(json);
-
-        if (data == null || data.items == null) return;
-
-        Dictionary<string, int> savedCounts = new Dictionary<string, int>();
-        foreach (var entry in data.items)
+    private ItemStack[] Decode(SlotData[] data, int capacity)
+    {
+        if (data == null) throw new InvalidOperationException("슬롯 데이터 누락");
+        var slots = new ItemStack[capacity];
+        for (int i = 0; i < data.Length; i++)
         {
-            savedCounts[entry.itemName] = entry.count;
+            SlotData slot = data[i];
+            if (slot == null || string.IsNullOrEmpty(slot.itemId)) continue;
+            if (i >= capacity || !items.TryGetValue(slot.itemId, out ItemSO item)
+                || slot.count <= 0 || slot.count > item.maxStack
+                || !Enum.IsDefined(typeof(ItemQuality), slot.quality))
+                throw new InvalidOperationException($"복원할 수 없는 슬롯 {i}: {slot.itemId}");
+            slots[i] = new ItemStack(item, slot.count, slot.quality);
         }
-
-        // Itemdatamanager(소문자 오타) -> ItemDataManager로 수정
-        List<Item> allItems = Itemdatamanager.Instance.GetAllItems();
-
-        foreach (var item in allItems)
-        {
-            item.Item_count = savedCounts.TryGetValue(item.Item_name, out int savedCount)
-                ? savedCount
-                : 0;
-        }
-
-        Debug.Log($"[InventorySaveManager] 불러오기 완료 (아이템 {data.items.Count}종)");
+        return slots;
     }
 
     public void ClearSave()
     {
-        PlayerPrefs.DeleteKey(SaveKey);
-        Debug.Log("[InventorySaveManager] 저장 데이터 삭제됨");
+        PlayerPrefs.DeleteKey(storageKey);
+        PlayerPrefs.Save();
+        dirty = false;
+        Status = "저장 삭제 완료 (다음 수량 변경 시 다시 저장)";
     }
 }
+

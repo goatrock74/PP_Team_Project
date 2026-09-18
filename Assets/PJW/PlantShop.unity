@@ -3798,8 +3798,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 96, y: 82}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 149.4375, y: 11.6519}
+  m_SizeDelta: {x: 306.875, y: 190.6962}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &665890185
 MonoBehaviour:
@@ -3865,7 +3865,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_TextWrappingMode: 0
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -5419,7 +5419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopInventoryBridge
   map: {fileID: 11400000, guid: 45c68a9b06f362f499b414b0620abd7f, type: 2}
-  priceSource: 1
+  priceSource: 0
   sellWorstFirst: 1
   warnUnmapped: 1
 --- !u!4 &980314567
@@ -8976,7 +8976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopInventoryBridge
   map: {fileID: 11400000, guid: 45c68a9b06f362f499b414b0620abd7f, type: 2}
-  priceSource: 1
+  priceSource: 0
   sellWorstFirst: 1
   warnUnmapped: 1
 --- !u!1 &1473696047

@@ -42,7 +42,6 @@ namespace KSM._00.Scripts.Items
             }
  
             if (remaining != amount) OnChanged?.Invoke();
-            Debug.Log(remaining);
             return remaining;
         }
  

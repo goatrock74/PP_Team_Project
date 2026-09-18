@@ -1,26 +1,89 @@
-    using Assets.PJW.Script.SO_Script;
+using Assets.PJW.Script.SO_Script;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Input_SO_Data : MonoBehaviour
 {
-    [Header("계절별 ItemListSO 에셋 배열 (0:봄, 1:여름, 2:가을, 3:겨울)")]
+    [Header("계절별 ItemListSO (순서 무관, SO의 Target Type 기준)")]
     [SerializeField] private ItemListSO[] itemListSO;
+
+    [Header("계절 연동")]
+    [Tooltip("비워두면 현재 로드된 씬에서 TimeManager를 찾는다")]
+    [SerializeField] private TimeManager timeManager;
 
     [Header("UI 연결")]
     [SerializeField] private List<Plant_Shop_BT> shopButtons;
     [SerializeField] private ItemDetailPanel detailPanel;
 
     private int currentSeasonIndex = 0;
+    private TimeManager subscribedTimeManager;
+    public int CurrentSeasonIndex => currentSeasonIndex;
+    public TimeManager Clock => timeManager;
+    public ItemListSO GetSeasonList(int seasonIndex)
+    {
+        SeasonType season = seasonIndex switch
+        {
+            0 => SeasonType.Spring, 1 => SeasonType.Summer,
+            2 => SeasonType.Autumn, _ => SeasonType.Winter,
+        };
+        if (seasonIndex < 0 || seasonIndex > 3 || itemListSO == null) return null;
+        foreach (ItemListSO list in itemListSO)
+            if (list != null && list.TargetSeason == season) return list;
+        return null;
+    }
 
     private void Start()
     {
-        RefreshShopUI(0);
+        RefreshCurrentSeason();
     }
 
     private void OnEnable()
     {
-        RefreshShopUI(currentSeasonIndex);
+        RefreshCurrentSeason();
+    }
+
+    private void OnDisable()
+    {
+        if (subscribedTimeManager != null)
+            subscribedTimeManager.OnSeasonChange -= UpdateShopBySeason;
+        subscribedTimeManager = null;
+    }
+
+    /// <summary>현재 계절을 읽어 목록을 갱신한다. 상점을 다시 열 때도 호출한다.</summary>
+    [ContextMenu("현재 계절로 상점 갱신")]
+    public void RefreshCurrentSeason()
+    {
+        if (timeManager == null) timeManager = FindFirstObjectByType<TimeManager>();
+
+        if (subscribedTimeManager != timeManager)
+        {
+            if (subscribedTimeManager != null)
+                subscribedTimeManager.OnSeasonChange -= UpdateShopBySeason;
+
+            subscribedTimeManager = null;
+            if (timeManager != null && isActiveAndEnabled)
+            {
+                subscribedTimeManager = timeManager;
+                subscribedTimeManager.OnSeasonChange += UpdateShopBySeason;
+            }
+        }
+
+        if (timeManager != null) UpdateShopBySeason(timeManager.CurrentSeason);
+        else RefreshShopUI(currentSeasonIndex);
+    }
+
+    /// <summary>계절 변경 이벤트 또는 외부 코드에서 호출하는 상점 갱신 함수.</summary>
+    public void UpdateShopBySeason(TimeManager.SeasonPeriod season)
+    {
+        int index = season switch
+        {
+            TimeManager.SeasonPeriod.Spring => 0,
+            TimeManager.SeasonPeriod.Summer => 1,
+            TimeManager.SeasonPeriod.Autumn => 2,
+            TimeManager.SeasonPeriod.Winter => 3,
+            _ => -1,
+        };
+        if (index >= 0) RefreshShopUI(index);
     }
 
     public void SetItemListSO(ItemListSO[] newSOArray, bool refreshImmediate = true)
@@ -34,9 +97,12 @@ public class Input_SO_Data : MonoBehaviour
 
     public void SetSingleSeasonSO(int seasonIndex, ItemListSO newSO, bool refreshImmediate = true)
     {
-        if (itemListSO == null || seasonIndex < 0 || seasonIndex >= itemListSO.Length) return;
-
-        itemListSO[seasonIndex] = newSO;
+        if (newSO == null || seasonIndex < 0 || seasonIndex > 3) return;
+        var lists = new List<ItemListSO>(itemListSO ?? System.Array.Empty<ItemListSO>());
+        int index = lists.IndexOf(GetSeasonList(seasonIndex));
+        if (index >= 0) lists[index] = newSO;
+        else lists.Add(newSO);
+        itemListSO = lists.ToArray();
 
         if (refreshImmediate && currentSeasonIndex == seasonIndex) RefreshShopUI(currentSeasonIndex);
     }
@@ -49,7 +115,7 @@ public class Input_SO_Data : MonoBehaviour
             return;
         }
 
-        if (seasonIndex < 0 || seasonIndex >= itemListSO.Length)
+        if (seasonIndex < 0 || seasonIndex > 3)
         {
             Debug.LogError($"[Input_SO_Data] seasonIndex 범위 초과! (입력값: {seasonIndex})");
             return;
@@ -58,10 +124,10 @@ public class Input_SO_Data : MonoBehaviour
         // ★ 이 줄이 주석 처리되어 있어서 계절 전환이 안 먹었다
         currentSeasonIndex = seasonIndex;
 
-        if (itemListSO[currentSeasonIndex] == null)
+        ItemListSO seasonList = GetSeasonList(seasonIndex);
+        if (seasonList == null)
         {
-            Debug.LogError($"[Input_SO_Data] {currentSeasonIndex}번 인덱스의 ItemListSO 에셋이 Null입니다!");
-            return;
+            Debug.LogWarning($"[Input_SO_Data] {currentSeasonIndex}번 계절의 SO가 없습니다. 목록을 비웁니다.");
         }
 
         if (shopButtons == null || shopButtons.Count == 0)
@@ -70,15 +136,19 @@ public class Input_SO_Data : MonoBehaviour
             return;
         }
 
-        Item[] currentItems = itemListSO[currentSeasonIndex].ItemList;
+        Item[] currentItems = seasonList != null ? seasonList.ItemList : null;
 
         if (currentItems == null || currentItems.Length == 0)
             Debug.LogWarning($"[Input_SO_Data] {currentSeasonIndex}번 계절의 ItemList가 비어있습니다.");
+
+        // 이전 계절에서 선택한 상품을 상세창에 남겨두지 않는다.
+        if (detailPanel != null) detailPanel.HideDetail();
 
         for (int i = 0; i < shopButtons.Count; i++)
         {
             if (shopButtons[i] == null) continue;
 
+            shopButtons[i].SettingSelectBT();
             bool hasItem = currentItems != null && i < currentItems.Length;
 
             shopButtons[i].SetItem(hasItem ? currentItems[i] : null, detailPanel);
