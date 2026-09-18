@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d32947cefe9f4382a9a2d6d43769fc19, type: 3}
-  m_Name: BlueBerry
+  m_Name: birchStick
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
-  itemId: 6
-  displayName: BlueBerry
-  icon: {fileID: 5414920948540241262, guid: 1007023ac2764a642aab84a9f2f87448, type: 3}
-  description: "\uBE14\uB8E8\uBCA0\uB9AC"
-  itemType: 0
+  itemId: 
+  displayName: "\uB098\uBB34"
+  icon: {fileID: -3004918560657441691, guid: 1471d25ade60fcb40b66b63162952597, type: 3}
+  description: 
+  itemType: 6
   maxStack: 99
   sellPrice: 0
   season: 0
