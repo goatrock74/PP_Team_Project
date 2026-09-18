@@ -10,7 +10,7 @@ namespace PJH.Scripts
         [SerializeField] private Image fishIcon;
 
         private FishDataSO fishData;
-        private Action<FishDataSO> OnSelected;
+        private Action<FishDataSO, bool> OnSelected;
         private static FishSlotUI selectedSlot;
         private bool isDiscovered;
         
@@ -20,7 +20,7 @@ namespace PJH.Scripts
         [SerializeField] private Color unDiscoveredColor = Color.black;
 
 
-        public void SetUp(FishDataSO data, bool disCovered, Action<FishDataSO> selectedCallback)
+        public void SetUp(FishDataSO data, bool disCovered, Action<FishDataSO, bool> selectedCallback)
         {
             fishData = data;
             OnSelected = selectedCallback;
@@ -38,23 +38,17 @@ namespace PJH.Scripts
 
         private void SelectFish()
         {
-            if (!isDiscovered)
-            {
-                Debug.Log("아직 잡지 못함");
-                return;
-            }
             
             if (selectedSlot != null && selectedSlot != this)
             {
                 selectedSlot.SetSelected(false);
             }
-
+            
+            OnSelected?.Invoke(fishData,  isDiscovered);
             selectedSlot = this;
             SetSelected(true);
             
             
-            
-            OnSelected?.Invoke(fishData);
         }
 
         public static void ClearSelection()
@@ -67,6 +61,11 @@ namespace PJH.Scripts
 
         public void SetSelected(bool isSelected)
         {
+            if (!isDiscovered)
+            {
+                fishIcon.color = unDiscoveredColor;
+                return;
+            }
             fishIcon.color = isSelected ? new Color(0.55f, 0.55f, 0.55f, 1f) : Color.white;
         }
     }

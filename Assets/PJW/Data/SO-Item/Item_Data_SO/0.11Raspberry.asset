@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b2d6aece3f99941a609e051e495b86, type: 3}
   m_Name: 0.11Raspberry
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  <Item_icon>k__BackingField: {fileID: 0}
-  <Item_price>k__BackingField: 0
+  <Item_icon>k__BackingField: {fileID: 1974956134, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
+  <Item_price>k__BackingField: 2500
   item_sellPrice: 0
   <Item_name>k__BackingField: "\uB77C\uC988\uBCA0\uB9AC"
   <item_explanation>k__BackingField: "\uAC00\uC9C0\uC5D0 \uAC00\uC2DC\uAC00 \uC788\uC73C\uBA70

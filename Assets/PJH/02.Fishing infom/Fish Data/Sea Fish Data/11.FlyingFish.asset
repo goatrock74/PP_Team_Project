@@ -20,6 +20,13 @@ MonoBehaviour:
   rarity: 1
   difficulty: 2.8
   baseCatchWeight: 55
+  springMultiplier: 0
+  summerMultiplier: 1
+  autumnMultiplier: 0
+  winterMultiplier: 0
+  morningMultiplier: 1
+  afternoonMultiplier: 0.5
+  nightMultiplier: 0
   moveSpeed: 0.34
   minTargetChangeTime: 0.45
   maxTargetChangeTime: 0.85

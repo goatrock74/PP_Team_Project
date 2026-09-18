@@ -26,9 +26,19 @@ namespace PJH.Scripts
 
         private FishCollectionCategory currentCategory;
 
+        private bool hasStartded;
+
         private void OnEnable()
         {
             collectionManager.OnCollectionChanged += RefreshSlots;
+            if(hasStartded)
+                ShowSeaFish();
+            
+        }
+
+        private void Start()
+        {
+            hasStartded = true;
             ShowSeaFish();
         }
 
@@ -107,9 +117,9 @@ namespace PJH.Scripts
             }
         }
 
-        private void ShowFishDetail(FishDataSO fishData)
+        /*private void ShowFishDetail(FishDataSO fishData)
         {
             fishDetailPanelUI.ShowFishData(fishData);
-        }
+        }*/
     }
 }

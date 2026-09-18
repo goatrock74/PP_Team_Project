@@ -78,6 +78,13 @@ namespace PJH.Scripts
             
             FishingWaterArea waterArea =
                 result.GetComponentInParent<FishingWaterArea>();
+
+            if (waterArea == null)
+            {
+                category = FishCollectionCategory.Sea;
+                Debug.LogWarning("FishingWaterArea가 없습니다");
+                return false;
+            }
             
             category = waterArea.Category;
             return true;

@@ -9,21 +9,7 @@ namespace PJH.Scripts
         [System.Serializable]
         public struct FishChance
         {
-
             public FishDataSO fish;
-
-            [Header("계절 배율")]
-            [Tooltip("0이면 해당 계절에 출현하지 않습니다.")]
-            [Min(0f)] public float springMultiplier;
-            [Min(0f)] public float summerMultiplier;
-            [Min(0f)] public float autumnMultiplier;
-            [Min(0f)] public float winterMultiplier;
-
-            [Header("시간대 배율")]
-            [Tooltip("Morning은 아침, Afternoon은 노을입니다.")]
-            [Min(0f)] public float morningMultiplier;
-            [Min(0f)] public float afternoonMultiplier;
-            [Min(0f)] public float nightMultiplier;
         }
 
         #endregion
@@ -57,7 +43,6 @@ namespace PJH.Scripts
             {
                 Debug.LogError(
                     "FishSelector에 TimeManager가 연결되지 않았습니다.");
-                
 
                 return null;
             }
@@ -65,7 +50,6 @@ namespace PJH.Scripts
             selctedFishDataSO = Draw(category);
 
             ApplyFishingLuck(category);
-            
 
             return selctedFishDataSO;
         }
@@ -123,6 +107,40 @@ namespace PJH.Scripts
             return lastAvailableFish;
         }
 
+        private float GetSeasonMultiplier(FishDataSO fish, TimeManager.SeasonPeriod season)
+        {
+            switch (season)
+            {
+                case TimeManager.SeasonPeriod.Spring:
+                    return fish.SpringMultiplier;
+                case TimeManager.SeasonPeriod.Summer:
+                    return fish.SummerMultiplier;
+                case TimeManager.SeasonPeriod.Autumn:
+                    return fish.AutumnMultiplier;
+                case TimeManager.SeasonPeriod.Winter:
+                    return fish.WinterMultiplier;
+
+                default:
+                    return 0f;
+            }
+        }
+
+        private float GetTimeMultiplier(FishDataSO fish, TimeManager.TimePeriod period)
+        {
+            switch (period)
+            {
+                case TimeManager.TimePeriod.Morning:
+                    return fish.MorningMultiplier;
+                case TimeManager.TimePeriod.Afternoon:
+                    return fish.AfternoonMultiplier;
+                case TimeManager.TimePeriod.Night:
+                    return fish.NightMultiplier;
+
+                default:
+                    return 0f;
+            }
+        }
+
         private float GetTotalWeight(FishCollectionCategory category)
         {
             if (fishTable == null)
@@ -162,54 +180,18 @@ namespace PJH.Scripts
             }
 
             float seasonMultiplier =
-                GetSeasonMultiplier(entry);
+                GetSeasonMultiplier(
+                    entry.fish,
+                    timeManager.CurrentSeason);
 
             float timeMultiplier =
-                GetTimeMultiplier(entry);
+                GetTimeMultiplier(
+                    entry.fish,
+                    timeManager.CurrentPeriod);
 
             return entry.fish.BaseCatchWeight
                    * seasonMultiplier
                    * timeMultiplier;
-        }
-
-        private float GetSeasonMultiplier(FishChance entry)
-        {
-            switch (timeManager.CurrentSeason)
-            {
-                case TimeManager.SeasonPeriod.Spring:
-                    return entry.springMultiplier;
-
-                case TimeManager.SeasonPeriod.Summer:
-                    return entry.summerMultiplier;
-
-                case TimeManager.SeasonPeriod.Autumn:
-                    return entry.autumnMultiplier;
-
-                case TimeManager.SeasonPeriod.Winter:
-                    return entry.winterMultiplier;
-
-                default:
-                    return 0f;
-            }
-        }
-
-        private float GetTimeMultiplier(FishChance entry)
-        {
-            switch (timeManager.CurrentPeriod)
-            {
-                case TimeManager.TimePeriod.Morning:
-                    return entry.morningMultiplier;
-
-                // 현재 게임에서는 Afternoon을 노을로 사용
-                case TimeManager.TimePeriod.Afternoon:
-                    return entry.afternoonMultiplier;
-
-                case TimeManager.TimePeriod.Night:
-                    return entry.nightMultiplier;
-
-                default:
-                    return 0f;
-            }
         }
 
         #endregion
@@ -286,45 +268,5 @@ namespace PJH.Scripts
 
         #endregion
 
-        #region 인스펙터 값 검사
-
-        private void OnValidate()
-        {
-            if (fishTable == null)
-            {
-                return;
-            }
-
-            for (int i = 0; i < fishTable.Length; i++)
-            {
-                FishChance entry = fishTable[i];
-
-                entry.springMultiplier =
-                    Mathf.Max(0f, entry.springMultiplier);
-
-                entry.summerMultiplier =
-                    Mathf.Max(0f, entry.summerMultiplier);
-
-                entry.autumnMultiplier =
-                    Mathf.Max(0f, entry.autumnMultiplier);
-
-                entry.winterMultiplier =
-                    Mathf.Max(0f, entry.winterMultiplier);
-
-                entry.morningMultiplier =
-                    Mathf.Max(0f, entry.morningMultiplier);
-
-                entry.afternoonMultiplier =
-                    Mathf.Max(0f, entry.afternoonMultiplier);
-
-                entry.nightMultiplier =
-                    Mathf.Max(0f, entry.nightMultiplier);
-
-                // FishChance가 struct이므로 배열에 다시 넣어야 함
-                fishTable[i] = entry;
-            }
-        }
-
-        #endregion
     }
 }

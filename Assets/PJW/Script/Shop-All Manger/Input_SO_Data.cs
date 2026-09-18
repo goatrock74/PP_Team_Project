@@ -1,4 +1,4 @@
-using Assets.PJW.Script.SO_Script;
+    using Assets.PJW.Script.SO_Script;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,13 +15,11 @@ public class Input_SO_Data : MonoBehaviour
 
     private void Start()
     {
-        // 시작 시 0번 계절(봄) 로드
         RefreshShopUI(0);
     }
 
     private void OnEnable()
     {
-        // UI 창이 활성화될 때마다 0번 계절(또는 현재 계절) 버튼 데이터 복원
         RefreshShopUI(currentSeasonIndex);
     }
 
@@ -31,10 +29,7 @@ public class Input_SO_Data : MonoBehaviour
 
         itemListSO = newSOArray;
 
-        if (refreshImmediate)
-        {
-            RefreshShopUI(currentSeasonIndex);
-        }
+        if (refreshImmediate) RefreshShopUI(currentSeasonIndex);
     }
 
     public void SetSingleSeasonSO(int seasonIndex, ItemListSO newSO, bool refreshImmediate = true)
@@ -43,18 +38,11 @@ public class Input_SO_Data : MonoBehaviour
 
         itemListSO[seasonIndex] = newSO;
 
-        if (refreshImmediate && currentSeasonIndex == seasonIndex)
-        {
-            RefreshShopUI(currentSeasonIndex);
-        }
+        if (refreshImmediate && currentSeasonIndex == seasonIndex) RefreshShopUI(currentSeasonIndex);
     }
 
     public void RefreshShopUI(int seasonIndex)
     {
-        ShopInventoryBridge.SyncCounts();
-
-        //currentSeasonIndex = seasonIndex;
-
         if (itemListSO == null || itemListSO.Length == 0)
         {
             Debug.LogError("[Input_SO_Data] itemListSO 배열이 할당되지 않았습니다!");
@@ -67,18 +55,13 @@ public class Input_SO_Data : MonoBehaviour
             return;
         }
 
+        // ★ 이 줄이 주석 처리되어 있어서 계절 전환이 안 먹었다
+        currentSeasonIndex = seasonIndex;
+
         if (itemListSO[currentSeasonIndex] == null)
         {
             Debug.LogError($"[Input_SO_Data] {currentSeasonIndex}번 인덱스의 ItemListSO 에셋이 Null입니다!");
             return;
-        }
-
-        // 해당 계절의 Item[] 가져오기
-      //  Item[] currentItems = itemListSO[currentSeasonIndex].ItemList;
-
-       // if (currentItems == null || currentItems.Length == 0)
-        {
-            Debug.LogWarning($"[Input_SO_Data] {currentSeasonIndex}번 계절의 ItemList가 비어있습니다.");
         }
 
         if (shopButtons == null || shopButtons.Count == 0)
@@ -87,19 +70,18 @@ public class Input_SO_Data : MonoBehaviour
             return;
         }
 
-        // 버튼 리스트에 데이터 세팅
-        //for (int i = 0; i < shopbuttons.count; i++)
-        //{
-        //    if (shopbuttons[i] == null) continue;
+        Item[] currentItems = itemListSO[currentSeasonIndex].ItemList;
 
-        //    if (currentitems != null && i < currentitems.length)
-        //    {
-        //        shopbuttons[i].setitem(currentitems[i], detailpanel);
-        //    }
-        //    else
-        //    {
-        //        shopbuttons[i].setitem(null, detailpanel);
-        //    }
-        //}
+        if (currentItems == null || currentItems.Length == 0)
+            Debug.LogWarning($"[Input_SO_Data] {currentSeasonIndex}번 계절의 ItemList가 비어있습니다.");
+
+        for (int i = 0; i < shopButtons.Count; i++)
+        {
+            if (shopButtons[i] == null) continue;
+
+            bool hasItem = currentItems != null && i < currentItems.Length;
+
+            shopButtons[i].SetItem(hasItem ? currentItems[i] : null, detailPanel);
+        }
     }
 }

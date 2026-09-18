@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2b2d6aece3f99941a609e051e495b86, type: 3}
   m_Name: 0.14Carrot
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  <Item_icon>k__BackingField: {fileID: 0}
-  <Item_price>k__BackingField: 0
+  <Item_icon>k__BackingField: {fileID: -103528547, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
+  <Item_price>k__BackingField: 500
   item_sellPrice: 0
   <Item_name>k__BackingField: "\uB2F9\uADFC"
   <item_explanation>k__BackingField: "\uD770 \uAF43\uC774 \uC904\uAE30 \uD53C\uACE0,

@@ -146,9 +146,11 @@ public class ShopInventoryBridge : MonoBehaviour
     {
         ItemSO so = Resolve(shopItem);
         PlayerInventory inv = PlayerInventory.Instance;
-
+        Debug.Log(so);
+        Debug.Log(nameof(inv));
+        Debug.Log(amount);
         if (so == null || inv == null || amount <= 0) return 0;
-
+        Debug.Log("asdasd");
         int added = inv.Add(so, amount, quality);
 
         if (_instance != null) _instance.SyncOne(shopItem, so, inv);
