@@ -19,6 +19,7 @@ MonoBehaviour:
   itemType: 5
   maxStack: 1
   sellPrice: 0
+  season: 0
   tier: 0
   areaSize: {x: 1, y: 1}
   hitBoxSize: {x: 1.2, y: 1.2}
@@ -28,11 +29,10 @@ MonoBehaviour:
   animationTrigger: Hoe
   baseClip: {fileID: 7400000, guid: 817d3581ecf9f5c4d86b0a51f0f00035, type: 2}
   tierClip: {fileID: 0}
-  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
+  heldSpriteLibrary: {fileID: 0}
   impactDelay: 0.15
   useCooldown: 0.4
   lockMovementWhileUsing: 1
   movementLockDuration: 0
-  tillableTiles:
-  - {fileID: 11400000, guid: 970f2bf7bd3c08840b73a6ebca96b32c, type: 2}
+  tillableTiles: []
   tilledTile: {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}

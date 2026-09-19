@@ -29,15 +29,10 @@ MonoBehaviour:
   animationTrigger: Hoe
   baseClip: {fileID: 7400000, guid: 817d3581ecf9f5c4d86b0a51f0f00035, type: 2}
   tierClip: {fileID: 7400000, guid: 3f7d83214dc7e62409b5f10e5de76407, type: 2}
-  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 51abb2056f26871449130a28a9923ff6, type: 3}
+  heldSpriteLibrary: {fileID: 0}
   impactDelay: 0.15
   useCooldown: 0.4
   lockMovementWhileUsing: 1
   movementLockDuration: 0
-  tillableTiles:
-  - {fileID: 11400000, guid: 6ac7d3fb5a048354fa57339e14bcf867, type: 2}
-  - {fileID: 11400000, guid: 01f131dacdd8f2244a9c56210cf4c4e4, type: 2}
-  - {fileID: 11400000, guid: dc411135acaea14439b49fdd293a654b, type: 2}
-  - {fileID: 11400000, guid: 02e718c01987690419d79b9fdef9ba8e, type: 2}
-  - {fileID: 11400000, guid: c3276cb9facd04c4c82b881f8af68767, type: 2}
+  tillableTiles: []
   tilledTile: {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}
