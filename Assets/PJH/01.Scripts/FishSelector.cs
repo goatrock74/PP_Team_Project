@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using PJH._01.Scripts;
+using UnityEngine;
 
 namespace PJH.Scripts
 {
@@ -25,7 +26,9 @@ namespace PJH.Scripts
         [Header("행운")]
         [Tooltip("켜면 낚시 마스터리의 행운만큼 희귀 물고기가 잘 걸립니다.")]
         [SerializeField] private bool useMasteryLuck = true;
-
+        
+        [Header("미끼")]
+        [SerializeField] private FishingBaitManager fishingBaitManager;
         #endregion
 
         #region 현재 선택된 물고기
@@ -198,26 +201,34 @@ namespace PJH.Scripts
 
         #region 행운 적용
 
-        private void ApplyFishingLuck(FishCollectionCategory category)
+        private void ApplyFishingLuck(
+            FishCollectionCategory category)
         {
-            if (!useMasteryLuck ||
-                selctedFishDataSO == null)
-            {
+            if (selctedFishDataSO == null)
                 return;
+
+            float totalLuck = 0f;
+
+            // 낚시 마스터리 행운
+            if (useMasteryLuck)
+            {
+                totalLuck += MasteryManager.Stat(
+                    MasteryStat.FishLuck
+                );
             }
 
-            float luck =
-                MasteryManager.Stat(MasteryStat.FishLuck);
-
-            if (luck <= 0f)
+            // 현재 사용 중인 미끼 행운
+            if (fishingBaitManager != null)
             {
-                return;
+                totalLuck += fishingBaitManager.ActiveBaitLuck;
             }
 
-            int extraDrawCount = Mathf.FloorToInt(luck);
-            float decimalLuck = luck - extraDrawCount;
+            if (totalLuck <= 0f)
+                return;
 
-            if (Random.value < decimalLuck)
+            int extraDrawCount = Mathf.FloorToInt(totalLuck);
+
+            if (Random.value < totalLuck - extraDrawCount)
             {
                 extraDrawCount++;
             }
