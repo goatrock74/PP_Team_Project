@@ -39,7 +39,8 @@ namespace KSM._00.Scripts.Crop
         [SerializeField] private bool protectMatureCrops = true;
  
         [SerializeField] private bool verboseLog = true;
- 
+        [Header("낚시 미끼 UI")]
+        [SerializeField] private BaitConfirmUI baitConfirmUI;
         private void Awake()
         {
             if (cam == null) cam = Camera.main;
@@ -47,8 +48,13 @@ namespace KSM._00.Scripts.Crop
             if (gacha == null) gacha = FindFirstObjectByType<GachaUI>(FindObjectsInactive.Include);
             if (toolAnimator == null) toolAnimator = GetComponentInChildren<ToolAnimator>();
             if (movement == null) movement = GetComponent<PlayerMovement>();
+            if (baitConfirmUI == null)
+                baitConfirmUI =
+                    FindFirstObjectByType<BaitConfirmUI>(
+                        FindObjectsInactive.Include);
         }
- 
+        
+       
         private void Update()
         {
             if (Mouse.current == null) return;
@@ -174,6 +180,8 @@ namespace KSM._00.Scripts.Crop
 
             HandleHarvest();
         }
+        
+        
 
         private void HandleUseBait(
             PlayerInventory player,
@@ -182,7 +190,8 @@ namespace KSM._00.Scripts.Crop
             Debug.Log(
                 $"{bait.DisplayName} 사용 확인창을 엽니다."
             );
-
+        
+            baitConfirmUI.Open(player, bait);
             // 다음 단계에서 실제 확인 UI를 연결합니다.
         }
 

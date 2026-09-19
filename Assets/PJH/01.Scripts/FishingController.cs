@@ -45,6 +45,7 @@ namespace PJH.Scripts
         [SerializeField] private FishingCatchEffect catchEffectPrefab;
  
         [SerializeField] private Transform caughtFishPoint;
+        [SerializeField] private FishingBaitManager fishingBaitManager;
  
         /// <summary>이번 낚시를 어느 쪽을 보고 시작했는지. 미니게임 패널 위치를 정한다</summary>
         private bool fishingFacingLeft;
@@ -141,6 +142,7 @@ namespace PJH.Scripts
  
         private IEnumerator BiteSequence()
         {
+            bool consumedBaitForThisCast = false;
             while (true)
             {
                 currentFish = fishSelector.RandomFish(currentFishingCategory);
@@ -152,6 +154,13 @@ namespace PJH.Scripts
                 Debug.Log(
                     $"{biteTime:F1}초 동안 입질을 기다립니다."
                 );
+
+                if (!consumedBaitForThisCast && fishingBaitManager != null &&
+                    fishingBaitManager.HasActiveBait)
+                {
+                    fishingBaitManager.ConsumeOneUse();
+                    consumedBaitForThisCast = true;
+                }
  
                 yield return new WaitForSeconds(biteTime);
  

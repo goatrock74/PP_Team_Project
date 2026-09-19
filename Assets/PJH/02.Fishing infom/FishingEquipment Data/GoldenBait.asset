@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishingBaitDataSO
   itemId: GoldenBait
   displayName: "\uD669\uAE08 \uBBF8\uB07C"
-  icon: {fileID: 0}
+  icon: {fileID: 3407669330557871135, guid: d360110b974c1de4eb79b6e48539fdc4, type: 3}
   description: "\uB2E4\uC74C \uB09A\uC2DC\uC5D0\uC11C \uD76C\uADC0\uD55C \uBB3C\uACE0\uAE30\uAC00
     \uAC78\uB9B4 \uD655\uB960\uC744 \uD06C\uAC8C \uB192\uC778\uB2E4."
   itemType: 7
