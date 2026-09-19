@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class TimeController : MonoBehaviour
 {
-    private TimeManager timeManager;
     private TimePeriod timePeriod;
     private SeasonPeriod seasonPeriod;
     private SeasonPassive seasonPassive;
@@ -11,26 +10,35 @@ public class TimeController : MonoBehaviour
     [SerializeField] private LightManager lightManager;
     private void Awake()
     {
-        timeManager = GetComponent<TimeManager>();
         timePeriod = GetComponent<TimePeriod>();
         seasonPeriod = GetComponent<SeasonPeriod>();
         seasonPassive = GetComponent<SeasonPassive>();
     }
     private void OnEnable()
     {
-        timeManager.OnTimePeriodChange += HandleTimePeriod;
-        timeManager.OnTimePeriodChange +=HandleLight;
-        timeManager.OnSeasonChange += HandleSeasonPeriod;
-        timeManager.OnDayChange += HandleSeasonPassive;
-        timeManager.OnSeasonChange += HandleShopPanel;
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.OnTimePeriodChange += HandleTimePeriod;
+            TimeManager.Instance.OnTimePeriodChange += HandleLight;
+            TimeManager.Instance.OnSeasonChange += HandleSeasonPeriod;
+            TimeManager.Instance.OnDayChange += HandleSeasonPassive;
+            TimeManager.Instance.OnSeasonChange += HandleShopPanel;
+
+            HandleTimePeriod(TimeManager.Instance.CurrentPeriod);
+            HandleSeasonPeriod(TimeManager.Instance.CurrentSeason);
+            if (lightManager != null) HandleLight(TimeManager.Instance.CurrentPeriod);
+        }
     }
     private void OnDisable()
     {
-        timeManager.OnTimePeriodChange -= HandleTimePeriod;
-        timeManager.OnTimePeriodChange -= HandleLight;
-        timeManager.OnSeasonChange -= HandleSeasonPeriod;
-        timeManager.OnDayChange -= HandleSeasonPassive;
-        timeManager.OnSeasonChange -= HandleShopPanel;
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.OnTimePeriodChange -= HandleTimePeriod;
+            TimeManager.Instance.OnTimePeriodChange -= HandleLight;
+            TimeManager.Instance.OnSeasonChange -= HandleSeasonPeriod;
+            TimeManager.Instance.OnDayChange -= HandleSeasonPassive;
+            TimeManager.Instance.OnSeasonChange -= HandleShopPanel;
+        }
     }
     private void HandleLight(TimeManager.TimePeriod currentPeriod)
     {
