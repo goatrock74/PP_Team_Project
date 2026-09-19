@@ -13,16 +13,26 @@ MonoBehaviour:
   m_Name: 63.GlassBottle
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
   itemId: GlassBottle
-  displayName: 유리병
+  displayName: "\uC720\uB9AC\uBCD1"
   icon: {fileID: 6430331807209016311, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  description: 물가 바닥에 가라앉아 있던 오래된 유리병. 안에는 아무것도 들어 있지 않다.
+  description: "\uBB3C\uAC00 \uBC14\uB2E5\uC5D0 \uAC00\uB77C\uC549\uC544 \uC788\uB358
+    \uC624\uB798\uB41C \uC720\uB9AC\uBCD1."
   itemType: 2
   maxStack: 99
   sellPrice: 0
+  season: 0
   fishID: GlassBottle
   rarity: 0
   collectionCategory: 2
   difficulty: 0
+  baseCatchWeight: 100
+  springMultiplier: 1
+  summerMultiplier: 1
+  autumnMultiplier: 1
+  winterMultiplier: 1
+  morningMultiplier: 1
+  afternoonMultiplier: 1
+  nightMultiplier: 1
   moveSpeed: 0.08
   minTargetChangeTime: 2.5
   maxTargetChangeTime: 3.5

@@ -13,16 +13,25 @@ MonoBehaviour:
   m_Name: 64.WaterBottle
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
   itemId: WaterBottle
-  displayName: 물병
+  displayName: "\uBB3C\uBCD1"
   icon: {fileID: 144086511840581582, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  description: 누군가 물가에 버리고 간 물병. 깨끗한 물가를 위해 주워 두자.
+  description: "\uB204\uAD70\uAC00 \uBB3C\uAC00\uC5D0 \uBC84\uB9AC\uACE0 \uAC04 \uBB3C\uBCD1."
   itemType: 2
   maxStack: 99
   sellPrice: 0
+  season: 0
   fishID: WaterBottle
   rarity: 0
   collectionCategory: 2
   difficulty: 0
+  baseCatchWeight: 100
+  springMultiplier: 1
+  summerMultiplier: 1
+  autumnMultiplier: 1
+  winterMultiplier: 1
+  morningMultiplier: 1
+  afternoonMultiplier: 1
+  nightMultiplier: 1
   moveSpeed: 0.08
   minTargetChangeTime: 2.5
   maxTargetChangeTime: 3.5
