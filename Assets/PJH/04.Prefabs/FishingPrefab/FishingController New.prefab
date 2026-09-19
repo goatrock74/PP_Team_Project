@@ -180,4 +180,8 @@ MonoBehaviour:
   - fish: {fileID: 11400000, guid: cff73ce7f6f927f2dacf5035373a4199, type: 2}
   - fish: {fileID: 11400000, guid: 4117dd97798af9a6f14aca98dcadd45c, type: 2}
   - fish: {fileID: 11400000, guid: dd529580af709ecb26751e14047626b0, type: 2}
+  - fish: {fileID: 11400000, guid: a3f17d9e6b124c7490d8245824211a61, type: 2}
+  - fish: {fileID: 11400000, guid: b6842e1fb9324ff8894113ccb1c2ba62, type: 2}
+  - fish: {fileID: 11400000, guid: c95d35c832b841bbadc7ecf226f40363, type: 2}
+  - fish: {fileID: 11400000, guid: d26a50eb4ae54e17bfc8274c1f471164, type: 2}
   useMasteryLuck: 1
