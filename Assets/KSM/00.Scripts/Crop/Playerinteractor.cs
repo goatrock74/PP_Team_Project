@@ -3,7 +3,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using KSM._00.Scripts.Items;
- 
+using PJH._01.Scripts;
+
 namespace KSM._00.Scripts.Crop
 {
     public class PlayerInteractor : MonoBehaviour
@@ -125,25 +126,68 @@ namespace KSM._00.Scripts.Crop
  
         private void HandleLeftClick()
         {
-            PlayerInventory player = PlayerInventory.Instance;
- 
+            PlayerInventory player =
+                PlayerInventory.Instance;
+
             if (player != null && player.CanUseHeld)
             {
-                if (player.HeldItem is ItemPackSO pack) { HandleOpenPack(player, pack); return; }
-                if (player.HeldItem is ToolSO tool) { HandleUseTool(tool); return; }
+                // 1. 손에 들고 있는 아이템이 미끼인지 먼저 검사
+                if (player.HeldItem is FishingBaitDataSO bait)
+                {
+                    HandleUseBait(player, bait);
+                    return;
+                }
+
+                // 2. 뽑기 팩 검사
+                if (player.HeldItem is ItemPackSO pack)
+                {
+                    HandleOpenPack(player, pack);
+                    return;
+                }
+
+                // 3. 도구 검사
+                if (player.HeldItem is ToolSO tool)
+                {
+                    HandleUseTool(tool);
+                    return;
+                }
+
+                // 4. 씨앗 검사
                 SeedSO seed = GetHeldSeed();
-                if (seed != null) { HandlePlant(seed); return; }
+
+                if (seed != null)
+                {
+                    HandlePlant(seed);
+                    return;
+                }
             }
-            else if (player != null && IsUsableItem(player.HeldItem) && verboseLog)
+            else if (player != null &&
+                     IsUsableItem(player.HeldItem) &&
+                     verboseLog)
             {
-                Debug.Log($"[상호작용] {player.HeldItem.DisplayName} 은(는) 핫바에 올려야 쓸 수 있습니다");
+                Debug.Log(
+                    $"[상호작용] " +
+                    $"{player.HeldItem.DisplayName}은(는) " +
+                    "핫바에 올려야 쓸 수 있습니다."
+                );
             }
- 
+
             HandleHarvest();
         }
- 
+
+        private void HandleUseBait(
+            PlayerInventory player,
+            FishingBaitDataSO bait)
+        {
+            Debug.Log(
+                $"{bait.DisplayName} 사용 확인창을 엽니다."
+            );
+
+            // 다음 단계에서 실제 확인 UI를 연결합니다.
+        }
+
         private static bool IsUsableItem(ItemSO item)
-            => item is ToolSO || item is ItemPackSO || (item is SeedSO seed && seed.IsPlantable);
+            => item is ToolSO || item is ItemPackSO || item is FishingBaitDataSO || (item is SeedSO seed && seed.IsPlantable);
  
         private void HandleUseTool(ToolSO tool)
         {
