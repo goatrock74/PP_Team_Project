@@ -85,7 +85,7 @@ public class ItemDetailPanel : MonoBehaviour
 
         long price = (long)currentItem.Item_price * buyAmount;
         bool canAfford = wallet != null && currentItem.Item_price >= 0 && buyAmount > 0
-            && price <= int.MaxValue && wallet.CurrentMoney >= price;
+            && price <= int.MaxValue && wallet.CurrentMoney>= price;
         bool hasRoom = ShopInventoryBridge.CanReceive(currentItem, buyAmount);
 
         buyButton.interactable = canAfford && hasRoom;

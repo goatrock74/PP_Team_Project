@@ -4,9 +4,10 @@ using UnityEngine;
 public class PlayerWallet : MonoBehaviour
 {
     public static PlayerWallet Instance;
+    
 
     [Header("플레이어 소지금")]
-    [SerializeField] private int currentMoney = 10000;
+    private int currentMoney = 0;
     public int CurrentMoney => currentMoney;
 
     [Header("UI 텍스트 (선택사항 - 이 오브젝트와 같은 씬에서만 쓸 거면 연결)")]
@@ -15,6 +16,16 @@ public class PlayerWallet : MonoBehaviour
     // 다른 씬에서도 각자의 UI Text가 소지금을 표시하고 싶을 때 구독해서 쓰는 이벤트
     // (필요 없으면 그냥 무시해도 됨 - moneyText 하나만 써도 충분함)
     public event System.Action<int> OnMoneyChanged;
+    private bool fristshopping = false;
+
+    private void OnEnable()
+    {
+        fristshopping = true;
+        if(fristshopping)
+        {
+            PlayerPrefs.SetInt("TotalMoney", 10000);
+        }
+    }
 
     private void Awake()
     {
@@ -22,6 +33,8 @@ public class PlayerWallet : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 이 오브젝트는 파괴되지 않음
+            currentMoney = PlayerPrefs.GetInt("TotalMoney");
+            Debug.Log(currentMoney);
         }
         else if (Instance != this)
         {
