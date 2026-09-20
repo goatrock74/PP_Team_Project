@@ -2137,7 +2137,11 @@ MonoBehaviour:
   priceText: {fileID: 2026809232}
   explanationText: {fileID: 2087391204}
   iconImage: {fileID: 823565557}
+  countText: {fileID: 0}
   sellButton: {fileID: 1908115808}
+  playerWalletcomp: {fileID: 0}
+  sellAmount: 1
+  sellAll: 0
 --- !u!114 &363233583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2386,6 +2390,7 @@ MonoBehaviour:
   explanationText: {fileID: 706990339}
   iconImage: {fileID: 774298394}
   buyButton: {fileID: 231708073}
+  buyAmount: 1
 --- !u!114 &439987207
 MonoBehaviour:
   m_ObjectHideFlags: 0
