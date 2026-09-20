@@ -123,8 +123,6 @@ namespace KSM._00.Scripts.Items
         public bool HasFreeSlot() => Bag.HasEmptySlot() || Hotbar.HasEmptySlot();
         public int Add(ItemSO item, int amount, ItemQuality quality = ItemQuality.Normal)
         {
-            Debug.Log(item);
-            Debug.Log(amount);
             if (item == null || amount <= 0) return 0;
 
             Inventory first = fillHotbarFirst ? Hotbar : Bag;

@@ -15,7 +15,7 @@ MonoBehaviour:
   <Season>k__BackingField: 0
   <Item_icon>k__BackingField: {fileID: -6646212337641880122, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
   <Item_price>k__BackingField: 200
-  item_sellPrice: 0
+  item_sellPrice: 200
   <Item_name>k__BackingField: "\uCCA0 \uB09A\uC2DC\uB300"
   <item_explanation>k__BackingField: "\u3147\u3147"
   Item_count: 0

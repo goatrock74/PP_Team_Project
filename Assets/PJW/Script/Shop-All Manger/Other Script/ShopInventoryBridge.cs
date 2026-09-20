@@ -104,7 +104,7 @@ public class ShopInventoryBridge : MonoBehaviour
         ItemSO so = Resolve(shopItem);
         PlayerInventory inv = PlayerInventory.Instance;
 
-        return so == null || inv == null ? 0 : inv.CountOf(so);
+        return so == null || !IsReady(inv) ? 0 : inv.CountOf(so);
     }
 
     /// <summary>품질별 개수. 판매창에서 등급을 나눠 보여주고 싶을 때</summary>
@@ -113,7 +113,7 @@ public class ShopInventoryBridge : MonoBehaviour
         ItemSO so = Resolve(shopItem);
         PlayerInventory inv = PlayerInventory.Instance;
 
-        if (so == null || inv == null) return 0;
+        if (so == null || !IsReady(inv)) return 0;
 
         return inv.Bag.CountOf(so, quality) + inv.Hotbar.CountOf(so, quality);
     }
@@ -138,7 +138,7 @@ public class ShopInventoryBridge : MonoBehaviour
         ItemSO so = Resolve(shopItem);
         PlayerInventory inv = PlayerInventory.Instance;
 
-        return so != null && inv != null && inv.CanAccept(so, amount, quality);
+        return so != null && IsReady(inv) && amount > 0 && inv.CanAccept(so, amount, quality);
     }
 
     /// <summary>산 아이템을 넣는다. 반환값은 실제로 들어간 개수</summary>
@@ -146,12 +146,12 @@ public class ShopInventoryBridge : MonoBehaviour
     {
         ItemSO so = Resolve(shopItem);
         PlayerInventory inv = PlayerInventory.Instance;
-        Debug.Log(so);
-        Debug.Log(nameof(inv));
-        Debug.Log(amount);
-        if (so == null || inv == null || amount <= 0) return 0;
-        Debug.Log("asdasd");
-        int added = inv.Add(so, amount, quality);
+        if (so == null || !IsReady(inv) || amount <= 0) return 0;
+        if (!inv.CanAccept(so, amount, quality)) return 0;
+
+        // Add는 추가된 수량이 아니라 넣지 못한 수량을 반환한다.
+        int remaining = inv.Add(so, amount, quality);
+        int added = amount - remaining;
 
         if (_instance != null) _instance.SyncOne(shopItem, so, inv);
 
@@ -168,7 +168,7 @@ public class ShopInventoryBridge : MonoBehaviour
         if (_instance == null || _instance.map == null) return;
 
         PlayerInventory inv = PlayerInventory.Instance;
-        if (inv == null) return;
+        if (!IsReady(inv)) return;
 
         foreach (Item shopItem in _instance.map.ShopItems)
         {
@@ -180,6 +180,9 @@ public class ShopInventoryBridge : MonoBehaviour
     // ════════════════════════════════════════════════════════════
     //  내부
     // ════════════════════════════════════════════════════════════
+
+    private static bool IsReady(PlayerInventory inv)
+        => inv != null && inv.Bag != null && inv.Hotbar != null;
 
     private void SyncOne(Item shopItem, ItemSO so, PlayerInventory inv)
     {
@@ -196,7 +199,7 @@ public class ShopInventoryBridge : MonoBehaviour
         ItemSO so = Resolve(shopItem);
         PlayerInventory inv = PlayerInventory.Instance;
 
-        if (so == null || inv == null || amount <= 0) return 0;
+        if (so == null || !IsReady(inv) || amount <= 0) return 0;
 
         ItemQuality[] order = _instance != null && !_instance.sellWorstFirst ? Descending : Ascending;
 

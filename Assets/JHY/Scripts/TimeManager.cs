@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    
+    public static TimeManager Instance { get; private set; }
     public enum TimePeriod
     {
         Morning,
@@ -37,6 +37,19 @@ public class TimeManager : MonoBehaviour
     public event Action<SeasonPeriod> OnDayChange;
     public event Action<SeasonPeriod> OnSeasonChange;
     public event Action<TimePeriod> OnTimePeriodChange;
+    private void Awake()
+    {
+        // 이미 인스턴스가 존재한다면 새로 생성된 중복 오브젝트 파괴
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        // [핵심] 씬이 전환되어도 이 오브젝트가 파괴되지 않고 유지됨
+        DontDestroyOnLoad(gameObject);
+    }
     private void Start()
     {
         Debug.Log("Time: "+ currentPeriod);

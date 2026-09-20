@@ -36,13 +36,39 @@ namespace PJH._01.Scripts
             if (selectedPlayer == null || selectedBait == null)
             {
                 Close();
+                return;
             }
+
+            if (!selectedPlayer.CanUseHeld || selectedPlayer.HeldItem != selectedBait)
+            {
+                Debug.LogWarning("손에 들고있는 미끼가 변경되서 사용이 안됨");
+                Close();
+                return;
+            }
+
+            if (!selectedPlayer.ConsumeHeld(1))
+            {
+                Debug.LogWarning($"{selectedBait.DisplayName}제거 안됨");
                 
+                Close();
+                return;
+            }
+            
+            fishingBaitManager.ActivateBait(selectedBait);
+            
+            Close();
+        }
+
+        public void Cancel()
+        {
+            Close();
         }
 
         private void Close()
         {
-            throw new System.NotImplementedException();
+            selectedPlayer = null;
+            selectedBait = null;
+            panel.SetActive(false);
         }
     }
 }

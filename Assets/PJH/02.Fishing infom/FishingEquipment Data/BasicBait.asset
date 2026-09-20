@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishingBaitDataSO
   itemId: BasicBait
   displayName: "\uAE30\uBCF8 \uBBF8\uB07C"
-  icon: {fileID: 0}
+  icon: {fileID: 6038393624000712129, guid: 36425019ee5fa744e88a01baf17ad8c3, type: 3}
   description: "\uB2E4\uC74C \uB09A\uC2DC\uC5D0\uC11C \uD76C\uADC0\uD55C \uBB3C\uACE0\uAE30\uAC00
     \uAC78\uB9B4 \uD655\uB960\uC744 \uC870\uAE08 \uB192\uC778\uB2E4."
   itemType: 7

@@ -46,18 +46,35 @@ public class ItemListDisplay : MonoBehaviour
     {
         if (currentItem == null) return;
 
-        // 플레이어 소지금 차감 후 수량 증가
-        if (PlayerWallet.Instance != null && PlayerWallet.Instance.TrySpendMoney(currentItem.Item_price))
+        PlayerWallet wallet = PlayerWallet.Instance;
+        if (wallet == null || currentItem.Item_price < 0)
         {
-            currentItem.Item_count++; // 아이템 보유 수량 증가
-            onPurchaseCallback?.Invoke(); // UI 갱신 필요한 곳에 알림
+            Debug.LogWarning("[상점] 지갑 또는 구매 가격을 확인하세요.");
+            return;
+        }
 
-            Debug.Log($"{currentItem.Item_name} 구매 성공! (현재 보유량: {currentItem.Item_count}개)");
-        }
-        else
+        if (!ShopInventoryBridge.CanReceive(currentItem, 1))
         {
-            Debug.LogWarning("소지금이 부족하거나 Wallet이 없습니다!");
+            Debug.LogWarning("[상점] 아이템 매핑 또는 인벤토리 공간을 확인하세요.");
+            return;
         }
+
+        if (!wallet.TrySpendMoney(currentItem.Item_price))
+        {
+            Debug.LogWarning("[상점] 소지금이 부족합니다.");
+            return;
+        }
+
+        int got = ShopInventoryBridge.Buy(currentItem, 1);
+        if (got <= 0)
+        {
+            wallet.AddMoney(currentItem.Item_price);
+            Debug.LogWarning("[상점] 아이템을 넣지 못해 구매 금액을 환불했습니다.");
+            return;
+        }
+
+        onPurchaseCallback?.Invoke();
+        Debug.Log($"{currentItem.Item_name} 구매 성공! (현재 보유량: {ShopInventoryBridge.CountOf(currentItem)}개)");
     }
 
     public void HideDetail()
