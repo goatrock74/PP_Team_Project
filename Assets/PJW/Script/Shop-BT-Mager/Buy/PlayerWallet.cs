@@ -38,7 +38,6 @@ public class PlayerWallet : MonoBehaviour
         if (currentMoney >= amount)
         {
             currentMoney -= amount;
-            Debug.Log("asd");
             UpdateMoneyUI();
             return true;
         }
@@ -48,8 +47,7 @@ public class PlayerWallet : MonoBehaviour
     // 판매 시 돈 지급
     public void AddMoney(int amount)
     {
-        if (amount <= 0) return;
-
+        if (amount <= 0) return; //여기서 막힘
         currentMoney += amount;
         UpdateMoneyUI();
     }
@@ -59,7 +57,6 @@ public class PlayerWallet : MonoBehaviour
         if (moneyText != null)
             moneyText.text = $"{currentMoney:#,##0} G";
 
-        Debug.Log("asd2");
 
         OnMoneyChanged?.Invoke(currentMoney);
     }

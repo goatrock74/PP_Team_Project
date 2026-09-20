@@ -19,20 +19,41 @@ public class ItemDetailPanel : MonoBehaviour
 
     private Item currentItem;
     private System.Action onPurchaseCallback;
+    private Button boundBuyButton;
+
+    private void OnValidate() => ResolveBuyButton();
+
+    private void ResolveBuyButton()
+    {
+        if (buyButton != null) return;
+        // 상세창 내부에 버튼이 하나일 때만 자동 연결한다.
+        Button[] buttons = GetComponentsInChildren<Button>(true);
+        if (buttons.Length == 1) buyButton = buttons[0];
+    }
+
+    private void BindBuyButton()
+    {
+        ResolveBuyButton();
+        if (boundBuyButton == buyButton) return;
+        if (boundBuyButton != null) boundBuyButton.onClick.RemoveListener(OnClickBuy);
+        boundBuyButton = buyButton;
+        if (boundBuyButton != null) boundBuyButton.onClick.AddListener(OnClickBuy);
+    }
+
+    private void Awake()
+    {
+        BindBuyButton();
+    }
 
     private void Start()
     {
-        if (buyButton != null) { buyButton.onClick.AddListener(OnClickBuy);
-            Debug.Log(nameof(buyButton));
-        }
-        //gameObject.SetActive(false);
+        if (currentItem == null) gameObject.SetActive(false);
     }
 
-  /*  private void OnDestroy()
+    private void OnDestroy()
     {
-        if (buyButton != null) buyButton.onClick.RemoveListener(OnClickBuy);
+        if (boundBuyButton != null) boundBuyButton.onClick.RemoveListener(OnClickBuy);
     }
-*/
     public void ShowDetail(Item item, System.Action refreshCallback = null)
     {
         if (item == null)
@@ -44,9 +65,12 @@ public class ItemDetailPanel : MonoBehaviour
         currentItem = item;
         onPurchaseCallback = refreshCallback;
         gameObject.SetActive(true);
+        BindBuyButton();
+        if (buyButton == null)
+            Debug.LogError("[상점] 구매 버튼이 연결되지 않았습니다. ItemDetailPanel의 Buy Button을 연결하세요.", this);
 
         if (nameText != null) nameText.text = item.Item_name;
-        if (priceText != null) priceText.text = $"{item.Item_price * buyAmount:#,##0} G";
+        if (priceText != null) priceText.text = $"{(long)item.Item_price * buyAmount:#,##0} G";
         if (explanationText != null) explanationText.text = item.item_explanation;
         if (iconImage != null && item.Item_icon != null) iconImage.sprite = item.Item_icon;
 
@@ -59,10 +83,12 @@ public class ItemDetailPanel : MonoBehaviour
 
         PlayerWallet wallet = PlayerWallet.Instance;
 
-        bool canAfford = wallet != null && wallet.CurrentMoney >= currentItem.Item_price * buyAmount;
+        long price = (long)currentItem.Item_price * buyAmount;
+        bool canAfford = wallet != null && currentItem.Item_price >= 0 && buyAmount > 0
+            && price <= int.MaxValue && wallet.CurrentMoney >= price;
         bool hasRoom = ShopInventoryBridge.CanReceive(currentItem, buyAmount);
 
-        //buyButton.interactable = canAfford && hasRoom;
+        buyButton.interactable = canAfford && hasRoom;
     }
 
     // [구매하기] 버튼 클릭 시 동작
@@ -72,14 +98,11 @@ public class ItemDetailPanel : MonoBehaviour
 
         PlayerWallet wallet = PlayerWallet.Instance;
 
-        Debug.Log(nameof(wallet));
-
         if (wallet == null)
         {
             Debug.LogWarning("[상점] PlayerWallet 이 없습니다!");
             return;
         }
-/*
         // ★ 자리 확인을 돈 차감보다 먼저.
         //   순서가 바뀌면 가방이 꽉 찼을 때 돈만 사라진다
         if (!ShopInventoryBridge.CanReceive(currentItem, buyAmount))
@@ -87,9 +110,15 @@ public class ItemDetailPanel : MonoBehaviour
             Debug.LogWarning("[상점] 가방에 자리가 없습니다.");
             UpdateButtonState();
             return;
-        }*/
+        }
 
-        int price = currentItem.Item_price * buyAmount;
+        long totalPrice = (long)currentItem.Item_price * buyAmount;
+        if (currentItem.Item_price < 0 || buyAmount <= 0 || totalPrice > int.MaxValue)
+        {
+            Debug.LogWarning("[상점] 구매 가격 또는 수량이 올바르지 않습니다.");
+            return;
+        }
+        int price = (int)totalPrice;
 
         if (!wallet.TrySpendMoney(price))
         {
@@ -100,16 +129,19 @@ public class ItemDetailPanel : MonoBehaviour
 
         // ★ Item_count++ 가 아니라 진짜 인벤토리에 넣는다
         int got = ShopInventoryBridge.Buy(currentItem, buyAmount);
-        Debug.Log(got);
-        if (got != 0)
+        if (got < buyAmount)
         {
-            // 못 넣었으면 돈을 돌려준다
-            wallet.AddMoney(price);
-            Debug.LogError("[상점] 아이템을 넣지 못해 구매를 취소했습니다. 매핑 표를 확인하세요.");
+            // 실제로 받지 못한 수량만 환불한다.
+            wallet.AddMoney(currentItem.Item_price * (buyAmount - got));
+        }
+        if (got <= 0)
+        {
+            Debug.LogWarning("[상점] 아이템을 넣지 못해 구매 금액을 환불했습니다. 매핑과 인벤토리 공간을 확인하세요.");
+            UpdateButtonState();
             return;
         }
 
-        Debug.Log($"[상점] {currentItem.Item_name} {got}개 구매 · {price}G " +
+        Debug.Log($"[상점] {currentItem.Item_name} {got}개 구매 · {currentItem.Item_price * got}G " +
                   $"(현재 보유 {ShopInventoryBridge.CountOf(currentItem)}개)");
 
         UpdateButtonState();

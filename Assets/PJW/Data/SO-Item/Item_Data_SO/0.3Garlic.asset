@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   <Item_icon>k__BackingField: {fileID: 1204595714, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
   <Item_price>k__BackingField: 1000
-  item_sellPrice: 0
+  item_sellPrice: 1000
   <Item_name>k__BackingField: "\uCF00\uC77C"
   <item_explanation>k__BackingField: "\uC78E\uC740 \uAE34 \uD0C0\uC6D0\uD615\uC73C\uB85C
     \uB450\uAECD\uAC8C \uC790\uB77C\uACE0 \uC624\uAE00\uCABC\uAE00\uD558\uBA70, \uBE44\uD0C0\uBBFC\uACFC

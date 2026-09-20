@@ -31,10 +31,14 @@ public class Itemselldetailpanel : MonoBehaviour
     private Item currentItem;
     private System.Action onSellCallback;
 
-    private void Start()
+    private void Awake()
     {
         if (sellButton != null) sellButton.onClick.AddListener(OnClickSell);
-        gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        if (currentItem == null) gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -76,6 +80,8 @@ public class Itemselldetailpanel : MonoBehaviour
         int gold = have > 0 ? ShopInventoryBridge.PreviewSellValue(currentItem, AmountToSell(have)) : 0;
 
         if (priceText != null) priceText.text = $"{gold:#,##0} G";
+        PlayerWallet wallet = playerWalletcomp != null ? playerWalletcomp : PlayerWallet.Instance;
+        if (sellButton != null) sellButton.interactable = AmountToSell(have) > 0 && wallet != null;
     }
 
     private int AmountToSell(int have)
@@ -89,6 +95,14 @@ public class Itemselldetailpanel : MonoBehaviour
     private void OnClickSell()
     {
         if (currentItem == null) return;
+
+        PlayerWallet wallet = playerWalletcomp != null ? playerWalletcomp : PlayerWallet.Instance;
+        if (wallet == null)
+        {
+            Debug.LogWarning("[상점] PlayerWallet 이 없어 판매할 수 없습니다.");
+            Refresh();
+            return;
+        }
 
         int have = ShopInventoryBridge.CountOf(currentItem);
         int want = AmountToSell(have);
@@ -106,10 +120,7 @@ public class Itemselldetailpanel : MonoBehaviour
         }
 
         // ★ 돈은 한 번만 준다
-        PlayerWallet wallet = playerWalletcomp != null ? playerWalletcomp : PlayerWallet.Instance;
-
-        if (wallet != null) wallet.AddMoney(gold);
-        else Debug.LogError("[상점] PlayerWallet 이 없습니다. 판매는 됐는데 돈이 안 들어갔습니다.");
+        wallet.AddMoney(gold);
 
         Debug.Log($"[상점] {currentItem.Item_name} {sold}개 판매 · {gold}G " +
                   $"(남은 수량 {ShopInventoryBridge.CountOf(currentItem)}개)");
