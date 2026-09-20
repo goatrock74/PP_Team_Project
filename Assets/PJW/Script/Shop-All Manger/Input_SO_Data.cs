@@ -7,18 +7,12 @@ public class Input_SO_Data : MonoBehaviour
     [Header("계절별 ItemListSO (순서 무관, SO의 Target Type 기준)")]
     [SerializeField] private ItemListSO[] itemListSO;
 
-    [Header("계절 연동")]
-    [Tooltip("비워두면 현재 로드된 씬에서 TimeManager를 찾는다")]
-    [SerializeField] private TimeManager timeManager;
-
     [Header("UI 연결")]
     [SerializeField] private List<Plant_Shop_BT> shopButtons;
     [SerializeField] private ItemDetailPanel detailPanel;
 
     private int currentSeasonIndex = 0;
-    private TimeManager subscribedTimeManager;
     public int CurrentSeasonIndex => currentSeasonIndex;
-    public TimeManager Clock => timeManager;
     public ItemListSO GetSeasonList(int seasonIndex)
     {
         SeasonType season = seasonIndex switch
@@ -34,42 +28,13 @@ public class Input_SO_Data : MonoBehaviour
 
     private void Start()
     {
-        RefreshCurrentSeason();
+        RefreshShopUI(currentSeasonIndex);
     }
 
     private void OnEnable()
     {
-        RefreshCurrentSeason();
-    }
-
-    private void OnDisable()
-    {
-        if (subscribedTimeManager != null)
-            subscribedTimeManager.OnSeasonChange -= UpdateShopBySeason;
-        subscribedTimeManager = null;
-    }
-
-    /// <summary>현재 계절을 읽어 목록을 갱신한다. 상점을 다시 열 때도 호출한다.</summary>
-    [ContextMenu("현재 계절로 상점 갱신")]
-    public void RefreshCurrentSeason()
-    {
-        if (timeManager == null) timeManager = FindFirstObjectByType<TimeManager>();
-
-        if (subscribedTimeManager != timeManager)
-        {
-            if (subscribedTimeManager != null)
-                subscribedTimeManager.OnSeasonChange -= UpdateShopBySeason;
-
-            subscribedTimeManager = null;
-            if (timeManager != null && isActiveAndEnabled)
-            {
-                subscribedTimeManager = timeManager;
-                subscribedTimeManager.OnSeasonChange += UpdateShopBySeason;
-            }
-        }
-
-        if (timeManager != null) UpdateShopBySeason(timeManager.CurrentSeason);
-        else RefreshShopUI(currentSeasonIndex);
+        // 외부에서 마지막으로 전달받은 계절을 유지한다.
+        RefreshShopUI(currentSeasonIndex);
     }
 
     /// <summary>계절 변경 이벤트 또는 외부 코드에서 호출하는 상점 갱신 함수.</summary>

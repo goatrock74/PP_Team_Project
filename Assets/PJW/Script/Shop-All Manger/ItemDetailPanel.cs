@@ -19,11 +19,30 @@ public class ItemDetailPanel : MonoBehaviour
 
     private Item currentItem;
     private System.Action onPurchaseCallback;
+    private Button boundBuyButton;
+
+    private void OnValidate() => ResolveBuyButton();
+
+    private void ResolveBuyButton()
+    {
+        if (buyButton != null) return;
+        // 상세창 내부에 버튼이 하나일 때만 자동 연결한다.
+        Button[] buttons = GetComponentsInChildren<Button>(true);
+        if (buttons.Length == 1) buyButton = buttons[0];
+    }
+
+    private void BindBuyButton()
+    {
+        ResolveBuyButton();
+        if (boundBuyButton == buyButton) return;
+        if (boundBuyButton != null) boundBuyButton.onClick.RemoveListener(OnClickBuy);
+        boundBuyButton = buyButton;
+        if (boundBuyButton != null) boundBuyButton.onClick.AddListener(OnClickBuy);
+    }
 
     private void Awake()
     {
-        if (buyButton != null)
-            buyButton.onClick.AddListener(OnClickBuy);
+        BindBuyButton();
     }
 
     private void Start()
@@ -33,7 +52,7 @@ public class ItemDetailPanel : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (buyButton != null) buyButton.onClick.RemoveListener(OnClickBuy);
+        if (boundBuyButton != null) boundBuyButton.onClick.RemoveListener(OnClickBuy);
     }
     public void ShowDetail(Item item, System.Action refreshCallback = null)
     {
@@ -46,6 +65,9 @@ public class ItemDetailPanel : MonoBehaviour
         currentItem = item;
         onPurchaseCallback = refreshCallback;
         gameObject.SetActive(true);
+        BindBuyButton();
+        if (buyButton == null)
+            Debug.LogError("[상점] 구매 버튼이 연결되지 않았습니다. ItemDetailPanel의 Buy Button을 연결하세요.", this);
 
         if (nameText != null) nameText.text = item.Item_name;
         if (priceText != null) priceText.text = $"{(long)item.Item_price * buyAmount:#,##0} G";

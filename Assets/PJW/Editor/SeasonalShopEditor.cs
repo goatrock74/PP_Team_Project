@@ -45,18 +45,6 @@ public class SeasonalShopEditor : Editor
         using (new EditorGUI.DisabledScope(!Application.isPlaying))
         {
             if (GUILayout.Button("선택한 계절을 상점에 적용")) shop.UpdateShopBySeason((TimeManager.SeasonPeriod)preview);
-            if (GUILayout.Button("게임 시계의 현재 계절로 갱신")) shop.RefreshCurrentSeason();
-            if (shop.Clock == null)
-            {
-                EditorGUILayout.HelpBox("TimeManager가 없습니다. 테스트 시계는 플레이 종료 시 사라집니다.", MessageType.Warning);
-                if (GUILayout.Button("테스트용 TimeManager 생성·연결"))
-                {
-                    new GameObject("Shop Test Clock").AddComponent<TimeManager>();
-                    shop.RefreshCurrentSeason();
-                }
-            }
-            else if (GUILayout.Button("다음 계절까지 5일 진행 (시간 이벤트 검증)"))
-                for (int i = 0; i < 5; i++) shop.Clock.SkipToNextDay();
         }
         if (Application.isPlaying)
         {
