@@ -3,6 +3,7 @@ using TMPro;
 using Unity.VisualScripting;
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace PJH._01.Scripts
 {
@@ -12,6 +13,7 @@ namespace PJH._01.Scripts
         [SerializeField] private FishingBaitManager fishingBaitManager;
         [SerializeField] private GameObject panel;
         [SerializeField] private TextMeshProUGUI messageText;
+        [SerializeField] private Image baitIcon; 
 
         private FishingBaitDataSO selectedBait;
         private PlayerInventory selectedPlayer;
@@ -23,6 +25,7 @@ namespace PJH._01.Scripts
             
             selectedPlayer = player;
             selectedBait = bait;
+            baitIcon.sprite = bait.icon;
             
             messageText.text =  $"{bait.DisplayName}를 사용하시겠습니까?\n" +
                                 $"다음 낚시 {bait.EffectiveCatchCount}회 · " +
