@@ -1,11 +1,9 @@
 ﻿using System;
 using UnityEngine;
 using KSM._00.Scripts.Crop;
-using UnityEditor.UIElements;
 
 namespace KSM._00.Scripts.Items
 {
-
     public class PlayerInventory : MonoBehaviour
     {
         private static PlayerInventory _instance;
@@ -38,11 +36,14 @@ namespace KSM._00.Scripts.Items
 
         [Tooltip("게임 시작 시 핫바에 넣어둘 아이템 (도구 등)")]
         [SerializeField] private StartingItem[] startingHotbarItems;
+
         public Inventory Bag { get; private set; }
         public Inventory Hotbar { get; private set; }
         public Inventory Inventory => Bag;
+
         public event Action<ItemSO, int> OnOverflow;
         public event Action<ItemSO, int, ItemQuality> OnItemGained;
+
         public ItemSO HeldItem { get; private set; }
         public ItemQuality HeldQuality { get; private set; }
         public SlotArea HeldArea { get; private set; } = SlotArea.Bag;
@@ -50,12 +51,15 @@ namespace KSM._00.Scripts.Items
         public event Action OnHeldChanged;
 
         public bool HasHeldItem => HeldItem != null;
+
         public bool IsHeld(SlotArea area, int index)
             => HeldItem != null && HeldArea == area && HeldSlotIndex == index;
+
         public bool CanUseHeld => HeldItem != null && HeldArea == SlotArea.Hotbar;
 
-
         private CropManager _cropManager;
+
+        // ════════════════════════════════════════════════════════════
 
         private void Awake()
         {
@@ -97,15 +101,67 @@ namespace KSM._00.Scripts.Items
 
         private void Start()
         {
-            if (startingItems != null)
-                foreach (StartingItem s in startingItems)
-                    if (s.item != null) AddTo(SlotArea.Bag, s.item, s.count, s.quality);
-
-            if (startingHotbarItems != null)
-                foreach (StartingItem s in startingHotbarItems)
-                    if (s.item != null) AddTo(SlotArea.Hotbar, s.item, s.count, s.quality);
+            GiveStartingItems(startingItems, SlotArea.Bag, "Starting Items");
+            GiveStartingItems(startingHotbarItems, SlotArea.Hotbar, "Starting Hotbar Items");
         }
 
+        /// <summary>
+        /// 시작 아이템을 넣는다.
+        ///
+        /// ★ Count 가 0이면 예전엔 아무 말 없이 무시됐다.
+        ///   StartingItem 은 구조체라 인스펙터에서 칸을 새로 만들면 Count 가 0으로 시작하는데,
+        ///   AddTo 가 amount &lt;= 0 에서 조용히 return 해버려서 "아이템은 꽂았는데 안 들어온다" 가 됐다.
+        ///   이제는 왜 안 들어갔는지 콘솔에 찍는다.
+        /// </summary>
+        private void GiveStartingItems(StartingItem[] list, SlotArea area, string label)
+        {
+            if (list == null) return;
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                StartingItem s = list[i];
+                if (s.item == null) continue;
+
+                if (s.count <= 0)
+                {
+                    Debug.LogWarning(
+                        $"[인벤토리] {label} 의 {i}번째 칸 '{s.item.DisplayName}' 은 " +
+                        $"Count 가 {s.count} 라서 넣지 않았습니다. 1 이상으로 바꿔주세요.", this);
+
+                    continue;
+                }
+
+                AddTo(area, s.item, s.count, s.quality);
+            }
+        }
+
+        /// <summary>
+        /// 구조체는 필드 초기화식을 못 쓰고 [Min(1)] 도 값을 직접 건드릴 때만 작동한다.
+        /// 그래서 인스펙터에서 칸이 새로 생기면 여기서 Count 를 1로 채워준다.
+        /// </summary>
+        private void OnValidate()
+        {
+            FixCounts(startingItems);
+            FixCounts(startingHotbarItems);
+        }
+
+        private static void FixCounts(StartingItem[] list)
+        {
+            if (list == null) return;
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (list[i].count > 0) continue;
+
+                StartingItem s = list[i];
+                s.count = 1;
+                list[i] = s;
+            }
+        }
+
+        // ════════════════════════════════════════════════════════════
+        //  저장소 접근
+        // ════════════════════════════════════════════════════════════
 
         public Inventory GetContainer(SlotArea area)
             => area == SlotArea.Hotbar ? Hotbar : Bag;
@@ -113,6 +169,7 @@ namespace KSM._00.Scripts.Items
         public ItemStack GetSlot(SlotArea area, int index)
             => GetContainer(area).GetSlot(index);
 
+        /// <summary>가방·핫바를 합쳐서 이만큼 받을 자리가 있는가</summary>
         public bool CanAccept(ItemSO item, int amount, ItemQuality quality = ItemQuality.Normal)
         {
             if (item == null || amount <= 0) return true;
@@ -120,7 +177,13 @@ namespace KSM._00.Scripts.Items
             return Bag.SpaceFor(item, quality) + Hotbar.SpaceFor(item, quality) >= amount;
         }
 
+        /// <summary>완전히 빈 칸이 하나라도 있는가 (뽑기처럼 무엇이 나올지 모를 때)</summary>
         public bool HasFreeSlot() => Bag.HasEmptySlot() || Hotbar.HasEmptySlot();
+
+        // ════════════════════════════════════════════════════════════
+        //  넣기 / 빼기
+        // ════════════════════════════════════════════════════════════
+
         public int Add(ItemSO item, int amount, ItemQuality quality = ItemQuality.Normal)
         {
             if (item == null || amount <= 0) return 0;
@@ -134,6 +197,7 @@ namespace KSM._00.Scripts.Items
             ReportGain(item, amount - leftover, leftover, quality);
             return leftover;
         }
+
         public int AddTo(SlotArea area, ItemSO item, int amount, ItemQuality quality = ItemQuality.Normal)
         {
             if (item == null || amount <= 0) return 0;
@@ -166,6 +230,7 @@ namespace KSM._00.Scripts.Items
             OnOverflow?.Invoke(item, leftover);
         }
 
+        /// <summary>가방에서 먼저 빼고, 모자라면 핫바에서 마저 뺀다</summary>
         public int Remove(ItemSO item, int amount)
         {
             int removed = Bag.Remove(item, amount);
@@ -183,7 +248,13 @@ namespace KSM._00.Scripts.Items
         }
 
         public int CountOf(ItemSO item) => Bag.CountOf(item) + Hotbar.CountOf(item);
+
         public bool Has(ItemSO item, int amount = 1) => CountOf(item) >= amount;
+
+        // ════════════════════════════════════════════════════════════
+        //  칸 옮기기
+        // ════════════════════════════════════════════════════════════
+
         public void MoveOrSwap(SlotArea fromArea, int fromIndex, SlotArea toArea, int toIndex)
         {
             if (fromArea == toArea && fromIndex == toIndex) return;
@@ -199,6 +270,11 @@ namespace KSM._00.Scripts.Items
             HeldSlotIndex = toIndex;
             OnHeldChanged?.Invoke();
         }
+
+        // ════════════════════════════════════════════════════════════
+        //  손에 들기
+        // ════════════════════════════════════════════════════════════
+
         public void HoldSlot(int index) => HoldSlot(SlotArea.Bag, index);
 
         public void HoldSlot(SlotArea area, int index)
@@ -275,6 +351,7 @@ namespace KSM._00.Scripts.Items
             return false;
         }
 
+        // ════════════════════════════════════════════════════════════
 
         private void HandleHarvested(ItemSO item, int amount, ItemQuality quality)
         {
@@ -291,7 +368,10 @@ namespace KSM._00.Scripts.Items
         private struct StartingItem
         {
             public ItemSO item;
+
+            [Tooltip("몇 개를 넣을지. 구조체라 새 칸은 0으로 생기는데, OnValidate 가 1로 채워준다")]
             [Min(1)] public int count;
+
             public ItemQuality quality;
         }
     }
