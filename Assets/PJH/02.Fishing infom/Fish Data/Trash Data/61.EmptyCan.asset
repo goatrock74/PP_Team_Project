@@ -13,16 +13,26 @@ MonoBehaviour:
   m_Name: 61.EmptyCan
   m_EditorClassIdentifier: Assembly-CSharp::PJH.Scripts.FishData
   itemId: EmptyCan
-  displayName: 빈 깡통
+  displayName: "\uBE48 \uAE61\uD1B5"
   icon: {fileID: 8122147156844349503, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  description: 물속에서 건져 올린 찌그러진 빈 깡통. 물고기는 아니지만 도감의 쓰레기 칸을 채운다.
+  description: "\uBB3C\uC18D\uC5D0\uC11C \uAC74\uC838 \uC62C\uB9B0 \uCC0C\uADF8\uB7EC\uC9C4
+    \uBE48 \uAE61\uD1B5."
   itemType: 2
   maxStack: 99
   sellPrice: 0
+  season: 0
   fishID: EmptyCan
   rarity: 0
   collectionCategory: 2
   difficulty: 0
+  baseCatchWeight: 100
+  springMultiplier: 1
+  summerMultiplier: 1
+  autumnMultiplier: 1
+  winterMultiplier: 1
+  morningMultiplier: 1
+  afternoonMultiplier: 1
+  nightMultiplier: 1
   moveSpeed: 0.08
   minTargetChangeTime: 2.5
   maxTargetChangeTime: 3.5

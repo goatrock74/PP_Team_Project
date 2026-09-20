@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 6
   displayName: BlueBerry
-  icon: {fileID: 338596907691811543, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
-  description: "\uC544\uC8FC\uB9E4\uC6CC\uBCF4\uC774\uB294 \uAF2C\uCD94"
+  icon: {fileID: 5414920948540241262, guid: 1007023ac2764a642aab84a9f2f87448, type: 3}
+  description: "\uBE14\uB8E8\uBCA0\uB9AC"
   itemType: 0
   maxStack: 99
   sellPrice: 0
+  season: 0

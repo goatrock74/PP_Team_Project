@@ -65,6 +65,7 @@ public enum ItemType
     Material,   // 재료
     Tool,       // 도구
     Etc,
+    Bait
 }
  
 public static class ItemTypeUtil
@@ -78,6 +79,7 @@ public static class ItemTypeUtil
         ItemType.Dish => "요리",
         ItemType.Material => "재료",
         ItemType.Tool => "도구",
+        ItemType.Bait => "미끼",
         _ => "기타",
     };
 }

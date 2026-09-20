@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 554aedde74964269be1502ef2eeeb39f, type: 3}
+  m_Name: BasicBait
+  m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishingBaitDataSO
+  itemId: BasicBait
+  displayName: "\uAE30\uBCF8 \uBBF8\uB07C"
+  icon: {fileID: 6038393624000712129, guid: 36425019ee5fa744e88a01baf17ad8c3, type: 3}
+  description: "\uB2E4\uC74C \uB09A\uC2DC\uC5D0\uC11C \uD76C\uADC0\uD55C \uBB3C\uACE0\uAE30\uAC00
+    \uAC78\uB9B4 \uD655\uB960\uC744 \uC870\uAE08 \uB192\uC778\uB2E4."
+  itemType: 7
+  maxStack: 99
+  sellPrice: 0
+  season: 0
+  fishLuckBonus: 0.25
+  effectiveCatchCount: 1

@@ -26,9 +26,19 @@ namespace PJH.Scripts
 
         private FishCollectionCategory currentCategory;
 
+        private bool hasStartded;
+
         private void OnEnable()
         {
             collectionManager.OnCollectionChanged += RefreshSlots;
+            if(hasStartded)
+                ShowSeaFish();
+            
+        }
+
+        private void Start()
+        {
+            hasStartded = true;
             ShowSeaFish();
         }
 

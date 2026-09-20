@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: RasBerry
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 7
-  displayName: Rasberry
-  icon: {fileID: -8253341163845443366, guid: 8d830c60cc2074443ac091dbfd81f4c9, type: 3}
-  description: Ras
+  displayName: "\uB77C\uC988\uBCA0\uB9AC"
+  icon: {fileID: 359300520585257351, guid: 1007023ac2764a642aab84a9f2f87448, type: 3}
+  description: "\uB77C\uC988\uBCA0\uB9AC\uB2E4"
   itemType: 0
   maxStack: 99
   sellPrice: 0
+  season: 0
