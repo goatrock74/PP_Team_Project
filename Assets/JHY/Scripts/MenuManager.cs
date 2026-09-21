@@ -68,7 +68,7 @@ public class MenuManager : MonoBehaviour
                 mainMenu.blocksRaycasts = true;
 
                 isStartScreen = false;
-                particle.SetActive(false);
+                particle.SetActive(true);
                 background.SetActive(true);
 
                 mainMenuAnimation.PlayAnimation();
