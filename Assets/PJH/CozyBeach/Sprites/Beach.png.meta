@@ -1,0 +1,2173 @@
+fileFormatVersion: 2
+guid: 5bf4708e7e38805449ff61865269872a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6146795774391780013
+    second: Beach_0
+  - first:
+      213: -7839720929918244483
+    second: Beach_1
+  - first:
+      213: 4714704212175276873
+    second: Beach_2
+  - first:
+      213: 228621964648864360
+    second: Beach_3
+  - first:
+      213: 5699045257292805443
+    second: Beach_4
+  - first:
+      213: -9214783355573753972
+    second: Beach_5
+  - first:
+      213: 7201960969441130307
+    second: Beach_6
+  - first:
+      213: 7695835534877583419
+    second: Beach_7
+  - first:
+      213: -721079668679348047
+    second: Beach_8
+  - first:
+      213: -5779227232710834306
+    second: Beach_9
+  - first:
+      213: 5508108389370972179
+    second: Beach_10
+  - first:
+      213: -7818470522051490577
+    second: Beach_11
+  - first:
+      213: -3685891821689080187
+    second: Beach_12
+  - first:
+      213: -1600087425272334168
+    second: Beach_13
+  - first:
+      213: 2338734681172880487
+    second: Beach_14
+  - first:
+      213: 6228644212666961924
+    second: Beach_15
+  - first:
+      213: -6737283710533907472
+    second: Beach_16
+  - first:
+      213: -7011640693540663382
+    second: Beach_17
+  - first:
+      213: 529542882439746871
+    second: Beach_18
+  - first:
+      213: -4561339164775340265
+    second: Beach_19
+  - first:
+      213: -8139745635323216618
+    second: Beach_20
+  - first:
+      213: 376289287889580720
+    second: Beach_21
+  - first:
+      213: -4800677615479109082
+    second: Beach_22
+  - first:
+      213: -5525532560009000291
+    second: Beach_23
+  - first:
+      213: 2437225268380593475
+    second: Beach_24
+  - first:
+      213: 6318157060554537851
+    second: Beach_25
+  - first:
+      213: 1071270678071601078
+    second: Beach_26
+  - first:
+      213: 3896068957978023835
+    second: Beach_27
+  - first:
+      213: 7798294803524229362
+    second: Beach_28
+  - first:
+      213: 4063129136634641932
+    second: Beach_29
+  - first:
+      213: 5379126871292432029
+    second: Beach_30
+  - first:
+      213: -1891285218720813060
+    second: Beach_31
+  - first:
+      213: 4746154951520843558
+    second: Beach_32
+  - first:
+      213: -3638682711442353227
+    second: Coast_1_1
+  - first:
+      213: 6714327753852629413
+    second: Coast_2_1
+  - first:
+      213: 2917446477241937136
+    second: Coast_3_1
+  - first:
+      213: -7582568510882475039
+    second: Coast_4_1
+  - first:
+      213: 11983894221254657
+    second: Coast_5_1
+  - first:
+      213: -3957586252397836822
+    second: Coast_6_1
+  - first:
+      213: 2423251595907976433
+    second: Coast_7_1
+  - first:
+      213: -1988218808858979869
+    second: Coast_1_2
+  - first:
+      213: 5349700067382320836
+    second: Coast_2_2
+  - first:
+      213: -2634859457417044230
+    second: Coast_3_2
+  - first:
+      213: 3035002991307678265
+    second: Coast_4_2
+  - first:
+      213: -7981923631645532980
+    second: Coast_5_2
+  - first:
+      213: -4561875808217272334
+    second: Coast_6_2
+  - first:
+      213: 6567264393041077404
+    second: Coast_7_2
+  - first:
+      213: -2788181495650465345
+    second: Coast_1_3
+  - first:
+      213: 3149721500405279867
+    second: Coast_2_3
+  - first:
+      213: 6547380408539364131
+    second: Coast_3_3
+  - first:
+      213: 116981218819210194
+    second: Coast_4_3
+  - first:
+      213: -1465160944699647226
+    second: Coast_5_3
+  - first:
+      213: 7594857972066960145
+    second: Coast_6_3
+  - first:
+      213: 9058403886785665357
+    second: Coast_7_3
+  - first:
+      213: 8160800638869531473
+    second: Coast_1_4
+  - first:
+      213: 1099480632802894837
+    second: Coast_2_4
+  - first:
+      213: 4649426869737638828
+    second: Coast_3_4
+  - first:
+      213: -8964797058119968264
+    second: Coast_4_4
+  - first:
+      213: -5089327916908553237
+    second: Coast_5_4
+  - first:
+      213: -4557349363814394258
+    second: Coast_6_4
+  - first:
+      213: -2985648052445314195
+    second: Coast_7_4
+  - first:
+      213: 6154617205946237206
+    second: Coast_1_5
+  - first:
+      213: -3187489851774705928
+    second: Coast_2_5
+  - first:
+      213: 8025629072221152744
+    second: Coast_3_5
+  - first:
+      213: -6238983005221878330
+    second: Coast_4_5
+  - first:
+      213: 4840106715382383657
+    second: Coast_5_5
+  - first:
+      213: 1065403068858804961
+    second: Coast_6_5
+  - first:
+      213: -1586291901388543772
+    second: Coast_7_5
+  - first:
+      213: -4485876791047420784
+    second: Coast_1_6
+  - first:
+      213: -1617899402335603225
+    second: Coast_2_6
+  - first:
+      213: 5133988642725329799
+    second: Coast_3_6
+  - first:
+      213: 7978612145341758961
+    second: Coast_4_6
+  - first:
+      213: 7564168829244459148
+    second: Coast_5_6
+  - first:
+      213: 7996036659660899981
+    second: Coast_6_6
+  - first:
+      213: 2207596621649398887
+    second: Coast_7_6
+  - first:
+      213: 3415273148509286890
+    second: Coast_1_7
+  - first:
+      213: 3009674494583208607
+    second: Coast_2_7
+  - first:
+      213: 8946343075533863114
+    second: Coast_3_7
+  - first:
+      213: 4153750251925402670
+    second: Coast_4_7
+  - first:
+      213: 8784334264097914548
+    second: Coast_5_7
+  - first:
+      213: 8017008494387360134
+    second: Coast_6_7
+  - first:
+      213: 1674555022952797191
+    second: Coast_7_7
+  - first:
+      213: 3391599235764030542
+    second: SandPlain
+  - first:
+      213: 2868602825751886827
+    second: WaterPlain
+  - first:
+      213: 6712321863353029827
+    second: ShellA
+  - first:
+      213: 7856637382817691471
+    second: ShellB
+  - first:
+      213: 2906198648480289713
+    second: Starfish
+  - first:
+      213: 7946473189742797956
+    second: Pebble
+  - first:
+      213: 4848199620904405155
+    second: SandMark1
+  - first:
+      213: 4532242461848133152
+    second: SandMark2
+  - first:
+      213: -2919927882856305918
+    second: Palm
+  - first:
+      213: 6106740496235502331
+    second: Crate
+  - first:
+      213: -7538044116687162411
+    second: Dock_18_9
+  - first:
+      213: -7987761814178841123
+    second: Dock_19_9
+  - first:
+      213: 8386281837655628797
+    second: Dock_20_9
+  - first:
+      213: -2226462492691172835
+    second: Dock_21_9
+  - first:
+      213: -724041472442778265
+    second: Dock_22_9
+  - first:
+      213: 2680214763490178326
+    second: Dock_18_10
+  - first:
+      213: -5280919927196576818
+    second: Dock_19_10
+  - first:
+      213: 2235966262891868012
+    second: Dock_20_10
+  - first:
+      213: 5590032775354395794
+    second: Dock_21_10
+  - first:
+      213: 5976337976937561105
+    second: Dock_22_10
+  - first:
+      213: -802769147213473723
+    second: Dock_18_11
+  - first:
+      213: 4872312870608288225
+    second: Dock_19_11
+  - first:
+      213: 3901218919605459362
+    second: Dock_20_11
+  - first:
+      213: -4676788402114452081
+    second: Dock_21_11
+  - first:
+      213: 1613517564802856435
+    second: Dock_22_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Coast_1_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 384
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b39f1e3a5dc08dc0800000000000000
+      internalID: -3638682711442353227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_2_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 384
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1bee1a4851e2d50800000000000000
+      internalID: 6714327753852629413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_3_1
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 384
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc683f1d1adc7820800000000000000
+      internalID: 2917446477241937136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_4_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e399cf0d1e45c690800000000000000
+      internalID: -7582568510882475039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_5_1
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 384
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 100751ec9439a2000800000000000000
+      internalID: 11983894221254657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_6_1
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 384
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae58bd98544d319c0800000000000000
+      internalID: -3957586252397836822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_7_1
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 384
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fc4e7fcc7e11a120800000000000000
+      internalID: 2423251595907976433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_1_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 368
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e1d532078d6864e0800000000000000
+      internalID: -1988218808858979869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_2_2
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 368
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ced43b0ed3fd3a40800000000000000
+      internalID: 5349700067382320836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_3_2
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 368
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe149798491f6bd0800000000000000
+      internalID: -2634859457417044230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_4_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 368
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9326425f32f7e1a20800000000000000
+      internalID: 3035002991307678265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_5_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 368
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cccd87f3fb28a3190800000000000000
+      internalID: -7981923631645532980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_6_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 368
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ffe2cd4f16f0b0c0800000000000000
+      internalID: -4561875808217272334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_7_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 368
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c94e84dab2c932b50800000000000000
+      internalID: 6567264393041077404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_1_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 352
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb9cf6eb3b36e49d0800000000000000
+      internalID: -2788181495650465345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_2_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 352
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7c2115440f06bb20800000000000000
+      internalID: 3149721500405279867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_3_3
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 352
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32b3754cac7fcda50800000000000000
+      internalID: 6547380408539364131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_4_3
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 352
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2db7c197cc99f9100800000000000000
+      internalID: 116981218819210194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_5_3
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 352
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60bd66032e3baabe0800000000000000
+      internalID: -1465160944699647226
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_6_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 352
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1134898161b566960800000000000000
+      internalID: 7594857972066960145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_7_3
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 352
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4990ef675ae5bd70800000000000000
+      internalID: 9058403886785665357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_1_4
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 336
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15b699a71fcf04170800000000000000
+      internalID: 8160800638869531473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_2_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 336
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f363ab6fc3224f00800000000000000
+      internalID: 1099480632802894837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_3_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 336
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cab4ed3ba15168040800000000000000
+      internalID: 4649426869737638828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_4_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 336
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f9da4bb294a69380800000000000000
+      internalID: -8964797058119968264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_5_4
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 336
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bebdf2759331f59b0800000000000000
+      internalID: -5089327916908553237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_6_4
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 336
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e669d7446ea01c0c0800000000000000
+      internalID: -4557349363814394258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_7_4
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 336
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6309a93ae8d096d0800000000000000
+      internalID: -2985648052445314195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_1_5
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 320
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 611cee08db7996550800000000000000
+      internalID: 6154617205946237206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_2_5
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 320
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fe5ecb2ed2c3c3d0800000000000000
+      internalID: -3187489851774705928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_3_5
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 320
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e52acc9e13c06f60800000000000000
+      internalID: 8025629072221152744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_4_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c50d06230eaa69a0800000000000000
+      internalID: -6238983005221878330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_5_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 320
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9248955e9638b2340800000000000000
+      internalID: 4840106715382383657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_6_5
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 320
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eaa0f5427219ce00800000000000000
+      internalID: 1065403068858804961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_7_5
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 320
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e828a39beb5cf9e0800000000000000
+      internalID: -1586291901388543772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_1_6
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 304
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 094037363d6feb1c0800000000000000
+      internalID: -4485876791047420784
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_2_6
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 304
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e53879c0111c89e0800000000000000
+      internalID: -1617899402335603225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_3_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 304
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78b788238779f3740800000000000000
+      internalID: 5133988642725329799
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_4_6
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 304
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fd76b34979b9be60800000000000000
+      internalID: 7978612145341758961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_5_6
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 304
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c88c238397359f860800000000000000
+      internalID: 7564168829244459148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_6_6
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 304
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d86c6162af0a7fe60800000000000000
+      internalID: 7996036659660899981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_7_6
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 304
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76cc3c85e65f2ae10800000000000000
+      internalID: 2207596621649398887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_1_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 288
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae173db65dc756f20800000000000000
+      internalID: 3415273148509286890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_2_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 288
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a7f23c10384c920800000000000000
+      internalID: 3009674494583208607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_3_7
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 288
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac8b8ff90abc72c70800000000000000
+      internalID: 8946343075533863114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_4_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 288
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e24f3bbb8d515a930800000000000000
+      internalID: 4153750251925402670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_5_7
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 288
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4be39d7c87938e970800000000000000
+      internalID: 8784334264097914548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_6_7
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 288
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6817f3defb2224f60800000000000000
+      internalID: 8017008494387360134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Coast_7_7
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 288
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70492f3dbe63d3710800000000000000
+      internalID: 1674555022952797191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandPlain
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 270
+        width: 1
+        height: 1
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4c83341981611f20800000000000000
+      internalID: 3391599235764030542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WaterPlain
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 377
+        width: 1
+        height: 1
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: beb7f9e42135fc720800000000000000
+      internalID: 2868602825751886827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShellA
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 160
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c4de3bdb25f62d50800000000000000
+      internalID: 6712321863353029827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShellB
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 160
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4737ebc212680d60800000000000000
+      internalID: 7856637382817691471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Starfish
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 160
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b35369e544e45820800000000000000
+      internalID: 2906198648480289713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pebble
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 160
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 484e8cb834b874e60800000000000000
+      internalID: 7946473189742797956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandMark1
+      rect:
+        serializedVersion: 2
+        x: 176
+        y: 256
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a8c03c4ed3484340800000000000000
+      internalID: 4848199620904405155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SandMark2
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02e56669182c5ee30800000000000000
+      internalID: 4532242461848133152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Palm
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 144
+        width: 48
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20b679c9f055a77d0800000000000000
+      internalID: -2919927882856305918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crate
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 176
+        width: 32
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfa1c9d50208fb450800000000000000
+      internalID: 6106740496235502331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_18_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 256
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d373ab60dc736790800000000000000
+      internalID: -7538044116687162411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_19_9
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 256
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dddb07373f4c52190800000000000000
+      internalID: -7987761814178841123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_20_9
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfb16cf16ee026470800000000000000
+      internalID: 8386281837655628797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_21_9
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 256
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d127961c8240a11e0800000000000000
+      internalID: -2226462492691172835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_22_9
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 256
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76db560fd10b3f5f0800000000000000
+      internalID: -724041472442778265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_18_10
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 240
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615f6938029023520800000000000000
+      internalID: 2680214763490178326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_19_10
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 240
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec39a244e4766b6b0800000000000000
+      internalID: -5280919927196576818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_20_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 240
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6f6d6d287fb70f10800000000000000
+      internalID: 2235966262891868012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_21_10
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 240
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c2ac12139c39d40800000000000000
+      internalID: 5590032775354395794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_22_10
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 240
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11c3a0dd9b730f250800000000000000
+      internalID: 5976337976937561105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_18_11
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 224
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54892bfb6bdfbd4f0800000000000000
+      internalID: -802769147213473723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_19_11
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 224
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e9bb2fbdbeed9340800000000000000
+      internalID: 4872312870608288225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_20_11
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 224
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a9dd1610f9e32630800000000000000
+      internalID: 3901218919605459362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_21_11
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 224
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f852d4a1ab5b81fb0800000000000000
+      internalID: -4676788402114452081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dock_22_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 224
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f57de82dad546610800000000000000
+      internalID: 1613517564802856435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Beach_0: -6146795774391780013
+      Beach_1: -7839720929918244483
+      Beach_10: 5508108389370972179
+      Beach_11: -7818470522051490577
+      Beach_12: -3685891821689080187
+      Beach_13: -1600087425272334168
+      Beach_14: 2338734681172880487
+      Beach_15: 6228644212666961924
+      Beach_16: -6737283710533907472
+      Beach_17: -7011640693540663382
+      Beach_18: 529542882439746871
+      Beach_19: -4561339164775340265
+      Beach_2: 4714704212175276873
+      Beach_20: -8139745635323216618
+      Beach_21: 376289287889580720
+      Beach_22: -4800677615479109082
+      Beach_23: -5525532560009000291
+      Beach_24: 2437225268380593475
+      Beach_25: 6318157060554537851
+      Beach_26: 1071270678071601078
+      Beach_27: 3896068957978023835
+      Beach_28: 7798294803524229362
+      Beach_29: 4063129136634641932
+      Beach_3: 228621964648864360
+      Beach_30: 5379126871292432029
+      Beach_31: -1891285218720813060
+      Beach_32: 4746154951520843558
+      Beach_4: 5699045257292805443
+      Beach_5: -9214783355573753972
+      Beach_6: 7201960969441130307
+      Beach_7: 7695835534877583419
+      Beach_8: -721079668679348047
+      Beach_9: -5779227232710834306
+      Coast_1_1: -3638682711442353227
+      Coast_1_2: -1988218808858979869
+      Coast_1_3: -2788181495650465345
+      Coast_1_4: 8160800638869531473
+      Coast_1_5: 6154617205946237206
+      Coast_1_6: -4485876791047420784
+      Coast_1_7: 3415273148509286890
+      Coast_2_1: 6714327753852629413
+      Coast_2_2: 5349700067382320836
+      Coast_2_3: 3149721500405279867
+      Coast_2_4: 1099480632802894837
+      Coast_2_5: -3187489851774705928
+      Coast_2_6: -1617899402335603225
+      Coast_2_7: 3009674494583208607
+      Coast_3_1: 2917446477241937136
+      Coast_3_2: -2634859457417044230
+      Coast_3_3: 6547380408539364131
+      Coast_3_4: 4649426869737638828
+      Coast_3_5: 8025629072221152744
+      Coast_3_6: 5133988642725329799
+      Coast_3_7: 8946343075533863114
+      Coast_4_1: -7582568510882475039
+      Coast_4_2: 3035002991307678265
+      Coast_4_3: 116981218819210194
+      Coast_4_4: -8964797058119968264
+      Coast_4_5: -6238983005221878330
+      Coast_4_6: 7978612145341758961
+      Coast_4_7: 4153750251925402670
+      Coast_5_1: 11983894221254657
+      Coast_5_2: -7981923631645532980
+      Coast_5_3: -1465160944699647226
+      Coast_5_4: -5089327916908553237
+      Coast_5_5: 4840106715382383657
+      Coast_5_6: 7564168829244459148
+      Coast_5_7: 8784334264097914548
+      Coast_6_1: -3957586252397836822
+      Coast_6_2: -4561875808217272334
+      Coast_6_3: 7594857972066960145
+      Coast_6_4: -4557349363814394258
+      Coast_6_5: 1065403068858804961
+      Coast_6_6: 7996036659660899981
+      Coast_6_7: 8017008494387360134
+      Coast_7_1: 2423251595907976433
+      Coast_7_2: 6567264393041077404
+      Coast_7_3: 9058403886785665357
+      Coast_7_4: -2985648052445314195
+      Coast_7_5: -1586291901388543772
+      Coast_7_6: 2207596621649398887
+      Coast_7_7: 1674555022952797191
+      Crate: 6106740496235502331
+      Dock_18_10: 2680214763490178326
+      Dock_18_11: -802769147213473723
+      Dock_18_9: -7538044116687162411
+      Dock_19_10: -5280919927196576818
+      Dock_19_11: 4872312870608288225
+      Dock_19_9: -7987761814178841123
+      Dock_20_10: 2235966262891868012
+      Dock_20_11: 3901218919605459362
+      Dock_20_9: 8386281837655628797
+      Dock_21_10: 5590032775354395794
+      Dock_21_11: -4676788402114452081
+      Dock_21_9: -2226462492691172835
+      Dock_22_10: 5976337976937561105
+      Dock_22_11: 1613517564802856435
+      Dock_22_9: -724041472442778265
+      Palm: -2919927882856305918
+      Pebble: 7946473189742797956
+      SandMark1: 4848199620904405155
+      SandMark2: 4532242461848133152
+      SandPlain: 3391599235764030542
+      ShellA: 6712321863353029827
+      ShellB: 7856637382817691471
+      Starfish: 2906198648480289713
+      WaterPlain: 2868602825751886827
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
