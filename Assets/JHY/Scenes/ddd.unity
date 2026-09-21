@@ -684,8 +684,8 @@ MonoBehaviour:
     npcName: "\uC815\uC6B0"
     sentences:
     - "\uC548\uB155 \uBC18\uAC00\uC6CC"
-    - "     \u314B\u314B"
-    - "     \uBC1C\uB85C"
+    - "     \u314B\u314Bzzzz"
+    - "     \uBC1C\uB85Cgkwk"
 --- !u!70 &1396216885
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -893,6 +893,7 @@ MonoBehaviour:
   dialoguePanel: {fileID: 926592788}
   nameText: {fileID: 97237966}
   dialogueText: {fileID: 272538379}
+  textSpeed: 0.05
 --- !u!4 &1689968435
 Transform:
   m_ObjectHideFlags: 0
