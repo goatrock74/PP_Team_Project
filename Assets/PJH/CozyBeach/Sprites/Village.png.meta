@@ -1,0 +1,423 @@
+fileFormatVersion: 2
+guid: 1ff0a9cacca92bf4db1b778cbb60b7b3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3461850574408800985
+    second: Village_0
+  - first:
+      213: 6979234091517765916
+    second: Village_1
+  - first:
+      213: -7505409694357261899
+    second: Village_2
+  - first:
+      213: -5499718864720509026
+    second: Village_3
+  - first:
+      213: 3105487901236340311
+    second: Village_4
+  - first:
+      213: 4221391891632534971
+    second: Village_5
+  - first:
+      213: -3161178442214641638
+    second: Village_6
+  - first:
+      213: 6618955051440559458
+    second: Village_7
+  - first:
+      213: 4568070514916017829
+    second: Village_8
+  - first:
+      213: 4925038834227820499
+    second: Village_9
+  - first:
+      213: -22096172995160973
+    second: Village_10
+  - first:
+      213: 972466363972267924
+    second: Village_11
+  - first:
+      213: -5259745295985254043
+    second: Village_12
+  - first:
+      213: -3701273680765976962
+    second: Village_13
+  - first:
+      213: -1189772244825860195
+    second: Village_14
+  - first:
+      213: 6530068522027406341
+    second: Village_15
+  - first:
+      213: -1037374583654773965
+    second: Village_16
+  - first:
+      213: -2877969685674601728
+    second: Village_17
+  - first:
+      213: 4556825025469176791
+    second: Village_18
+  - first:
+      213: 7886202035623863157
+    second: Village_19
+  - first:
+      213: 3292043069463351445
+    second: Village_20
+  - first:
+      213: 3554787032305821545
+    second: Village_21
+  - first:
+      213: -3792368441930353062
+    second: Village_22
+  - first:
+      213: -4690271107893176541
+    second: Village_23
+  - first:
+      213: 6744047719790872225
+    second: Village_24
+  - first:
+      213: 6351507947548048454
+    second: Village_25
+  - first:
+      213: -6547794498023210737
+    second: Village_26
+  - first:
+      213: 2158439633983044298
+    second: Village_27
+  - first:
+      213: -788252574411124675
+    second: Village_28
+  - first:
+      213: 2367744938804967120
+    second: Village_29
+  - first:
+      213: 2677570042197995760
+    second: Village_30
+  - first:
+      213: 3472193210680577231
+    second: TreeGreen
+  - first:
+      213: 7928200022349960620
+    second: TreeLime
+  - first:
+      213: -2952361765672112853
+    second: BushGreen
+  - first:
+      213: 2652215145206989679
+    second: BushLime
+  - first:
+      213: 3724616983521731523
+    second: RockA
+  - first:
+      213: 2229688279989265639
+    second: RockB
+  - first:
+      213: -2239132023957402707
+    second: Flowers
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TreeGreen
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 356
+        width: 33
+        height: 45
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcc83222455bf2030800000000000000
+      internalID: 3472193210680577231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TreeLime
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 356
+        width: 33
+        height: 45
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca5d9683aef960e60800000000000000
+      internalID: 7928200022349960620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushGreen
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 356
+        width: 46
+        height: 45
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2d2baccd9a1707d0800000000000000
+      internalID: -2952361765672112853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BushLime
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 356
+        width: 46
+        height: 45
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6349fd5f9f8ec420800000000000000
+      internalID: 2652215145206989679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockA
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 272
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c32333a96f70b330800000000000000
+      internalID: 3724616983521731523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RockB
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 272
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e4ac906da171fe10800000000000000
+      internalID: 2229688279989265639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Flowers
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 16
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dab41d2a9410de0e0800000000000000
+      internalID: -2239132023957402707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BushGreen: -2952361765672112853
+      BushLime: 2652215145206989679
+      Flowers: -2239132023957402707
+      RockA: 3724616983521731523
+      RockB: 2229688279989265639
+      TreeGreen: 3472193210680577231
+      TreeLime: 7928200022349960620
+      Village_0: 3461850574408800985
+      Village_1: 6979234091517765916
+      Village_10: -22096172995160973
+      Village_11: 972466363972267924
+      Village_12: -5259745295985254043
+      Village_13: -3701273680765976962
+      Village_14: -1189772244825860195
+      Village_15: 6530068522027406341
+      Village_16: -1037374583654773965
+      Village_17: -2877969685674601728
+      Village_18: 4556825025469176791
+      Village_19: 7886202035623863157
+      Village_2: -7505409694357261899
+      Village_20: 3292043069463351445
+      Village_21: 3554787032305821545
+      Village_22: -3792368441930353062
+      Village_23: -4690271107893176541
+      Village_24: 6744047719790872225
+      Village_25: 6351507947548048454
+      Village_26: -6547794498023210737
+      Village_27: 2158439633983044298
+      Village_28: -788252574411124675
+      Village_29: 2367744938804967120
+      Village_3: -5499718864720509026
+      Village_30: 2677570042197995760
+      Village_4: 3105487901236340311
+      Village_5: 4221391891632534971
+      Village_6: -3161178442214641638
+      Village_7: 6618955051440559458
+      Village_8: 4568070514916017829
+      Village_9: 4925038834227820499
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
