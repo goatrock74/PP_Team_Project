@@ -1,10 +1,12 @@
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 [System.Serializable]
 public class DialogueData
 {
     public string npcName;
+
     [TextArea(2, 5)]
     public string[] sentences;
 }
@@ -16,8 +18,14 @@ public class DialogueManager : MonoBehaviour
     public TMP_Text nameText;
     public TMP_Text dialogueText;
 
+    [Header("대화 설정")]
+    public float textSpeed = 0.05f;
+
     private DialogueData currentDialogue;
     private int currentIndex = 0;
+
+    private Coroutine typingCoroutine;
+    private bool isTyping = false;
 
     public void StartDialogue(DialogueData data)
     {
@@ -26,6 +34,7 @@ public class DialogueManager : MonoBehaviour
 
         dialoguePanel.SetActive(true);
         nameText.text = currentDialogue.npcName + ":";
+
         DisplayNextSentence();
     }
 
@@ -33,10 +42,24 @@ public class DialogueManager : MonoBehaviour
     {
         if (currentDialogue == null) return;
 
+        // 현재 글자가 출력 중이면
+        // 바로 문장 전체를 보여줌
+        if (isTyping)
+        {
+            StopCoroutine(typingCoroutine);
+
+            dialogueText.text = currentDialogue.sentences[currentIndex - 1];
+
+            isTyping = false;
+            return;
+        }
+
         if (currentIndex < currentDialogue.sentences.Length)
         {
-            dialogueText.text = currentDialogue.sentences[currentIndex];
+            string sentence = currentDialogue.sentences[currentIndex];
             currentIndex++;
+
+            typingCoroutine = StartCoroutine(TypeText(sentence));
         }
         else
         {
@@ -44,9 +67,25 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    IEnumerator TypeText(string sentence)
+    {
+        isTyping = true;
+        dialogueText.text = "";
+
+        foreach (char letter in sentence)
+        {
+            dialogueText.text += letter;
+
+            yield return new WaitForSeconds(textSpeed);
+        }
+
+        isTyping = false;
+    }
+
     void EndDialogue()
     {
         dialoguePanel.SetActive(false);
         currentDialogue = null;
+        dialogueText.text = "";
     }
 }

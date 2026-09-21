@@ -6,13 +6,14 @@ public class TimeController : MonoBehaviour
     private SeasonPeriod seasonPeriod;
     private SeasonPassive seasonPassive;
 
-    //[SerializeField]private ShopPanel shopPanel;
+    private Input_SO_Data data;
     [SerializeField] private LightManager lightManager;
     private void Awake()
     {
         timePeriod = GetComponent<TimePeriod>();
         seasonPeriod = GetComponent<SeasonPeriod>();
         seasonPassive = GetComponent<SeasonPassive>();
+        data = GetComponent<Input_SO_Data>();
     }
     private void OnEnable()
     {
@@ -22,8 +23,7 @@ public class TimeController : MonoBehaviour
             TimeManager.Instance.OnTimePeriodChange += HandleLight;
             TimeManager.Instance.OnSeasonChange += HandleSeasonPeriod;
             TimeManager.Instance.OnDayChange += HandleSeasonPassive;
-            TimeManager.Instance.OnSeasonChange += HandleShopPanel;
-
+            //TimeManager.Instance.OnSeasonChange += HandleShopBySeason;
             HandleTimePeriod(TimeManager.Instance.CurrentPeriod);
             HandleSeasonPeriod(TimeManager.Instance.CurrentSeason);
             if (lightManager != null) HandleLight(TimeManager.Instance.CurrentPeriod);
@@ -37,7 +37,7 @@ public class TimeController : MonoBehaviour
             TimeManager.Instance.OnTimePeriodChange -= HandleLight;
             TimeManager.Instance.OnSeasonChange -= HandleSeasonPeriod;
             TimeManager.Instance.OnDayChange -= HandleSeasonPassive;
-            TimeManager.Instance.OnSeasonChange -= HandleShopPanel;
+            //TimeManager.Instance.OnSeasonChange -= HandleShopBySeason;
         }
     }
     private void HandleLight(TimeManager.TimePeriod currentPeriod)
@@ -56,8 +56,8 @@ public class TimeController : MonoBehaviour
     {
         seasonPeriod.ChangeSeasonPeriod(currentSeason);
     }
-    private void HandleShopPanel(TimeManager.SeasonPeriod currentSeason)
+    private void HandleShopBySeason(TimeManager.SeasonPeriod currentSeason)
     {
-        //shopPanel.ChangeSeason((int)currentSeason);
+        data.UpdateShopBySeason(currentSeason);
     }
 }

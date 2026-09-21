@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Properties;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManger : MonoBehaviour
@@ -15,6 +16,7 @@ public class UIManger : MonoBehaviour
 
     private void Awake()
     {
+        if (menuPanel == null && buyPanel == null && sellPanel == null) return;
         buyPanel.SetActive(false);
         sellPanel.SetActive(false);
     }
@@ -42,5 +44,15 @@ public class UIManger : MonoBehaviour
         menuPanel.SetActive(true);
         buyPanel.SetActive(false);
         sellPanel.SetActive(false);
+    }
+
+    public void InShop(int sceneNum)
+    {
+        SceneManager.LoadScene(sceneNum);
+    }
+
+    public void OutShop(int sceneNum)
+    {
+        SceneManager.LoadScene(sceneNum);
     }
 }
