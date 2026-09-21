@@ -1,0 +1,533 @@
+fileFormatVersion: 2
+guid: 6147a2a041ab96c4c8cd5affed66ca68
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9106912112445317721
+    second: BasicColorTreeAnim_0
+  - first:
+      213: -5392631601229250361
+    second: BasicColorTreeAnim_1
+  - first:
+      213: 6335665426562253028
+    second: BasicColorTreeAnim_2
+  - first:
+      213: -9113939757186718262
+    second: BasicColorTreeAnim_3
+  - first:
+      213: -6470623508936916829
+    second: BasicColorTreeAnim_4
+  - first:
+      213: 3946267810607869245
+    second: BasicColorTreeAnim_5
+  - first:
+      213: 5210639672333017473
+    second: BasicColorTreeAnim_6
+  - first:
+      213: -8428185961928728149
+    second: BasicColorTreeAnim_7
+  - first:
+      213: -1292230304141068688
+    second: BasicColorTreeAnim_8
+  - first:
+      213: -4904617192851046590
+    second: BasicColorTreeAnim_9
+  - first:
+      213: 7949227330657212515
+    second: BasicColorTreeAnim_10
+  - first:
+      213: -6299139004331150737
+    second: BasicColorTreeAnim_11
+  - first:
+      213: 8258316486654309674
+    second: BasicColorTreeAnim_12
+  - first:
+      213: 1405654559192606522
+    second: BasicColorTreeAnim_13
+  - first:
+      213: 3583158571132728254
+    second: BasicColorTreeAnim_14
+  - first:
+      213: 734640980946269301
+    second: BasicColorTreeAnim_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 4
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 43
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9526107d050426e70800000000000000
+      internalID: 9106912112445317721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_1
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 0
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c04f2c41268925b0800000000000000
+      internalID: -5392631601229250361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_2
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 0
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e087fd332ecce750800000000000000
+      internalID: 6335665426562253028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_3
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 0
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac5639c1418c48180800000000000000
+      internalID: -9113939757186718262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_4
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 0
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a00682933ab336a0800000000000000
+      internalID: -6470623508936916829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_5
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 0
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3d27df5aa5f3c630800000000000000
+      internalID: 3946267810607869245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_6
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 0
+        width: 44
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 181a7f1cc29ef4840800000000000000
+      internalID: 5210639672333017473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_7
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba1ed46a581190b80800000000000000
+      internalID: -8428185961928728149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_8
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0763da98263111ee0800000000000000
+      internalID: -1292230304141068688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_9
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ff6dc16ac4febb0800000000000000
+      internalID: -4904617192851046590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_10
+      rect:
+        serializedVersion: 2
+        x: 652
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36856a2f324515e60800000000000000
+      internalID: 7949227330657212515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_11
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62b8082376f498a0800000000000000
+      internalID: -6299139004331150737
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_12
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 0
+        width: 42
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2538c5171f6b9270800000000000000
+      internalID: 8258316486654309674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_13
+      rect:
+        serializedVersion: 2
+        x: 844
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a376595cf53e18310800000000000000
+      internalID: 1405654559192606522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_14
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3334e6cbfe9b130800000000000000
+      internalID: 3583158571132728254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BasicColorTreeAnim_15
+      rect:
+        serializedVersion: 2
+        x: 972
+        y: 0
+        width: 41
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5743fb27418f13a00800000000000000
+      internalID: 734640980946269301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      BasicColorTreeAnim_0: 9106912112445317721
+      BasicColorTreeAnim_1: -5392631601229250361
+      BasicColorTreeAnim_10: 7949227330657212515
+      BasicColorTreeAnim_11: -6299139004331150737
+      BasicColorTreeAnim_12: 8258316486654309674
+      BasicColorTreeAnim_13: 1405654559192606522
+      BasicColorTreeAnim_14: 3583158571132728254
+      BasicColorTreeAnim_15: 734640980946269301
+      BasicColorTreeAnim_2: 6335665426562253028
+      BasicColorTreeAnim_3: -9113939757186718262
+      BasicColorTreeAnim_4: -6470623508936916829
+      BasicColorTreeAnim_5: 3946267810607869245
+      BasicColorTreeAnim_6: 5210639672333017473
+      BasicColorTreeAnim_7: -8428185961928728149
+      BasicColorTreeAnim_8: -1292230304141068688
+      BasicColorTreeAnim_9: -4904617192851046590
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
