@@ -16,61 +16,65 @@ public class SeasonPeriod : MonoBehaviour
 
     public void ChangeSeasonPeriod(TimeManager.SeasonPeriod newSeason)//타일맵 swap + 각 계절별 제철 과일들로 상점 갱신
     {
-        switch (newSeason)
-        {
-            case TimeManager.SeasonPeriod.Spring:
-                StartCoroutine(FadeInOut());
-                Debug.Log("Spring");
-                spring.SetActive(true);
-               summer.SetActive(false);
-                autumn.SetActive(false);
-                winter.SetActive(false);
-                //상점 갱신
-                break;
-            case TimeManager.SeasonPeriod.Summer:
-                StartCoroutine(FadeInOut());
-                Debug.Log("Summer");
-                spring.SetActive(false);
-                summer.SetActive(true);
-                autumn.SetActive(false);
-                winter.SetActive(false);
-                //상점갱신
-                break;
-            case TimeManager.SeasonPeriod.Autumn:
-                StartCoroutine(FadeInOut());
-                Debug.Log("Autumn");
-                spring.SetActive(false);
-               summer.SetActive(false);
-                autumn.SetActive(true);
-                winter.SetActive(false);
-                //상점갱신
-                break;
-            case TimeManager.SeasonPeriod.Winter:
-                StartCoroutine(FadeInOut());
-                Debug.Log("Winter");
-                spring.SetActive(false);
-                summer.SetActive(false);
-               autumn.SetActive(false);
-                winter.SetActive(true);
-                //상점갱신
-                break;
-        }
+        if (isTransitioning)
+            return;
+
+        StartCoroutine(FadeInOut(newSeason));
     }
-    private IEnumerator FadeInOut()
+    
+    private IEnumerator FadeInOut(TimeManager.SeasonPeriod newSeason)
     {
         Image panelImage = DarkPannel.GetComponent<Image>();
 
-        // 1. 패널 켜고 즉시 완전히 어둡게(알파 1) 설정
         DarkPannel.SetActive(true);
-        panelImage.color = new Color(panelImage.color.r, panelImage.color.g, panelImage.color.b, 1f);
 
-        // 2. 검은 화면 유지 대기 시간 (원하는 만큼 조절 가능)
-        yield return new WaitForSeconds(0.5f);
+        // 처음에는 투명
+        panelImage.color = new Color(
+            panelImage.color.r,
+            panelImage.color.g,
+            panelImage.color.b,
+            0f
+        );
 
-        // 3. 0.5초 동안 부드럽게 다시 밝아짐 (Fade Out)
-        yield return panelImage.DOFade(0f, 0.5f).WaitForCompletion();
+        // 1. 서서히 어두워짐
+        yield return panelImage.DOFade(1f, 0.8f).WaitForCompletion();
 
-        // 4. 패널 끄기
+        // 2. 완전히 어두워진 순간 계절 변경
+        SetSeason(newSeason);
+
+        // 3. 바로 서서히 밝아짐
+        yield return panelImage.DOFade(0f, 1f).WaitForCompletion();
+
         DarkPannel.SetActive(false);
+    }
+    private void SetSeason(TimeManager.SeasonPeriod newSeason)
+    {
+        spring.SetActive(false);
+        summer.SetActive(false);
+        autumn.SetActive(false);
+        winter.SetActive(false);
+
+        switch (newSeason)
+        {
+            case TimeManager.SeasonPeriod.Spring:
+                spring.SetActive(true);
+                Debug.Log("Spring");
+                break;
+
+            case TimeManager.SeasonPeriod.Summer:
+                summer.SetActive(true);
+                Debug.Log("Summer");
+                break;
+
+            case TimeManager.SeasonPeriod.Autumn:
+                autumn.SetActive(true);
+                Debug.Log("Autumn");
+                break;
+
+            case TimeManager.SeasonPeriod.Winter:
+                winter.SetActive(true);
+                Debug.Log("Winter");
+                break;
+        }
     }
 }

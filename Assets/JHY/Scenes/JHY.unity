@@ -10718,7 +10718,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac69b086e433f704aa6f6bfcdf701047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TimeManager
-  dayDuration: 10
+  dayDuration: 20
 --- !u!4 &510962501
 Transform:
   m_ObjectHideFlags: 0

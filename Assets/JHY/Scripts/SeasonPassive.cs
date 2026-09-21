@@ -33,8 +33,8 @@ public class SeasonPassive : MonoBehaviour
     {
         if(UnityEngine.Random.Range(0,3) == 0)
         {
-            int start = UnityEngine.Random.Range(0, 1);
-            int end = UnityEngine.Random.Range(5, 8);
+            float start = UnityEngine.Random.Range(1.5f, 2f);
+            int end = UnityEngine.Random.Range(8, 12);
             yield return new WaitForSeconds(start);
             Debug.Log("Rain");
             rainEffect.SetActive(true);
@@ -47,8 +47,8 @@ public class SeasonPassive : MonoBehaviour
     {
         if (UnityEngine.Random.Range(0, 3) == 0)
         {
-            int start = UnityEngine.Random.Range(0, 1);
-            int end = UnityEngine.Random.Range(5,8);
+            float start = UnityEngine.Random.Range(1.5f, 2f);
+            int end = UnityEngine.Random.Range(8, 12);
             yield return new WaitForSeconds(start);
             Debug.Log("Snow");
             snowEffect.SetActive(true);
@@ -60,8 +60,8 @@ public class SeasonPassive : MonoBehaviour
     {
         if (UnityEngine.Random.Range(0, 3) == 0)
         {
-            int start = UnityEngine.Random.Range(0, 1);
-            int end = UnityEngine.Random.Range(5, 8);
+            float start = UnityEngine.Random.Range(1.5f, 2f);
+            int end = UnityEngine.Random.Range(8, 12);
             yield return new WaitForSeconds(start);
             Debug.Log("Leaves");
             leavesEffect.SetActive(true);
@@ -73,8 +73,8 @@ public class SeasonPassive : MonoBehaviour
     {
         if (UnityEngine.Random.Range(0, 3) == 0)
         {
-            int start = UnityEngine.Random.Range(0, 1);
-            int end = UnityEngine.Random.Range(5, 8);
+            float start = UnityEngine.Random.Range(1.5f, 2f);
+            int end = UnityEngine.Random.Range(8, 12);
             yield return new WaitForSeconds(start);
             Debug.Log("Flower");
             flowerEffect.SetActive(true);

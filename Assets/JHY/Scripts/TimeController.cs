@@ -23,7 +23,7 @@ public class TimeController : MonoBehaviour
             TimeManager.Instance.OnTimePeriodChange += HandleLight;
             TimeManager.Instance.OnSeasonChange += HandleSeasonPeriod;
             TimeManager.Instance.OnDayChange += HandleSeasonPassive;
-            TimeManager.Instance.OnSeasonChange += HandleShopBySeason;
+            //TimeManager.Instance.OnSeasonChange += HandleShopBySeason;
             HandleTimePeriod(TimeManager.Instance.CurrentPeriod);
             HandleSeasonPeriod(TimeManager.Instance.CurrentSeason);
             if (lightManager != null) HandleLight(TimeManager.Instance.CurrentPeriod);
@@ -37,7 +37,7 @@ public class TimeController : MonoBehaviour
             TimeManager.Instance.OnTimePeriodChange -= HandleLight;
             TimeManager.Instance.OnSeasonChange -= HandleSeasonPeriod;
             TimeManager.Instance.OnDayChange -= HandleSeasonPassive;
-            TimeManager.Instance.OnSeasonChange -= HandleShopBySeason;
+            //TimeManager.Instance.OnSeasonChange -= HandleShopBySeason;
         }
     }
     private void HandleLight(TimeManager.TimePeriod currentPeriod)
