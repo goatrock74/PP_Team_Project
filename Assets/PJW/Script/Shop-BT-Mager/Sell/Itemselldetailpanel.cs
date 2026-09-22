@@ -16,10 +16,6 @@ public class Itemselldetailpanel : MonoBehaviour
     [Header("판매 버튼")]
     [SerializeField] private Button sellButton;
 
-    [Header("지갑")]
-    [Tooltip("비우면 PlayerWallet.Instance 를 쓴다")]
-    [SerializeField] private PlayerWallet playerWalletcomp;
-
     [Header("설정")]
     [Tooltip("한 번 클릭에 몇 개를 팔지")]
     [SerializeField, Min(1)] private int sellAmount = 1;
@@ -80,7 +76,7 @@ public class Itemselldetailpanel : MonoBehaviour
         int gold = have > 0 ? ShopInventoryBridge.PreviewSellValue(currentItem, AmountToSell(have)) : 0;
 
         if (priceText != null) priceText.text = $"{gold:#,##0} G";
-        PlayerWallet wallet = playerWalletcomp != null ? playerWalletcomp : PlayerWallet.Instance;
+        PlayerWallet wallet = PlayerWallet.Instance;
         if (sellButton != null) sellButton.interactable = AmountToSell(have) > 0 && wallet != null;
     }
 
@@ -96,7 +92,7 @@ public class Itemselldetailpanel : MonoBehaviour
     {
         if (currentItem == null) return;
 
-        PlayerWallet wallet = playerWalletcomp != null ? playerWalletcomp : PlayerWallet.Instance;
+        PlayerWallet wallet = PlayerWallet.Instance;
         if (wallet == null)
         {
             Debug.LogWarning("[상점] PlayerWallet 이 없어 판매할 수 없습니다.");
