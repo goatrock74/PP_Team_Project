@@ -17,8 +17,7 @@ public class UIManger : MonoBehaviour
     private void Awake()
     {
         if (menuPanel == null && buyPanel == null && sellPanel == null) return;
-        buyPanel.SetActive(false);
-        sellPanel.SetActive(false);
+        BackToMenu();
     }
 
 

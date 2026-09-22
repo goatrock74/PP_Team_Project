@@ -1,76 +1,97 @@
 using TMPro;
 using UnityEngine;
 
+// The one persistent balance used by every shop. Scene UI only observes it.
+[DefaultExecutionOrder(-500)]
 public class PlayerWallet : MonoBehaviour
 {
-    public static PlayerWallet Instance;
-    
+    private const string SaveKey = "TotalMoney";
+    private const int StartingMoney = 10000;
+    private static PlayerWallet instance;
 
-    [Header("플레이어 소지금")]
-    private int currentMoney = 0;
-    public int CurrentMoney => currentMoney;
-
-    [Header("UI 텍스트 (선택사항 - 이 오브젝트와 같은 씬에서만 쓸 거면 연결)")]
-    [SerializeField] private TextMeshProUGUI moneyText;
-
-    // 다른 씬에서도 각자의 UI Text가 소지금을 표시하고 싶을 때 구독해서 쓰는 이벤트
-    // (필요 없으면 그냥 무시해도 됨 - moneyText 하나만 써도 충분함)
-    public event System.Action<int> OnMoneyChanged;
-    private bool fristshopping = false;
-
-    private void OnEnable()
+    public static PlayerWallet Instance
     {
-        fristshopping = true;
-        if(fristshopping)
+        get
         {
-            PlayerPrefs.SetInt("TotalMoney", 10000);
+            if (instance == null)
+                new GameObject("PlayerWallet (Shared)").AddComponent<PlayerWallet>();
+            return instance;
         }
     }
+
+    private int currentMoney;
+    public int CurrentMoney => instance == this ? currentMoney : Instance.CurrentMoney;
+    public event System.Action<int> OnMoneyChanged;
+
+    // Retained for older scenes. Their text is migrated to a scene-local display.
+    [SerializeField] private TextMeshProUGUI moneyText;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatic() => instance = null;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void Bootstrap() { _ = Instance; }
 
     private void Awake()
     {
-        if (Instance == null)
+        if (moneyText != null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 씬이 바뀌어도 이 오브젝트는 파괴되지 않음
-            currentMoney = PlayerPrefs.GetInt("TotalMoney");
-            Debug.Log(currentMoney);
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
+            // Never move a Canvas child into DontDestroyOnLoad.
+            var display = moneyText.GetComponent<Walletudisplay>();
+            if (display == null) display = moneyText.gameObject.AddComponent<Walletudisplay>();
+            display.SetTextTarget(moneyText);
+            _ = Instance;
+            Destroy(this);
             return;
         }
+        if (instance != null && instance != this)
+        {
+            Destroy(this);
+            return;
+        }
+        instance = this;
+        currentMoney = Mathf.Max(0, PlayerPrefs.GetInt(SaveKey, StartingMoney));
+        DontDestroyOnLoad(gameObject);
     }
 
-    private void Start() => UpdateMoneyUI();
-
-    // 구매 시 돈 차감 (부족하면 false 리턴)
     public bool TrySpendMoney(int amount)
     {
-        if (currentMoney >= amount)
-        {
-            currentMoney -= amount;
-            UpdateMoneyUI();
-            return true;
-        }
-        return false;
+        if (instance != this) return Instance.TrySpendMoney(amount);
+        if (amount < 0 || currentMoney < amount) return false;
+        if (amount == 0) return true;
+        currentMoney -= amount;
+        SaveAndNotify();
+        return true;
     }
 
-    // 판매 시 돈 지급
     public void AddMoney(int amount)
     {
-        if (amount <= 0) return; //여기서 막힘
-        currentMoney += amount;
-        UpdateMoneyUI();
+        if (instance != this) { Instance.AddMoney(amount); return; }
+        if (amount <= 0) return;
+        currentMoney = (int)System.Math.Min(int.MaxValue, (long)currentMoney + amount);
+        SaveAndNotify();
     }
 
-    private void UpdateMoneyUI()
+    private void SaveAndNotify()
     {
-        if (moneyText != null)
-            moneyText.text = $"{currentMoney:#,##0} G";
-
-
+        Save();
         OnMoneyChanged?.Invoke(currentMoney);
+    }
+
+    private void Save()
+    {
+        if (instance != this) return;
+        PlayerPrefs.SetInt(SaveKey, currentMoney);
+        PlayerPrefs.Save();
+    }
+
+    private void OnApplicationPause(bool paused) { if (paused) Save(); }
+    private void OnApplicationQuit() => Save();
+
+    private void OnDestroy()
+    {
+        if (instance != this) return;
+        Save();
+        instance = null;
     }
 }

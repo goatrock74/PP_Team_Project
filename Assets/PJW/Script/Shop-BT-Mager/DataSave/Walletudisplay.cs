@@ -4,22 +4,39 @@ using UnityEngine;
 public class Walletudisplay : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI moneyText;
+    private PlayerWallet wallet;
+
+    public void SetTextTarget(TextMeshProUGUI text)
+    {
+        moneyText = text;
+        Bind();
+        UpdateText(wallet.CurrentMoney);
+    }
 
     private void OnEnable()
     {
-        if (PlayerWallet.Instance != null)
+        Bind();
+    }
+
+    private void Bind()
+    {
+        if (moneyText == null) moneyText = GetComponent<TextMeshProUGUI>();
+        if (wallet != null) return;
+        wallet = PlayerWallet.Instance;
+        if (wallet != null)
         {
-            PlayerWallet.Instance.OnMoneyChanged += UpdateText;
-            UpdateText(PlayerWallet.Instance.CurrentMoney); // 켜지자마자 현재 값으로 바로 표시
+            wallet.OnMoneyChanged += UpdateText;
+            UpdateText(wallet.CurrentMoney);
         }
     }
 
     private void OnDisable()
     {
-        if (PlayerWallet.Instance != null)
+        if (wallet != null)
         {
-            PlayerWallet.Instance.OnMoneyChanged -= UpdateText;
+            wallet.OnMoneyChanged -= UpdateText;
         }
+        wallet = null;
     }
 
     private void UpdateText(int amount)
