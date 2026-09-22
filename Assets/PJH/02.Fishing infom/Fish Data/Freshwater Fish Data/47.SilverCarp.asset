@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "강과 호수에서 플랑크톤을 걸러 먹고 놀라면 물 위로 뛰는 대형 잉엇과."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 150
   fishID: SilverCarp
   rarity: 1
   collectionCategory: 1

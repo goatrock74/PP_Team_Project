@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "수초 많은 늪과 하천에 살며 공기 호흡으로 산소가 적은 물도 견딘다."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 600
   fishID: SnakeheadFish
   rarity: 3
   collectionCategory: 1

@@ -21,5 +21,5 @@ MonoBehaviour:
     count: 1
   - item: {fileID: 11400000, guid: a20aefdce20259e48a28a0af021b178c, type: 2}
     count: 1
-  maxBatch: 6
+  maxBatch: 10
   description: starstar

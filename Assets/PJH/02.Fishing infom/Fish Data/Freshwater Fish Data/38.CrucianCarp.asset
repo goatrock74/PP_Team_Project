@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "연못과 느린 하천에 널리 살며 환경 변화에 잘 적응하는 민물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 55
   fishID: CrucianCarp
   rarity: 0
   collectionCategory: 1

@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f43b4a1bea54a54bfbbe8412cae7c86, type: 3}
+  m_Name: WinterSeedPack_Table
+  m_EditorClassIdentifier: Assembly-CSharp::LootTableSO
+  tableName: WinterSeedPack_Table
+  entries:
+  - item: {fileID: 11400000, guid: 4e58c6c244201e04199c855b89c87145, type: 2}
+    weight: 30
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 1
+  - item: {fileID: 11400000, guid: 477ac5be604781f478cf26ca12c94070, type: 2}
+    weight: 24
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 0
+  - item: {fileID: 11400000, guid: 858c924c1b48b724bb03e1f3628101d1, type: 2}
+    weight: 18
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: 26436520f3d21b44dbaf9d8fd80ec3cb, type: 2}
+    weight: 15
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: 90899681bb36ae747be0225a5197b69d, type: 2}
+    weight: 13
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3

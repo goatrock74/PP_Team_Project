@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "따뜻한 강과 호수에 잘 적응하며 먹성이 좋은 시클리드류 물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 80
   fishID: Tilapia
   rarity: 0
   collectionCategory: 1

@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f43b4a1bea54a54bfbbe8412cae7c86, type: 3}
+  m_Name: AuturmSeedPack_Table
+  m_EditorClassIdentifier: Assembly-CSharp::LootTableSO
+  tableName: AuturmSeedPack_Table
+  entries:
+  - item: {fileID: 11400000, guid: db580e2def7e34244a78fdf631b6f918, type: 2}
+    weight: 35
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 1
+  - item: {fileID: 11400000, guid: b2b207d2ffd500c47bb9eec26466e544, type: 2}
+    weight: 29
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 0
+  - item: {fileID: 11400000, guid: 26436520f3d21b44dbaf9d8fd80ec3cb, type: 2}
+    weight: 24
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: 22a1854e1e587fa459274e0458fdccc4, type: 2}
+    weight: 12
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3

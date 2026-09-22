@@ -19,7 +19,7 @@ MonoBehaviour:
     \uC624\uB798\uB41C \uC720\uB9AC\uBCD1."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 5
   season: 0
   fishID: GlassBottle
   rarity: 0

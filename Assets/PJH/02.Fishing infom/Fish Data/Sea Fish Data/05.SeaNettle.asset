@@ -19,7 +19,7 @@ MonoBehaviour:
     \uAE34 \uCD09\uC218\uB97C \uC9C0\uB2CC \uBD81\uC11C\uD0DC\uD3C9\uC591\uC758 <nobr>\uD574\uD30C\uB9AC.</nobr>"
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 75
   fishID: SeaNettle
   rarity: 0
   difficulty: 0.9

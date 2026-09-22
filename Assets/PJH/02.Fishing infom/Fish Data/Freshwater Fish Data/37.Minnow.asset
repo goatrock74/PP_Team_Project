@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "맑은 하천에서 무리를 지어 빠르게 헤엄치는 작은 민물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 50
   fishID: Minnow
   rarity: 0
   collectionCategory: 1

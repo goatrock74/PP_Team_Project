@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "남아메리카의 탁한 민물에 살며 강한 전기를 만들어 먹이를 제압한다."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 1450
   fishID: ElectricEel
   rarity: 4
   collectionCategory: 1

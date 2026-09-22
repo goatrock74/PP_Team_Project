@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "동아시아의 강과 호수에 살며 단단한 조개류를 깨뜨려 먹는 대형 물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 180
   fishID: BlackCarp
   rarity: 1
   collectionCategory: 1
