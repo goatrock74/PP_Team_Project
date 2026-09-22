@@ -923,3 +923,4 @@ MonoBehaviour:
   fishingBaitManager: {fileID: 0}
   panel: {fileID: 9192508248982933945}
   messageText: {fileID: 147295470112758472}
+  baitIcon: {fileID: 7359311312587565425}
