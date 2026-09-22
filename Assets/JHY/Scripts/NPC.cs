@@ -8,8 +8,9 @@ public class NPC : MonoBehaviour
     public void TriggerDialogue()
     {
         DialogueManager manager = FindFirstObjectByType<DialogueManager>();
-        if (manager != null)
+        if (manager != null && manager.isChat == false)
         {
+            manager.isChat = true;
             manager.StartDialogue(dialogue);
         }
     }
