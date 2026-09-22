@@ -93,6 +93,6 @@ public class MenuManager : MonoBehaviour
     
     public void NextScene()
     {
-        SceneManager.LoadScene("JHY");
+        SceneManager.LoadScene(1);//MapSecene
     }
 }

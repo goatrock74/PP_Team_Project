@@ -6,17 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/JHY/Scenes/MainMenu.unity
-    guid: 552950d5561e79d4287cf53f895af4c3
+    path: Assets/0.0Main/0.0MainMenu_B.unity
+    guid: a1d127ad9c6e1b44fb32baf5c28c6b70
   - enabled: 1
-    path: Assets/JHY/Scenes/JHY.unity
-    guid: 73b75dc204e74814da07c34c30d85379
+    path: Assets/0.0Main/0.1Map_B.unity
+    guid: ae2f73ee8ba4d054789e2aee85b2290f
   - enabled: 1
-    path: Assets/PJW/Test.unity
-    guid: 0e237dc11b25a8242875af5751c1d666
+    path: Assets/0.0Main/0.2PlantShop.unity
+    guid: 872bcd1db5635ac4e8f6183e81d27479
   - enabled: 1
-    path: Assets/PJW/PlantShop.unity
-    guid: 0b920fdc339918a409d49850c5d7afa0
+    path: Assets/0.0Main/0.3FishShop.unity
+    guid: d3982963d596845419f169a67b11494c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
