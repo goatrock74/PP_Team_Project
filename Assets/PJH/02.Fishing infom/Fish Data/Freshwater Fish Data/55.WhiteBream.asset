@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "유럽의 느린 강과 호수에서 무리를 이루어 사는 은빛 민물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 350
   fishID: WhiteBream
   rarity: 2
   collectionCategory: 1

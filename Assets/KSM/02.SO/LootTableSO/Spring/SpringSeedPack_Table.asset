@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f43b4a1bea54a54bfbbe8412cae7c86, type: 3}
+  m_Name: SpringSeedPack_Table
+  m_EditorClassIdentifier: Assembly-CSharp::LootTableSO
+  tableName: SpringSeedPack_Table
+  entries:
+  - item: {fileID: 11400000, guid: 477ac5be604781f478cf26ca12c94070, type: 2}
+    weight: 22
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 1
+  - item: {fileID: 11400000, guid: f2ed89dc165546d41a1c6c551a783ce8, type: 2}
+    weight: 20
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 0
+  - item: {fileID: 11400000, guid: 54bf3c90ca1d6fe418107b169fc922f4, type: 2}
+    weight: 13
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: 3bd3d5416264712439deb4b1833eed20, type: 2}
+    weight: 13
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: 5a1d5231185305244bf800150b58645b, type: 2}
+    weight: 12
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: ba3aeeff11d80ad46bc652544038373f, type: 2}
+    weight: 8
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: 7c383881d50a6c846a3623db83fb6a8d, type: 2}
+    weight: 5
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 3

@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "머리의 붉은 무늬와 풍성한 지느러미가 특징인 금붕어 품종."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 280
   fishID: RedcapOranda
   rarity: 2
   collectionCategory: 1

@@ -19,7 +19,7 @@ MonoBehaviour:
     \uBE48 \uAE61\uD1B5."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 5
   season: 0
   fishID: EmptyCan
   rarity: 0

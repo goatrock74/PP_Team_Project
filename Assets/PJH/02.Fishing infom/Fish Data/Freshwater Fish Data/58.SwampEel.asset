@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "논과 늪의 진흙 바닥에 굴을 파고 지내는 가늘고 긴 민물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 680
   fishID: SwampEel
   rarity: 3
   collectionCategory: 1

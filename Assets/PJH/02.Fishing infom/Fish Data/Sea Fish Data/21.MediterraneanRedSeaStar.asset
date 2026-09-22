@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uC9C0\uC911\uD574\uBD89\uC740\uBD88\uAC00\uC0AC\uB9AC"
   icon: {fileID: 5393911257231448588, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  sellPrice: 280
   description: "\uae38\uace0 \ubd89\uc740 \ub2e4\uc12f \ud314\ub85c \ubc14\uc704 <nobr>\ud45c\uba74\uc744</nobr> \ucc9c\ucc9c\ud788 \uc774\ub3d9\ud558\ub294 <nobr>\ubd88\uac00\uc0ac\ub9ac.</nobr>"
   rarity: 2
   difficulty: 0.55

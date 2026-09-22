@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "동아시아의 흐르는 강에 살며 작은 물고기와 수서생물을 쫓는 민물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 70
   fishID: OpsariichthysBidens
   rarity: 0
   collectionCategory: 1

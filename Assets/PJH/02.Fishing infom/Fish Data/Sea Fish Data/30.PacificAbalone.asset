@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uBD81\uBC29\uC804\uBCF5"
   icon: {fileID: -3864058931786932777, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  sellPrice: 630
   description: "\uB0A9\uC791\uD55C \uD0C0\uC6D0\uD615 \uAECD\uB370\uAE30\uB85C \uBC14\uC704\uC5D0 \uBD99\uC5B4 \uD574\uC870\uB958\uB97C \uBA39\uACE0 \uC0AC\uB294 \uC804\uBCF5."
   rarity: 3
   difficulty: 0.35

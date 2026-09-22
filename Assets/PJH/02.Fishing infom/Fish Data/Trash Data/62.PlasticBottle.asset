@@ -18,7 +18,7 @@ MonoBehaviour:
   description: 물 위를 떠다니다 낚싯줄에 걸린 낡은 플라스틱병.
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 5
   fishID: PlasticBottle
   rarity: 0
   collectionCategory: 2

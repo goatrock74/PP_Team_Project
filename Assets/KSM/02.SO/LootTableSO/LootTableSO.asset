@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LootTableSO
   tableName: 
   entries:
-  - item: {fileID: 11400000, guid: b91ac00e45786324589130df4229913c, type: 2}
+  - item: {fileID: 11400000, guid: 5a83dd608541cd74ca2ff0d4920baa17, type: 2}
     weight: 10
     minCount: 1
     maxCount: 4
@@ -26,7 +26,7 @@ MonoBehaviour:
     maxCount: 4
     quality: 0
     rarity: 0
-  - item: {fileID: 11400000, guid: cad8daf0889875043bbb9330f244b001, type: 2}
+  - item: {fileID: 11400000, guid: b2b207d2ffd500c47bb9eec26466e544, type: 2}
     weight: 50
     minCount: 1
     maxCount: 3
