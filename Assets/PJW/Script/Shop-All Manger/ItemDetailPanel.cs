@@ -20,6 +20,23 @@ public class ItemDetailPanel : MonoBehaviour
     private Item currentItem;
     private System.Action onPurchaseCallback;
     private Button boundBuyButton;
+    private PlayerWallet walletSubscription;
+
+    private void OnEnable()
+    {
+        walletSubscription = PlayerWallet.Instance;
+        walletSubscription.OnMoneyChanged += HandleMoneyChanged;
+        UpdateButtonState();
+    }
+
+    private void OnDisable()
+    {
+        if (walletSubscription != null)
+            walletSubscription.OnMoneyChanged -= HandleMoneyChanged;
+        walletSubscription = null;
+    }
+
+    private void HandleMoneyChanged(int amount) => UpdateButtonState();
 
     private void OnValidate() => ResolveBuyButton();
 

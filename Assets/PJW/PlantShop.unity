@@ -3094,10 +3094,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 497001581}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f83e5ffe08eea4446b8e0d9fc029ecba, type: 3}
+  m_Script: {fileID: 11500000, guid: 6a97fa0c8d0095a4a93ed8d2d147b3da, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerWallet
-  currentMoney: 10000
+  m_EditorClassIdentifier: Assembly-CSharp::Walletudisplay
   moneyText: {fileID: 378473345}
 --- !u!1 &516724524
 GameObject:
@@ -8902,7 +8901,6 @@ MonoBehaviour:
   iconImage: {fileID: 1900634083}
   countText: {fileID: 904488667}
   sellButton: {fileID: 81790196}
-  playerWalletcomp: {fileID: 497001583}
   sellAmount: 1
   sellAll: 0
 --- !u!114 &1396119773
