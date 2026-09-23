@@ -1,9 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TriangleFadeInOut : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer triangle;
+    [SerializeField] private Image triangle;
     private void Start()
     {
         Sequence sequence = DOTween.Sequence();

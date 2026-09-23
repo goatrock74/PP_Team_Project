@@ -8,6 +8,9 @@ public class NPC : MonoBehaviour
     [Header("사용할 DialogueManager")]
     [SerializeField] private DialogueManager dialogueManager;
 
+    [SerializeField] private Vector2 boxSize = new Vector2(3f, 3f);
+    [SerializeField] private string targetTag = "Player";
+    [SerializeField] private GameObject ui;
 
     public void TriggerDialogue()
     {
@@ -19,35 +22,27 @@ public class NPC : MonoBehaviour
     }
 
 
+
     private void Update()
     {
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+
+        Collider2D hit = Physics2D.OverlapBox(transform.position, boxSize, 0f);
+        bool isDetected = hit != null && hit.CompareTag(targetTag);
+
+        // UI 켜고 끄기
+        if (ui != null) ui.SetActive(isDetected);
+
+        // 감지 중 E키 입력 시 씬 이동
+        if (isDetected && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
-            Camera mainCam = Camera.main;
-
-            if (mainCam == null)
-                return;
-
-            Vector2 mouseScreenPos = Mouse.current.position.ReadValue();
-
-            Vector3 mouseWorldPos3D =
-                mainCam.ScreenToWorldPoint(mouseScreenPos);
-
-            Vector2 mouseWorldPos2D =
-                new Vector2(mouseWorldPos3D.x, mouseWorldPos3D.y);
-
-
-            Collider2D hitCollider =
-                Physics2D.OverlapPoint(mouseWorldPos2D);
-
-
-            if (hitCollider != null &&
-                hitCollider.gameObject == gameObject)
-            {
-                Debug.Log(gameObject.name + " 클릭 성공!");
-
-                TriggerDialogue();
-            }
+            TriggerDialogue();
         }
+    }
+
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(transform.position, boxSize);
     }
 }
