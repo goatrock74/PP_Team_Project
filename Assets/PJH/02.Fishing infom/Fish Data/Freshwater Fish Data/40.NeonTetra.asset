@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "아마존 유역의 잔잔한 물에 살며 푸른빛 띠가 반짝이는 작은 물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 65
   fishID: NeonTetra
   rarity: 0
   collectionCategory: 1

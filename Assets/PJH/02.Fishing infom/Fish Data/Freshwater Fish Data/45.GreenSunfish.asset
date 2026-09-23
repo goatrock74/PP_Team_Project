@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "북아메리카의 연못과 느린 물에 살며 영역성이 강한 선피시."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 120
   fishID: GreenSunfish
   rarity: 1
   collectionCategory: 1

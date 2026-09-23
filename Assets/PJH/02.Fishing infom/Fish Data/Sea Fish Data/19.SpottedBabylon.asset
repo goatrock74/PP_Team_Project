@@ -19,7 +19,7 @@ MonoBehaviour:
     \uBAA8\uB798 \uBC14\uB2E5\uC744 \uB3CC\uC544\uB2E4\uB2C8\uB294 \uACE0\uB465."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 230
   fishID: SpottedBabylon
   rarity: 1
   difficulty: 0.45

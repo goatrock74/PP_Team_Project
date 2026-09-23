@@ -240752,7 +240752,16 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: e653977d3a183cf4f8ff93a903752406, type: 2}
     count: 1
     quality: 0
-  startingHotbarItems: []
+  - item: {fileID: 11400000, guid: 3d5379a990bd6814d995c773141eed31, type: 2}
+    count: 1
+    quality: 0
+  startingHotbarItems:
+  - item: {fileID: 11400000, guid: 3d5379a990bd6814d995c773141eed31, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 0}
+    count: 1
+    quality: 0
 --- !u!50 &914049181
 Rigidbody2D:
   serializedVersion: 5
@@ -240847,7 +240856,7 @@ MonoBehaviour:
   interactRange: 2.95
   digKey: 38
   protectMatureCrops: 1
-  verboseLog: 1
+  verboseLog: 0
   baitConfirmUI: {fileID: 0}
 --- !u!212 &914049185
 SpriteRenderer:

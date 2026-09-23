@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "화려한 무늬를 감상하도록 길러진 잉어의 관상 품종."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 260
   fishID: Koi
   rarity: 2
   collectionCategory: 1

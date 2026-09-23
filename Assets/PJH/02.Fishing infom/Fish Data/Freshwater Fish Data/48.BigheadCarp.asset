@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "커다란 머리를 지녔으며 호수에서 동물성 플랑크톤을 걸러 먹는 물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 165
   fishID: BigheadCarp
   rarity: 1
   collectionCategory: 1

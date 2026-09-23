@@ -16,6 +16,7 @@ MonoBehaviour:
   displayName: "\uAF43\uAC8C"
   icon: {fileID: -7530179445663768607, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
   basePrice: 100
+  sellPrice: 65
   description: "\ub178\ucc98\ub7fc \ub0a9\uc791\ud55c \ub4b7\ub2e4\ub9ac\ub85c <nobr>\ud5e4\uc5c4\uce58\uba70</nobr> \ubaa8\ub798\uc640 \uc9c4\ud759 \ubc14\ub2e5\uc744 \ub204\ube44\ub294 \uaf43\uac8c."
   rarity: 0
   difficulty: 2.3

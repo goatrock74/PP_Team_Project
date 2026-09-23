@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "평생 차갑고 맑은 계류에 머무르는 육봉형 연어과 물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 1100
   fishID: LandlockedMasuSalmon
   rarity: 4
   collectionCategory: 1

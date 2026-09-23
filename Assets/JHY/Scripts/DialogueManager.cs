@@ -27,6 +27,8 @@ public class DialogueManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private bool isTyping = false;
 
+    public bool isChat { get; set; } =false;
+
     public void StartDialogue(DialogueData data)
     {
         currentDialogue = data;
@@ -84,6 +86,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        isChat = false;
         dialoguePanel.SetActive(false);
         currentDialogue = null;
         dialogueText.text = "";

@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "\ub098\uc0ac\ucc98\ub7fc \uae38\uac8c \uac10\uae34 \uaecd\ub370\uae30\ub97c \uc9c0\ub2c8\uace0 \ubaa8\ub798 \ubc14\ub2e5\uc744 \ucc9c\ucc9c\ud788 <nobr>\uae30\uc5b4</nobr> \ub2e4\ub2cc\ub2e4."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 220
   fishID: ScrewTurretSnail
   rarity: 1
   difficulty: 0.3

@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "등에 세 개의 가시가 있고 수컷이 둥지를 지키는 작은 물고기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 135
   fishID: ThreeSpinedStickleback
   rarity: 1
   collectionCategory: 1
