@@ -6,29 +6,70 @@ using UnityEngine.UI;
 
 public class SeasonPeriod : MonoBehaviour
 {
-    [SerializeField]private GameObject spring;
+    [SerializeField] private GameObject spring;
     [SerializeField] private GameObject summer;
     [SerializeField] private GameObject autumn;
     [SerializeField] private GameObject winter;
 
     [SerializeField] private GameObject DarkPannel;
-    private bool isTransitioning = false;
 
-    public void ChangeSeasonPeriod(TimeManager.SeasonPeriod newSeason)//타일맵 swap + 각 계절별 제철 과일들로 상점 갱신
+    public bool IsTransitioning { get; private set; } = false;
+    private TimePeriod timePeriod;
+    private void Awake()
     {
-        if (isTransitioning)
-            return;
+        timePeriod = GetComponent<TimePeriod>();
+    }
+    private void Start()
+    {
+        // 현재 계절 먼저 적용
+        SetSeason(TimeManager.Instance.CurrentSeason);
 
+        // 게임 시작 시 검은 화면 → 천천히 밝아짐
+        StartCoroutine(StartFade());
+    }
+
+    private IEnumerator StartFade()
+    {
+        Image panelImage = DarkPannel.GetComponent<Image>();
+        panelImage.DOKill();
+        DarkPannel.SetActive(true);
+
+        // 처음에는 완전히 검은색
+        panelImage.color = new Color(
+            panelImage.color.r,
+            panelImage.color.g,
+            panelImage.color.b,
+            1f
+        );
+
+        // 1.5초 동안 검은색 → 투명
+        yield return panelImage.DOFade(0f, 5f)
+            .SetEase(Ease.Linear)
+            .WaitForCompletion();
+
+        DarkPannel.SetActive(false);
+    }
+
+    public void ChangeSeasonPeriod(TimeManager.SeasonPeriod newSeason)
+    {
+        if (IsTransitioning)
+            return;
+        if (timePeriod != null && timePeriod.IsFading)
+        {
+            SetSeason(newSeason);
+            return;
+        }
         StartCoroutine(FadeInOut(newSeason));
     }
-    
+
     private IEnumerator FadeInOut(TimeManager.SeasonPeriod newSeason)
     {
         Image panelImage = DarkPannel.GetComponent<Image>();
 
+        IsTransitioning = true;
+        panelImage.DOKill();
         DarkPannel.SetActive(true);
 
-        // 처음에는 투명
         panelImage.color = new Color(
             panelImage.color.r,
             panelImage.color.g,
@@ -36,17 +77,20 @@ public class SeasonPeriod : MonoBehaviour
             0f
         );
 
-        // 1. 서서히 어두워짐
-        yield return panelImage.DOFade(1f, 0.8f).WaitForCompletion();
+        yield return panelImage.DOFade(1f, 1.5f)
+            .SetEase(Ease.Linear)
+            .WaitForCompletion();
 
-        // 2. 완전히 어두워진 순간 계절 변경
         SetSeason(newSeason);
 
-        // 3. 바로 서서히 밝아짐
-        yield return panelImage.DOFade(0f, 1f).WaitForCompletion();
+        yield return panelImage.DOFade(0f, 1.5f)
+            .SetEase(Ease.Linear)
+            .WaitForCompletion();
 
         DarkPannel.SetActive(false);
+        IsTransitioning = false;
     }
+
     private void SetSeason(TimeManager.SeasonPeriod newSeason)
     {
         spring.SetActive(false);

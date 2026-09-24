@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "남아메리카 원산의 작은 난태생 물고기로 수컷의 화려한 꼬리가 특징이다."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 60
   fishID: Guppy
   rarity: 0
   collectionCategory: 1

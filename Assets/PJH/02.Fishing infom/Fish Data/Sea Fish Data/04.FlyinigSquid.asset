@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "\ubb3c\uc744 \ubfdc\uc5b4 \ube60\ub974\uac8c \ud5e4\uc5c4\uce58\uace0 <nobr>\ub54c\ub85c</nobr> \uc218\uba74 \uc704\ub85c \ud280\uc5b4 \uc624\ub974\ub294 <nobr>\uc624\uc9d5\uc5b4.</nobr>"
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 70
   fishID: FlyinigSquid
   rarity: 0
   difficulty: 1.7

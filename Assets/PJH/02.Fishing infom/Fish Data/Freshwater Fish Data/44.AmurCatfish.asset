@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "강과 호수 바닥에서 주로 활동하며 밤에 먹이를 찾는 메기."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 85
   fishID: AmurCatfish
   rarity: 0
   collectionCategory: 1

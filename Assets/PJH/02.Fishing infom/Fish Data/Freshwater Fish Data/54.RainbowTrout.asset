@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "차갑고 맑은 강과 호수에 살며 힘찬 유영으로 유명한 송어."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 335
   fishID: RainbowTrout
   rarity: 2
   collectionCategory: 1

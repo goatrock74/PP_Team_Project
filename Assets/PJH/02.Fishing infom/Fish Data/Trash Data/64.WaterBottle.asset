@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "\uB204\uAD70\uAC00 \uBB3C\uAC00\uC5D0 \uBC84\uB9AC\uACE0 \uAC04 \uBB3C\uBCD1."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 5
   season: 0
   fishID: WaterBottle
   rarity: 0

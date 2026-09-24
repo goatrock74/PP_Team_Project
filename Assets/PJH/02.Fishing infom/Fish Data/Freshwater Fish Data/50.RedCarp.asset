@@ -18,7 +18,7 @@ MonoBehaviour:
   description: "붉은빛을 띠는 잉어로 잔잔한 연못과 호수에서 천천히 헤엄친다."
   itemType: 2
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 195
   fishID: RedCarp
   rarity: 1
   collectionCategory: 1

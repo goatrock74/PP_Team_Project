@@ -11,6 +11,7 @@ public class Input_SO_Data : MonoBehaviour
     [SerializeField] private List<Plant_Shop_BT> shopButtons;
     [SerializeField] private ItemDetailPanel detailPanel;
 
+    private TimeManager timeManager;
     private int currentSeasonIndex = 0;
     public int CurrentSeasonIndex => currentSeasonIndex;
     public ItemListSO GetSeasonList(int seasonIndex)
@@ -26,15 +27,30 @@ public class Input_SO_Data : MonoBehaviour
         return null;
     }
 
-    private void Start()
-    {
-        RefreshShopUI(currentSeasonIndex);
-    }
-
     private void OnEnable()
     {
-        // 외부에서 마지막으로 전달받은 계절을 유지한다.
-        RefreshShopUI(currentSeasonIndex);
+        timeManager = TimeManager.Instance;
+
+        if (timeManager == null)
+        {
+            RefreshShopUI(currentSeasonIndex);
+            return;
+        }
+
+        timeManager.OnSeasonChange += UpdateShopBySeason;
+
+        // 상점에 들어오기 전에 바뀐 계절도 즉시 반영한다.
+        UpdateShopBySeason(timeManager.CurrentSeason);
+    }
+
+    private void OnDisable()
+    {
+        if (timeManager != null)
+        {
+            timeManager.OnSeasonChange -= UpdateShopBySeason;
+        }
+
+        timeManager = null;
     }
 
     /// <summary>계절 변경 이벤트 또는 외부 코드에서 호출하는 상점 갱신 함수.</summary>

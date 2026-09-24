@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TimeController : MonoBehaviour
 {
@@ -6,14 +7,22 @@ public class TimeController : MonoBehaviour
     private SeasonPeriod seasonPeriod;
     private SeasonPassive seasonPassive;
 
-    private Input_SO_Data data;
     [SerializeField] private LightManager lightManager;
     private void Awake()
     {
         timePeriod = GetComponent<TimePeriod>();
         seasonPeriod = GetComponent<SeasonPeriod>();
         seasonPassive = GetComponent<SeasonPassive>();
-        data = GetComponent<Input_SO_Data>();
+    }
+    private void Update()
+    {
+        if (Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            if (timePeriod.IsFading || seasonPeriod.IsTransitioning)
+                return;
+
+            timePeriod.TriggerFade();
+        }
     }
     private void OnEnable()
     {
@@ -23,7 +32,6 @@ public class TimeController : MonoBehaviour
             TimeManager.Instance.OnTimePeriodChange += HandleLight;
             TimeManager.Instance.OnSeasonChange += HandleSeasonPeriod;
             TimeManager.Instance.OnDayChange += HandleSeasonPassive;
-            //TimeManager.Instance.OnSeasonChange += HandleShopBySeason;
             HandleTimePeriod(TimeManager.Instance.CurrentPeriod);
             HandleSeasonPeriod(TimeManager.Instance.CurrentSeason);
             if (lightManager != null) HandleLight(TimeManager.Instance.CurrentPeriod);
@@ -37,7 +45,6 @@ public class TimeController : MonoBehaviour
             TimeManager.Instance.OnTimePeriodChange -= HandleLight;
             TimeManager.Instance.OnSeasonChange -= HandleSeasonPeriod;
             TimeManager.Instance.OnDayChange -= HandleSeasonPassive;
-            //TimeManager.Instance.OnSeasonChange -= HandleShopBySeason;
         }
     }
     private void HandleLight(TimeManager.TimePeriod currentPeriod)
@@ -55,9 +62,5 @@ public class TimeController : MonoBehaviour
     private void HandleSeasonPeriod(TimeManager.SeasonPeriod currentSeason)
     {
         seasonPeriod.ChangeSeasonPeriod(currentSeason);
-    }
-    private void HandleShopBySeason(TimeManager.SeasonPeriod currentSeason)
-    {
-        data.UpdateShopBySeason(currentSeason);
     }
 }
