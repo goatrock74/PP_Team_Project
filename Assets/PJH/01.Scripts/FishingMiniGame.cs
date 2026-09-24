@@ -1,4 +1,5 @@
 using System;
+using PJH._01.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Random = UnityEngine.Random;
@@ -62,6 +63,9 @@ namespace PJH.Scripts
         public bool BlockFishingInput => isOpeningPanel || isMiniGameRunning;
         private bool isOpeningPanel;
         private bool isMiniGameRunning;
+        
+        [Header("Audio")]
+        [SerializeField] private FishingAudioPlayer fishingAudio;
  
         public event Action<FishDataSO> OnFishingSucceeded;
         public event Action OnFishingFailed;
@@ -175,6 +179,7 @@ namespace PJH.Scripts
  
         public void StopMiniGame()
         {
+            fishingAudio?.StopReel();
  
             if (biteCoroutine != null)
             {
@@ -225,6 +230,17 @@ namespace PJH.Scripts
         private void MoveCatchBar()
         {
             bool isHolding = Mouse.current != null && Mouse.current.leftButton.isPressed;
+
+            if (isHolding)
+            {
+                fishingAudio?.StartReel();
+            }
+
+            else
+            {
+                fishingAudio?.StopReel();
+            }
+            
             float deltaTime = Time.deltaTime;
  
             float acceleration = isHolding ? catchBarUpAcceleration : -catchBarGravity;
