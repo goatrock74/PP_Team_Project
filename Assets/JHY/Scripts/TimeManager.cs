@@ -55,7 +55,7 @@ public class TimeManager : MonoBehaviour
         Debug.Log("Time: "+ currentPeriod);
         Debug.Log("Day: " + currentDay);
         Debug.Log("Season: " + currentSeason);
-       // OnSeasonChange?.Invoke(currentSeason);
+        //OnSeasonChange?.Invoke(currentSeason);
     }
     private void Update()
     {

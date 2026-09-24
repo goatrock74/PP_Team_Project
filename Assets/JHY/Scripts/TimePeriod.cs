@@ -11,16 +11,23 @@ public class TimePeriod : MonoBehaviour
     [SerializeField] private CanvasGroup night;
     [SerializeField] private GameObject DarkPannel;
 
-    private bool isFading = false;
-
+    [SerializeField] private GameObject nightNpc;
+    [SerializeField] private int percent = 3;
+    public bool IsFading { get; private set; } = false;
+    private Coroutine npcSpawnCoroutine;
     public void TriggerFade()
     {
-        if (isFading) return;
+        if (IsFading) return;
 
         StartCoroutine(StartFade());
     }
     public void ChangeTimePeriod(TimeManager.TimePeriod newPeriod) 
-    { 
+    {
+        if (npcSpawnCoroutine != null)
+        {
+            StopCoroutine(npcSpawnCoroutine);
+            npcSpawnCoroutine = null;
+        }
         switch (newPeriod)
         {
             case TimeManager.TimePeriod.Morning:
@@ -28,30 +35,49 @@ public class TimePeriod : MonoBehaviour
                 sun.alpha = 1;
                 afternoon.alpha = 0;
                 night.alpha = 0;
-              
+
+                if (nightNpc != null) nightNpc.SetActive(false);
                 break;
             case TimeManager.TimePeriod.Afternoon:
                 Debug.Log("afternoon");
                 sun.alpha = 0;
                 afternoon.alpha = 1;
                 night.alpha = 0;
-             
+
+                if (nightNpc != null) nightNpc.SetActive(false);
                 break;
             case TimeManager.TimePeriod.Night:
                 Debug.Log("night");
                 sun.alpha = 0;
                 afternoon.alpha = 0;
                 night.alpha = 1;
-               
+                if (nightNpc != null)
+                {
+                    nightNpc.SetActive(false);
+                    npcSpawnCoroutine = StartCoroutine(NPCSpawn());
+                }
                 break;
+        }
+    }
+    private IEnumerator NPCSpawn()
+    {
+        bool shouldSpawn = Random.Range(0, percent) == 0;
+        yield return new WaitForSeconds(2f);
+
+        nightNpc.SetActive(shouldSpawn);
+
+        // 진짜로 켜졌을 때만 로그 출력
+        if (shouldSpawn)
+        {
+            Debug.Log("NPC등장");
         }
     }
     private IEnumerator StartFade()
     {
-        isFading = true;
+        IsFading = true;
 
         Image panelImage = DarkPannel.GetComponent<Image>();
-
+        panelImage.DOKill();
         panelImage.color = new Color(
             panelImage.color.r,
             panelImage.color.g,
@@ -72,6 +98,6 @@ public class TimePeriod : MonoBehaviour
 
         DarkPannel.SetActive(false);
 
-        isFading = false;
+        IsFading = false;
     }
 }
