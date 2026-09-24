@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using KSM._00.Scripts;
- 
+using PJH._01.Scripts;
+
 namespace PJH.Scripts
 {
     /// <summary>
@@ -34,7 +35,9 @@ namespace PJH.Scripts
         [SerializeField] private FishingMiniGame fishingMiniGame;
         [SerializeField] private FishingAreaCheck fishingAreaCheck;
         [SerializeField] private FishSelector fishSelector;
- 
+        [SerializeField] private FishingAudioPlayer fishingAudio;
+        
+        
         [SerializeField] private GameObject splashParticle;
  
         [Header("던지기")]
@@ -219,6 +222,7 @@ namespace PJH.Scripts
  
             if (started)
             {
+                fishingAudio?.PlaySplash();
                 canClick = true;
                 return;
             }

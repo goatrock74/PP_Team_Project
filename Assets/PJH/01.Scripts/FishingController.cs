@@ -23,6 +23,7 @@ namespace PJH.Scripts
         [SerializeField] private FishSelector fishSelector;
         [SerializeField] private FishingMiniGame fishingMiniGame;
         [SerializeField] private FishingSettingSO fishingSettingSO;
+        [SerializeField] private FishingAudioPlayer fishingAudio;
         
  
         [Header("Bite Effect")]
@@ -148,6 +149,7 @@ namespace PJH.Scripts
                 currentFish = fishSelector.RandomFish(currentFishingCategory);
  
                 currentState = FishingState.WaitingBite;
+                fishingAudio?.PlayBite();
  
                 float biteTime = GetRandomBiteTime();
  
@@ -274,6 +276,8 @@ namespace PJH.Scripts
             Debug.Log(
                 $"{caughtFish.name} 낚시 성공"
             );
+            
+            fishingAudio?.PlayCatch();
             PlayCaughtFishEffect(caughtFish);
             fishCollectionManager.DiscoverFish(caughtFish);
             
