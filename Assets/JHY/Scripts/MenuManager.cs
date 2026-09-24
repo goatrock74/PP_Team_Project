@@ -15,6 +15,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject settingPanel;
     [Header("Fade Settings")]
     [SerializeField] private float fadeDuration = 0.5f;
+
+    [Header("Sound")]
+    [SerializeField] private AudioClip clickMain;
     private bool isStartScreen = true;
     private bool isTransitioning = false;
 
@@ -46,6 +49,7 @@ public class MenuManager : MonoBehaviour
         if (Mouse.current != null &&
             Mouse.current.leftButton.wasPressedThisFrame)
         {
+            SoundManager.Instance.PlaySFX(clickMain);
             ShowMainMenu();
         }
     }
