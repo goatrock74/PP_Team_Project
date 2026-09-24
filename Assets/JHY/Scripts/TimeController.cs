@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TimeController : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class TimeController : MonoBehaviour
         timePeriod = GetComponent<TimePeriod>();
         seasonPeriod = GetComponent<SeasonPeriod>();
         seasonPassive = GetComponent<SeasonPassive>();
+    }
+    private void Update()
+    {
+        if(Keyboard.current.tKey.wasPressedThisFrame)
+        {
+            timePeriod.TriggerFade();
+        }
     }
     private void OnEnable()
     {
