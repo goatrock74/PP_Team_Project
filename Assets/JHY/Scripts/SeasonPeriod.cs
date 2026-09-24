@@ -13,8 +13,12 @@ public class SeasonPeriod : MonoBehaviour
 
     [SerializeField] private GameObject DarkPannel;
 
-    private bool isTransitioning = false;
-
+    public bool IsTransitioning { get; private set; } = false;
+    private TimePeriod timePeriod;
+    private void Awake()
+    {
+        timePeriod = GetComponent<TimePeriod>();
+    }
     private void Start()
     {
         // 현재 계절 먼저 적용
@@ -27,7 +31,7 @@ public class SeasonPeriod : MonoBehaviour
     private IEnumerator StartFade()
     {
         Image panelImage = DarkPannel.GetComponent<Image>();
-
+        panelImage.DOKill();
         DarkPannel.SetActive(true);
 
         // 처음에는 완전히 검은색
@@ -39,7 +43,7 @@ public class SeasonPeriod : MonoBehaviour
         );
 
         // 1.5초 동안 검은색 → 투명
-        yield return panelImage.DOFade(0f, 3f)
+        yield return panelImage.DOFade(0f, 5f)
             .SetEase(Ease.Linear)
             .WaitForCompletion();
 
@@ -48,9 +52,13 @@ public class SeasonPeriod : MonoBehaviour
 
     public void ChangeSeasonPeriod(TimeManager.SeasonPeriod newSeason)
     {
-        if (isTransitioning)
+        if (IsTransitioning)
             return;
-
+        if (timePeriod != null && timePeriod.IsFading)
+        {
+            SetSeason(newSeason);
+            return;
+        }
         StartCoroutine(FadeInOut(newSeason));
     }
 
@@ -58,10 +66,10 @@ public class SeasonPeriod : MonoBehaviour
     {
         Image panelImage = DarkPannel.GetComponent<Image>();
 
-        isTransitioning = true;
+        IsTransitioning = true;
+        panelImage.DOKill();
         DarkPannel.SetActive(true);
 
-        // 현재 화면에서 시작
         panelImage.color = new Color(
             panelImage.color.r,
             panelImage.color.g,
@@ -69,21 +77,18 @@ public class SeasonPeriod : MonoBehaviour
             0f
         );
 
-        // 1. 화면이 어두워짐
         yield return panelImage.DOFade(1f, 1.5f)
             .SetEase(Ease.Linear)
             .WaitForCompletion();
 
-        // 2. 완전히 어두워진 순간 계절 변경
         SetSeason(newSeason);
 
-        // 3. 다시 밝아짐
         yield return panelImage.DOFade(0f, 1.5f)
             .SetEase(Ease.Linear)
             .WaitForCompletion();
 
         DarkPannel.SetActive(false);
-        isTransitioning = false;
+        IsTransitioning = false;
     }
 
     private void SetSeason(TimeManager.SeasonPeriod newSeason)

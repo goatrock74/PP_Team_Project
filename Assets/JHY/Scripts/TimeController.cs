@@ -16,8 +16,11 @@ public class TimeController : MonoBehaviour
     }
     private void Update()
     {
-        if(Keyboard.current.tKey.wasPressedThisFrame)
+        if (Keyboard.current.tKey.wasPressedThisFrame)
         {
+            if (timePeriod.IsFading || seasonPeriod.IsTransitioning)
+                return;
+
             timePeriod.TriggerFade();
         }
     }

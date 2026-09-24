@@ -12,22 +12,26 @@ public class LightManager : MonoBehaviour
     {
         Color targetColor;
         float targetIntensity;
+        float duration = 3f; 
 
         switch (newPeriod)
         {
             case TimeManager.TimePeriod.Morning:
                 targetColor = Color.white;
                 targetIntensity = 1f;
+                duration = 10f;
                 break;
 
             case TimeManager.TimePeriod.Afternoon:
-                targetColor = new Color(183f/255f, 123f/255f, 50f/255f, 255f/255f);
+                targetColor = new Color(183f / 255f, 123f / 255f, 50f / 255f, 255f / 255f);
                 targetIntensity = 0.6f;
+                duration = 3f;
                 break;
 
             case TimeManager.TimePeriod.Night:
-                targetColor = new Color(39f/255f, 39f/255f, 39f/255f, 255f/255f);
+                targetColor = new Color(39f / 255f, 39f / 255f, 39f / 255f, 255f / 255f);
                 targetIntensity = 0.2f;
+                duration = 3f;
                 break;
 
             default:
@@ -37,7 +41,7 @@ public class LightManager : MonoBehaviour
         if (lightCoroutine != null)
             StopCoroutine(lightCoroutine);
 
-        lightCoroutine = StartCoroutine(ChangeLight(targetColor, targetIntensity, 3f));
+        lightCoroutine = StartCoroutine(ChangeLight(targetColor, targetIntensity, duration));
     }
 
     private IEnumerator ChangeLight(Color targetColor, float targetIntensity, float duration)
