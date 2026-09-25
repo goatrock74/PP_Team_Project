@@ -1,6 +1,8 @@
-﻿using KSM._00.Scripts.Effects;
-using UnityEngine;
+﻿using UnityEngine;
 using KSM._00.Scripts.Items;
+using KSM._00.Scripts.Effects;
+using UnityEngine.Serialization;
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -9,7 +11,7 @@ using UnityEditor;
 /// 도끼로 벨 수 있는 나무.
 ///
 ///   쓰러뜨리면       → 그루터기로 바뀐다. 도끼로 쳐도 화면 아래에 "채집불가"
-///   Respawn Days 뒤 → 원래 나무로 돌아온다 (체력도 다시 가득)
+///   최소~최대 일 사이 랜덤 → 원래 나무로 돌아온다 (체력도 다시 가득)
 ///
 /// 필요한 것: Collider2D(★ 밑동만 덮게), SpriteRenderer, 이 스크립트.
 /// 레이어는 PlayerInteractor 의 Interactable Layer 에 포함된 것으로.
@@ -35,10 +37,15 @@ public class TreeNode : MonoBehaviour, IChoppable
     [Tooltip("한 번 칠 때마다 나오는 것 (없어도 됨)")]
     [SerializeField] private LootTableSO chipTable;
 
-    [Header("재생")]
-    [Tooltip("쓰러진 뒤 원래 나무로 돌아오기까지 걸리는 인게임 일수.\n" +
-             "0 이면 예전처럼 그루터기 없이 사라진다")]
-    [SerializeField, Min(0f)] private float respawnDays = 3f;
+    [Header("재생 — 최소~최대 일 사이에서 랜덤")]
+    [Tooltip("쓰러진 뒤 원래 나무로 돌아오기까지 걸리는 최소 인게임 일수")]
+    [FormerlySerializedAs("respawnDays")]
+    [SerializeField, Min(0f)] private float minRespawnDays = 2f;
+
+    [Tooltip("최대 일수. 벨 때마다 최소~최대 사이에서 새로 뽑는다.\n" +
+             "최소보다 작으면 최소와 같게 맞춰진다 (= 랜덤 없이 고정).\n" +
+             "둘 다 0 이면 예전처럼 그루터기 없이 사라진다")]
+    [SerializeField, Min(0f)] private float maxRespawnDays = 4f;
 
     [Header("모습")]
     [Tooltip("나무 그림. 비우면 자신과 자식에서 찾는다")]
@@ -96,7 +103,7 @@ public class TreeNode : MonoBehaviour, IChoppable
 
     private void Update()
     {
-        if (!_isStump || respawnDays <= 0f) return;
+        if (!_isStump) return;
 
         var farm = KSM._00.Scripts.Crop.CropManager.Instance;
         if (farm == null) return;
@@ -149,7 +156,7 @@ public class TreeNode : MonoBehaviour, IChoppable
         // 벌목 경험치는 나무의 최대 체력이 정한다. 몇 대에 쓰러뜨렸는지와 무관하다
         MasteryManager.GainByHealth(MasteryType.Logging, maxHealth);
 
-        if (respawnDays <= 0f)
+        if (!Respawns)
         {
             Destroy(gameObject);
             return true;
@@ -168,13 +175,15 @@ public class TreeNode : MonoBehaviour, IChoppable
         _isStump = true;
 
         var farm = ctx.farm != null ? ctx.farm : KSM._00.Scripts.Crop.CropManager.Instance;
-        _regrowAtDay = (farm != null ? farm.CurrentGameDays : 0f) + respawnDays;
+        float days = RollRespawnDays();
+
+        _regrowAtDay = (farm != null ? farm.CurrentGameDays : 0f) + days;
 
         // 콜라이더는 그대로 둔다. 밑동 크기 = 그루터기 크기라서
         // 그루터기도 막히고, 다시 자랄 때 플레이어가 나무 속에 끼는 일도 없다
         SetStumpVisual(true);
 
-        Debug.Log($"[나무] 쓰러짐 — {respawnDays:0.#}일 뒤 다시 자랍니다", this);
+        Debug.Log($"[나무] 쓰러짐 — {days:0.#}일 뒤 다시 자랍니다 (범위 {minRespawnDays:0.#}~{Mathf.Max(minRespawnDays, maxRespawnDays):0.#}일)", this);
     }
 
     private void Regrow()
@@ -220,13 +229,34 @@ public class TreeNode : MonoBehaviour, IChoppable
 
     private string BuildStumpMessage()
     {
-        if (!showRemainingDays || respawnDays <= 0f) return stumpMessage;
+        if (!showRemainingDays || !Respawns) return stumpMessage;
 
         var farm = KSM._00.Scripts.Crop.CropManager.Instance;
         if (farm == null) return stumpMessage;
 
         int days = Mathf.Max(1, Mathf.CeilToInt(_regrowAtDay - farm.CurrentGameDays));
         return $"{stumpMessage} ({days}일 뒤 자람)";
+    }
+
+    /// <summary>다시 자라나는가. 최소·최대가 둘 다 0 이면 쓰러지면 사라진다</summary>
+    private bool Respawns => Mathf.Max(minRespawnDays, maxRespawnDays) > 0f;
+
+    /// <summary>
+    /// 이번에 다시 자라기까지 걸릴 일수를 뽑는다.
+    /// 소수점까지 랜덤이라, 같은 날 벤 나무들이 한꺼번에 튀어나오지 않고 제각각 자란다
+    /// </summary>
+    private float RollRespawnDays()
+    {
+        float min = Mathf.Max(0f, minRespawnDays);
+        float max = Mathf.Max(min, maxRespawnDays);
+
+        return Random.Range(min, max);
+    }
+
+    private void OnValidate()
+    {
+        // 최대가 최소보다 작으면 최소에 맞춘다 (= 고정 일수)
+        if (maxRespawnDays < minRespawnDays) maxRespawnDays = minRespawnDays;
     }
 
     private void GiveLoot(LootTableSO table, int rolls)
