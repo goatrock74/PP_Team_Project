@@ -99,6 +99,7 @@ public class MenuManager : MonoBehaviour
     
     public void NextScene()
     {
+        SoundManager.Instance.StopBGM();
         SceneManager.LoadScene(1);//MapSecene
     }
 }
