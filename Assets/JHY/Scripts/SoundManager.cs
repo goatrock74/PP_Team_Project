@@ -90,4 +90,12 @@ public class SoundManager : MonoBehaviour
         bgmSource.loop = true; 
         bgmSource.Play();
     }
+    public void StopBGM()
+    {
+        if (bgmSource != null)
+        {
+            bgmSource.Stop();
+            bgmSource.clip = null; 
+        }
+    }
 }

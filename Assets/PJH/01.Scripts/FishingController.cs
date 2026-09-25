@@ -149,7 +149,6 @@ namespace PJH.Scripts
                 currentFish = fishSelector.RandomFish(currentFishingCategory);
  
                 currentState = FishingState.WaitingBite;
-                fishingAudio?.PlayBite();
  
                 float biteTime = GetRandomBiteTime();
  
@@ -165,6 +164,8 @@ namespace PJH.Scripts
                 }
  
                 yield return new WaitForSeconds(biteTime);
+                fishingAudio?.PlayBite();
+                
  
                 // 입질시간이 끝났습니다.
                 currentState = FishingState.BiteWindow;
