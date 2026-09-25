@@ -38,7 +38,7 @@ public class SeasonPeriod : MonoBehaviour
 
         yield return new WaitForSeconds(0.8f);
 
-        yield return panelImage.DOFade(0f, 4f).SetEase(Ease.InCubic).WaitForCompletion();
+        yield return panelImage.DOFade(0f, 2f).SetEase(Ease.InCubic).WaitForCompletion();
 
         DarkPannel.SetActive(false);
     }
