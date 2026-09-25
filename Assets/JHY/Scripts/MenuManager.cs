@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
+    [Header("Camera Preview 연출")]
+    [SerializeField] private MultiMapPreview mapPreview; // 카메라 연출 스크립트 연결
+
     [Header("Canvas Groups")]
     [SerializeField] private CanvasGroup startScreen;
     [SerializeField] private CanvasGroup mainMenu;
@@ -13,12 +16,14 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject background;
     [SerializeField] private MainMenuAnimation mainMenuAnimation;
     [SerializeField] private GameObject settingPanel;
+
     [Header("Fade Settings")]
     [SerializeField] private float fadeDuration = 0.5f;
 
     [Header("Sound")]
     [SerializeField] private AudioClip clickMain;
     [SerializeField] private AudioClip MainBGM;
+
     private bool isStartScreen = true;
     private bool isTransitioning = false;
 
@@ -65,6 +70,11 @@ public class MenuManager : MonoBehaviour
             .SetEase(Ease.InOutQuad)
             .OnComplete(() =>
             {
+                if (mapPreview != null)
+                {
+                    mapPreview.StopPreview();
+                }
+
                 startScreen.alpha = 0f;
                 startScreen.interactable = false;
                 startScreen.blocksRaycasts = false;
@@ -88,15 +98,17 @@ public class MenuManager : MonoBehaviour
                     });
             });
     }
+
     public void SettingOpen()
     {
         settingPanel.SetActive(true);
     }
+
     public void SettingClose()
     {
         settingPanel.SetActive(false);
     }
-    
+
     public void NextScene()
     {
         if (isTransitioning)
@@ -112,7 +124,7 @@ public class MenuManager : MonoBehaviour
             .OnComplete(() =>
             {
                 SoundManager.Instance.StopBGM();
-                SceneManager.LoadScene(1); 
+                SceneManager.LoadScene(1);
             });
     }
 }
