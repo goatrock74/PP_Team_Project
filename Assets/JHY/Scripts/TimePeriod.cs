@@ -15,6 +15,8 @@ public class TimePeriod : MonoBehaviour
     [SerializeField] private int percent = 3;
     public bool IsFading { get; private set; } = false;
     private Coroutine npcSpawnCoroutine;
+    [SerializeField] private AudioClip morning;
+    [SerializeField] private AudioClip Night;
     public void TriggerFade()
     {
         if (IsFading) return;
@@ -32,10 +34,11 @@ public class TimePeriod : MonoBehaviour
         {
             case TimeManager.TimePeriod.Morning:
                 Debug.Log("sun");
+                Debug.Log("³ë·¡");
+                SoundManager.Instance.PlayBGM(morning);
                 sun.alpha = 1;
                 afternoon.alpha = 0;
                 night.alpha = 0;
-
                 if (nightNpc != null) nightNpc.SetActive(false);
                 break;
             case TimeManager.TimePeriod.Afternoon:
@@ -48,6 +51,8 @@ public class TimePeriod : MonoBehaviour
                 break;
             case TimeManager.TimePeriod.Night:
                 Debug.Log("night");
+                SoundManager.Instance.PlayBGM(Night);
+
                 sun.alpha = 0;
                 afternoon.alpha = 0;
                 night.alpha = 1;
