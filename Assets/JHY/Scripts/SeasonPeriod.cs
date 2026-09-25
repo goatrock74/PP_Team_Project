@@ -31,21 +31,14 @@ public class SeasonPeriod : MonoBehaviour
     private IEnumerator StartFade()
     {
         Image panelImage = DarkPannel.GetComponent<Image>();
-        panelImage.DOKill();
+        panelImage.DOKill(); // 충돌 방지
+
         DarkPannel.SetActive(true);
+        panelImage.color = new Color(panelImage.color.r, panelImage.color.g, panelImage.color.b, 1f);
 
-        // 처음에는 완전히 검은색
-        panelImage.color = new Color(
-            panelImage.color.r,
-            panelImage.color.g,
-            panelImage.color.b,
-            1f
-        );
+        yield return new WaitForSeconds(0.8f);
 
-        // 1.5초 동안 검은색 → 투명
-        yield return panelImage.DOFade(0f, 5f)
-            .SetEase(Ease.Linear)
-            .WaitForCompletion();
+        yield return panelImage.DOFade(0f, 4f).SetEase(Ease.InCubic).WaitForCompletion();
 
         DarkPannel.SetActive(false);
     }
