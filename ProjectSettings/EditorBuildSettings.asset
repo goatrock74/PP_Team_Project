@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/0.0Main/0.1Map.unity
     guid: 7a3883985cf55f446909365c884be38d
   - enabled: 1
-    path: Assets/0.0Main/0.1Map_B.unity
-    guid: ae2f73ee8ba4d054789e2aee85b2290f
-  - enabled: 1
     path: Assets/0.0Main/0.2PlantShop.unity
     guid: 872bcd1db5635ac4e8f6183e81d27479
   - enabled: 1

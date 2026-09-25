@@ -7,11 +7,14 @@ public class FishShopSlot : MonoBehaviour
 {
     [SerializeField] private Image clickimage;
     [SerializeField] private Image itemIconImage;
+    private UnityAction boundSelect;
 
     public void Bind(Sprite icon, UnityAction select)
     {
         var button = GetComponent<Button>();
-        button.onClick = new Button.ButtonClickedEvent();
+        // Preserve Inspector events and replace only this slot's runtime callback.
+        if (boundSelect != null) button.onClick.RemoveListener(boundSelect);
+        boundSelect = select;
         button.onClick.AddListener(select);
         button.interactable = true;
         itemIconImage.sprite = icon;

@@ -13,6 +13,7 @@ public class UIManger : MonoBehaviour
     [SerializeField] GameObject menuPanel;
     [SerializeField] GameObject buyPanel;
     [SerializeField] GameObject sellPanel;
+    [SerializeField] private AudioClip clickaudio;
 
     private void Awake()
     {
@@ -54,4 +55,10 @@ public class UIManger : MonoBehaviour
     {
         SceneManager.LoadScene(sceneNum);
     }
+
+    public void ClickSound()
+    {
+        SoundManager.Instance.PlaySFX(clickaudio);
+    }
+
 }

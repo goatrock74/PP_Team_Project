@@ -866,6 +866,7 @@ MonoBehaviour:
   menuPanel: {fileID: 3092234956}
   buyPanel: {fileID: 3831969735}
   sellPanel: {fileID: 4940950971}
+  clickaudio: {fileID: 8300000, guid: a0a7c0bec35ea1648ac8dcddfaa69da6, type: 3}
 --- !u!4 &1113584714
 Transform:
   m_ObjectHideFlags: 0
@@ -2243,7 +2244,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3081790197}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3081790197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,7 +2407,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3086233676}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3086233676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2772,7 +2797,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3131706479}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3131706479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3129,6 +3166,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3866,7 +3915,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3448528840}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3448528840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3988,7 +4049,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3461217353}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3461217353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4435,7 +4508,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3532891915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3532891915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5368,7 +5453,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3709583206}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3709583206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5653,6 +5750,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3761790328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5803,7 +5912,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3779942582}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3779942582
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5939,7 +6060,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3813308584}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &3813308584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6694,7 +6827,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4046674320}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4046674320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6830,7 +6975,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4057955169}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4057955169
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6966,7 +7123,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4064681762}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4064681762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7260,6 +7429,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4176364038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7446,7 +7627,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4204061683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4204061683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7583,7 +7776,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4246276833}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4246276833
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7720,7 +7925,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4256412076}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4256412076
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7856,7 +8073,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4263855024}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4263855024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7981,6 +8210,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1900000001}
         m_TargetAssemblyTypeName: FishShopController, Assembly-CSharp
         m_MethodName: BackToMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8140,7 +8381,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4273954143}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4273954143
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8277,7 +8530,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4294019123}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4294019123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8413,7 +8678,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4295498416}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4295498416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8549,7 +8826,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4314621837}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4314621837
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8675,6 +8964,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1900000001}
         m_TargetAssemblyTypeName: FishShopController, Assembly-CSharp
         m_MethodName: OpenBuyPanel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9128,7 +9429,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4478347536}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4478347536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9615,7 +9928,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4719762919}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4719762919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9826,7 +10151,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4735151891}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4735151891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9962,7 +10299,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4753841376}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4753841376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10357,7 +10706,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4831445651}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4831445651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10879,7 +11240,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4912071033}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4912071033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11108,7 +11481,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4946562616}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4946562616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11518,7 +11903,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5017414079}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5017414079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11791,7 +12188,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5065902325}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5065902325
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11927,7 +12336,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5071213769}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5071213769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12264,7 +12685,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5129099234}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1113584713}
+        m_TargetAssemblyTypeName: UIManger, Assembly-CSharp
+        m_MethodName: ClickSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5129099234
 MonoBehaviour:
   m_ObjectHideFlags: 0

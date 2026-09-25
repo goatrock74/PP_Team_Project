@@ -12,10 +12,13 @@ public class FishShopDetailPanel : MonoBehaviour
     [SerializeField] private TextMeshProUGUI countText;
     [SerializeField] private Button actionButton;
     private TextMeshProUGUI actionText;
+    private UnityAction boundAction;
 
     public void Bind(UnityAction action)
     {
-        actionButton.onClick = new Button.ButtonClickedEvent();
+        // Preserve Inspector events and avoid duplicate callbacks when rebound.
+        if (boundAction != null) actionButton.onClick.RemoveListener(boundAction);
+        boundAction = action;
         actionButton.onClick.AddListener(action);
         actionText = actionButton.GetComponentInChildren<TextMeshProUGUI>(true);
         HideDetail();
