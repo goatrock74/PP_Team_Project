@@ -23025,6 +23025,8 @@ MonoBehaviour:
   DarkPannel: {fileID: 608944750}
   nightNpc: {fileID: 1326867704}
   percent: 3
+  morning: {fileID: 8300000, guid: 2ff1f37e557c6f448be8b4976465544b, type: 3}
+  Night: {fileID: 8300000, guid: a0da5b240e3fdb647b56396111eb85f3, type: 3}
 --- !u!4 &1605480117
 Transform:
   m_ObjectHideFlags: 0
