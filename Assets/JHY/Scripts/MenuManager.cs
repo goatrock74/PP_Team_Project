@@ -18,11 +18,13 @@ public class MenuManager : MonoBehaviour
 
     [Header("Sound")]
     [SerializeField] private AudioClip clickMain;
+    [SerializeField] private AudioClip MainBGM;
     private bool isStartScreen = true;
     private bool isTransitioning = false;
 
     private void Start()
     {
+        SoundManager.Instance.PlayBGM(MainBGM);
         startScreen.alpha = 1f;
         startScreen.interactable = true;
         startScreen.blocksRaycasts = true;

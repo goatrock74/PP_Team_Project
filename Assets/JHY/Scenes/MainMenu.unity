@@ -1431,6 +1431,7 @@ MonoBehaviour:
   settingPanel: {fileID: 1836470480}
   fadeDuration: 2
   clickMain: {fileID: 8300000, guid: de2ce0d1d59dcce41add94bbc522793f, type: 3}
+  MainBGM: {fileID: 8300000, guid: d241259c569d145fd985609d57d3c9ad, type: 3}
 --- !u!1 &608172362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,7 +4115,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -5633132189771557798, guid: 5a851c633547a7d47a02c515aa9fe7c0, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: d241259c569d145fd985609d57d3c9ad, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
