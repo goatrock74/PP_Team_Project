@@ -44110,6 +44110,8 @@ MonoBehaviour:
   DarkPannel: {fileID: 0}
   nightNpc: {fileID: 0}
   percent: 3
+  morning: {fileID: 0}
+  Night: {fileID: 0}
 --- !u!4 &227905868
 Transform:
   m_ObjectHideFlags: 0
@@ -241006,7 +241008,7 @@ Transform:
   m_GameObject: {fileID: 914049178}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -34.11, y: -0.87, z: 0}
+  m_LocalPosition: {x: -38.34, y: -0.87, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -395873,7 +395875,7 @@ Transform:
   m_GameObject: {fileID: 1608641833}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000000037223231, y: -0.000000029954705, z: 1.2431729e-16, w: 1}
-  m_LocalPosition: {x: -34.11, y: -0.87, z: -10}
+  m_LocalPosition: {x: -38.34, y: -0.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -420479,7 +420481,7 @@ Transform:
   m_GameObject: {fileID: 1774133398}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0000000037223231, y: -0.000000029954705, z: 1.1150109e-16, w: 1}
-  m_LocalPosition: {x: -34.11, y: -0.87, z: -10}
+  m_LocalPosition: {x: -38.34, y: -0.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

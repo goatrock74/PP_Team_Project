@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f43b4a1bea54a54bfbbe8412cae7c86, type: 3}
+  m_Name: 1GiantWoodTableSummer
+  m_EditorClassIdentifier: Assembly-CSharp::LootTableSO
+  tableName: 
+  entries:
+  - item: {fileID: 11400000, guid: 00c1d775dcd69d645a71b19d2d231ebf, type: 2}
+    weight: 50
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 2
+  - item: {fileID: 11400000, guid: 5939d7c62e4cd7c47bc9167408596f66, type: 2}
+    weight: 5
+    minCount: 1
+    maxCount: 2
+    quality: 2
+    rarity: 4
+  - item: {fileID: 11400000, guid: f939fe32eaddcdc41a660aa5704bd591, type: 2}
+    weight: 30
+    minCount: 1
+    maxCount: 1
+    quality: 0
+    rarity: 0
+  - item: {fileID: 11400000, guid: a688502d99cf18347a80314762d403f4, type: 2}
+    weight: 15
+    minCount: 1
+    maxCount: 2
+    quality: 0
+    rarity: 0

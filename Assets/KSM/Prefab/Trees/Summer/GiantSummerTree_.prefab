@@ -94,9 +94,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TreeNode
   maxHealth: 3
   requiredTier: 0
-  dropTable: {fileID: 0}
+  dropTable: {fileID: 11400000, guid: fac0a005e5e67f1458eb0f9639189e3c, type: 2}
   chipTable: {fileID: 0}
-  respawnDays: 3
+  minRespawnDays: 6
+  maxRespawnDays: 25
   bodyRenderer: {fileID: 8012857626988240260}
   stumpSprite: {fileID: 2784020742513094676, guid: 95bcb30b61731b342918dc74c5d411e1, type: 3}
   hideWhenStump: []

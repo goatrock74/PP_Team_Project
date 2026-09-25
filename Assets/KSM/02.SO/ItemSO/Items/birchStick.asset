@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d32947cefe9f4382a9a2d6d43769fc19, type: 3}
-  m_Name: birchStick
+  m_Name: BirchStick
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 
-  displayName: "\uB098\uBB34"
+  displayName: "\uC790\uC791\uB098\uBB47\uAC00\uC9C0"
   icon: {fileID: -3004918560657441691, guid: 1471d25ade60fcb40b66b63162952597, type: 3}
-  description: 
+  description: "\uC790\uC791\uB098\uBB34\uC5D0\uC11C\uB098\uC624\uB294 \uB098\uBB47\uAC00\uC9C0"
   itemType: 6
   maxStack: 99
   sellPrice: 0

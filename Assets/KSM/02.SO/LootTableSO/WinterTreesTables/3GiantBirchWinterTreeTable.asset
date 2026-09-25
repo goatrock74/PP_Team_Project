@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f43b4a1bea54a54bfbbe8412cae7c86, type: 3}
+  m_Name: 3GiantBirchWinterTreeTable
+  m_EditorClassIdentifier: Assembly-CSharp::LootTableSO
+  tableName: 
+  entries:
+  - item: {fileID: 11400000, guid: 3acf69510f0d90947b56adeaa340feb9, type: 2}
+    weight: 40
+    minCount: 1
+    maxCount: 2
+    quality: 0
+    rarity: 0
+  - item: {fileID: 11400000, guid: 301a6cc0f1dc6344985e3f71d7f9ea47, type: 2}
+    weight: 5
+    minCount: 1
+    maxCount: 5
+    quality: 0
+    rarity: 4
+  - item: {fileID: 11400000, guid: 0ae363c4ba19d65409054ec3bae38cfb, type: 2}
+    weight: 55
+    minCount: 1
+    maxCount: 2
+    quality: 0
+    rarity: 2
