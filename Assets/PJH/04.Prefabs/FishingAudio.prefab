@@ -50,7 +50,7 @@ MonoBehaviour:
   reelLoopSource: {fileID: 3023049824505613966}
   castClip: {fileID: 8300000, guid: e927968bc9709b34db3379cff3cfb975, type: 3}
   splashClip: {fileID: 8300000, guid: 1c0f941ea08637d46ab0728e47fe9cac, type: 3}
-  biteClip: {fileID: 8300000, guid: 665c6ebe3293d454882e61dfe921ac45, type: 3}
+  biteClip: {fileID: 8300000, guid: ad18e8b557cd6ba4d8d2b18739c46003, type: 3}
   catchClip: {fileID: 8300000, guid: 83a567824008c134890041f5045e5c17, type: 3}
 --- !u!82 &3023049824505613966
 AudioSource:
