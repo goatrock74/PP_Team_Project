@@ -231,15 +231,7 @@ namespace PJH.Scripts
         {
             bool isHolding = Mouse.current != null && Mouse.current.leftButton.isPressed;
 
-            if (isHolding)
-            {
-                fishingAudio?.StartReel();
-            }
-
-            else
-            {
-                fishingAudio?.StopReel();
-            }
+            fishingAudio?.StartReel();
             
             float deltaTime = Time.deltaTime;
  
