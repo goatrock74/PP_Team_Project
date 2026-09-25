@@ -4,25 +4,46 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
+    public static SoundManager Instance { get; private set; }
+
     [Header("Audio Mixer")]
     [SerializeField] private AudioMixer audioMixer;
     [Header("Sound Settings")]
     [SerializeField] private SoundSettings soundSettings;
-
+    [Header("Audio Sources")]
+    [SerializeField] private AudioSource bgmSource; 
+    [SerializeField] private AudioSource sfxSource;
     [Header("UI Sliders")]
     [SerializeField] private Slider masterSlider;
     [SerializeField] private Slider bgmSlider;
     [SerializeField] private Slider sfxSlider;
-
+    private void Awake()
+    {
+        // 싱글톤 설정
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
     private void Start()
     {
+        soundSettings.masterVolume = PlayerPrefs.GetFloat("MasterVolume", soundSettings.masterVolume);
+        soundSettings.bgmVolume = PlayerPrefs.GetFloat("BGMVolume", soundSettings.bgmVolume);
+        soundSettings.sfxVolume = PlayerPrefs.GetFloat("SFXVolume", soundSettings.sfxVolume);
+
         InitSlider(masterSlider, soundSettings.masterVolume);
         InitSlider(bgmSlider, soundSettings.bgmVolume);
         InitSlider(sfxSlider, soundSettings.sfxVolume);
 
-        masterSlider.onValueChanged.AddListener(SetMasterVolume);
-        bgmSlider.onValueChanged.AddListener(SetBGMVolume);
-        sfxSlider.onValueChanged.AddListener(SetSFXVolume);
+        if (masterSlider != null) masterSlider.onValueChanged.AddListener(SetMasterVolume);
+        if (bgmSlider != null) bgmSlider.onValueChanged.AddListener(SetBGMVolume);
+        if (sfxSlider != null) sfxSlider.onValueChanged.AddListener(SetSFXVolume);
 
         SetMasterVolume(soundSettings.masterVolume);
         SetBGMVolume(soundSettings.bgmVolume);
@@ -53,5 +74,15 @@ public class SoundManager : MonoBehaviour
     {
         soundSettings.sfxVolume = value;
         audioMixer.SetFloat("SFX", Mathf.Log10(value) * 20);
+    }
+    public void PlaySFX(AudioClip clip)
+    {
+        if (clip == null || sfxSource == null) return;
+        sfxSource.PlayOneShot(clip);
+    }
+    public void PlayBGM(AudioClip clip)
+    {
+        if (clip == null || bgmSource == null) return;
+        bgmSource.PlayOneShot(clip);
     }
 }

@@ -223,6 +223,7 @@ MonoBehaviour:
   fishingMiniGame: {fileID: 6820266594769326791}
   fishingAreaCheck: {fileID: 5022662610120601307}
   fishSelector: {fileID: 2901346291419793180}
+  fishingAudio: {fileID: 1172089428}
   splashParticle: {fileID: 7751772685987678850, guid: 0387cf995dbbb494f8d615397183d20e, type: 3}
   requireWaterToCast: 0
   movement: {fileID: 0}
@@ -273,6 +274,7 @@ Transform:
   - {fileID: 7327344103193202187}
   - {fileID: 5148144855953212566}
   - {fileID: 258942161}
+  - {fileID: 1172089425}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &619994868 stripped
@@ -466,6 +468,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4612a1b57be146b18774d4c9aba9be72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishingBaitManager
+--- !u!4 &1172089425 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+  m_PrefabInstance: {fileID: 7471285440566720199}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1172089428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 570348477166207979, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+  m_PrefabInstance: {fileID: 7471285440566720199}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a4519f1d0c74445ba241e35e004b60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishingAudioPlayer
 --- !u!1 &1301231006
 GameObject:
   m_ObjectHideFlags: 0
@@ -978,6 +996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FishingAnimationEvent
   playerFishing: {fileID: 324735641}
+  fishingAudio: {fileID: 1172089428}
 --- !u!222 &1762257565217088695
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1753,6 +1772,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 324735644}
     m_Modifications:
     - target: {fileID: 95114240070959544, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
+      propertyPath: fishingAudio
+      value: 
+      objectReference: {fileID: 1172089428}
+    - target: {fileID: 95114240070959544, guid: e10dcf92cdb0faf49a51cb7ebe826825, type: 3}
       propertyPath: caughtFishPoint
       value: 
       objectReference: {fileID: 390264483775927818}
@@ -1878,6 +1901,7 @@ MonoBehaviour:
   progressIncreaseSpeed: 0.15
   progressDecreaseSpeed: 0.16
   animationController: {fileID: 7692703430041243856}
+  fishingAudio: {fileID: 1172089428}
 --- !u!222 &6848316519725632029
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2031,6 +2055,63 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1001 &7471285440566720199
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 324735644}
+    m_Modifications:
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4903539203771938916, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8214937998845458477, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
+      propertyPath: m_Name
+      value: FishingAudio
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f68253d0eec77bf4f88143cd0191b59c, type: 3}
 --- !u!224 &7579804409411799303
 RectTransform:
   m_ObjectHideFlags: 0
