@@ -99,7 +99,20 @@ public class MenuManager : MonoBehaviour
     
     public void NextScene()
     {
-        SoundManager.Instance.StopBGM();
-        SceneManager.LoadScene(1);//MapSecene
+        if (isTransitioning)
+            return;
+
+        isTransitioning = true;
+
+        SoundManager.Instance.PlaySFX(clickMain);
+
+        fadePanel
+            .DOFade(1f, fadeDuration)
+            .SetEase(Ease.InOutQuad)
+            .OnComplete(() =>
+            {
+                SoundManager.Instance.StopBGM();
+                SceneManager.LoadScene(1); 
+            });
     }
 }
