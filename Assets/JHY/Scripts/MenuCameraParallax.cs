@@ -8,32 +8,31 @@ public class MenuCameraParallax : MonoBehaviour
     [SerializeField] private float moveAmountY = 0.2f;
     [SerializeField] private float smoothSpeed = 3f;
 
-    private Vector3 startPosition;
+    private Vector3 initialLocalPos;
 
     private void Start()
     {
-        startPosition = transform.position;
+        initialLocalPos = transform.localPosition;
     }
 
     private void Update()
     {
+        if (Mouse.current == null) return;
+
         Vector2 mousePosition = Mouse.current.position.ReadValue();
 
-        float mouseX = mousePosition.x / Screen.width * 2f - 1f;
-        float mouseY = mousePosition.y / Screen.height * 2f - 1f;
+        float mouseX = (mousePosition.x / Screen.width) * 2f - 1f;
+        float mouseY = (mousePosition.y / Screen.height) * 2f - 1f;
 
-        float targetX = startPosition.x + mouseX * moveAmountX;
-        float targetY = startPosition.y + mouseY * moveAmountY;
-
-        Vector3 targetPosition = new Vector3(
-            targetX,
-            targetY,
-            startPosition.z
+        Vector3 targetLocalPos = new Vector3(
+            initialLocalPos.x + mouseX * moveAmountX,
+            initialLocalPos.y + mouseY * moveAmountY,
+            initialLocalPos.z
         );
 
-        transform.position = Vector3.Lerp(
-            transform.position,
-            targetPosition,
+        transform.localPosition = Vector3.Lerp(
+            transform.localPosition,
+            targetLocalPos,
             smoothSpeed * Time.deltaTime
         );
     }
