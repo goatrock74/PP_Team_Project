@@ -87,6 +87,10 @@ namespace PJH.Scripts
             // 여기서 인벤토리를 직접 건드리지 않는 이유: 낚시 코드가 아이템 시스템을
             // 알게 되면 둘 중 하나만 바뀌어도 서로 깨지기 때문
         }
+        public void OnCastReleased()
+        {
+            fishingAudio?.PlayCast();
+        }
  
         private void HandleFishingFailed()
         {
