@@ -36,6 +36,7 @@ public class DialogueManager : MonoBehaviour
 
     public bool isChat { get; set; } = false;
 
+    [SerializeField] private AudioClip clickSound;
     public void StartDialogue(DialogueData data)
     {
         currentDialogue = data;
@@ -110,10 +111,12 @@ public class DialogueManager : MonoBehaviour
         currentIndex = 0;
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
+        SoundManager.Instance.PlaySFX(clickSound);
     }
 
     public void NextScene(int scenenumber)
     {
+        SoundManager.Instance.PlaySFX(clickSound);
         StartCoroutine(FadeAndLoadSceneRoutine(scenenumber));
     }
 
