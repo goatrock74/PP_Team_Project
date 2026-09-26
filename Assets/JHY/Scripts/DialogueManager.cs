@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class DialogueData
@@ -90,5 +91,12 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         currentDialogue = null;
         dialogueText.text = "";
+    }
+
+    //씬덤어가는 메서드
+    public void NextScene(int scenenumber)
+    {
+        Debug.Log("실행");
+        SceneManager.LoadScene(scenenumber);
     }
 }
