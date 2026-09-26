@@ -28,7 +28,7 @@ MonoBehaviour:
   hitBoxDistance: 0.8
   verboseLog: 1
   showPreview: 0
-  animationTrigger: Hoe
+  animationTrigger: 
   baseClip: {fileID: 7400000, guid: ac1de5e1c486e3b4589cbc873f1ca682, type: 2}
   tierClip: {fileID: 7400000, guid: 04dcdf8355f6e5f429825e05455bae06, type: 2}
   extraClips:
