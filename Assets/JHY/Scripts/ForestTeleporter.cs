@@ -27,7 +27,7 @@ public class ForestTeleporter : MonoBehaviour
 
     private bool isTeleporting = false;
     public bool isInForest { get; private set; } = false;
-
+    [SerializeField] private AudioClip error;
     // [핵심] 숲 텔레포터가 직접 시간 변화를 감지하도록 등록
     private void Start()
     {
@@ -76,6 +76,7 @@ public class ForestTeleporter : MonoBehaviour
         if (warningText == null) yield break;
 
         warningText.DOKill();
+        SoundManager.Instance.PlaySFX(error);
         warningText.gameObject.SetActive(true);
 
         yield return warningText.DOFade(1f, 0.5f).SetEase(Ease.Linear).WaitForCompletion();
