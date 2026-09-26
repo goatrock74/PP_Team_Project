@@ -9,7 +9,7 @@ public class ForestTeleporter : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     [Header("목적지 설정")]
-    [SerializeField] private Transform mainMapDestination; // 추가됨: 메인 맵으로 돌아올 위치
+    [SerializeField] private Transform mainMapDestination;
 
     [Header("계절별 숲 도착 위치")]
     [SerializeField] private Transform springForest;
@@ -20,31 +20,35 @@ public class ForestTeleporter : MonoBehaviour
     [Header("페이드 연출 UI")]
     [SerializeField] private GameObject darkPanel;
     [SerializeField] private float fadeDuration = 1.0f;
-    [SerializeField] private GameObject dialoguePanel;
+
+    [Header("대화 매니저 연결 (추가됨)")]
+    [SerializeField] private DialogueManager dialogueManager;
 
     private bool isTeleporting = false;
 
     public void TeleportToForest()
     {
         if (isTeleporting) return;
-        StartCoroutine(TeleportRoutine(true)); 
+        StartCoroutine(TeleportRoutine(true));
     }
 
     public void TeleportToMainMap()
     {
         Debug.Log("ㅇㅇㅇ");
         if (isTeleporting) return;
-        StartCoroutine(TeleportRoutine(false)); 
+        StartCoroutine(TeleportRoutine(false));
     }
 
     private IEnumerator TeleportRoutine(bool isGoingToForest)
     {
         isTeleporting = true;
 
-        if (dialoguePanel != null && dialoguePanel.activeSelf)
+        // 이동 시작 시 대화창 안전하게 종료
+        if (dialogueManager != null)
         {
-            dialoguePanel.SetActive(false);
+            dialogueManager.EndDialogue();
         }
+
         Image panelImage = darkPanel.GetComponent<Image>();
         panelImage.DOKill();
         darkPanel.SetActive(true);
@@ -86,7 +90,7 @@ public class ForestTeleporter : MonoBehaviour
             Debug.LogWarning("도착 지점이나 플레이어가 지정되지 않았습니다!");
         }
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
 
         yield return panelImage.DOFade(0f, fadeDuration).SetEase(Ease.Linear).WaitForCompletion();
 
