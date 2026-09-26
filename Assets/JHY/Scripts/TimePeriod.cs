@@ -34,7 +34,6 @@ public class TimePeriod : MonoBehaviour
         {
             case TimeManager.TimePeriod.Morning:
                 Debug.Log("sun");
-                Debug.Log("³ë·¡");
                 SoundManager.Instance.PlayBGM(morning);
                 sun.alpha = 1;
                 afternoon.alpha = 0;

@@ -15,7 +15,6 @@ public class BackgroundScroll : MonoBehaviour
         {
             width = spriteRenderer.bounds.size.x;
 
-            Debug.Log("배경 가로 크기: " + width);
         }
         else
         {

@@ -24,6 +24,9 @@ public class ForestTeleporter : MonoBehaviour
     [Header("대화 매니저 연결 (추가됨)")]
     [SerializeField] private DialogueManager dialogueManager;
 
+    [Header("메인 맵 귀환 NPC의 대화 매니저")]
+    [SerializeField] private DialogueManager returnDialogueManager;
+
     private bool isTeleporting = false;
 
     public void TeleportToForest()
@@ -34,19 +37,22 @@ public class ForestTeleporter : MonoBehaviour
 
     public void TeleportToMainMap()
     {
-        Debug.Log("ㅇㅇㅇ");
+
+
         if (isTeleporting) return;
         StartCoroutine(TeleportRoutine(false));
     }
 
     private IEnumerator TeleportRoutine(bool isGoingToForest)
     {
+
         isTeleporting = true;
 
         // 이동 시작 시 대화창 안전하게 종료
-        if (dialogueManager != null)
+        DialogueManager activeDialogue = isGoingToForest ? dialogueManager : returnDialogueManager;
+        if (activeDialogue != null)
         {
-            dialogueManager.EndDialogue();
+            activeDialogue.EndDialogue();
         }
 
         Image panelImage = darkPanel.GetComponent<Image>();

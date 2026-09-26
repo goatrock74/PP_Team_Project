@@ -9,7 +9,6 @@ public class TextFade : MonoBehaviour
     public Tween Textfade()
     {
         text.alpha = 0;
-        Debug.Log("페이드");
         return text.DOFade(1f, duration)
             .SetEase(Ease.OutQuad);
     }
