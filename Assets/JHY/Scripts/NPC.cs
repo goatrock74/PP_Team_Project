@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -11,6 +12,7 @@ public class NPC : MonoBehaviour
     [SerializeField] private Vector2 boxSize = new Vector2(3f, 3f);
     [SerializeField] private string targetTag = "Player";
     [SerializeField] private GameObject ui;
+    private readonly List<Collider2D> detectionResults = new List<Collider2D>();
 
     public void TriggerDialogue()
     {
@@ -26,8 +28,18 @@ public class NPC : MonoBehaviour
     private void Update()
     {
 
-        Collider2D hit = Physics2D.OverlapBox(transform.position, boxSize, 0f);
-        bool isDetected = hit != null && hit.CompareTag(targetTag);
+        // Check every overlap so the NPC or terrain cannot hide the player.
+        Physics2D.OverlapBox(transform.position, boxSize, 0f,
+            new ContactFilter2D().NoFilter(), detectionResults);
+        bool isDetected = false;
+        foreach (Collider2D hit in detectionResults)
+        {
+            if (hit.CompareTag(targetTag))
+            {
+                isDetected = true;
+                break;
+            }
+        }
 
         // UI 켜고 끄기
         if (ui != null) ui.SetActive(isDetected);

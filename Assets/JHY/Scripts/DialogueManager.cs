@@ -32,8 +32,17 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(DialogueData data)
     {
+        if (data == null || dialoguePanel == null || nameText == null || dialogueText == null)
+        {
+            isChat = false;
+            Debug.LogError("DialogueManager의 대사 데이터와 UI 연결을 확인하세요.", this);
+            return;
+        }
+
+        EndDialogue();
         currentDialogue = data;
         currentIndex = 0;
+        isChat = true;
 
         dialoguePanel.SetActive(true);
         nameText.text = currentDialogue.npcName + ":";
@@ -43,6 +52,7 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+
         if (currentDialogue == null) return;
 
         // 현재 글자가 출력 중이면
@@ -57,7 +67,7 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        if (currentIndex < currentDialogue.sentences.Length)
+        if (currentDialogue.sentences != null && currentIndex < currentDialogue.sentences.Length)
         {
             string sentence = currentDialogue.sentences[currentIndex];
             currentIndex++;
@@ -85,18 +95,32 @@ public class DialogueManager : MonoBehaviour
         isTyping = false;
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
+        isTyping = false;
         isChat = false;
-        dialoguePanel.SetActive(false);
         currentDialogue = null;
-        dialogueText.text = "";
+        currentIndex = 0;
+        if (dialogueText != null) dialogueText.text = "";
+        if (dialoguePanel != null) dialoguePanel.SetActive(false);
     }
 
-    //씬덤어가는 메서드
+    // Button OnClick에서 Build Settings의 씬 번호를 입력합니다.
     public void NextScene(int scenenumber)
     {
-        Debug.Log("실행");
+        if (scenenumber < 0 || !Application.CanStreamedLevelBeLoaded(scenenumber))
+        {
+            Debug.LogError($"이동할 씬 번호 {scenenumber}를 Build Settings에서 확인하세요.", this);
+            return;
+        }
+
+        EndDialogue();
         SceneManager.LoadScene(scenenumber);
     }
 }
