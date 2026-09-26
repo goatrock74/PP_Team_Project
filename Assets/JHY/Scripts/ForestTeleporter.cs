@@ -20,6 +20,7 @@ public class ForestTeleporter : MonoBehaviour
     [Header("페이드 연출 UI")]
     [SerializeField] private GameObject darkPanel;
     [SerializeField] private float fadeDuration = 1.0f;
+    [SerializeField] private GameObject dialoguePanel;
 
     private bool isTeleporting = false;
 
@@ -39,6 +40,10 @@ public class ForestTeleporter : MonoBehaviour
     {
         isTeleporting = true;
 
+        if (dialoguePanel != null && dialoguePanel.activeSelf)
+        {
+            dialoguePanel.SetActive(false);
+        }
         Image panelImage = darkPanel.GetComponent<Image>();
         panelImage.DOKill();
         darkPanel.SetActive(true);
