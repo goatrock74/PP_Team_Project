@@ -52,9 +52,6 @@ namespace PJH._01.Scripts
         {
             reelLoopSource.Stop();
         }
-<<<<<<< HEAD
-=======
-        
         public void PlayRetrieve()
         {
             if (sfxSource == null)
@@ -84,8 +81,5 @@ namespace PJH._01.Scripts
                 );
             }
         }
-        
-        
->>>>>>> Base
     }
 }
