@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using PJH._01.Scripts;
 using UnityEngine;
 using UnityEngine.UI;
@@ -116,10 +115,5 @@ namespace PJH.Scripts
                 fishSlots[i].SetUp(fishData, isDiscovered, fishDetailPanelUI.ShowFishData);
             }
         }
-
-        /*private void ShowFishDetail(FishDataSO fishData)
-        {
-            fishDetailPanelUI.ShowFishData(fishData);
-        }*/
     }
 }

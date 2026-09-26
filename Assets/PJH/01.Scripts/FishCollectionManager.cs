@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using PJH.Scripts;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 namespace PJH._01.Scripts
 {
@@ -13,8 +11,6 @@ namespace PJH._01.Scripts
         private const string SaveKey = "FishCollection";
 
         private readonly HashSet<string> discoveredFishIds = new();
-        [SerializeField] private GameObject fishUI;
-        private bool isView = false;
 
         [Serializable]
         private class FishCollectionSaveData
@@ -28,14 +24,6 @@ namespace PJH._01.Scripts
             LoadCollection();
         }
 
-        private void Update()
-        {
-            if (Keyboard.current.tKey.wasPressedThisFrame)
-            {
-                isView = !isView;
-                fishUI.gameObject.SetActive(isView);
-            }
-        }
 
 
         public bool IsDiscovered(FishDataSO fishData)

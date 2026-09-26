@@ -1,7 +1,5 @@
 ﻿using KSM._00.Scripts.Items;
 using TMPro;
-using Unity.VisualScripting;
-using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 using UnityEngine.UI;
 
