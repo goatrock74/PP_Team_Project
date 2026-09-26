@@ -10,23 +10,33 @@ public class OceanTeleporter : MonoBehaviour
     [SerializeField] private Transform playerTransform;
 
     [Header("목적지 설정")]
-    [SerializeField] private Transform oceanDestination;       // 바다 도착 위치
-    [SerializeField] private Transform mainMapDestination;     // 메인 맵으로 돌아올 위치
+    [SerializeField] private Transform oceanDestination;
+    [SerializeField] private Transform mainMapDestination;
 
     [Header("페이드 연출 UI")]
     [SerializeField] private GameObject darkPanel;
     [SerializeField] private float fadeDuration = 1.0f;
 
-    private bool isTeleporting = false;
+    [Header("BGM 설정")]
+    [SerializeField] private AudioClip oceanBGM;               // 바다 맵 BGM
+    [SerializeField] private AudioClip mainMapDayBGM;          // 메인 맵 낮(아침/점심) BGM
+    [SerializeField] private AudioClip mainMapNightBGM;        // 메인 맵 밤 BGM
 
-    // 바다로 이동하는 버튼에 연결
+    [Header("갈매기 소리 설정")]
+    [SerializeField] private AudioClip seagullSFX;
+    [SerializeField] private float minSeagullInterval = 5f;
+    [SerializeField] private float maxSeagullInterval = 12f;
+
+    private bool isTeleporting = false;
+    private Coroutine seagullCoroutine;
+    public static bool IsInOcean { get; private set; } = false;
+
     public void TeleportToOcean()
     {
         if (isTeleporting) return;
         StartCoroutine(TeleportRoutine(true));
     }
 
-    // 메인 맵으로 돌아오는 버튼에 연결
     public void TeleportToMainMap()
     {
         if (isTeleporting) return;
@@ -36,6 +46,13 @@ public class OceanTeleporter : MonoBehaviour
     private IEnumerator TeleportRoutine(bool isGoingToOcean)
     {
         isTeleporting = true;
+        IsInOcean = isGoingToOcean;
+
+        if (!isGoingToOcean && seagullCoroutine != null)
+        {
+            StopCoroutine(seagullCoroutine);
+            seagullCoroutine = null;
+        }
 
         Image panelImage = darkPanel.GetComponent<Image>();
         panelImage.DOKill();
@@ -54,10 +71,33 @@ public class OceanTeleporter : MonoBehaviour
                 targetDestination.position.y,
                 playerTransform.position.z
             );
-        }
-        else
-        {
-            Debug.LogWarning("도착 지점이나 플레이어가 지정되지 않았습니다!");
+
+            if (SoundManager.Instance != null)
+            {
+                if (isGoingToOcean)
+                {
+                    if (oceanBGM != null) SoundManager.Instance.PlayBGM(oceanBGM);
+
+                    if (seagullSFX != null && seagullCoroutine == null)
+                    {
+                        seagullCoroutine = StartCoroutine(SeagullRoutine());
+                    }
+                }
+                else
+                {
+                    if (TimeManager.Instance != null)
+                    {
+                        if (TimeManager.Instance.CurrentPeriod == TimeManager.TimePeriod.Night)
+                        {
+                            if (mainMapNightBGM != null) SoundManager.Instance.PlayBGM(mainMapNightBGM);
+                        }
+                        else
+                        {
+                            if (mainMapDayBGM != null) SoundManager.Instance.PlayBGM(mainMapDayBGM);
+                        }
+                    }
+                }
+            }
         }
 
         yield return new WaitForSeconds(1.5f);
@@ -66,5 +106,21 @@ public class OceanTeleporter : MonoBehaviour
 
         darkPanel.SetActive(false);
         isTeleporting = false;
+    }
+
+    private IEnumerator SeagullRoutine()
+    {
+        while (IsInOcean)
+        {
+            float waitTime = Random.Range(minSeagullInterval, maxSeagullInterval);
+            yield return new WaitForSeconds(waitTime);
+
+            if (IsInOcean && SoundManager.Instance != null && seagullSFX != null)
+            {
+                SoundManager.Instance.PlaySFX(seagullSFX);
+            }
+        }
+
+        seagullCoroutine = null;
     }
 }
