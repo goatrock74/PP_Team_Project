@@ -15,23 +15,29 @@ public class SeasonPeriod : MonoBehaviour
 
     public bool IsTransitioning { get; private set; } = false;
     private TimePeriod timePeriod;
+
+    private bool isInitialized = false;
+
     private void Awake()
     {
         timePeriod = GetComponent<TimePeriod>();
     }
+
     private void Start()
     {
-        // 현재 계절 먼저 적용
+        isInitialized = true; 
+
         SetSeason(TimeManager.Instance.CurrentSeason);
 
-        // 게임 시작 시 검은 화면 → 천천히 밝아짐
         StartCoroutine(StartFade());
     }
 
     private IEnumerator StartFade()
     {
+        IsTransitioning = true; 
+
         Image panelImage = DarkPannel.GetComponent<Image>();
-        panelImage.DOKill(); // 충돌 방지
+        panelImage.DOKill(); 
 
         DarkPannel.SetActive(true);
         panelImage.color = new Color(panelImage.color.r, panelImage.color.g, panelImage.color.b, 1f);
@@ -41,25 +47,38 @@ public class SeasonPeriod : MonoBehaviour
         yield return panelImage.DOFade(0f, 2f).SetEase(Ease.InCubic).WaitForCompletion();
 
         DarkPannel.SetActive(false);
+
+        IsTransitioning = false; 
     }
 
     public void ChangeSeasonPeriod(TimeManager.SeasonPeriod newSeason)
     {
-        if (IsTransitioning)
+        if (!isInitialized)
+        {
+            SetSeason(newSeason);
             return;
+        }
+
+        if (IsTransitioning)
+        {
+            SetSeason(newSeason);
+            return;
+        }
+
         if (timePeriod != null && timePeriod.IsFading)
         {
             SetSeason(newSeason);
             return;
         }
+
         StartCoroutine(FadeInOut(newSeason));
     }
 
     private IEnumerator FadeInOut(TimeManager.SeasonPeriod newSeason)
     {
-        Image panelImage = DarkPannel.GetComponent<Image>();
-
         IsTransitioning = true;
+
+        Image panelImage = DarkPannel.GetComponent<Image>();
         panelImage.DOKill();
         DarkPannel.SetActive(true);
 

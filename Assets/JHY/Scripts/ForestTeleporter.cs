@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,40 +21,81 @@ public class ForestTeleporter : MonoBehaviour
     [Header("페이드 연출 UI")]
     [SerializeField] private GameObject darkPanel;
     [SerializeField] private float fadeDuration = 1.0f;
-
-    [Header("대화 매니저 연결 (추가됨)")]
-    [SerializeField] private DialogueManager dialogueManager;
-
-    [Header("메인 맵 귀환 NPC의 대화 매니저")]
-    [SerializeField] private DialogueManager returnDialogueManager;
+    [Header("밤 경고 텍스트 설정")]
+    [SerializeField] private TMP_Text warningText; 
+    [SerializeField] private float textDisplayDuration = 2.0f;
 
     private bool isTeleporting = false;
+    public bool isInForest { get; private set; } = false;
+
+    // [핵심] 숲 텔레포터가 직접 시간 변화를 감지하도록 등록
+    private void Start()
+    {
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.OnTimePeriodChange += HandleTimeChange;
+        }
+        if (warningText != null)
+        {
+            Color c = warningText.color;
+            warningText.color = new Color(c.r, c.g, c.b, 0f);
+            warningText.gameObject.SetActive(false);
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.OnTimePeriodChange -= HandleTimeChange;
+        }
+    }
+
+    private void HandleTimeChange(TimeManager.TimePeriod newPeriod)
+    {
+        if (newPeriod == TimeManager.TimePeriod.Night && isInForest)
+        {
+            TeleportToMainMap();
+        }
+    }
 
     public void TeleportToForest()
     {
         if (isTeleporting) return;
+
+        if (TimeManager.Instance != null && TimeManager.Instance.CurrentPeriod == TimeManager.TimePeriod.Night)
+        {
+            StartCoroutine(ShowWarningTextRoutine());
+            return;
+        }
+
         StartCoroutine(TeleportRoutine(true));
     }
+    private IEnumerator ShowWarningTextRoutine()
+    {
+        if (warningText == null) yield break;
 
+        warningText.DOKill();
+        warningText.gameObject.SetActive(true);
+
+        yield return warningText.DOFade(1f, 0.5f).SetEase(Ease.Linear).WaitForCompletion();
+
+        // 지정된 시간 동안 대기
+        yield return new WaitForSeconds(textDisplayDuration);
+
+        yield return warningText.DOFade(0f, 0.5f).SetEase(Ease.Linear).WaitForCompletion();
+
+        warningText.gameObject.SetActive(false);
+    }
     public void TeleportToMainMap()
     {
-
-
         if (isTeleporting) return;
         StartCoroutine(TeleportRoutine(false));
     }
 
     private IEnumerator TeleportRoutine(bool isGoingToForest)
     {
-
         isTeleporting = true;
-
-        // 이동 시작 시 대화창 안전하게 종료
-        DialogueManager activeDialogue = isGoingToForest ? dialogueManager : returnDialogueManager;
-        if (activeDialogue != null)
-        {
-            activeDialogue.EndDialogue();
-        }
 
         Image panelImage = darkPanel.GetComponent<Image>();
         panelImage.DOKill();
@@ -90,13 +132,14 @@ public class ForestTeleporter : MonoBehaviour
                 targetDestination.position.y,
                 playerTransform.position.z
             );
+            isInForest = isGoingToForest;
         }
         else
         {
             Debug.LogWarning("도착 지점이나 플레이어가 지정되지 않았습니다!");
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
 
         yield return panelImage.DOFade(0f, fadeDuration).SetEase(Ease.Linear).WaitForCompletion();
 

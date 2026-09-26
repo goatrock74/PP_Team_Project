@@ -19,7 +19,7 @@ public class LightManager : MonoBehaviour
             case TimeManager.TimePeriod.Morning:
                 targetColor = Color.white;
                 targetIntensity = 1f;
-                duration = 10f;
+                duration = 6f;
                 break;
 
             case TimeManager.TimePeriod.Afternoon:

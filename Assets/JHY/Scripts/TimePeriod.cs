@@ -17,11 +17,11 @@ public class TimePeriod : MonoBehaviour
     private Coroutine npcSpawnCoroutine;
     [SerializeField] private AudioClip morning;
     [SerializeField] private AudioClip Night;
-    public void TriggerFade()
+    public void TriggerNextDay()
     {
         if (IsFading) return;
 
-        StartCoroutine(StartFade());
+        StartCoroutine(StartNextDay());
     }
     public void ChangeTimePeriod(TimeManager.TimePeriod newPeriod) 
     {
@@ -76,7 +76,7 @@ public class TimePeriod : MonoBehaviour
             Debug.Log("NPCµÓ¿Â");
         }
     }
-    private IEnumerator StartFade()
+    private IEnumerator StartNextDay()
     {
         IsFading = true;
 

@@ -21,7 +21,7 @@ public class TimeController : MonoBehaviour
             if (timePeriod.IsFading || seasonPeriod.IsTransitioning)
                 return;
 
-            timePeriod.TriggerFade();
+            timePeriod.TriggerNextDay();
         }
     }
     private void Start()
@@ -30,6 +30,9 @@ public class TimeController : MonoBehaviour
         {
             HandleTimePeriod(TimeManager.Instance.CurrentPeriod);
             if (lightManager != null) HandleLight(TimeManager.Instance.CurrentPeriod);
+
+            HandleSeasonPeriod(TimeManager.Instance.CurrentSeason);
+            HandleSeasonPassive(TimeManager.Instance.CurrentSeason);
         }
     }
     private void OnEnable()
