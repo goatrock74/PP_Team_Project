@@ -191,7 +191,7 @@ namespace PJH.Scripts
         /// 던지기 시작. 성공하면 true.
         /// 실제로 찌가 떨어지는 판정은 애니메이션 이벤트가 CheckBobberLanding 을 부를 때 일어난다.
         /// </summary>
-        public bool TryStartCast()
+        public bool TryStartCast(FishingRodSO fishingRod)
         {
             if (!CanCast(out string reason))
             {
@@ -199,8 +199,12 @@ namespace PJH.Scripts
                 return false;
             }
  
+            
+            isFishing = true;
+            IsFishing = true;
             // ★ 미니게임 패널이 물 반대쪽에 뜨지 않도록, 던지는 시점의 방향을 알려준다.
             //   패널이 열리기 전(입질 전)이라 자연스럽게 그 자리에서 펼쳐진다
+            fishingController.SetCurrentRod(fishingRod);
             bool faceLeft = movement != null && movement.FacingX < 0f;
             fishingController.SetFishingDirection(faceLeft);
  
@@ -258,6 +262,7 @@ namespace PJH.Scripts
             if (Mouse.current == null || !Mouse.current.leftButton.wasPressedThisFrame) return;
  
             canClick = false;
+            fishingAudio?.PlayRetrieve();
             fishingController.CancelFishing();
             animator.Play(_hashFishHook, BaseLayer, 0f);
         }

@@ -43,6 +43,9 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+
+        Debug.Log("씬넘어가기 실행");
+
         if (currentDialogue == null) return;
 
         // 현재 글자가 출력 중이면
@@ -85,12 +88,20 @@ public class DialogueManager : MonoBehaviour
         isTyping = false;
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            typingCoroutine = null;
+        }
+
+        isTyping = false;
         isChat = false;
-        dialoguePanel.SetActive(false);
         currentDialogue = null;
+        currentIndex = 0;
         dialogueText.text = "";
+        dialoguePanel.SetActive(false);
     }
 
     //씬덤어가는 메서드

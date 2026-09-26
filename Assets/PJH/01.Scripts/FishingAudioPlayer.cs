@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace PJH._01.Scripts
 {
@@ -13,6 +14,11 @@ namespace PJH._01.Scripts
         [SerializeField] private AudioClip splashClip;
         [SerializeField] private AudioClip biteClip;
         [SerializeField] private AudioClip catchClip;
+        [SerializeField] private AudioClip bobberExitClip;
+        [SerializeField] private AudioClip rodLiftClip;
+        
+        [SerializeField, Min(0f)]
+        private float rodLiftDelay = 0.12f;
         
         
         public void PlayCast()
@@ -46,9 +52,34 @@ namespace PJH._01.Scripts
         {
             reelLoopSource.Stop();
         }
-        
-        
-        
-        
+        public void PlayRetrieve()
+        {
+            if (sfxSource == null)
+                return;
+
+            if (bobberExitClip != null)
+            {
+                sfxSource.PlayOneShot(
+                    bobberExitClip,
+                    0.25f
+                );
+            }
+
+            StartCoroutine(PlayRodLiftDelayed());
+        }
+
+        private IEnumerator PlayRodLiftDelayed()
+        {
+            yield return new WaitForSeconds(rodLiftDelay);
+
+            if (sfxSource != null &&
+                rodLiftClip != null)
+            {
+                sfxSource.PlayOneShot(
+                    rodLiftClip,
+                    0.35f
+                );
+            }
+        }
     }
 }

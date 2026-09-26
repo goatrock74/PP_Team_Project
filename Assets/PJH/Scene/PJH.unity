@@ -391,7 +391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8381ae3b2d344e71aadacea7df789251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishCollectionManager
-  fishUI: {fileID: 2018547877}
 --- !u!4 &922998601
 Transform:
   m_ObjectHideFlags: 0
