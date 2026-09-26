@@ -1758,6 +1758,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InFishShop
       objectReference: {fileID: 0}
+    - target: {fileID: 7851754487298149597, guid: 532f5dea2a8179246a1efc98b8d73071, type: 3}
+      propertyPath: collectionUI
+      value: 
+      objectReference: {fileID: 2018547877}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
