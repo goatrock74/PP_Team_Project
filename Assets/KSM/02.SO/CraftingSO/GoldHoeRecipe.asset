@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec6549a3d9440d5a4739ee0c82107e1, type: 3}
+  m_Name: GoldHoeRecipe
+  m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingRecipeSO
+  result: {fileID: 11400000, guid: 097ce269499ff79418c94bd0d4368bfc, type: 2}
+  resultCount: 1
+  materials:
+  - item: {fileID: 11400000, guid: 5ef770815851c034ba59d246883d08ca, type: 2}
+    count: 5
+  - item: {fileID: 11400000, guid: 76b163fb4b6be3b4492c7e348837e208, type: 2}
+    count: 10
+  - item: {fileID: 11400000, guid: 307fdfee44f7f5a4baa661be1904ea1a, type: 2}
+    count: 5
+  maxBatch: 10
+  description: "\uAC00\uC7A5 \uC88B\uC740 \uAE08\uAD2D\uC774\n"

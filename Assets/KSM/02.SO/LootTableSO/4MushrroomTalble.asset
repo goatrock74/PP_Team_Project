@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f43b4a1bea54a54bfbbe8412cae7c86, type: 3}
+  m_Name: 4MushrroomTalble
+  m_EditorClassIdentifier: Assembly-CSharp::LootTableSO
+  tableName: 
+  entries:
+  - item: {fileID: 11400000, guid: 00f197127d3978a43a6d8b8a27350e86, type: 2}
+    weight: 30
+    minCount: 1
+    maxCount: 5
+    quality: 0
+    rarity: 2
+  - item: {fileID: 11400000, guid: 340b80a7bdccf7f4ca85e6a00f83b2e5, type: 2}
+    weight: 20
+    minCount: 1
+    maxCount: 5
+    quality: 0
+    rarity: 2
+  - item: {fileID: 11400000, guid: d41a02a865ba05941b0c5088bf76349f, type: 2}
+    weight: 2
+    minCount: 1
+    maxCount: 5
+    quality: 0
+    rarity: 4
+  - item: {fileID: 11400000, guid: 858c924c1b48b724bb03e1f3628101d1, type: 2}
+    weight: 10
+    minCount: 1
+    maxCount: 5
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: 5fbc33b8a3160dd49b98fa0ec372beab, type: 2}
+    weight: 10
+    minCount: 1
+    maxCount: 2
+    quality: 0
+    rarity: 3
