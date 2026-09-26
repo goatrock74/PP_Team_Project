@@ -291,9 +291,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d693cb38aaef94c86b1a7b04280f02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishShopDoorTransition
+  doorLinks:
+  - door: {fileID: 6039094173091992974}
+    destination: {fileID: 6039094173091992972}
+    destinationOffset: {x: 0, y: 0}
+  - door: {fileID: 6039094173091992971}
+    destination: {fileID: 1699801006}
+    destinationOffset: {x: 0, y: 0}
   fadeDuration: 0.35
   blackHoldDuration: 1.3
-  outsideSpawnGap: 0.75
 --- !u!61 &324735646
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -885,6 +891,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1699801005
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1699801006}
+  m_Layer: 0
+  m_Name: OutsidePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1699801006
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699801005}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.8364353, z: 0}
+  m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6039094173091992973}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2018547877 stripped
 GameObject:
@@ -1761,6 +1798,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beach
       objectReference: {fileID: 0}
+    - target: {fileID: 6256429250453240354, guid: afd4decbdcc86f94697c434b969a2ada, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8188752922400226078, guid: afd4decbdcc86f94697c434b969a2ada, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1803,9 +1844,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 1467065071314776057, guid: afd4decbdcc86f94697c434b969a2ada, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1699801006}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afd4decbdcc86f94697c434b969a2ada, type: 3}
+--- !u!61 &6039094173091992971 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5931611353622629152, guid: afd4decbdcc86f94697c434b969a2ada, type: 3}
+  m_PrefabInstance: {fileID: 6039094173091992970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6039094173091992972 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1722615365704623433, guid: afd4decbdcc86f94697c434b969a2ada, type: 3}
+  m_PrefabInstance: {fileID: 6039094173091992970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6039094173091992973 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1467065071314776057, guid: afd4decbdcc86f94697c434b969a2ada, type: 3}
+  m_PrefabInstance: {fileID: 6039094173091992970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &6039094173091992974 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 1249439564154259968, guid: afd4decbdcc86f94697c434b969a2ada, type: 3}
+  m_PrefabInstance: {fileID: 6039094173091992970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6183825019768282774
 GameObject:
   m_ObjectHideFlags: 0

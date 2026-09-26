@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,16 +10,28 @@ namespace PJH._01.Scripts
     [RequireComponent(typeof(Rigidbody2D))]
     public sealed class FishShopDoorTransition : MonoBehaviour
     {
+        [Serializable]
+        private sealed class DoorLink
+        {
+            [Tooltip("플레이어가 들어갈 문 콜라이더")]
+            public Collider2D door;
+
+            [Tooltip("문을 통과한 뒤 플레이어가 나타날 위치")]
+            public Transform destination;
+
+            [Tooltip("도착 위치에서 추가로 이동할 거리")]
+            public Vector2 destinationOffset;
+        }
+
+        [Header("문 연결 목록")]
+        [SerializeField] private DoorLink[] doorLinks;
+
         [Header("페이드 설정")]
         [SerializeField, Min(0f)] private float fadeDuration = 0.35f;
         [SerializeField, Min(0f)] private float blackHoldDuration = 0.08f;
-        [SerializeField, Min(0f)] private float outsideSpawnGap = 0.75f;
 
         private Rigidbody2D playerBody;
         private PlayerInput playerInput;
-        private Collider2D enterDoor;
-        private Collider2D outDoor;
-        private Transform enterPoint;
         private CanvasGroup fadeGroup;
 
         private bool isTransitioning;
@@ -28,31 +41,25 @@ namespace PJH._01.Scripts
             playerBody = GetComponent<Rigidbody2D>();
             playerInput = GetComponent<PlayerInput>();
 
-            GameObject fishShopOut = GameObject.Find("FishShopOut");
-            GameObject inFishShop = GameObject.Find("InFishShop");
-
-            if (fishShopOut != null)
-                enterDoor = fishShopOut.transform.Find("EnterDoor")?.GetComponent<Collider2D>();
-
-            if (inFishShop != null)
+            if (doorLinks == null || doorLinks.Length == 0)
             {
-                enterPoint = inFishShop.transform.Find("EnterPoint");
-                outDoor = inFishShop.transform.Find("OutDoor")?.GetComponent<Collider2D>();
-            }
-
-            if (enterDoor == null || outDoor == null || enterPoint == null)
-            {
-                Debug.LogError(
-                    "[FishShopDoorTransition] FishShopOut/EnterDoor 또는 " +
-                    "InFishShop/EnterPoint, OutDoor를 찾지 못했습니다.",
-                    this
-                );
+                Debug.LogError("[FishShopDoorTransition] 문 연결 목록이 비어 있습니다.", this);
                 enabled = false;
                 return;
             }
 
-            enterDoor.isTrigger = true;
-            outDoor.isTrigger = true;
+            for (int i = 0; i < doorLinks.Length; i++)
+            {
+                DoorLink link = doorLinks[i];
+                if (link == null || link.door == null || link.destination == null)
+                {
+                    Debug.LogError($"[FishShopDoorTransition] Door Links의 {i}번 연결이 비어 있습니다.", this);
+                    enabled = false;
+                    return;
+                }
+
+                link.door.isTrigger = true;
+            }
 
             CreateFadeOverlay();
         }
@@ -62,23 +69,15 @@ namespace PJH._01.Scripts
             if (!enabled || isTransitioning)
                 return;
 
-            if (other == enterDoor)
+            foreach (DoorLink link in doorLinks)
             {
-                StartCoroutine(TeleportRoutine(enterPoint.position));
+                if (other != link.door)
+                    continue;
+
+                Vector2 destination = (Vector2)link.destination.position + link.destinationOffset;
+                StartCoroutine(TeleportRoutine(destination));
                 return;
             }
-
-            if (other == outDoor)
-                StartCoroutine(TeleportRoutine(GetOutsideSpawnPosition()));
-        }
-
-        private Vector2 GetOutsideSpawnPosition()
-        {
-            Bounds doorBounds = enterDoor.bounds;
-            return new Vector2(
-                doorBounds.center.x,
-                doorBounds.min.y - outsideSpawnGap
-            );
         }
 
         private IEnumerator TeleportRoutine(Vector2 destination)
