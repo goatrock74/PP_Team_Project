@@ -8416,7 +8416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -217, y: 155}
+  m_AnchoredPosition: {x: -286, y: 270}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155331006
@@ -8466,8 +8466,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 250
-  m_fontSizeBase: 250
+  m_fontSize: 300
+  m_fontSizeBase: 300
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -11332,7 +11332,7 @@ Transform:
   m_GameObject: {fileID: 441469942}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.3, y: -37.32476, z: 0}
+  m_LocalPosition: {x: 17.6, y: -22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -135658,7 +135658,7 @@ MonoBehaviour:
   settingPanel: {fileID: 1836470480}
   fadeDuration: 2
   clickMain: {fileID: 8300000, guid: de2ce0d1d59dcce41add94bbc522793f, type: 3}
-  MainBGM: {fileID: 8300000, guid: d241259c569d145fd985609d57d3c9ad, type: 3}
+  MainBGM: {fileID: 8300000, guid: e8e0e94a092994522aaa9d0ac85ca134, type: 3}
 --- !u!1001 &598257628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -241052,7 +241052,7 @@ Transform:
   m_GameObject: {fileID: 1220210182}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.8677, y: 17.5, z: 0}
+  m_LocalPosition: {x: 10.8677, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241298,7 +241298,7 @@ Transform:
   m_GameObject: {fileID: 1248106283}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.4323, y: -56.8, z: 0}
+  m_LocalPosition: {x: -31.1, y: -59.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242971,6 +242971,7 @@ MonoBehaviour:
     - {fileID: 1370223513}
     - {fileID: 751036383}
     - {fileID: 565370445}
+    cameraSize: 8.813243
   - mapName: Forest
     mapObject: {fileID: 2012800213}
     waypoints:
@@ -242979,14 +242980,16 @@ MonoBehaviour:
     - {fileID: 1248106284}
     - {fileID: 441469943}
     - {fileID: 1220210183}
+    cameraSize: 12
   - mapName: Beach
     mapObject: {fileID: 1859497830}
     waypoints:
     - {fileID: 515492797}
     - {fileID: 173739124}
-  travelTime: 10
+    cameraSize: 8.813243
+  travelTime: 12
   waitTime: 0
-  fadeDuration: 1
+  fadeDuration: 1.5
   fadeCanvasGroup: {fileID: 227438485}
 --- !u!1 &1448304727
 GameObject:
@@ -243358,7 +243361,7 @@ Transform:
   m_GameObject: {fileID: 1529008211}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.332302, y: 10.275238, z: 0}
+  m_LocalPosition: {x: -47.03, y: 17.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -477191,7 +477194,7 @@ Transform:
   m_GameObject: {fileID: 2012800213}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -119.04, z: 0}
+  m_LocalPosition: {x: 0, y: -119, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
