@@ -8416,7 +8416,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -217, y: 155}
+  m_AnchoredPosition: {x: -286, y: 270}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &155331006
@@ -8466,8 +8466,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 250
-  m_fontSizeBase: 250
+  m_fontSize: 300
+  m_fontSizeBase: 300
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -135658,7 +135658,7 @@ MonoBehaviour:
   settingPanel: {fileID: 1836470480}
   fadeDuration: 2
   clickMain: {fileID: 8300000, guid: de2ce0d1d59dcce41add94bbc522793f, type: 3}
-  MainBGM: {fileID: 8300000, guid: d241259c569d145fd985609d57d3c9ad, type: 3}
+  MainBGM: {fileID: 8300000, guid: e8e0e94a092994522aaa9d0ac85ca134, type: 3}
 --- !u!1001 &598257628
 PrefabInstance:
   m_ObjectHideFlags: 0
