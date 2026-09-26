@@ -84,7 +84,7 @@ public class DialogueManager : MonoBehaviour
         isTyping = false;
     }
 
-    void EndDialogue()
+    public void EndDialogue()
     {
         isChat = false;
         dialoguePanel.SetActive(false);
