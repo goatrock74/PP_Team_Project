@@ -104,8 +104,8 @@ MonoBehaviour:
   stumpMessage: "\uCC44\uC9D1\uBD88\uAC00"
   tierMessage: "\uB354 \uC88B\uC740 \uB3C4\uB07C\uAC00 \uD544\uC694\uD569\uB2C8\uB2E4"
   showRemainingDays: 0
-  trunkWidthRatio: 0.35
-  trunkHeightRatio: 0.12
+  trunkWidthRatio: 0.255
+  trunkHeightRatio: 0.061
 --- !u!1 &6869041262254123574
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,4 +196,4 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1

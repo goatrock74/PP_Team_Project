@@ -18,5 +18,5 @@ MonoBehaviour:
   description: "\uC790\uC791\uB098\uBB34\uB97C \uCE90\uBA74 \uC5BB\uB294\uB2E4"
   itemType: 6
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 20
   season: 0
