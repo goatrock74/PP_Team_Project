@@ -240843,6 +240843,18 @@ MonoBehaviour:
   - item: {fileID: 0}
     count: 1
     quality: 0
+  - item: {fileID: 11400000, guid: 950f2b0e1efb8f7448daaf42ebdc892e, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 943a9cb01abf2ec4bb2a5557f9751ff7, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: 23c5b1c606c1090449866f299843f371, type: 2}
+    count: 1
+    quality: 0
+  - item: {fileID: 11400000, guid: bf5852cbd33358c4e968870154d10aaf, type: 2}
+    count: 1
+    quality: 0
 --- !u!50 &914049181
 Rigidbody2D:
   serializedVersion: 5
