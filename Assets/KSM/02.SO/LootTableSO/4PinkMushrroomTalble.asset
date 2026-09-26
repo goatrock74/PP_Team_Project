@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f43b4a1bea54a54bfbbe8412cae7c86, type: 3}
+  m_Name: 4PinkMushrroomTalble
+  m_EditorClassIdentifier: Assembly-CSharp::LootTableSO
+  tableName: 
+  entries:
+  - item: {fileID: 11400000, guid: 4fd59bdf6ab66ae40a9b8fa054bf23fc, type: 2}
+    weight: 10
+    minCount: 1
+    maxCount: 3
+    quality: 0
+    rarity: 4
+  - item: {fileID: 11400000, guid: e72e969c514de2647b3afd8840965c47, type: 2}
+    weight: 25
+    minCount: 1
+    maxCount: 1
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: 85ecfb90dd45c9c4485f9b654acf505a, type: 2}
+    weight: 40
+    minCount: 1
+    maxCount: 1
+    quality: 0
+    rarity: 0
+  - item: {fileID: 11400000, guid: fba1d618ff374794dbd8a45661edde8c, type: 2}
+    weight: 25
+    minCount: 1
+    maxCount: 1
+    quality: 0
+    rarity: 3

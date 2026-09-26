@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f43b4a1bea54a54bfbbe8412cae7c86, type: 3}
+  m_Name: 4WinterMushrroomTalble
+  m_EditorClassIdentifier: Assembly-CSharp::LootTableSO
+  tableName: 
+  entries:
+  - item: {fileID: 11400000, guid: 26436520f3d21b44dbaf9d8fd80ec3cb, type: 2}
+    weight: 15
+    minCount: 1
+    maxCount: 5
+    quality: 0
+    rarity: 2
+  - item: {fileID: 11400000, guid: 5a1d5231185305244bf800150b58645b, type: 2}
+    weight: 15
+    minCount: 1
+    maxCount: 5
+    quality: 0
+    rarity: 1
+  - item: {fileID: 11400000, guid: 9407212c16b96b944b96a45c995afb31, type: 2}
+    weight: 50
+    minCount: 1
+    maxCount: 2
+    quality: 0
+    rarity: 1
+  - item: {fileID: 11400000, guid: b2b207d2ffd500c47bb9eec26466e544, type: 2}
+    weight: 20
+    minCount: 1
+    maxCount: 2
+    quality: 0
+    rarity: 2

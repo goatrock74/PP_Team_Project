@@ -10,16 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ec6549a3d9440d5a4739ee0c82107e1, type: 3}
-  m_Name: Bait
+  m_Name: CraftingRecipeSO
   m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingRecipeSO
-  result: {fileID: 11400000, guid: 2bdebba6a9dc3a240a78d9d7cfcfb214, type: 2}
+  result: {fileID: 0}
   resultCount: 1
   materials:
-  - item: {fileID: 11400000, guid: b5d571315543dcf44881f8bcbb81df05, type: 2}
-    count: 2
-  - item: {fileID: 11400000, guid: ea505a10af6bb44448be4f4a1eaad6e1, type: 2}
+  - item: {fileID: 0}
     count: 1
-  - item: {fileID: 11400000, guid: a20aefdce20259e48a28a0af021b178c, type: 2}
-    count: 1
-  maxBatch: 6
-  description: starstar
+  maxBatch: 1
+  description: 
