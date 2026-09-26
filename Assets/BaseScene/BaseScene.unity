@@ -46747,7 +46747,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8381ae3b2d344e71aadacea7df789251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PJH._01.Scripts.FishCollectionManager
-  fishUI: {fileID: 1747669820}
 --- !u!4 &371222989
 Transform:
   m_ObjectHideFlags: 0
@@ -420415,11 +420414,6 @@ Transform:
   - {fileID: 339302758}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1747669820 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8150447773127732038, guid: 96b0829504d63d4499a06cf4c4d3e65a, type: 3}
-  m_PrefabInstance: {fileID: 2081826239}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1747669822 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6561398871123798197, guid: 96b0829504d63d4499a06cf4c4d3e65a, type: 3}

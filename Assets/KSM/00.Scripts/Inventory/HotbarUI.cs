@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using PJH.Scripts;
 using UnityEngine;
 using UnityEngine.InputSystem;
  
@@ -69,6 +70,8 @@ namespace KSM._00.Scripts.Items
         private void Update()
         {
             if (GachaUI.IsSpinning) return;   
+            
+            if(PlayerFishing.IsFishing) return;
  
             HandleNumberKeys();
             if (wheelSelect) HandleWheel();
@@ -138,6 +141,8 @@ namespace KSM._00.Scripts.Items
  
         private void Select(int index, bool toggleOff = true)
         {
+            if(PlayerFishing.IsFishing) return;
+            
             if (toggleOff && _player.IsHeld(SlotArea.Hotbar, index))
             {
                 _player.ClearHeld();
@@ -149,6 +154,8 @@ namespace KSM._00.Scripts.Items
  
         private void HandleSlotClicked(InventorySlotUI slot, bool isLeftClick)
         {
+            if(PlayerFishing.IsFishing) return;
+            
             if (isLeftClick) Select(slot.Index);
             else _player.ClearHeld();
         }
