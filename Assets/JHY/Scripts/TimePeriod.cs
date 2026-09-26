@@ -17,11 +17,11 @@ public class TimePeriod : MonoBehaviour
     private Coroutine npcSpawnCoroutine;
     [SerializeField] private AudioClip morning;
     [SerializeField] private AudioClip Night;
-    public void TriggerFade()
+    public void TriggerNextDay()
     {
         if (IsFading) return;
 
-        StartCoroutine(StartFade());
+        StartCoroutine(StartNextDay());
     }
     public void ChangeTimePeriod(TimeManager.TimePeriod newPeriod) 
     {
@@ -34,7 +34,10 @@ public class TimePeriod : MonoBehaviour
         {
             case TimeManager.TimePeriod.Morning:
                 Debug.Log("sun");
-                SoundManager.Instance.PlayBGM(morning);
+                if (!OceanTeleporter.IsInOcean && SoundManager.Instance != null)
+                {
+                    SoundManager.Instance.PlayBGM(morning);
+                }
                 sun.alpha = 1;
                 afternoon.alpha = 0;
                 night.alpha = 0;
@@ -50,7 +53,10 @@ public class TimePeriod : MonoBehaviour
                 break;
             case TimeManager.TimePeriod.Night:
                 Debug.Log("night");
-                SoundManager.Instance.PlayBGM(Night);
+                if (!OceanTeleporter.IsInOcean && SoundManager.Instance != null)
+                {
+                    SoundManager.Instance.PlayBGM(Night);
+                }
 
                 sun.alpha = 0;
                 afternoon.alpha = 0;
@@ -76,7 +82,7 @@ public class TimePeriod : MonoBehaviour
             Debug.Log("NPCµÓ¿Â");
         }
     }
-    private IEnumerator StartFade()
+    private IEnumerator StartNextDay()
     {
         IsFading = true;
 

@@ -18,5 +18,5 @@ MonoBehaviour:
   description: "\uADF8\uC800 \uB3CC\uC774\uB2E4"
   itemType: 6
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 20
   season: 0

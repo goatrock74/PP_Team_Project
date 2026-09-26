@@ -13,12 +13,13 @@ public class NPC : MonoBehaviour
     [SerializeField] private string targetTag = "Player";
     [SerializeField] private GameObject ui;
     private readonly List<Collider2D> detectionResults = new List<Collider2D>();
-
+    [SerializeField] private AudioClip Esound;
     public void TriggerDialogue()
     {
         if (dialogueManager != null && dialogueManager.isChat == false)
         {
             dialogueManager.isChat = true;
+            SoundManager.Instance.PlaySFX(Esound);
             dialogueManager.StartDialogue(dialogue);
         }
     }

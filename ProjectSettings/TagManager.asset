@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags: []
+  tags:
+  - FishShopDoor
   layers:
   - Default
   - TransparentFX
@@ -52,6 +53,9 @@ TagManager:
     locked: 0
   - name: UI_Front
     uniqueID: 3900621979
+    locked: 0
+  - name: New Layer 5
+    uniqueID: 2558049619
     locked: 0
   m_RenderingLayers:
   - Default

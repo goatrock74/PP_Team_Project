@@ -1,5 +1,6 @@
 using DG.Tweening;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,39 +22,49 @@ public class ForestTeleporter : MonoBehaviour
     [SerializeField] private GameObject darkPanel;
     [SerializeField] private float fadeDuration = 1.0f;
 
-    [Header("대화 매니저 연결 (추가됨)")]
-    [SerializeField] private DialogueManager dialogueManager;
-
-    [Header("메인 맵 귀환 NPC의 대화 매니저")]
-    [SerializeField] private DialogueManager returnDialogueManager;
-
     private bool isTeleporting = false;
+    public bool isInForest { get; private set; } = false;
+
+    private void Start()
+    {
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.OnTimePeriodChange += HandleTimeChange;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (TimeManager.Instance != null)
+        {
+            TimeManager.Instance.OnTimePeriodChange -= HandleTimeChange;
+        }
+    }
+
+    private void HandleTimeChange(TimeManager.TimePeriod newPeriod)
+    {
+        if (newPeriod == TimeManager.TimePeriod.Morning && isInForest)
+        {
+            TeleportToMainMap();
+        }
+    }
 
     public void TeleportToForest()
     {
         if (isTeleporting) return;
+
         StartCoroutine(TeleportRoutine(true));
     }
 
     public void TeleportToMainMap()
     {
-
-
         if (isTeleporting) return;
         StartCoroutine(TeleportRoutine(false));
     }
 
     private IEnumerator TeleportRoutine(bool isGoingToForest)
     {
-
         isTeleporting = true;
-
-        // 이동 시작 시 대화창 안전하게 종료
-        DialogueManager activeDialogue = isGoingToForest ? dialogueManager : returnDialogueManager;
-        if (activeDialogue != null)
-        {
-            activeDialogue.EndDialogue();
-        }
 
         Image panelImage = darkPanel.GetComponent<Image>();
         panelImage.DOKill();
@@ -90,13 +101,14 @@ public class ForestTeleporter : MonoBehaviour
                 targetDestination.position.y,
                 playerTransform.position.z
             );
+            isInForest = isGoingToForest;
         }
         else
         {
             Debug.LogWarning("도착 지점이나 플레이어가 지정되지 않았습니다!");
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
 
         yield return panelImage.DOFade(0f, fadeDuration).SetEase(Ease.Linear).WaitForCompletion();
 

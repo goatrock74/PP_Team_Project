@@ -1,7 +1,9 @@
-using UnityEngine;
-using TMPro;
+using DG.Tweening;
 using System.Collections;
+using TMPro;
+using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class DialogueData
@@ -22,14 +24,19 @@ public class DialogueManager : MonoBehaviour
     [Header("대화 설정")]
     public float textSpeed = 0.05f;
 
+    [Header("씬 전환 페이드 연출")]
+    [SerializeField] private Image fadePanelImage; // 페이드에 사용할 검은색 UI Image
+    [SerializeField] private float fadeDuration = 1.0f; // 암전되는 시간
+    [SerializeField] private GameObject shoppanel;
     private DialogueData currentDialogue;
     private int currentIndex = 0;
 
     private Coroutine typingCoroutine;
     private bool isTyping = false;
 
-    public bool isChat { get; set; } =false;
+    public bool isChat { get; set; } = false;
 
+    [SerializeField] private AudioClip clickSound;
     public void StartDialogue(DialogueData data)
     {
         currentDialogue = data;
@@ -40,16 +47,18 @@ public class DialogueManager : MonoBehaviour
 
         DisplayNextSentence();
     }
-
+    public void OpenShopPanel()
+    {
+        shoppanel.SetActive(true);
+    }
+    public void CloseShopPanel()
+    {
+        shoppanel.SetActive(false);
+    }
     public void DisplayNextSentence()
     {
-
-        Debug.Log("씬넘어가기 실행");
-
         if (currentDialogue == null) return;
 
-        // 현재 글자가 출력 중이면
-        // 바로 문장 전체를 보여줌
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
@@ -102,12 +111,32 @@ public class DialogueManager : MonoBehaviour
         currentIndex = 0;
         dialogueText.text = "";
         dialoguePanel.SetActive(false);
+        SoundManager.Instance.PlaySFX(clickSound);
     }
 
-    //씬덤어가는 메서드
     public void NextScene(int scenenumber)
     {
-        Debug.Log("실행");
+        SoundManager.Instance.PlaySFX(clickSound);
+        StartCoroutine(FadeAndLoadSceneRoutine(scenenumber));
+    }
+
+    private IEnumerator FadeAndLoadSceneRoutine(int scenenumber)
+    {
+        EndDialogue();
+
+        if (fadePanelImage != null)
+        {
+            fadePanelImage.gameObject.SetActive(true);
+            fadePanelImage.DOKill();
+
+            Color c = fadePanelImage.color;
+            fadePanelImage.color = new Color(c.r, c.g, c.b, 0f);
+
+            yield return fadePanelImage.DOFade(1f, fadeDuration).SetEase(Ease.Linear).WaitForCompletion();
+        }
+
         SceneManager.LoadScene(scenenumber);
     }
+    
+    
 }

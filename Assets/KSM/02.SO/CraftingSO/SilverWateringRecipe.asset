@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec6549a3d9440d5a4739ee0c82107e1, type: 3}
+  m_Name: SilverWateringRecipe
+  m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingRecipeSO
+  result: {fileID: 11400000, guid: e072039f62025af46827d5fa233f2382, type: 2}
+  resultCount: 1
+  materials:
+  - item: {fileID: 11400000, guid: e72e969c514de2647b3afd8840965c47, type: 2}
+    count: 3
+  - item: {fileID: 11400000, guid: c86636b12840bef41afe71e2c8862235, type: 2}
+    count: 12
+  - item: {fileID: 11400000, guid: 0ae363c4ba19d65409054ec3bae38cfb, type: 2}
+    count: 7
+  - item: {fileID: 11400000, guid: 00f197127d3978a43a6d8b8a27350e86, type: 2}
+    count: 15
+  - item: {fileID: 11400000, guid: 9407212c16b96b944b96a45c995afb31, type: 2}
+    count: 2
+  maxBatch: 10
+  description: "\uC911\uAE09 \uBB3C\uBFCC\uB9AC\uAC1C\uB2E4"
