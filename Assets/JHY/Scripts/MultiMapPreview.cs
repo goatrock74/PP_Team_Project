@@ -7,9 +7,11 @@ public class MultiMapPreview : MonoBehaviour
     [System.Serializable]
     public struct MapGroup
     {
-        public string mapName;            
-        public GameObject mapObject;      
-        public Transform[] waypoints;     
+        public string mapName;
+        public GameObject mapObject;
+        public Transform[] waypoints;
+        [Tooltip("이 맵을 비출 때의 카메라 크기 (기본값 보통 5)")]
+        public float cameraSize; // 추가: 맵마다 카메라 크기를 다르게 설정
     }
 
     [Header("맵 데이터 설정")]
@@ -18,7 +20,7 @@ public class MultiMapPreview : MonoBehaviour
     [Header("연출 설정")]
     [Tooltip("지점 간 이동 시간(초)")]
     public float travelTime = 4.0f;
-    [Tooltip("지점 도착 후 대기 시간(초)")]
+    [Tooltip("지점 도착 후 대기 시간(초) - 0이면 바로 이동")]
     public float waitTime = 1.0f;
     [Tooltip("화면 페이드 전환 시간(초)")]
     public float fadeDuration = 1.0f;
@@ -28,13 +30,24 @@ public class MultiMapPreview : MonoBehaviour
 
     private int currentMapIndex = 0;
     private Vector3 originCameraPosition;
+    private float originCameraSize; 
+    private Camera cam; 
+
     void Start()
     {
+        cam = GetComponent<Camera>();
+        if (cam == null) cam = Camera.main;
+
         originCameraPosition = transform.position;
+        originCameraSize = cam.orthographicSize;
+
         if (mapGroups != null && mapGroups.Length > 0)
         {
             UpdateMapVisibility(0);
             Vector3 startPos = mapGroups[0].waypoints[0].position;
+
+            cam.orthographicSize = mapGroups[0].cameraSize > 0 ? mapGroups[0].cameraSize : originCameraSize;
+
             transform.position = new Vector3(startPos.x, startPos.y, -10f);
 
             if (fadeCanvasGroup != null) fadeCanvasGroup.alpha = 0f;
@@ -66,10 +79,17 @@ public class MultiMapPreview : MonoBehaviour
             }
 
             currentMapIndex = (currentMapIndex + 1) % mapGroups.Length;
+            MapGroup nextMap = mapGroups[currentMapIndex];
+
             UpdateMapVisibility(currentMapIndex);
 
-            Vector3 nextMapStartPos = mapGroups[currentMapIndex].waypoints[0].position;
+            Vector3 nextMapStartPos = nextMap.waypoints[0].position;
             transform.position = new Vector3(nextMapStartPos.x, nextMapStartPos.y, -10f);
+
+            if (nextMap.cameraSize > 0)
+            {
+                cam.orthographicSize = nextMap.cameraSize;
+            }
 
             if (fadeCanvasGroup != null)
             {
@@ -84,11 +104,17 @@ public class MultiMapPreview : MonoBehaviour
         while (elapsedTime < travelTime)
         {
             elapsedTime += Time.deltaTime;
-            float t = Mathf.SmoothStep(0f, 1f, elapsedTime / travelTime);
+            float t = elapsedTime / travelTime;
+
             transform.position = Vector3.Lerp(start, target, t);
             yield return null;
         }
-        transform.position = target;
+
+        transform.position = new Vector3(
+            Mathf.Round(target.x),
+            Mathf.Round(target.y),
+            -10f
+        );
     }
 
     private void UpdateMapVisibility(int activeIndex)
@@ -101,6 +127,7 @@ public class MultiMapPreview : MonoBehaviour
             }
         }
     }
+
     public void StopPreview()
     {
         StopAllCoroutines();
@@ -117,6 +144,7 @@ public class MultiMapPreview : MonoBehaviour
         }
 
         transform.position = new Vector3(originCameraPosition.x, originCameraPosition.y, -10f);
+        if (cam != null) cam.orthographicSize = originCameraSize;
 
         this.enabled = false;
     }

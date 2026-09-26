@@ -11332,7 +11332,7 @@ Transform:
   m_GameObject: {fileID: 441469942}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 22.3, y: -37.32476, z: 0}
+  m_LocalPosition: {x: 17.6, y: -22, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241052,7 +241052,7 @@ Transform:
   m_GameObject: {fileID: 1220210182}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.8677, y: 17.5, z: 0}
+  m_LocalPosition: {x: 10.8677, y: 20, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -241298,7 +241298,7 @@ Transform:
   m_GameObject: {fileID: 1248106283}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.4323, y: -56.8, z: 0}
+  m_LocalPosition: {x: -31.1, y: -59.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -242971,6 +242971,7 @@ MonoBehaviour:
     - {fileID: 1370223513}
     - {fileID: 751036383}
     - {fileID: 565370445}
+    cameraSize: 8.813243
   - mapName: Forest
     mapObject: {fileID: 2012800213}
     waypoints:
@@ -242979,14 +242980,16 @@ MonoBehaviour:
     - {fileID: 1248106284}
     - {fileID: 441469943}
     - {fileID: 1220210183}
+    cameraSize: 12
   - mapName: Beach
     mapObject: {fileID: 1859497830}
     waypoints:
     - {fileID: 515492797}
     - {fileID: 173739124}
-  travelTime: 10
+    cameraSize: 8.813243
+  travelTime: 12
   waitTime: 0
-  fadeDuration: 1
+  fadeDuration: 1.5
   fadeCanvasGroup: {fileID: 227438485}
 --- !u!1 &1448304727
 GameObject:
@@ -243358,7 +243361,7 @@ Transform:
   m_GameObject: {fileID: 1529008211}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -34.332302, y: 10.275238, z: 0}
+  m_LocalPosition: {x: -47.03, y: 17.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -477191,7 +477194,7 @@ Transform:
   m_GameObject: {fileID: 2012800213}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -119.04, z: 0}
+  m_LocalPosition: {x: 0, y: -119, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

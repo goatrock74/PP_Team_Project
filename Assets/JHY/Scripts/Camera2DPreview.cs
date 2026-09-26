@@ -40,9 +40,8 @@ public class Camera2DPreview : MonoBehaviour
                 elapsedTime += Time.deltaTime;
                 float t = elapsedTime / travelTime;
 
-                float smoothT = Mathf.SmoothStep(0f, 1f, t);
 
-                transform.position = Vector3.Lerp(startPos, targetPos, smoothT);
+                transform.position = Vector3.Lerp(startPos, targetPos, t);
                 yield return null;
             }
 
