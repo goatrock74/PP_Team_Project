@@ -158,34 +158,95 @@ public class ToolAnimator : MonoBehaviour
         }
  
         // 2) 이 도구가 쓸 클립만 얹는다
-        if (tool != null && tool.baseClip != null && tool.tierClip != null && tool.tierClip != tool.baseClip)
+        // 2) 현재 들고 있는 도구의 클립을 적용한다
+        if (tool != null)
         {
-            int at = _pairs.FindIndex(p => p.Key == tool.baseClip);
- 
-            if (at < 0)
+            // 기본 클립 한 쌍 교체
+            changed |= TryOverride(
+                tool,
+                tool.baseClip,
+                tool.tierClip
+            );
+
+            // 추가 클립들 교체
+            if (tool.extraClips != null)
             {
-                Debug.LogWarning(
-                    $"[도구] '{tool.DisplayName}' 의 Base Clip '{tool.baseClip.name}' 이 " +
-                    $"Animator 에 없습니다. Animator 상태에 실제로 꽂혀 있는 클립을 넣어주세요.", this);
+                foreach (ToolSO.ClipSwap swap in tool.extraClips)
+                {
+                    changed |= TryOverride(
+                        tool,
+                        swap.baseClip,
+                        swap.tierClip
+                    );
+                }
             }
-            else
+
+            bool hasAnyClip =
+                tool.baseClip != null ||
+                (tool.extraClips != null &&
+                 tool.extraClips.Length > 0);
+
+            if (logSwap && !hasAnyClip)
             {
-                _pairs[at] = new KeyValuePair<AnimationClip, AnimationClip>(tool.baseClip, tool.tierClip);
-                changed = true;
- 
-                if (logSwap)
-                    Debug.Log($"[도구] 클립 교체 : {tool.baseClip.name} → {tool.tierClip.name} " +
-                              $"(손 : {tool.DisplayName})", this);
+                Debug.Log(
+                    $"[도구] '{tool.DisplayName}'은 교체 클립이 없어 원본으로 나옵니다.",
+                    this
+                );
             }
         }
-        else if (logSwap && tool != null && tool.baseClip == null)
+
+        if (changed)
         {
-            Debug.Log($"[도구] '{tool.DisplayName}' 은 Base Clip 이 비어 있어 원본 클립으로 나옵니다.", this);
+            _overrides.ApplyOverrides(_pairs);
         }
- 
-        if (changed) _overrides.ApplyOverrides(_pairs);
     }
- 
+
+    private bool TryOverride(
+        ToolSO tool,
+        AnimationClip from,
+        AnimationClip to)
+    {
+        // 둘 중 하나라도 비어 있으면 교체하지 않는다
+        if (from == null || to == null || from == to)
+        {
+            return false;
+        }
+
+        // Animator 안에서 원본 클립을 찾는다
+        int index =
+            _pairs.FindIndex(pair => pair.Key == from);
+
+        if (index < 0)
+        {
+            Debug.LogWarning(
+                $"[도구] '{tool.DisplayName}'의 " +
+                $"Base Clip '{from.name}'이 Animator에 없습니다.",
+                this
+            );
+
+            return false;
+        }
+
+        // 원본 클립을 해당 등급 클립으로 교체한다
+        _pairs[index] =
+            new KeyValuePair<AnimationClip, AnimationClip>(
+                from,
+                to
+            );
+
+        if (logSwap)
+        {
+            Debug.Log(
+                $"[도구] 클립 교체: " +
+                $"{from.name} → {to.name} " +
+                $"(손: {tool.DisplayName})",
+                this
+            );
+        }
+
+        return true;
+    }
+
     /// <summary>[구버전] 라이브러리만 갈아끼운다</summary>
     private void ApplySpriteLibrary(ToolSO tool)
     {

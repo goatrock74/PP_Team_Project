@@ -40,7 +40,7 @@ namespace PJH.Scripts
 
         #region 외부에서 호출하는 메서드
 
-        public FishDataSO RandomFish(FishCollectionCategory category)
+        public FishDataSO RandomFish(FishCollectionCategory category, FishingRodSO fishingRod)
         {
             if (timeManager == null)
             {
@@ -52,7 +52,7 @@ namespace PJH.Scripts
 
             selctedFishDataSO = Draw(category);
 
-            ApplyFishingLuck(category);
+            ApplyFishingLuck(category, fishingRod);
 
             return selctedFishDataSO;
         }
@@ -202,7 +202,7 @@ namespace PJH.Scripts
         #region 행운 적용
 
         private void ApplyFishingLuck(
-            FishCollectionCategory category)
+            FishCollectionCategory category, FishingRodSO fishingRod)
         {
             if (selctedFishDataSO == null)
                 return;
@@ -215,6 +215,11 @@ namespace PJH.Scripts
                 totalLuck += MasteryManager.Stat(
                     MasteryStat.FishLuck
                 );
+            }
+
+            if (fishingRod != null)
+            {
+                totalLuck += fishingRod.luckBonus;
             }
 
             // 현재 사용 중인 미끼 행운
