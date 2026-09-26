@@ -32,6 +32,7 @@ public class ForestTeleporter : MonoBehaviour
 
     public void TeleportToMainMap()
     {
+        Debug.Log("ㅇㅇㅇ");
         if (isTeleporting) return;
         StartCoroutine(TeleportRoutine(false)); 
     }
