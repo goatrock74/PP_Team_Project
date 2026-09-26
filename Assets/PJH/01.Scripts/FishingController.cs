@@ -24,7 +24,8 @@ namespace PJH.Scripts
         [SerializeField] private FishingMiniGame fishingMiniGame;
         [SerializeField] private FishingSettingSO fishingSettingSO;
         [SerializeField] private FishingAudioPlayer fishingAudio;
-        
+
+        private FishingRodSO currentRod;
  
         [Header("Bite Effect")]
         [SerializeField] private GameObject splashParticlePrefab;
@@ -88,7 +89,13 @@ namespace PJH.Scripts
  
             if (fishingMiniGame != null) fishingMiniGame.SetPanelSide(faceLeft);
         }
- 
+        
+        public void SetCurrentRod(FishingRodSO fishingRod)
+        {
+            currentRod = fishingRod;
+        }
+
+     
         public bool HandleBobberLanding()
         {
             bool canFish =
@@ -146,7 +153,7 @@ namespace PJH.Scripts
             bool consumedBaitForThisCast = false;
             while (true)
             {
-                currentFish = fishSelector.RandomFish(currentFishingCategory);
+                currentFish = fishSelector.RandomFish(currentFishingCategory, currentRod);
  
                 currentState = FishingState.WaitingBite;
  
@@ -264,11 +271,22 @@ namespace PJH.Scripts
         {
             float min = fishingSettingSO.MinBiteTime;
             float max = fishingSettingSO.MaxBiteTime;
- 
-            return (
-                Random.Range(min, max) +
-                Random.Range(min, max)
-            ) * 0.5f;
+
+            float baseBiteTime =
+                (Random.Range(min, max) +
+                 Random.Range(min, max)) * 0.5f;
+
+            float biteTimeReduction =
+                currentRod != null
+                    ? currentRod.biteTimeBonus
+                    : 0f;
+
+            // 너무 크게 설정해도 최대 50%까지만 감소
+            biteTimeReduction =
+                Mathf.Clamp(biteTimeReduction, 0f, 0.5f);
+
+            return baseBiteTime *
+                   (1f - biteTimeReduction);
         }
  
         private void HandleFishingSucceeded(
@@ -298,7 +316,9 @@ namespace PJH.Scripts
             StopSplashParticle();
  
             currentFish = null;
+            currentRod = null;
             currentState = FishingState.Idle;
+            
         }
  
         public void CancelFishing()
@@ -307,6 +327,8 @@ namespace PJH.Scripts
             StopSplashParticle();
  
             currentFish = null;
+            
+            currentRod = null;
             currentState = FishingState.Idle;
  
             fishingMiniGame.StopMiniGame();
@@ -320,6 +342,7 @@ namespace PJH.Scripts
             StopCoroutine(fishingRoutine);
             fishingRoutine = null;
         }
+        
     }
 }
  

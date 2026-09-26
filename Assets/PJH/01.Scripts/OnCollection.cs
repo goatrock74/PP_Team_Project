@@ -39,7 +39,7 @@ namespace PJH._01.Scripts
 
         private bool IsNearPlayer()
         {
-            var nearPlayer = Physics2D.OverlapBox(transform.position, boxSize, layerMask);
+            var nearPlayer = Physics2D.OverlapBox(transform.position, boxSize, 0,layerMask);
             
             return nearPlayer != null;
         }

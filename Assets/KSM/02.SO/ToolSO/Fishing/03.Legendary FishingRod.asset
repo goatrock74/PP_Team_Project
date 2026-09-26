@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a04df9c381845e6b3afae7a6452a7c9, type: 3}
+  m_Name: 03.Legendary FishingRod
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodSO
+  itemId: LegendaryRod
+  displayName: "\uC804\uC124 \uB09A\uC2EF\uB300"
+  icon: {fileID: -5675188256746831236, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
+  description: "\uB6F0\uC5B4\uB09C \uC131\uB2A5\uC73C\uB85C \uC785\uC9C8 \uC2DC\uAC04\uC744
+    \uD06C\uAC8C \uC904\uC774\uACE0, \uD76C\uADC0\uD55C \uBB3C\uACE0\uAE30\uB97C
+    \uB09A\uC744 \uD655\uB960\uC744 \uB192\uC5EC\uC8FC\uB294 \uCD5C\uACE0\uC758 \uB09A\uC2EF\uB300\uC774\uB2E4"
+  itemType: 5
+  maxStack: 1
+  sellPrice: 0
+  season: 0
+  tier: 0
+  areaSize: {x: 1, y: 1}
+  hitBoxSize: {x: 1.2, y: 1.2}
+  hitBoxDistance: 0.8
+  verboseLog: 1
+  showPreview: 0
+  animationTrigger: Hoe
+  baseClip: {fileID: 7400000, guid: ac1de5e1c486e3b4589cbc873f1ca682, type: 2}
+  tierClip: {fileID: 7400000, guid: 4c6d30b27dff7614881cb23ded45e735, type: 2}
+  extraClips:
+  - baseClip: {fileID: 7400000, guid: 55fbbe3f4a6e64d409437f3a330ef4d1, type: 2}
+    tierClip: {fileID: 7400000, guid: d34985856f1289d41b293b1b6d53386d, type: 2}
+  - baseClip: {fileID: 7400000, guid: d8261e178f4facd41a15497468d7e6f7, type: 2}
+    tierClip: {fileID: 7400000, guid: 3aa6e06873a6ff0439d94b615d4ff2ee, type: 2}
+  heldSpriteLibrary: {fileID: 0}
+  impactDelay: 0.15
+  useCooldown: 0.4
+  lockMovementWhileUsing: 0
+  movementLockDuration: 0
+  biteTimeBonus: 0.3
+  luckBonus: 0.5

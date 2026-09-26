@@ -87,6 +87,17 @@ public abstract class ToolSO : ItemSO
     [Tooltip("이 등급이 실제로 재생할 클립. 비우면 Base Clip 이 그대로 나온다.\n" +
              "예: 금 도끼면 AxeGold")]
     public AnimationClip tierClip;
+
+    [System.Serializable]
+    public struct ClipSwap
+    {
+        public AnimationClip baseClip;
+        public AnimationClip tierClip;
+    }
+    
+    [Tooltip("추가로 교체할 애니메이션 클립")]
+    public ClipSwap[] extraClips;
+    
  
     [Tooltip("[구버전] 스프라이트 라이브러리 방식용. Tool Animator 의 Visual Mode 가 " +
              "Sprite Library 일 때만 쓰인다")]

@@ -297,7 +297,6 @@ namespace PJH.Scripts
             currentFishHeight = 0.5f;
             targetFishHeight = currentFishHeight;
  
-            currentCatchBarHeight = 0f;
             fishingMiniGameUI.SetCatchBarHeight(currentCatchBarHeight);
  
             fishingMiniGameUI.SetFishHeight(currentFishHeight);

@@ -48,7 +48,7 @@ public class FishingRodSO : ToolSO
             return false;
         }
  
-        if (!fishing.TryStartCast())
+        if (!fishing.TryStartCast(this))
         {
             Log("여기서는 낚시할 수 없습니다");
             return false;

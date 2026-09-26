@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a04df9c381845e6b3afae7a6452a7c9, type: 3}
+  m_Name: 02.Epic FishingRod
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodSO
+  itemId: EpicRod
+  displayName: "\uACE0\uAE09 \uB09A\uC2EF\uB300"
+  icon: {fileID: -6646212337641880122, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
+  description: "\uC785\uC9C8\uC744 \uB354 \uBE60\uB974\uAC8C \uC720\uB3C4\uD558\uBA70,
+    \uD76C\uADC0\uD55C \uBB3C\uACE0\uAE30\uB97C \uB09A\uC744 \uD655\uB960\uC744 \uB192\uC5EC\uC8FC\uB294
+    \uB09A\uC2EF\uB300\uC774\uB2E4"
+  itemType: 5
+  maxStack: 1
+  sellPrice: 0
+  season: 0
+  tier: 0
+  areaSize: {x: 1, y: 1}
+  hitBoxSize: {x: 1.2, y: 1.2}
+  hitBoxDistance: 0.8
+  verboseLog: 1
+  showPreview: 0
+  animationTrigger: Hoe
+  baseClip: {fileID: 7400000, guid: ac1de5e1c486e3b4589cbc873f1ca682, type: 2}
+  tierClip: {fileID: 7400000, guid: 04dcdf8355f6e5f429825e05455bae06, type: 2}
+  extraClips:
+  - baseClip: {fileID: 7400000, guid: 55fbbe3f4a6e64d409437f3a330ef4d1, type: 2}
+    tierClip: {fileID: 7400000, guid: c3d6215bc1d2b1b438434ea33fa20101, type: 2}
+  - baseClip: {fileID: 7400000, guid: d8261e178f4facd41a15497468d7e6f7, type: 2}
+    tierClip: {fileID: 7400000, guid: 0981edf70a0c1284cb81e9a902cda71b, type: 2}
+  heldSpriteLibrary: {fileID: 0}
+  impactDelay: 0.15
+  useCooldown: 0.4
+  lockMovementWhileUsing: 0
+  movementLockDuration: 0
+  biteTimeBonus: 0.15
+  luckBonus: 0.25

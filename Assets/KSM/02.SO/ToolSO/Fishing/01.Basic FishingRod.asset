@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a04df9c381845e6b3afae7a6452a7c9, type: 3}
+  m_Name: 01.Basic FishingRod
+  m_EditorClassIdentifier: Assembly-CSharp::FishingRodSO
+  itemId: BasicRod
+  displayName: "\uAE30\uBCF8 \uB09A\uC2EF\uB300"
+  icon: {fileID: -4575912806389501571, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
+  description: "\uB09A\uC2DC\uB97C \uCC98\uC74C \uC2DC\uC791\uD560 \uB54C \uC0AC\uC6A9\uD558\uAE30
+    \uC88B\uC740 \uD3C9\uBC94\uD55C \uB09A\uC2EF\uB300\uC774\uB2E4"
+  itemType: 5
+  maxStack: 1
+  sellPrice: 0
+  season: 0
+  tier: 0
+  areaSize: {x: 1, y: 1}
+  hitBoxSize: {x: 1.2, y: 1.2}
+  hitBoxDistance: 0.8
+  verboseLog: 1
+  showPreview: 0
+  animationTrigger: 
+  baseClip: {fileID: 0}
+  tierClip: {fileID: 0}
+  heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
+  impactDelay: 0.15
+  useCooldown: 0.4
+  lockMovementWhileUsing: 0
+  movementLockDuration: 0
+  biteTimeBonus: 0
+  luckBonus: 0
