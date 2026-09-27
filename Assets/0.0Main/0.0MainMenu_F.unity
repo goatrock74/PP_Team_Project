@@ -690,7 +690,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 7
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -204817,17 +204817,6 @@ MonoBehaviour:
   waitTime: 0
   fadeDuration: 1.5
   fadeCanvasGroup: {fileID: 227438485}
---- !u!114 &1472140459 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9166348367660557779, guid: 4b0e95caec0decd4b8a8f3017c72f4d3, type: 3}
-  m_PrefabInstance: {fileID: 5253869871434866841}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1001 &1492072346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205414,17 +205403,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &1568021702 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2704597568731402074, guid: 4b0e95caec0decd4b8a8f3017c72f4d3, type: 3}
-  m_PrefabInstance: {fileID: 5253869871434866841}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &1578723016
 GameObject:
   m_ObjectHideFlags: 0
@@ -360122,9 +360100,6 @@ MonoBehaviour:
   soundSettings: {fileID: 11400000, guid: eeb2778a7a4c84d4ea1df354e9c99e9e, type: 2}
   bgmSource: {fileID: 1646170228}
   sfxSource: {fileID: 1724194713}
-  masterSlider: {fileID: 1568021702}
-  bgmSlider: {fileID: 1472140459}
-  sfxSlider: {fileID: 2040334174}
 --- !u!4 &1971662242
 Transform:
   m_ObjectHideFlags: 0
@@ -404800,17 +404775,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &2040334174 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1193622233864290067, guid: 4b0e95caec0decd4b8a8f3017c72f4d3, type: 3}
-  m_PrefabInstance: {fileID: 5253869871434866841}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Slider
 --- !u!1 &2051883589
 GameObject:
   m_ObjectHideFlags: 0
