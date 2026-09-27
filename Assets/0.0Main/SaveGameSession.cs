@@ -11,7 +11,8 @@ public class SaveGameSession : MonoBehaviour
     private static SaveGameSession instance;
     private float nextSave;
     private bool restoring;
-    public static bool IsPlaying => SaveSlotStore.Active != null && SceneManager.GetActiveScene().name != "0.0MainMenu_F";
+    public static bool IsPlaying => SaveSlotStore.Active != null && SceneManager.GetActiveScene().name != "0.0MainMenu_F"
+        && SceneManager.GetActiveScene().name != ResolutionGate.SceneName;
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void Reset() => instance = null;
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
@@ -23,7 +24,7 @@ public class SaveGameSession : MonoBehaviour
     private void OnDestroy() { SceneManager.sceneLoaded -= OnLoaded; if (instance == this) instance = null; }
     private void OnLoaded(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "0.0MainMenu_F") { Inventorysavemanger.Instance?.DetachForSlotChange(); SaveSlotStore.Deselect(); return; }
+        if (scene.name == "0.0MainMenu_F" || scene.name == ResolutionGate.SceneName) { Inventorysavemanger.Instance?.DetachForSlotChange(); SaveSlotStore.Deselect(); return; }
         if (!IsPlaying) return;
         var slot = SaveSlotStore.Active;
         TimeManager.Instance?.RestoreSave(slot.day, slot.dayFraction);
