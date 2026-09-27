@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -36,30 +36,30 @@ public class OceanTeleporter : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
+        if (Instance == null) { Instance = this; IsInOcean = false; }
         else Destroy(gameObject);
     }
 
     private void Start()
     {
-        if (IsInOcean && SoundManager.Instance != null && oceanBGM != null)
-        {
-            SoundManager.Instance.PlayBGM(oceanBGM);
-
-            if (seagullSFX != null && seagullCoroutine == null)
-            {
-                seagullCoroutine = StartCoroutine(SeagullRoutine());
-            }
-        }
+        // A new base scene starts on the main map; never reuse the previous scene's region.
+        if (SoundManager.Instance != null) SoundManager.Instance.ResetOutdoorSceneAudio();
+        ResumeOutdoorBGM();
     }
 
+    private void OnDestroy()
+    {
+        if (Instance != this) return;
+        Instance = null;
+        IsInOcean = false;
+    }
     public void PauseSeagullsForShop()
     {
-        if (IsInOcean && seagullCoroutine != null)
+        isSeagullPaused = true;
+        if (seagullCoroutine != null)
         {
             StopCoroutine(seagullCoroutine);
             seagullCoroutine = null;
-            isSeagullPaused = true;
         }
 
         if (SoundManager.Instance != null)
@@ -72,11 +72,11 @@ public class OceanTeleporter : MonoBehaviour
     {
         if (IsInOcean && isSeagullPaused)
         {
+            isSeagullPaused = false;
             if (seagullCoroutine == null && seagullSFX != null)
             {
                 seagullCoroutine = StartCoroutine(SeagullRoutine());
             }
-            isSeagullPaused = false;
         }
     }
     public void TeleportToOcean()
@@ -92,7 +92,7 @@ public class OceanTeleporter : MonoBehaviour
     private IEnumerator TeleportRoutine(bool isGoingToOcean)
     {
         isTeleporting = true;
-        IsInOcean = isGoingToOcean;
+
         isSeagullPaused = false; // 맵 이동 시 초기화
 
         if (!isGoingToOcean && seagullCoroutine != null)
@@ -101,7 +101,18 @@ public class OceanTeleporter : MonoBehaviour
             seagullCoroutine = null;
         }
 
+        Transform targetDestination = isGoingToOcean ? oceanDestination : mainMapDestination;
+        if (targetDestination == null || playerTransform == null || darkPanel == null)
+        {
+            isTeleporting = false;
+            yield break;
+        }
         Image panelImage = darkPanel.GetComponent<Image>();
+        if (panelImage == null)
+        {
+            isTeleporting = false;
+            yield break;
+        }
         panelImage.DOKill();
         darkPanel.SetActive(true);
 
@@ -109,10 +120,10 @@ public class OceanTeleporter : MonoBehaviour
 
         yield return panelImage.DOFade(1f, fadeDuration).SetEase(Ease.Linear).WaitForCompletion();
 
-        Transform targetDestination = isGoingToOcean ? oceanDestination : mainMapDestination;
-
         if (targetDestination != null && playerTransform != null)
         {
+            IsInOcean = isGoingToOcean;
+            if (!IsInOcean && SoundManager.Instance != null) SoundManager.Instance.StopSFX();
             playerTransform.position = new Vector3(
                 targetDestination.position.x,
                 targetDestination.position.y,
@@ -156,12 +167,12 @@ public class OceanTeleporter : MonoBehaviour
     }
     private IEnumerator SeagullRoutine()
     {
-        while (IsInOcean)
+        while (IsInOcean && !isSeagullPaused)
         {
             float waitTime = Random.Range(minSeagullInterval, maxSeagullInterval);
             yield return new WaitForSeconds(waitTime);
 
-            if (IsInOcean && SoundManager.Instance != null && seagullSFX != null)
+            if (IsInOcean && !isSeagullPaused && SoundManager.Instance != null && seagullSFX != null)
             {
                 SoundManager.Instance.PlaySFX(seagullSFX);
             }
@@ -180,6 +191,15 @@ public class OceanTeleporter : MonoBehaviour
             SoundManager.Instance.PlayBGM(oceanBGM);
         }
     }
+    public void ResumeOutdoorBGM()
+    {
+        if (SoundManager.Instance == null) return;
+        AudioClip clip = IsInOcean ? oceanBGM :
+            TimeManager.Instance != null && TimeManager.Instance.CurrentPeriod == TimeManager.TimePeriod.Night
+                ? mainMapNightBGM : mainMapDayBGM;
+        if (clip != null) SoundManager.Instance.PlayBGM(clip);
+    }
+
     public void StopSeagullSound()
     {
         if (seagullCoroutine != null)

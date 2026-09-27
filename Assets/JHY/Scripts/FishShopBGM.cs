@@ -5,6 +5,8 @@ public class FishShopBGM : MonoBehaviour
     [SerializeField]private AudioClip bgm;
     void Start()
     {
+        // Embedded base-scene shops use DialogueManager's temporary shop music.
+        if (string.Equals(gameObject.scene.name, "0.1BaseScene", System.StringComparison.OrdinalIgnoreCase)) return;
         Debug.Log("물고기 상점 BGM 스크립트 실행됨!");
 
         if (bgm != null)
