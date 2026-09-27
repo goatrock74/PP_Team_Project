@@ -6,6 +6,8 @@ public class Input_SO_Data : MonoBehaviour
 {
     [Header("계절별 ItemListSO (순서 무관, SO의 Target Type 기준)")]
     [SerializeField] private ItemListSO[] itemListSO;
+    [Header("계절과 관계없이 판매할 목록 (연결하면 계절 목록 대신 사용)")]
+    [SerializeField] private ItemListSO allSeasonItems;
 
     [Header("UI 연결")]
     [SerializeField] private List<Plant_Shop_BT> shopButtons;
@@ -90,7 +92,7 @@ public class Input_SO_Data : MonoBehaviour
 
     public void RefreshShopUI(int seasonIndex)
     {
-        if (itemListSO == null || itemListSO.Length == 0)
+        if (allSeasonItems == null && (itemListSO == null || itemListSO.Length == 0))
         {
             Debug.LogError("[Input_SO_Data] itemListSO 배열이 할당되지 않았습니다!");
             return;
@@ -105,7 +107,7 @@ public class Input_SO_Data : MonoBehaviour
         // ★ 이 줄이 주석 처리되어 있어서 계절 전환이 안 먹었다
         currentSeasonIndex = seasonIndex;
 
-        ItemListSO seasonList = GetSeasonList(seasonIndex);
+        ItemListSO seasonList = allSeasonItems != null ? allSeasonItems : GetSeasonList(seasonIndex);
         if (seasonList == null)
         {
             Debug.LogWarning($"[Input_SO_Data] {currentSeasonIndex}번 계절의 SO가 없습니다. 목록을 비웁니다.");
@@ -118,6 +120,18 @@ public class Input_SO_Data : MonoBehaviour
         }
 
         Item[] currentItems = seasonList != null ? seasonList.ItemList : null;
+        // Clone the configured slot so its icon, selection border and click event stay connected.
+        if (allSeasonItems != null && currentItems != null)
+        {
+            Plant_Shop_BT template = shopButtons.Find(button => button != null);
+            if (template != null)
+                while (shopButtons.Count < currentItems.Length)
+                {
+                    Plant_Shop_BT slot = Instantiate(template, template.transform.parent);
+                    slot.name = "Seed Slot " + (shopButtons.Count + 1);
+                    shopButtons.Add(slot);
+                }
+        }
 
         if (currentItems == null || currentItems.Length == 0)
             Debug.LogWarning($"[Input_SO_Data] {currentSeasonIndex}번 계절의 ItemList가 비어있습니다.");

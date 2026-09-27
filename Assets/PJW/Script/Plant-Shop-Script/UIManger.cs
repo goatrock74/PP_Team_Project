@@ -20,8 +20,10 @@ public class UIManger : MonoBehaviour
     [SerializeField] private bool buyOnly;
     [SerializeField] private GameObject[] shopVisuals;
     [SerializeField] private Transform shopViewAnchor;
+    [SerializeField] private GameObject hotbarPanel;
     private Camera shopCamera;
     private bool environmentHidden;
+    private bool hotbarWasActive;
     // Reserved for ShopVisual in ProjectSettings/TagManager.asset.
     private const int ShopVisualLayerIndex = 30;
 
@@ -48,6 +50,15 @@ public class UIManger : MonoBehaviour
         // Standalone shop scenes keep their existing scene transition behavior.
         if (shopRoot == null || environmentHidden == inside) return;
         environmentHidden = inside;
+        if (hotbarPanel != null)
+        {
+            if (inside)
+            {
+                hotbarWasActive = hotbarPanel.activeSelf;
+                hotbarPanel.SetActive(false);
+            }
+            else hotbarPanel.SetActive(hotbarWasActive);
+        }
         if (inside) ShopEntrance.EnterShop();
         else ShopExit.ExitShop();
     }
