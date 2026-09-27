@@ -9,18 +9,12 @@ using PJH._01.Scripts;
 
 namespace KSM._00.Scripts.Crop
 {
-    /// <summary>
-    /// 마우스 클릭으로 심기·수확·도구 사용·뽑기 팩 열기를 처리한다.
-    ///
-    /// ── 작물 제거 모드 ──
-    ///   괭이를 핫바에 들고 X → 제거 모드 켜짐 (화면에 안내가 뜬다)
-    ///   이 상태에서 작물을 좌클릭 → 그 작물 하나만 뽑힌다 (밭은 갈리지 않는다)
-    ///   X 를 다시 누르거나, 괭이가 아닌 걸 들면 → 제거 모드 꺼짐
-    /// </summary>
+    
+    
     public class PlayerInteractor : MonoBehaviour
     {
-        /// <summary>지금 작물 제거 모드인가. UI 가 이걸 보고 안내를 띄운다</summary>
         public static bool IsRemoveMode { get; private set; }
+        [SerializeField] private AudioClip sfx;
 
         /// <summary>제거 모드가 켜지거나 꺼질 때 (켜짐 = true)</summary>
         public static event System.Action<bool> RemoveModeChanged;
@@ -521,6 +515,7 @@ namespace KSM._00.Scripts.Crop
             // 심은 자리에 흙이 살짝 튄다
             GrowCrop planted = mgr.GetOccupant(cell);
             ToolFX.Planted(planted != null ? planted.transform.position : mgr.CellToWorldCenter(cell));
+            SoundManager.Instance.PlaySFX(sfx);
 
             if (verboseLog) Debug.Log($"[심기] {seed.crop.cropName} 심음 @ {cell}");
         }

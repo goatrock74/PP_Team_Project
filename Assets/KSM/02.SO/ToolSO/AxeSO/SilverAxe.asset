@@ -22,7 +22,7 @@ MonoBehaviour:
   maxStack: 1
   sellPrice: 0
   season: 0
-  tier: 0
+  tier: 1
   areaSize: {x: 1, y: 1}
   hitBoxSize: {x: 1.2, y: 1.2}
   hitBoxDistance: 0.8

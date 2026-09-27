@@ -241266,6 +241266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 548be1aa28634263b3be6b9a7c1552da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crop.PlayerInteractor
+  sfx: {fileID: 8300000, guid: 4abd24471aeea304687746ec402bc41e, type: 3}
   cam: {fileID: 0}
   preview: {fileID: 0}
   gacha: {fileID: 0}
@@ -388522,6 +388523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6db21c1ed0574bf4adaabbfca8d049ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingOverlay
+  hammerSfx: {fileID: 8300000, guid: 1596a907e1cebac4596816d77d1ce015, type: 3}
   root: {fileID: 0}
   group: {fileID: 1249450962}
   icon: {fileID: 1682694696}
@@ -421086,7 +421088,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.1
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -421110,8 +421112,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774133398}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.0000000037223231, y: -0.000000029954705, z: 1.1150109e-16, w: 1}
-  m_LocalPosition: {x: -38.34, y: -0.87, z: -10}
+  m_LocalRotation: {x: -0.039882056, y: 0.014983008, z: 0.0005980963, w: 0.9990919}
+  m_LocalPosition: {x: 28.55, y: 43.5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428306,6 +428308,84 @@ MeshRenderer:
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1857514145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1857514147}
+  - component: {fileID: 1857514146}
+  m_Layer: 0
+  m_Name: ToolFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1857514146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857514145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cccde84bc844d3686e87af3923c01f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ToolFX
+  hoeSfx: {fileID: 8300000, guid: b069477cf5a038043bd8b2642ab0e703, type: 3}
+  waterSfx: {fileID: 8300000, guid: 39a7ea82e9d59d246878f68cf72a0cdb, type: 3}
+  chopSfx: {fileID: 8300000, guid: 2a43ec3f749c2d042a8f99d769334118, type: 3}
+  fellSfx: {fileID: 8300000, guid: b1004bb1c39d5214ba23dbb0f81b11d3, type: 3}
+  scytheSfx: {fileID: 8300000, guid: 2a43ec3f749c2d042a8f99d769334118, type: 3}
+  plantSfx: {fileID: 8300000, guid: b069477cf5a038043bd8b2642ab0e703, type: 3}
+  removeSfx: {fileID: 8300000, guid: b069477cf5a038043bd8b2642ab0e703, type: 3}
+  pieceSize: 0.06
+  power: 1
+  dirtCount: 9
+  waterCount: 10
+  chipCount: 6
+  fellLeafCount: 16
+  grassCount: 7
+  dirtColors:
+  - {r: 0.5882353, g: 0.37254903, b: 0.23529412, a: 1}
+  - {r: 0.47058824, g: 0.29411766, b: 0.1882353, a: 1}
+  - {r: 0.69803923, g: 0.4627451, b: 0.30588236, a: 1}
+  waterColors:
+  - {r: 0.54901963, g: 0.78431374, b: 1, a: 1}
+  - {r: 0.84313726, g: 0.9411765, b: 1, a: 1}
+  - {r: 0.3529412, g: 0.64705884, b: 0.9411765, a: 1}
+  woodColors:
+  - {r: 0.78431374, g: 0.5882353, b: 0.37254903, a: 1}
+  - {r: 0.627451, g: 0.43137255, b: 0.25490198, a: 1}
+  - {r: 0.9098039, g: 0.76862746, b: 0.5411765, a: 1}
+  leafColors:
+  - {r: 0.37254903, g: 0.64705884, b: 0.27450982, a: 1}
+  - {r: 0.5176471, g: 0.76862746, b: 0.3372549, a: 1}
+  - {r: 0.27450982, g: 0.5019608, b: 0.21568628, a: 1}
+  customSorting: 0
+  sortingLayer: Default
+  sortingOrder: 200
+  maxPieces: 256
+--- !u!4 &1857514147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857514145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1111.7269, y: 110.237, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1888396708
 GameObject:
   m_ObjectHideFlags: 0
@@ -441298,3 +441378,4 @@ SceneRoots:
   - {fileID: 927694460}
   - {fileID: 2007962383}
   - {fileID: 1693816548}
+  - {fileID: 1857514147}

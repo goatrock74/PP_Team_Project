@@ -1,7 +1,9 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using KSM._00.Scripts.Items;
 using KSM._00.Scripts.Effects;
 using UnityEngine.Serialization;
+using Random = UnityEngine.Random;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -27,6 +29,8 @@ using UnityEditor;
 [RequireComponent(typeof(Collider2D))]
 public class TreeNode : MonoBehaviour, IChoppable
 {
+    [SerializeField] private AudioClip sfx;
+
     [Header("체력")]
     [Tooltip("이만큼 깎아야 쓰러진다")]
     [SerializeField, Min(1)] private int maxHealth = 3;
@@ -184,6 +188,11 @@ public class TreeNode : MonoBehaviour, IChoppable
 
         BecomeStump(in ctx);
         return true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        SoundManager.Instance.PlaySFX(sfx);
     }
 
     // ════════════════════════════════════════════════════════════

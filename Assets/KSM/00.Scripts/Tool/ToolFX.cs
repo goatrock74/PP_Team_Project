@@ -1,8 +1,31 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using KSM._00.Scripts.Crop;
+
     public class ToolFX : MonoBehaviour
     {
+        [Header("소리 (SoundManager 로 재생. 비워두면 그 소리만 안 난다)")]
+        [Tooltip("괭이로 땅을 갈았을 때")]
+        [SerializeField] private AudioClip hoeSfx;
+
+        [Tooltip("물을 줬을 때")]
+        [SerializeField] private AudioClip waterSfx;
+
+        [Tooltip("도끼로 나무를 찍었을 때")]
+        [SerializeField] private AudioClip chopSfx;
+
+        [Tooltip("나무가 쓰러질 때 (찍는 소리와 같이 난다)")]
+        [SerializeField] private AudioClip fellSfx;
+
+        [Tooltip("낫으로 풀·채집물을 벴을 때")]
+        [SerializeField] private AudioClip scytheSfx;
+
+        [Tooltip("씨앗을 심었을 때")]
+        [SerializeField] private AudioClip plantSfx;
+
+        [Tooltip("제거 모드로 작물을 뽑았을 때")]
+        [SerializeField] private AudioClip removeSfx;
+
         [Header("크기·세기 (타일 한 칸 기준)")]
         [Tooltip("조각 하나의 크기. 0.06 = 한 칸의 6%")]
         [SerializeField, Range(0.02f, 0.3f)] private float pieceSize = 0.06f;
@@ -170,6 +193,7 @@ using KSM._00.Scripts.Crop;
         {
             if (shot == null || shot.tool == null) return;
 
+            ToolFX fx = Instance;
             CropManager farm = shot.ctx.farm;
 
             switch (shot.tool)
@@ -177,20 +201,25 @@ using KSM._00.Scripts.Crop;
                 case HoeSO hoe:
                     if (!used || farm == null) return;
 
+                    // ★ 소리는 반복문 밖에서 한 번만. 3x3 으로 갈아도 한 번만 난다
+                    fx.Sfx(fx.hoeSfx);
+
                     foreach (Vector3Int c in shot.cells)
-                        if (farm.GetGroundTile(c) == hoe.tilledTile) Instance.PlayDirt(farm.CellToWorldCenter(c), 1f);
+                        if (farm.GetGroundTile(c) == hoe.tilledTile) fx.PlayDirt(farm.CellToWorldCenter(c), 1f);
                     break;
 
                 case WateringCanSO _:
+                    fx.Sfx(fx.waterSfx);
+
                     // 물은 이미 젖은 땅이나 밭이 아닌 곳에 부어도 튄다 (부었다는 손맛)
                     if (farm == null || shot.cells.Count == 0)
                     {
-                        Instance.PlayWater(shot.ctx.worldPoint);
+                        fx.PlayWater(shot.ctx.worldPoint);
                         return;
                     }
 
                     foreach (Vector3Int c in shot.cells)
-                        Instance.PlayWater(farm.CellToWorldCenter(c));
+                        fx.PlayWater(farm.CellToWorldCenter(c));
                     break;
 
                 case AxeSO _:
@@ -202,15 +231,20 @@ using KSM._00.Scripts.Crop;
                     // 쓰러졌는지: 그루터기가 됐거나, 안 다시 자라는 나무라 판정이 꺼졌거나
                     bool felled = shot.tree != null && (shot.tree.IsStump || !shot.hit.enabled);
 
-                    Instance.PlayChips(shot.hitPoint, dir.normalized, felled);
-                    if (felled && shot.hasCanopy) Instance.PlayCanopyLeaves(shot.canopy);
+                    fx.Sfx(fx.chopSfx);
+                    if (felled) fx.Sfx(fx.fellSfx);
+
+                    fx.PlayChips(shot.hitPoint, dir.normalized, felled);
+                    if (felled && shot.hasCanopy) fx.PlayCanopyLeaves(shot.canopy);
                     break;
 
                 case ScytheSO _:
                     if (!used) return;
 
+                    fx.Sfx(fx.scytheSfx);
+
                     foreach (Vector3 p in shot.points)
-                        Instance.PlayGrass(p, 1f);
+                        fx.PlayGrass(p, 1f);
                     break;
             }
         }
@@ -218,12 +252,29 @@ using KSM._00.Scripts.Crop;
         /// <summary>작물을 뽑았을 때</summary>
         public static void CropRemoved(Vector3 at)
         {
-            Instance.PlayDirt(at, 1.2f);
-            Instance.PlayGrass(at, 0.6f);
+            ToolFX fx = Instance;
+
+            fx.Sfx(fx.removeSfx);
+            fx.PlayDirt(at, 1.2f);
+            fx.PlayGrass(at, 0.6f);
         }
 
         /// <summary>씨앗을 심었을 때</summary>
-        public static void Planted(Vector3 at) => Instance.PlayDirt(at, 0.45f);
+        public static void Planted(Vector3 at)
+        {
+            ToolFX fx = Instance;
+
+            fx.Sfx(fx.plantSfx);
+            fx.PlayDirt(at, 0.45f);
+        }
+
+        /// <summary>친구의 SoundManager 로 효과음을 튼다. 클립이 비어 있거나 매니저가 없으면 조용히 넘어간다</summary>
+        private void Sfx(AudioClip clip)
+        {
+            if (clip == null || SoundManager.Instance == null) return;
+
+            SoundManager.Instance.PlaySFX(clip);
+        }
 
         // ════════════════════════════════════════════════════════════
         //  대상 찾기 (도끼·긴낫과 같은 규칙)

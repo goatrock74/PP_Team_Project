@@ -13,6 +13,9 @@ namespace KSM._00.Scripts.Crop
         [Tooltip("칸 중앙에서 상하좌우로 어긋나는 최대 거리. 칸 크기 대비 비율이다.\n" +
                  "0.06 이면 한 칸의 6% 안에서 흔들린다. 0 이면 정확히 중앙")]
         [SerializeField, Range(0f, 0.3f)] private float positionJitter = 0.06f;
+        
+        [SerializeField] private AudioClip sfx;
+
 
         [Tooltip("작물 크기 배수 범위. x=최소, y=최대")]
         [SerializeField] private Vector2 scaleRange = new Vector2(1f, 1.15f);
@@ -391,6 +394,7 @@ namespace KSM._00.Scripts.Crop
 
             // 연출용 (튀어오르는 아이콘, 품질 반짝이 등). 파괴되기 '전에' 알려야 위치와 그림을 쓸 수 있다
             Harvested?.Invoke(amount, quality);
+            SoundManager.Instance.PlaySFX(sfx);
 
             switch (cropSO.harvestType)
             {
