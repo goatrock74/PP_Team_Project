@@ -132,7 +132,7 @@ public class FishShopController : MonoBehaviour
         {
             var product = selectedProduct;
             bool owned = product.purchaseLimit == FishShopPurchaseLimit.Once &&
-                (PlayerPrefs.GetInt(product.PurchaseKey, 0) != 0 || (Ready && PlayerInventory.Instance.CountOf(product.item) > 0));
+                (SaveSlotStore.GetInt(product.PurchaseKey, 0) != 0 || (Ready && PlayerInventory.Instance.CountOf(product.item) > 0));
             bool room = Ready && PlayerInventory.Instance.CanAccept(product.item, 1);
             bool affordable = wallet.CurrentMoney >= product.price;
             string description = string.IsNullOrWhiteSpace(product.description) ? product.item.description : product.description;
@@ -171,7 +171,7 @@ public class FishShopController : MonoBehaviour
         if (!Ready || product == null || product.item == null || product.price < 0) return false;
         var inventory = PlayerInventory.Instance;
         if (product.purchaseLimit == FishShopPurchaseLimit.Once &&
-            (PlayerPrefs.GetInt(product.PurchaseKey, 0) != 0 || inventory.CountOf(product.item) > 0))
+            (SaveSlotStore.GetInt(product.PurchaseKey, 0) != 0 || inventory.CountOf(product.item) > 0))
             return false;
         if (!inventory.CanAccept(product.item, 1)) return false;
         if (!wallet.TrySpendMoney(product.price)) return false;
@@ -180,9 +180,9 @@ public class FishShopController : MonoBehaviour
             wallet.AddMoney(product.price);
             return false;
         }
-        if (product.purchaseLimit == FishShopPurchaseLimit.Once) PlayerPrefs.SetInt(product.PurchaseKey, 1);
+        if (product.purchaseLimit == FishShopPurchaseLimit.Once) SaveSlotStore.SetInt(product.PurchaseKey, 1);
         Inventorysavemanger.Instance.SaveInventory();
-        PlayerPrefs.Save();
+        SaveSlotStore.Save();
         return true;
     }
 

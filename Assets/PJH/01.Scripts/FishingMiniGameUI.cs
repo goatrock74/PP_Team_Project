@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -87,6 +87,7 @@ namespace PJH.Scripts
         {
             ResetFishShake();
             panelTween?.Kill();
+            if (minigamePanel == null || !isActiveAndEnabled) { isOpend = false; return; }
  
             panelTween = minigamePanel.DOSizeDelta(new Vector2(minigamePanel.sizeDelta.x, 0f), 0.5f
                 ).SetEase(Ease.InCubic)
@@ -199,7 +200,7 @@ namespace PJH.Scripts
         {
             shakeFish?.Kill();
             shakeFish = null;
-            fishVisual.anchoredPosition = Vector2.zero;
+            if (fishVisual != null) fishVisual.anchoredPosition = Vector2.zero;
         }
  
         private void ResetFishShake()
@@ -207,7 +208,7 @@ namespace PJH.Scripts
             shakeFish?.Kill();
             shakeFish = null;
             wasFishInside = false;
-            fishVisual.anchoredPosition = Vector2.zero;
+            if (fishVisual != null) fishVisual.anchoredPosition = Vector2.zero;
         }
  
  
@@ -215,4 +216,3 @@ namespace PJH.Scripts
     }
  
 }
- 

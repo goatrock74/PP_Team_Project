@@ -28,15 +28,28 @@ public class SeasonGrowthAdapter : MonoBehaviour, IGameClock, IGrowthModifier
     [SerializeField] private bool enforceSeason = true;
  
     public bool IsRaining { get; set; }
+
+    // The scene-local clock may be destroyed as a duplicate after returning from the menu.
+    private bool ResolveClock()
+    {
+        if (TimeManager.Instance != null) timeManager = TimeManager.Instance;
+        else if (timeManager == null) timeManager = FindFirstObjectByType<TimeManager>();
+        return timeManager != null;
+    }
+
+    private void Start()
+    {
+        if (ResolveClock() && CropManager.Instance != null) CropManager.Instance.GameClock = this;
+    }
  
     private void Awake()
     {
-        if (timeManager == null) timeManager = FindFirstObjectByType<TimeManager>();
+        ResolveClock();
     }
  
     private void OnEnable()
     {
-        if (timeManager == null) timeManager = FindFirstObjectByType<TimeManager>();
+        ResolveClock();
  
         CropManager mgr = CropManager.Instance;
         if (mgr == null)
@@ -71,7 +84,7 @@ public class SeasonGrowthAdapter : MonoBehaviour, IGameClock, IGrowthModifier
     {
         get
         {
-            if (timeManager == null) return 0f;
+            if (!ResolveClock()) return 0f;
  
             float withinDay = (timeManager.CurrentHour * 60f + timeManager.CurrentMinute) / 1440f;
             return (timeManager.CurrentDay - 1) + withinDay;
@@ -82,7 +95,7 @@ public class SeasonGrowthAdapter : MonoBehaviour, IGameClock, IGrowthModifier
     {
         get
         {
-            if (timeManager == null) return 1f;
+            if (!ResolveClock()) return 1f;
  
             float speed = timeManager.CurrentSeason switch
             {
@@ -102,7 +115,7 @@ public class SeasonGrowthAdapter : MonoBehaviour, IGameClock, IGrowthModifier
     {
         get
         {
-            if (timeManager == null) return 1f;
+            if (!ResolveClock()) return 1f;
  
             return timeManager.CurrentSeason switch
             {
@@ -120,7 +133,7 @@ public class SeasonGrowthAdapter : MonoBehaviour, IGameClock, IGrowthModifier
  
     public bool CanPlantNow(CropSO crop)
     {
-        if (!enforceSeason || crop == null || timeManager == null) return true;
+        if (!enforceSeason || crop == null || !ResolveClock()) return true;
  
         return (crop.plantableSeasons & ToCropSeason(timeManager.CurrentSeason)) != 0;
     }

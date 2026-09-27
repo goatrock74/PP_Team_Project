@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -112,6 +112,7 @@ namespace KSM._00.Scripts.Crop
         private CropManager _mgr;
         private bool _ready;             // 불러오기가 끝나야 저장한다 (빈 밭으로 저장본을 덮어쓰지 않게)
         private float _nextSave;
+        public bool IsReady => _ready;
         private int _lastCropCount;
         private string _lastJson;
 
@@ -349,8 +350,8 @@ namespace KSM._00.Scripts.Crop
             // 바뀐 게 없으면 디스크에 다시 쓰지 않는다
             if (json != _lastJson)
             {
-                PlayerPrefs.SetString(Key, json);
-                PlayerPrefs.Save();
+                SaveSlotStore.SetString(Key, json);
+                SaveSlotStore.Save();
                 _lastJson = json;
             }
 
@@ -364,7 +365,7 @@ namespace KSM._00.Scripts.Crop
 
         private void Load()
         {
-            string json = PlayerPrefs.GetString(Key, string.Empty);
+            string json = SaveSlotStore.GetString(Key, string.Empty);
 
             if (string.IsNullOrEmpty(json))
             {
@@ -379,11 +380,10 @@ namespace KSM._00.Scripts.Crop
             }
             catch (Exception e)
             {
-                Debug.LogWarning("[밭 저장] 저장본을 읽지 못해 빈 밭으로 시작합니다: " + e.Message, this);
-                return;
+                throw new InvalidOperationException("밭 저장 복원 실패 — 기존 파일을 보호합니다.", e);
             }
 
-            if (data == null) return;
+            if (data == null || data.version != 2) throw new InvalidOperationException("지원하지 않는 밭 저장 형식입니다.");
 
             BuildLookups();
 
@@ -594,8 +594,8 @@ namespace KSM._00.Scripts.Crop
         [ContextMenu("저장 지우기 (밭·나무·풀숲 처음 상태로)")]
         private void DeleteSaveFromMenu()
         {
-            PlayerPrefs.DeleteKey(Key);
-            PlayerPrefs.Save();
+            SaveSlotStore.DeleteKey(Key);
+            SaveSlotStore.Save();
 
             // 플레이 중이면 이번 판은 더 저장하지 않는다. 안 그러면 끌 때 다시 저장돼서 지운 게 되살아난다
             _ready = false;
@@ -607,8 +607,8 @@ namespace KSM._00.Scripts.Crop
         /// <summary>새 게임을 시작할 때 부른다. 씬 이름을 주면 그 씬의 밭 저장본을 지운다</summary>
         public static void DeleteSave(string sceneName)
         {
-            PlayerPrefs.DeleteKey(KeyPrefix + sceneName);
-            PlayerPrefs.Save();
+            SaveSlotStore.DeleteKey(KeyPrefix + sceneName);
+            SaveSlotStore.Save();
         }
 
         // ════════════════════════════════════════════════════════════

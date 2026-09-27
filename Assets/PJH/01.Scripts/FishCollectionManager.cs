@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -65,8 +65,8 @@ namespace PJH._01.Scripts
             };
             
             string json = JsonUtility.ToJson(saveData);
-            PlayerPrefs.SetString(SaveKey, json);
-            PlayerPrefs.Save();
+            SaveSlotStore.SetString(SaveKey, json);
+            SaveSlotStore.Save();
             
             
         }
@@ -75,9 +75,9 @@ namespace PJH._01.Scripts
         {
             discoveredFishIds.Clear();
 
-            if (!PlayerPrefs.HasKey(SaveKey)) return;
+            if (!SaveSlotStore.HasKey(SaveKey)) return;
             
-            string json = PlayerPrefs.GetString(SaveKey);
+            string json = SaveSlotStore.GetString(SaveKey);
             FishCollectionSaveData saveData = JsonUtility.FromJson<FishCollectionSaveData>(json);
 
             if (saveData?.discoveredFishIds == null) return;
@@ -91,7 +91,7 @@ namespace PJH._01.Scripts
         private void ResetCollection()
         {
             discoveredFishIds.Clear();
-            PlayerPrefs.DeleteKey(SaveKey);
+            SaveSlotStore.DeleteKey(SaveKey);
             OnCollectionChanged?.Invoke();
         }
     }

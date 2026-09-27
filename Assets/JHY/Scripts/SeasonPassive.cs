@@ -19,6 +19,8 @@ public class SeasonPassive : MonoBehaviour
     private ParticleSystemRenderer[] activeRenderers;
     private bool[] originalRendererVisibility;
     private bool isDraining;
+    private bool weatherInProgress;
+    private TimeManager.SeasonPeriod scheduledSeason;
 
     private void Awake()
     {
@@ -65,8 +67,11 @@ public class SeasonPassive : MonoBehaviour
 
     public void ApplySeasonPassive(TimeManager.SeasonPeriod season)
     {
-        // A new day replaces pending weather as well, so an old season cannot start after leaving a shop.
+        // Keep long weather running across days, but replace it when the season changes.
+        if (weatherInProgress && scheduledSeason == season) return;
         CancelWeather();
+        scheduledSeason = season;
+        weatherInProgress = true;
         switch (season)
         {
             case TimeManager.SeasonPeriod.Spring: weatherRoutine = StartCoroutine(ApplyFlower()); break;
@@ -83,9 +88,10 @@ public class SeasonPassive : MonoBehaviour
 
     private IEnumerator TryWeather(GameObject effect, AudioClip clip = null)
     {
-        if (Random.Range(0, 2) != 0) yield break;
-        yield return new WaitForSeconds(Random.Range(1.5f, 2f));
+        if (Random.Range(0, 2) != 0) { weatherInProgress = false; yield break; }
+        yield return new WaitForSeconds(Random.Range(5f, 60f));
         yield return PlayEffect(effect, clip);
+        weatherInProgress = false;
     }
 
     private IEnumerator PlayEffect(GameObject effect, AudioClip clip = null)
@@ -113,13 +119,14 @@ public class SeasonPassive : MonoBehaviour
             currentAudioSource = GetComponent<AudioSource>();
             if (currentAudioSource == null) currentAudioSource = gameObject.AddComponent<AudioSource>();
             currentAudioSource.clip = clip;
-            currentAudioSource.loop = false;
+            currentAudioSource.loop = true;
             currentAudioSource.volume = 1f;
             currentAudioSource.Play();
         }
 
         float elapsed = 0f;
-        while (elapsed < 8f)
+        float playDuration = Random.Range(120f, 180f);
+        while (elapsed < playDuration)
         {
             if (!isInsideShop) elapsed += Time.deltaTime;
             yield return null;
@@ -160,6 +167,7 @@ public class SeasonPassive : MonoBehaviour
 
     private void CancelWeather()
     {
+        weatherInProgress = false;
         if (weatherRoutine != null) StopCoroutine(weatherRoutine);
         weatherRoutine = null;
         ResetEffect();
