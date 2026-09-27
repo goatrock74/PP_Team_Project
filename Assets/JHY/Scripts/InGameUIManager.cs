@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class InGameUIManager : MonoBehaviour
 {
@@ -7,6 +8,7 @@ public class InGameUIManager : MonoBehaviour
     [SerializeField] private GameObject settingPanel;
     [SerializeField]private AudioClip closeSoundl;
     [SerializeField] private AudioClip settingpanel;
+    [SerializeField] private GameObject checkPanel;
     private void Update()
     {
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
@@ -32,5 +34,20 @@ public class InGameUIManager : MonoBehaviour
             SoundManager.Instance.PlaySFX(closeSoundl);
             settingPanel.SetActive(false);
         }
+    }
+    public void OpenCheckPanel()
+    {
+        SoundManager.Instance.PlaySFX(closeSoundl);
+        checkPanel.SetActive(true);
+    }
+    public void CloseCheckPanel()
+    {
+        SoundManager.Instance.PlaySFX(closeSoundl);
+        checkPanel.SetActive(false);
+    }
+    public void GoMain()
+    {
+        SoundManager.Instance.PlaySFX(closeSoundl);
+        SceneManager.LoadScene(0);
     }
 }

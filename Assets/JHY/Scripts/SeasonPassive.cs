@@ -9,8 +9,58 @@ public class SeasonPassive : MonoBehaviour
     [SerializeField] private GameObject flowerEffect;
     [SerializeField] private GameObject leavesEffect;
 
-    
-    public void ApplySeasonPassive(TimeManager.SeasonPeriod season) //각 특성
+    [SerializeField] private AudioClip rain;
+    private bool isInsideShop = false;
+    private GameObject currentActiveEffect = null;
+    private bool isEffectPaused = false;
+
+    // 🌟 추가: 현재 재생 중인 AudioSource를 직접 기억하고 멈추기 위한 변수
+    private AudioSource currentAudioSource = null;
+
+    public static SeasonPassive Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
+    public void HideActiveEffectForShop()
+    {
+        if (isInsideShop) return; // 이미 상점 안이면 중복 실행 방지
+        isInsideShop = true;
+
+        if (rainEffect != null && rainEffect.activeSelf) { rainEffect.SetActive(false); currentActiveEffect = rainEffect; isEffectPaused = true; }
+        if (snowEffect != null && snowEffect.activeSelf) { snowEffect.SetActive(false); currentActiveEffect = snowEffect; isEffectPaused = true; }
+        if (flowerEffect != null && flowerEffect.activeSelf) { flowerEffect.SetActive(false); currentActiveEffect = flowerEffect; isEffectPaused = true; }
+        if (leavesEffect != null && leavesEffect.activeSelf) { leavesEffect.SetActive(false); currentActiveEffect = leavesEffect; isEffectPaused = true; }
+
+        if (currentAudioSource != null && currentAudioSource.isPlaying)
+        {
+            currentAudioSource.Stop();
+        }
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.StopSFX(); // 갈매기 및 비 소리 중지
+        }
+
+        Debug.Log("실내 진입: 파티클 숨김 및 소리 중지 완료");
+    }
+
+    public void RestoreEffectAfterShop()
+    {
+        if (!isInsideShop) return; // 상점 안에 있던 게 아니면 무시
+        isInsideShop = false;      // 바깥으로 나왔으므로 해제
+
+        if (isEffectPaused && currentActiveEffect != null)
+        {
+            currentActiveEffect.SetActive(true);
+            isEffectPaused = false;
+        }
+    }
+
+    public void ApplySeasonPassive(TimeManager.SeasonPeriod season)
     {
         switch (season)
         {
@@ -24,7 +74,7 @@ public class SeasonPassive : MonoBehaviour
                 StartCoroutine(ApplyLeaves());
                 break;
             case TimeManager.SeasonPeriod.Winter:
-               StartCoroutine(ApplySnow());
+                StartCoroutine(ApplySnow());
                 break;
         }
     }
@@ -35,12 +85,11 @@ public class SeasonPassive : MonoBehaviour
             yield break;
 
         float start = UnityEngine.Random.Range(1.5f, 2f);
-
         yield return new WaitForSeconds(start);
 
         Debug.Log("Rain");
 
-        yield return StartCoroutine(PlayEffect(rainEffect));
+        yield return StartCoroutine(PlayEffect(rainEffect, rain));
     }
 
 
@@ -50,11 +99,9 @@ public class SeasonPassive : MonoBehaviour
             yield break;
 
         float start = UnityEngine.Random.Range(1.5f, 2f);
-
         yield return new WaitForSeconds(start);
 
         Debug.Log("Snow");
-
         yield return StartCoroutine(PlayEffect(snowEffect));
     }
 
@@ -65,11 +112,9 @@ public class SeasonPassive : MonoBehaviour
             yield break;
 
         float start = UnityEngine.Random.Range(1.5f, 2f);
-
         yield return new WaitForSeconds(start);
 
         Debug.Log("Leaves");
-
         yield return StartCoroutine(PlayEffect(leavesEffect));
     }
 
@@ -80,82 +125,92 @@ public class SeasonPassive : MonoBehaviour
             yield break;
 
         float start = UnityEngine.Random.Range(1.5f, 2f);
-
         yield return new WaitForSeconds(start);
 
         Debug.Log("Flower");
-
         yield return StartCoroutine(PlayEffect(flowerEffect));
     }
 
 
-    private IEnumerator PlayEffect(GameObject effect)
+    private IEnumerator PlayEffect(GameObject effect, AudioClip clip = null)
     {
         if (effect == null)
             yield break;
 
-        ParticleSystem[] particles =
-            effect.GetComponentsInChildren<ParticleSystem>(true);
+        if (effect.activeSelf) yield break;
 
+        currentActiveEffect = effect;
+        isEffectPaused = false;
+
+        AudioSource audioSource = null;
+        if (clip != null)
+        {
+            audioSource = gameObject.GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            audioSource.clip = clip;
+            audioSource.loop = false; // 음원이 길므로 루프 안 함!
+            audioSource.volume = 1f;
+            audioSource.Play();
+
+            currentAudioSource = audioSource;
+        }
+
+        ParticleSystem[] particles = effect.GetComponentsInChildren<ParticleSystem>(true);
         effect.SetActive(true);
 
         float[] originalRates = new float[particles.Length];
 
-        // 원래 Rate 저장
         for (int i = 0; i < particles.Length; i++)
         {
             var emission = particles[i].emission;
-
             originalRates[i] = emission.rateOverTime.constant;
         }
 
-
-        // 8초 동안 정상적으로 내림
         yield return new WaitForSeconds(8f);
 
-
-        // Rate를 서서히 감소
         float fadeDuration = GetFadeDuration(effect);
-
         float time = 0f;
 
         while (time < fadeDuration)
         {
             time += Time.deltaTime;
-
             float t = time / fadeDuration;
 
-            // 1 → 0
             float rateMultiplier = Mathf.Lerp(1f, 0f, t);
 
             for (int i = 0; i < particles.Length; i++)
             {
                 var emission = particles[i].emission;
+                emission.rateOverTime = originalRates[i] * rateMultiplier;
+            }
 
-                emission.rateOverTime =
-                    originalRates[i] * rateMultiplier;
+            if (audioSource != null)
+            {
+                audioSource.volume = rateMultiplier;
             }
 
             yield return null;
         }
 
-
-        // Rate 완전히 0
         for (int i = 0; i < particles.Length; i++)
         {
             var emission = particles[i].emission;
-
             emission.rateOverTime = 0f;
         }
 
+        if (audioSource != null && audioSource.isPlaying)
+        {
+            audioSource.Stop();
+        }
 
-        // ⭐ 이미 생성된 파티클이 전부 사라질 때까지 기다림
         bool isAlive = true;
-
         while (isAlive)
         {
             isAlive = false;
-
             for (int i = 0; i < particles.Length; i++)
             {
                 if (particles[i].IsAlive(true))
@@ -164,25 +219,20 @@ public class SeasonPassive : MonoBehaviour
                     break;
                 }
             }
-
             yield return null;
         }
 
-
-        // ⭐ 모든 파티클이 사라진 후에만 비활성화
         effect.SetActive(false);
 
-
-        // 다음 사용을 위해 원래 Rate 복구
         for (int i = 0; i < particles.Length; i++)
         {
             var emission = particles[i].emission;
-
             emission.rateOverTime = originalRates[i];
         }
+
+        currentActiveEffect = null;
+        currentAudioSource = null;
     }
-
-
     private float GetFadeDuration(GameObject effect)
     {
         if (effect == flowerEffect || effect == leavesEffect)

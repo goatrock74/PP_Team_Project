@@ -1,4 +1,5 @@
 using DG.Tweening;
+using PJH.Scripts;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class ForestTeleporter : MonoBehaviour
 
     private bool isTeleporting = false;
     public bool isInForest { get; private set; } = false;
-
+    [SerializeField] private PlayerFishing playerFishing;
     private void Start()
     {
         if (TimeManager.Instance != null)
@@ -45,6 +46,7 @@ public class ForestTeleporter : MonoBehaviour
     {
         if (newPeriod == TimeManager.TimePeriod.Morning && isInForest)
         {
+            playerFishing.CancelFishingImmediately();
             TeleportToMainMap();
         }
     }

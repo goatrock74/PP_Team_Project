@@ -16,6 +16,7 @@ TagManager:
   - 
   - Interactable
   - 
+  - Player
   - 
   - 
   - 
@@ -35,8 +36,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - ShopVisual
   - 
   m_SortingLayers:
   - name: Default
