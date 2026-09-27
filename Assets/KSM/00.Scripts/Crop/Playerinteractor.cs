@@ -2,13 +2,31 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+using KSM._00.Scripts.Effects;
 using KSM._00.Scripts.Items;
 using PJH._01.Scripts;
 
 namespace KSM._00.Scripts.Crop
 {
+    
+    
     public class PlayerInteractor : MonoBehaviour
     {
+        public static bool IsRemoveMode { get; private set; }
+        [SerializeField] private AudioClip sfx;
+
+        /// <summary>제거 모드가 켜지거나 꺼질 때 (켜짐 = true)</summary>
+        public static event System.Action<bool> RemoveModeChanged;
+
+        // 도메인 리로드를 끈 설정에서도 이전 플레이의 값이 남지 않게
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics()
+        {
+            IsRemoveMode = false;
+            RemoveModeChanged = null;
+        }
+
         [Header("참조")]
         [Tooltip("비워두면 Camera.main 을 쓴다")]
         [SerializeField] private Camera cam;
@@ -32,11 +50,23 @@ namespace KSM._00.Scripts.Crop
         [Tooltip("플레이어로부터 이 거리 안쪽만 상호작용 가능 (월드 단위)")]
         [SerializeField] private float interactRange = 2.5f;
 
-        [Tooltip("작물을 파내는 키")]
-        [SerializeField] private Key digKey = Key.X;
+        [Header("작물 제거 모드")]
+        [Tooltip("괭이를 든 상태에서 이 키로 제거 모드를 켜고 끈다")]
+        [FormerlySerializedAs("digKey")]
+        [SerializeField] private Key removeModeKey = Key.X;
 
-        [Tooltip("켜면 다 자란 작물은 파내지지 않는다 (실수로 날리는 것 방지)")]
+        [Tooltip("켜면 다 자란 작물은 제거 모드에서도 안 뽑힌다 (수확부터 해야 함).\n" +
+                 "끄면 다 자란 작물도 뽑힌다")]
         [SerializeField] private bool protectMatureCrops = true;
+
+        [Tooltip("뽑을 때 괭이 휘두르는 애니메이션을 재생하고, 괭이가 땅에 닿는 순간 뽑는다")]
+        [SerializeField] private bool swingOnRemove = true;
+
+        [Tooltip("괭이를 안 들고 X 를 눌렀을 때 화면에 띄울 문구")]
+        [SerializeField] private string needHoeMessage = "괭이를 들어야 작물을 뽑을 수 있습니다";
+
+        [Tooltip("다 자란 작물을 뽑으려 할 때 화면에 띄울 문구")]
+        [SerializeField] private string protectedMessage = "다 자란 작물은 수확부터 하세요";
 
         [SerializeField] private bool verboseLog = true;
 
@@ -74,19 +104,30 @@ namespace KSM._00.Scripts.Crop
                 return;
             }
 
+            // ★ 모드 키는 마우스가 핫바 같은 UI 위에 있어도 받아야 한다.
+            //   그래서 IsPointerOverUI 검사보다 먼저 본다
+            if (removeModeKey != Key.None && Keyboard.current != null &&
+                Keyboard.current[removeModeKey].wasPressedThisFrame)
+                ToggleRemoveMode();
+
+            // 괭이를 내려놓거나 다른 걸 들면 제거 모드도 끝난다.
+            // 안 그러면 씨앗을 든 채로 클릭했는데 작물이 뽑히는 사고가 난다
+            if (IsRemoveMode && !IsHoldingHoe()) SetRemoveMode(false);
+
             UpdatePreview();
 
             if (IsPointerOverUI()) return;
 
             if (Mouse.current.leftButton.wasPressedThisFrame)  HandleLeftClick();
             if (Mouse.current.rightButton.wasPressedThisFrame) HandleRightClick();
-
-            if (Keyboard.current != null && Keyboard.current[digKey].wasPressedThisFrame) HandleDig();
         }
 
         private void OnDisable()
         {
             if (preview != null) preview.Hide();
+
+            // 플레이어가 꺼지면 모드와 안내 UI 도 같이 끈다
+            SetRemoveMode(false);
         }
 
         private void UpdatePreview()
@@ -97,6 +138,12 @@ namespace KSM._00.Scripts.Crop
 
             CropManager mgr = CropManager.Instance;
             if (mgr == null || cam == null) { preview.Hide(); return; }
+
+            if (IsRemoveMode)
+            {
+                ShowRemovePreview(mgr);
+                return;
+            }
 
             PlayerInventory player = PlayerInventory.Instance;
 
@@ -137,6 +184,13 @@ namespace KSM._00.Scripts.Crop
 
         private void HandleLeftClick()
         {
+            // 제거 모드에서는 클릭이 "뽑기" 가 된다. 밭을 갈거나 수확하지 않는다
+            if (IsRemoveMode)
+            {
+                HandleRemoveClick();
+                return;
+            }
+
             PlayerInventory player = PlayerInventory.Instance;
 
             if (player != null && player.CanUseHeld)
@@ -226,20 +280,31 @@ namespace KSM._00.Scripts.Crop
 
             if (toolAnimator == null)
             {
-                tool.Use(ctx);
+                UseTool(tool, ctx);
                 return;
             }
 
             float delay = toolAnimator.PlayUse(tool);
 
-            if (delay <= 0f) tool.Use(ctx);
+            if (delay <= 0f) UseTool(tool, ctx);
             else StartCoroutine(UseAfterDelay(tool, ctx, delay));
         }
 
         private IEnumerator UseAfterDelay(ToolSO tool, ToolUseContext ctx, float delay)
         {
             yield return new WaitForSeconds(delay);
-            tool.Use(ctx);
+            UseTool(tool, ctx);
+        }
+
+        /// <summary>
+        /// 도구를 실제로 쓰고, 결과에 맞는 파티클을 튀긴다 (흙·물방울·나뭇조각·풀잎).
+        /// 쓰기 전 상태를 먼저 기억해 둬야 '어느 칸이 새로 갈렸는지', '어느 나무를 쳤는지' 를 알 수 있다
+        /// </summary>
+        private static void UseTool(ToolSO tool, ToolUseContext ctx)
+        {
+            ToolFX.Shot shot = ToolFX.BeforeUse(tool, in ctx);
+            bool used = tool.Use(ctx);
+            ToolFX.AfterUse(shot, used);
         }
 
         private ToolUseContext BuildToolContext(CropManager mgr, Vector3Int cell)
@@ -295,25 +360,135 @@ namespace KSM._00.Scripts.Crop
             if (!started) player.Add(pack, 1);   // 못 열었으면 팩을 돌려준다
         }
 
-        private void HandleDig()
+        // ════════════════════════════════════════════════════════════
+        //  작물 제거 모드
+        // ════════════════════════════════════════════════════════════
+
+        private void ToggleRemoveMode()
+        {
+            if (IsRemoveMode)
+            {
+                SetRemoveMode(false);
+                return;
+            }
+
+            if (!IsHoldingHoe())
+            {
+                ScreenMessageUI.Show(needHoeMessage);
+                return;
+            }
+
+            SetRemoveMode(true);
+        }
+
+        private void SetRemoveMode(bool on)
+        {
+            if (IsRemoveMode == on) return;
+
+            IsRemoveMode = on;
+            RemoveModeChanged?.Invoke(on);
+
+            if (verboseLog) Debug.Log($"[제거] 작물 제거 모드 {(on ? "켜짐" : "꺼짐")}");
+        }
+
+        /// <summary>괭이를 핫바에서 손에 들고 있는가</summary>
+        private static bool IsHoldingHoe()
+        {
+            PlayerInventory player = PlayerInventory.Instance;
+            return player != null && player.CanUseHeld && player.HeldItem is HoeSO;
+        }
+
+        /// <summary>제거 모드에서 클릭 — 클릭한 칸의 작물 하나를 뽑는다</summary>
+        private void HandleRemoveClick()
         {
             CropManager mgr = CropManager.Instance;
             if (mgr == null) return;
 
+            // 휘두르는 중에 또 누르면 무시 (연타로 여러 개 뽑히는 것 방지)
+            if (toolAnimator != null && toolAnimator.IsBusy) return;
+
             if (!TryGetTargetCell(mgr, out Vector3Int cell)) return;
 
-            if (mgr.RemoveCropAt(cell, protectMatureCrops))
+            GrowCrop crop = mgr.GetOccupant(cell);
+
+            if (crop == null)
             {
-                if (verboseLog) Debug.Log($"[파내기] {cell} 작물 제거");
+                if (verboseLog) Debug.Log($"[제거] {cell} 에 작물이 없음");
                 return;
             }
 
-            if (!verboseLog) return;
+            if (protectMatureCrops && crop.CanHarvest)
+            {
+                ScreenMessageUI.Show(protectedMessage);
+                return;
+            }
 
+            HoeSO hoe = PlayerInventory.Instance != null ? PlayerInventory.Instance.HeldItem as HoeSO : null;
+
+            // 괭이를 휘두르고, 땅에 닿는 순간 뽑는다
+            if (swingOnRemove && hoe != null && toolAnimator != null)
+            {
+                if (hoe.lockMovementWhileUsing && movement != null)
+                    movement.LockFor(hoe.LockSeconds);
+
+                float delay = toolAnimator.PlayUse(hoe);
+
+                if (delay > 0f)
+                {
+                    StartCoroutine(RemoveAfterDelay(cell, delay));
+                    return;
+                }
+            }
+
+            RemoveCropNow(cell);
+        }
+
+        private IEnumerator RemoveAfterDelay(Vector3Int cell, float delay)
+        {
+            yield return new WaitForSeconds(delay);
+            RemoveCropNow(cell);
+        }
+
+        private void RemoveCropNow(Vector3Int cell)
+        {
+            CropManager mgr = CropManager.Instance;
+            if (mgr == null) return;
+
+            // 파티클 위치는 뽑기 전에 기억해 둔다 (뽑으면 작물이 사라지니까)
             GrowCrop crop = mgr.GetOccupant(cell);
-            Debug.Log(crop == null
-                ? $"[파내기] {cell} 에 작물이 없음"
-                : "[파내기] 다 자란 작물은 파낼 수 없음 (수확부터 하세요)");
+            Vector3 fxPos = crop != null ? crop.transform.position : mgr.CellToWorldCenter(cell);
+
+            // 휘두르는 사이에 작물이 다 자랐거나 이미 없어졌으면 RemoveCropAt 이 false 를 준다
+            if (mgr.RemoveCropAt(cell, protectMatureCrops))
+            {
+                ToolFX.CropRemoved(fxPos);
+                if (verboseLog) Debug.Log($"[제거] {cell} 작물을 뽑았습니다");
+                return;
+            }
+
+            if (verboseLog) Debug.Log($"[제거] {cell} 작물을 뽑지 못했습니다 (이미 없거나 다 자람)");
+        }
+
+        /// <summary>
+        /// 제거 모드일 때 마우스 아래 작물에 상자를 띄운다.
+        /// 초록 = 뽑을 수 있음 / 빨강 = 작물이 없거나, 너무 멀거나, 다 자라서 보호 중
+        /// 2x2 같은 큰 작물은 작물 전체를 덮는다
+        /// </summary>
+        private void ShowRemovePreview(CropManager mgr)
+        {
+            Vector3Int cell = GetMouseCell(mgr);
+            GrowCrop crop = mgr.GetOccupant(cell);
+
+            if (crop == null)
+            {
+                preview.Show(cell, Vector2Int.one, false);
+                return;
+            }
+
+            bool ok = IsInRange(mgr, cell) && !(protectMatureCrops && crop.CanHarvest);
+            Vector2Int size = crop.Data != null ? crop.Data.size : Vector2Int.one;
+
+            preview.Show(crop.OriginCell, size, ok);
         }
 
         private void HandleRightClick()
@@ -336,6 +511,11 @@ namespace KSM._00.Scripts.Crop
             }
 
             PlayerInventory.Instance.ConsumeHeld(1);
+
+            // 심은 자리에 흙이 살짝 튄다
+            GrowCrop planted = mgr.GetOccupant(cell);
+            ToolFX.Planted(planted != null ? planted.transform.position : mgr.CellToWorldCenter(cell));
+            SoundManager.Instance.PlaySFX(sfx);
 
             if (verboseLog) Debug.Log($"[심기] {seed.crop.cropName} 심음 @ {cell}");
         }

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec6549a3d9440d5a4739ee0c82107e1, type: 3}
+  m_Name: SilverHoe
+  m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingRecipeSO
+  result: {fileID: 11400000, guid: 097ce269499ff79418c94bd0d4368bfc, type: 2}
+  resultCount: 1
+  materials:
+  - item: {fileID: 11400000, guid: d078a7d81d632c348bc3c68fc89ee38c, type: 2}
+    count: 4
+  - item: {fileID: 11400000, guid: 38b31c8b468c2d6478d4367af408c2cb, type: 2}
+    count: 10
+  - item: {fileID: 11400000, guid: b91ac00e45786324589130df4229913c, type: 2}
+    count: 5
+  - item: {fileID: 11400000, guid: 00c1d775dcd69d645a71b19d2d231ebf, type: 2}
+    count: 5
+  - item: {fileID: 11400000, guid: 5206ee6f0fc01224ea2f9b0f40f14d24, type: 2}
+    count: 5
+  maxBatch: 10
+  description: "\uC911\uAE09 \uAD2D\uC774\uB2E4"

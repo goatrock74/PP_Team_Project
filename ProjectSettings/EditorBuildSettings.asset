@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/0.0Main/0.3FishShop.unity
     guid: d3982963d596845419f169a67b11494c
+  - enabled: 1
+    path: Assets/0.0Main/0.2PlantShop 1.unity
+    guid: 1e507e3bdd54b404886945550d18099d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

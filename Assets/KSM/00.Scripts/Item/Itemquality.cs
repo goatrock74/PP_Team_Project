@@ -32,8 +32,8 @@ public static class ItemQualityUtil
     /// <summary>슬롯에 붙일 표기. 일반은 아무것도 안 붙인다</summary>
     public static string Stars(ItemQuality q) => q switch
     {
-        ItemQuality.Good => "★",
-        ItemQuality.Best => "★★",
+        ItemQuality.Good => "",
+        ItemQuality.Best => "",
         _ => string.Empty,
     };
  

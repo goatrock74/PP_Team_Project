@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627c47fab2a8488f8645bf77121e0246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreeNode
+  sfx: {fileID: 8300000, guid: b1004bb1c39d5214ba23dbb0f81b11d3, type: 3}
   maxHealth: 3
   requiredTier: 0
   dropTable: {fileID: 11400000, guid: 67cbddad906ab064bbe1ca19159a64af, type: 2}
@@ -116,6 +117,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5961510509932411944}
   - component: {fileID: 8012857626988240260}
+  - component: {fileID: 1424237696740486517}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -196,4 +198,29 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!114 &1424237696740486517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869041262254123574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c8e0cf0e3942428db14fb984b1726c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TreeMotion
+  body: {fileID: 8012857626988240260}
+  swayAngle: 7
+  swayDuration: 0.45
+  swayCount: 2
+  fallAngle: 88
+  fallTime: 0.6
+  bounceAngle: 6
+  bounceTime: 0.18
+  lieTime: 0.25
+  fadeTime: 0.6
+  fadeInOnRegrow: 1
+  regrowTime: 0.5
+  regrowStartScale: 0.85

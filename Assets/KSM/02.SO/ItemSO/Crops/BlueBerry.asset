@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BlueBerry
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 6
-  displayName: BlueBerry
+  displayName: "\uBE14\uB8E8\uBCA0\uB9AC"
   icon: {fileID: 5414920948540241262, guid: 1007023ac2764a642aab84a9f2f87448, type: 3}
   description: "\uBE14\uB8E8\uBCA0\uB9AC"
   itemType: 0

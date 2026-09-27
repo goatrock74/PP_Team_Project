@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2272154481742998827}
   - component: {fileID: 1507877871634480270}
   - component: {fileID: 4226377519197080252}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GreenMushrroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 3736309694035134435}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.19, y: -1.4, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 581371976886058159}
   - component: {fileID: 4883777954376557703}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 35
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1985767612, guid: d0b7785eda7d9aa44bfa4a4993ca3b05, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

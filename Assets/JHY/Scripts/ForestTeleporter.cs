@@ -1,4 +1,5 @@
 using DG.Tweening;
+using PJH.Scripts;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -21,25 +22,15 @@ public class ForestTeleporter : MonoBehaviour
     [Header("페이드 연출 UI")]
     [SerializeField] private GameObject darkPanel;
     [SerializeField] private float fadeDuration = 1.0f;
-    [Header("밤 경고 텍스트 설정")]
-    [SerializeField] private TMP_Text warningText; 
-    [SerializeField] private float textDisplayDuration = 2.0f;
 
     private bool isTeleporting = false;
     public bool isInForest { get; private set; } = false;
-
-    // [핵심] 숲 텔레포터가 직접 시간 변화를 감지하도록 등록
+    [SerializeField] private PlayerFishing playerFishing;
     private void Start()
     {
         if (TimeManager.Instance != null)
         {
             TimeManager.Instance.OnTimePeriodChange += HandleTimeChange;
-        }
-        if (warningText != null)
-        {
-            Color c = warningText.color;
-            warningText.color = new Color(c.r, c.g, c.b, 0f);
-            warningText.gameObject.SetActive(false);
         }
     }
 
@@ -53,8 +44,9 @@ public class ForestTeleporter : MonoBehaviour
 
     private void HandleTimeChange(TimeManager.TimePeriod newPeriod)
     {
-        if (newPeriod == TimeManager.TimePeriod.Night && isInForest)
+        if (newPeriod == TimeManager.TimePeriod.Morning && isInForest)
         {
+            playerFishing.CancelFishingImmediately();
             TeleportToMainMap();
         }
     }
@@ -63,30 +55,9 @@ public class ForestTeleporter : MonoBehaviour
     {
         if (isTeleporting) return;
 
-        if (TimeManager.Instance != null && TimeManager.Instance.CurrentPeriod == TimeManager.TimePeriod.Night)
-        {
-            StartCoroutine(ShowWarningTextRoutine());
-            return;
-        }
-
         StartCoroutine(TeleportRoutine(true));
     }
-    private IEnumerator ShowWarningTextRoutine()
-    {
-        if (warningText == null) yield break;
 
-        warningText.DOKill();
-        warningText.gameObject.SetActive(true);
-
-        yield return warningText.DOFade(1f, 0.5f).SetEase(Ease.Linear).WaitForCompletion();
-
-        // 지정된 시간 동안 대기
-        yield return new WaitForSeconds(textDisplayDuration);
-
-        yield return warningText.DOFade(0f, 0.5f).SetEase(Ease.Linear).WaitForCompletion();
-
-        warningText.gameObject.SetActive(false);
-    }
     public void TeleportToMainMap()
     {
         if (isTeleporting) return;

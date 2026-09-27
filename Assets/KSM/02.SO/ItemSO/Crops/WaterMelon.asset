@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: WaterMelon
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 5
-  displayName: WaterMelon
+  displayName: "\uC218\uBC15"
   icon: {fileID: -2161011309740578784, guid: b19222d54095e714dbbf9c817bfeb0c1, type: 3}
-  description: 'DrinkWater
-
-'
+  description: "\uC218\uBC15\uC740 \uBB3C\uC774\uB9CE\uB2E4"
   itemType: 0
   maxStack: 99
   sellPrice: 380
+  season: 0

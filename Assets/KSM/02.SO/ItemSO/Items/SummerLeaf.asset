@@ -15,8 +15,8 @@ MonoBehaviour:
   itemId: 
   displayName: "\uC5EC\uB984 \uC78E"
   icon: {fileID: 2029542551908640097, guid: 1471d25ade60fcb40b66b63162952597, type: 3}
-  description: 
+  description: "\uC5EC\uB984\uC5D0\uB9CC\uB0A0\uC218\uC788\uB294 \uC78E"
   itemType: 6
   maxStack: 99
-  sellPrice: 0
+  sellPrice: 40
   season: 0

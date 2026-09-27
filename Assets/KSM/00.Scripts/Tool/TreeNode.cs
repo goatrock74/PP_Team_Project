@@ -6,20 +6,6 @@ using UnityEngine.Serialization;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
-
-/// <summary>
-/// 도끼로 벨 수 있는 나무.
-///
-///   쓰러뜨리면       → 그루터기로 바뀐다. 도끼로 쳐도 화면 아래에 "채집불가"
-///   최소~최대 일 사이 랜덤 → 원래 나무로 돌아온다 (체력도 다시 가득)
-///
-/// 필요한 것: Collider2D(★ 밑동만 덮게), SpriteRenderer, 이 스크립트.
-/// 레이어는 PlayerInteractor 의 Interactable Layer 에 포함된 것으로.
-///
-/// ★ 나무 뒤로 걸어가게 하려면 — 프리팹을 열고 이 컴포넌트 우클릭 ▸ "나무 뒤로 걸어가게 설정".
-///   콜라이더를 밑동 크기로 줄이고 정렬 기준점을 피벗으로 바꿔준다.
-///   씬에서 선택하면 노란 선이 보이는데, 플레이어 발이 이 선보다 위에 있으면 나무에 가려진다.
-/// </summary>
 [RequireComponent(typeof(Collider2D))]
 public class TreeNode : MonoBehaviour, IChoppable
 {
@@ -78,12 +64,22 @@ public class TreeNode : MonoBehaviour, IChoppable
     private Sprite _fullSprite;
     private Color _fullColor = Color.white;
     private Shaker _shaker;
+    private TreeMotion _motion;
     private bool _warnedNoStump;
 
-    /// <summary>지금 그루터기 상태인가</summary>
+    private bool _gone;            
+    private bool _awake;         
+    private bool _hasPending;
+    private bool _pendingStump;
+    private float _pendingRegrowAt;
+    private int _pendingHealth;
+    public static event System.Action<TreeNode> AnyStateChanged;
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    private static void ResetStatics() => AnyStateChanged = null;
+
     public bool IsStump => _isStump;
 
-    // ════════════════════════════════════════════════════════════
 
     private void Awake()
     {
@@ -95,10 +91,17 @@ public class TreeNode : MonoBehaviour, IChoppable
             _fullColor = bodyRenderer.color;
         }
 
-        // 있으면 칠 때마다 흔들린다. 없어도 된다
+        _motion = GetComponentInChildren<TreeMotion>();
         _shaker = GetComponentInChildren<Shaker>();
 
         _health = maxHealth;
+        _awake = true;
+
+        if (_hasPending)
+        {
+            _hasPending = false;
+            ApplyLoadedState(_pendingStump, _pendingRegrowAt, _pendingHealth);
+        }
     }
 
     private void Update()
@@ -108,12 +111,9 @@ public class TreeNode : MonoBehaviour, IChoppable
         var farm = KSM._00.Scripts.Crop.CropManager.Instance;
         if (farm == null) return;
 
-        if (farm.CurrentGameDays >= _regrowAtDay) Regrow();
+        if (NowDays(farm) >= _regrowAtDay) Regrow();
     }
 
-    // ════════════════════════════════════════════════════════════
-    //  IChoppable
-    // ════════════════════════════════════════════════════════════
 
     public bool CanChop(AxeSO axe) => axe != null && !_isStump && axe.tier >= requiredTier;
 
@@ -133,42 +133,47 @@ public class TreeNode : MonoBehaviour, IChoppable
             return false;
         }
 
-        // 벌목 마스터리가 도끼 위력을 올려준다. 매니저가 없으면 스탯이 0이라 원래 위력 그대로
         float bonus = MasteryManager.Stat(MasteryStat.ChopDamage);
         int damage = Mathf.Max(1, Mathf.RoundToInt(axe.power * (1f + bonus)));
 
         _health -= damage;
 
-        // 칠 때마다 나오는 부스러기 (나뭇조각 등)
         if (chipTable != null) GiveLoot(chipTable, 1);
 
-        if (_shaker != null) _shaker.Shake();
+        PlayHitMotion(in ctx);
 
         if (_health > 0)
         {
             Debug.Log($"[나무] 남은 체력 {_health}/{maxHealth}  (데미지 {damage})");
+            AnyStateChanged?.Invoke(this);
             return true;
         }
-
-        // ── 쓰러졌다 ──
         if (dropTable != null) GiveLoot(dropTable, 1 + axe.extraDropRolls);
 
-        // 벌목 경험치는 나무의 최대 체력이 정한다. 몇 대에 쓰러뜨렸는지와 무관하다
         MasteryManager.GainByHealth(MasteryType.Logging, maxHealth);
+        float fallTime = _motion != null ? _motion.Fall(ctx.userPosition.x) : 0f;
 
         if (!Respawns)
         {
-            Destroy(gameObject);
+            _gone = true;
+            AnyStateChanged?.Invoke(this);
+
+            if (fallTime > 0f)
+            {
+                HideForever();
+                Destroy(gameObject, fallTime + 0.05f);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
             return true;
         }
 
         BecomeStump(in ctx);
         return true;
     }
-
-    // ════════════════════════════════════════════════════════════
-    //  그루터기 ↔ 나무
-    // ════════════════════════════════════════════════════════════
 
     private void BecomeStump(in ToolUseContext ctx)
     {
@@ -177,13 +182,12 @@ public class TreeNode : MonoBehaviour, IChoppable
         var farm = ctx.farm != null ? ctx.farm : KSM._00.Scripts.Crop.CropManager.Instance;
         float days = RollRespawnDays();
 
-        _regrowAtDay = (farm != null ? farm.CurrentGameDays : 0f) + days;
-
-        // 콜라이더는 그대로 둔다. 밑동 크기 = 그루터기 크기라서
-        // 그루터기도 막히고, 다시 자랄 때 플레이어가 나무 속에 끼는 일도 없다
+        _regrowAtDay = NowDays(farm) + days;
         SetStumpVisual(true);
 
         Debug.Log($"[나무] 쓰러짐 — {days:0.#}일 뒤 다시 자랍니다 (범위 {minRespawnDays:0.#}~{Mathf.Max(minRespawnDays, maxRespawnDays):0.#}일)", this);
+
+        AnyStateChanged?.Invoke(this);
     }
 
     private void Regrow()
@@ -193,7 +197,10 @@ public class TreeNode : MonoBehaviour, IChoppable
 
         SetStumpVisual(false);
 
-        if (_shaker != null) _shaker.Shake();    // 다시 자랐다는 신호
+        if (_motion != null) _motion.PlayRegrow();      
+        else if (_shaker != null) _shaker.Shake();     
+
+        AnyStateChanged?.Invoke(this);
     }
 
     private void SetStumpVisual(bool stump)
@@ -217,7 +224,6 @@ public class TreeNode : MonoBehaviour, IChoppable
             return;
         }
 
-        // 그루터기 그림이 없으면 나무를 어둡고 반투명하게 — 숨겨서 투명벽이 되는 것보단 낫다
         bodyRenderer.color = new Color(_fullColor.r * 0.6f, _fullColor.g * 0.6f, _fullColor.b * 0.6f, 0.45f);
 
         if (_warnedNoStump) return;
@@ -234,17 +240,12 @@ public class TreeNode : MonoBehaviour, IChoppable
         var farm = KSM._00.Scripts.Crop.CropManager.Instance;
         if (farm == null) return stumpMessage;
 
-        int days = Mathf.Max(1, Mathf.CeilToInt(_regrowAtDay - farm.CurrentGameDays));
+        int days = Mathf.Max(1, Mathf.CeilToInt(_regrowAtDay - NowDays(farm)));
         return $"{stumpMessage} ({days}일 뒤 자람)";
     }
 
-    /// <summary>다시 자라나는가. 최소·최대가 둘 다 0 이면 쓰러지면 사라진다</summary>
     private bool Respawns => Mathf.Max(minRespawnDays, maxRespawnDays) > 0f;
 
-    /// <summary>
-    /// 이번에 다시 자라기까지 걸릴 일수를 뽑는다.
-    /// 소수점까지 랜덤이라, 같은 날 벤 나무들이 한꺼번에 튀어나오지 않고 제각각 자란다
-    /// </summary>
     private float RollRespawnDays()
     {
         float min = Mathf.Max(0f, minRespawnDays);
@@ -255,8 +256,24 @@ public class TreeNode : MonoBehaviour, IChoppable
 
     private void OnValidate()
     {
-        // 최대가 최소보다 작으면 최소에 맞춘다 (= 고정 일수)
         if (maxRespawnDays < minRespawnDays) maxRespawnDays = minRespawnDays;
+    }
+
+    private void PlayHitMotion(in ToolUseContext ctx)
+    {
+        if (_motion != null) _motion.Sway(ctx.userPosition.x);
+        else if (_shaker != null) _shaker.Shake();
+    }
+    private void HideForever()
+    {
+        if (bodyRenderer != null) bodyRenderer.enabled = false;
+
+        if (hideWhenStump != null)
+            foreach (Renderer r in hideWhenStump)
+                if (r != null) r.enabled = false;
+
+        foreach (Collider2D c in GetComponents<Collider2D>())
+            c.enabled = false;
     }
 
     private void GiveLoot(LootTableSO table, int rolls)
@@ -270,10 +287,64 @@ public class TreeNode : MonoBehaviour, IChoppable
             if (entry.IsValid) player.Add(entry.item, entry.RollCount(), entry.quality);
         }
     }
+    private static float NowDays(KSM._00.Scripts.Crop.CropManager farm)
+    {
+        if (farm == null) return 0f;
+        return farm.GameClock != null ? farm.GameClock.TotalGameDays : farm.CurrentGameDays;
+    }
+    public bool IsGone => _gone;
 
-    // ════════════════════════════════════════════════════════════
-    //  씬 뷰 표시 — 정렬 기준선
-    // ════════════════════════════════════════════════════════════
+    public bool TryGetSaveState(out bool stump, out float daysLeft, out int health)
+    {
+        float now = NowDays(KSM._00.Scripts.Crop.CropManager.Instance);
+        if (!_awake && _hasPending)
+        {
+            stump = _pendingStump;
+            daysLeft = stump ? Mathf.Max(0f, _pendingRegrowAt - now) : 0f;
+            health = _pendingHealth;
+            return stump || (health > 0 && health < maxHealth);
+        }
+
+        stump = _isStump;
+        daysLeft = _isStump ? Mathf.Max(0f, _regrowAtDay - now) : 0f;
+        health = _health;
+
+        return _isStump || (_awake && _health < maxHealth);
+    }
+    public void LoadSaveState(bool gone, bool stump, float daysLeft, int health)
+    {
+        if (gone)
+        {
+            _gone = true;
+            Destroy(gameObject);
+            return;
+        }
+        if (stump && daysLeft <= 0f) stump = false;
+
+        float regrowAt = NowDays(KSM._00.Scripts.Crop.CropManager.Instance) + Mathf.Max(0f, daysLeft);
+        if (!_awake)
+        {
+            _hasPending = true;
+            _pendingStump = stump;
+            _pendingRegrowAt = regrowAt;
+            _pendingHealth = health;
+            return;
+        }
+
+        ApplyLoadedState(stump, regrowAt, health);
+    }
+
+    private void ApplyLoadedState(bool stump, float regrowAt, int health)
+    {
+        _health = health > 0 ? Mathf.Min(health, maxHealth) : maxHealth;
+        _regrowAtDay = regrowAt;
+
+        if (_isStump == stump) return;
+
+        _isStump = stump;
+        SetStumpVisual(stump);      
+    }
+
 
     private void OnDrawGizmosSelected()
     {
@@ -288,16 +359,8 @@ public class TreeNode : MonoBehaviour, IChoppable
         Gizmos.DrawLine(p + Vector3.left * half, p + Vector3.right * half);
     }
 
-    // ════════════════════════════════════════════════════════════
-    //  에디터 도구
-    // ════════════════════════════════════════════════════════════
-
 #if UNITY_EDITOR
 
-    /// <summary>
-    /// 콜라이더를 밑동 크기로 줄이고, 정렬 기준점을 피벗으로 바꾼다.
-    /// 프리팹을 열어서(더블클릭) 실행하면 씬의 모든 나무에 한 번에 적용된다.
-    /// </summary>
     [ContextMenu("나무 뒤로 걸어가게 설정")]
     private void SetupWalkBehind()
     {
@@ -311,18 +374,14 @@ public class TreeNode : MonoBehaviour, IChoppable
 
         const string undoName = "나무 뒤로 걸어가게 설정";
 
-        // 1) 콜라이더를 BoxCollider2D 하나로 정리한다.
-        //    Polygon Collider 는 그림 윤곽을 통째로 따서 나무 전체가 벽이 된다 — 뒤로 못 가는 원인
         BoxCollider2D box = GetComponent<BoxCollider2D>();
         if (box == null) box = Undo.AddComponent<BoxCollider2D>(gameObject);
 
         foreach (Collider2D c in GetComponents<Collider2D>())
         {
-            if (c == box || c.isTrigger) continue;        // 트리거는 다른 용도일 수 있으니 둔다
+            if (c == box || c.isTrigger) continue;        
             Undo.DestroyObjectImmediate(c);
         }
-
-        // 2) 그림의 아래쪽 가운데에 밑동 크기로 맞춘다 (씬에 안 꺼내도 계산되게 스프라이트 기준)
         Bounds sb = bodyRenderer.sprite.bounds;
         Vector3 a = transform.InverseTransformPoint(bodyRenderer.transform.TransformPoint(sb.min));
         Vector3 b = transform.InverseTransformPoint(bodyRenderer.transform.TransformPoint(sb.max));
@@ -339,8 +398,6 @@ public class TreeNode : MonoBehaviour, IChoppable
         box.isTrigger = false;
         box.size = new Vector2(w, h);
         box.offset = new Vector2((left + right) * 0.5f, bottom + h * 0.5f);
-
-        // 3) 정렬 기준점을 그림 중앙이 아니라 피벗(밑동)으로
         Undo.RecordObject(bodyRenderer, undoName);
         bodyRenderer.spriteSortPoint = SpriteSortPoint.Pivot;
 
