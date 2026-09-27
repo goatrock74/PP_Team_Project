@@ -16,6 +16,10 @@ using UnityEditor;
 /// 필요한 것: Collider2D(★ 밑동만 덮게), SpriteRenderer, 이 스크립트.
 /// 레이어는 PlayerInteractor 의 Interactable Layer 에 포함된 것으로.
 ///
+/// ★ 연출 — Visual 에 TreeMotion 을 붙이면 칠 때 밑동을 축으로 휘청이고,
+///   쓰러질 때 넘어가며 서서히 사라지고, 다시 자랄 때 자라나듯 나타난다.
+///   TreeMotion 이 없으면 Shaker 로 좌우 흔들림만 한다.
+///
 /// ★ 나무 뒤로 걸어가게 하려면 — 프리팹을 열고 이 컴포넌트 우클릭 ▸ "나무 뒤로 걸어가게 설정".
 ///   콜라이더를 밑동 크기로 줄이고 정렬 기준점을 피벗으로 바꿔준다.
 ///   씬에서 선택하면 노란 선이 보이는데, 플레이어 발이 이 선보다 위에 있으면 나무에 가려진다.
@@ -78,6 +82,7 @@ public class TreeNode : MonoBehaviour, IChoppable
     private Sprite _fullSprite;
     private Color _fullColor = Color.white;
     private Shaker _shaker;
+    private TreeMotion _motion;
     private bool _warnedNoStump;
 
     /// <summary>지금 그루터기 상태인가</summary>
@@ -95,7 +100,8 @@ public class TreeNode : MonoBehaviour, IChoppable
             _fullColor = bodyRenderer.color;
         }
 
-        // 있으면 칠 때마다 흔들린다. 없어도 된다
+        // 연출. 둘 다 없어도 된다. TreeMotion 이 있으면 그걸 먼저 쓴다
+        _motion = GetComponentInChildren<TreeMotion>();
         _shaker = GetComponentInChildren<Shaker>();
 
         _health = maxHealth;
@@ -142,7 +148,7 @@ public class TreeNode : MonoBehaviour, IChoppable
         // 칠 때마다 나오는 부스러기 (나뭇조각 등)
         if (chipTable != null) GiveLoot(chipTable, 1);
 
-        if (_shaker != null) _shaker.Shake();
+        PlayHitMotion(in ctx);
 
         if (_health > 0)
         {
@@ -156,9 +162,23 @@ public class TreeNode : MonoBehaviour, IChoppable
         // 벌목 경험치는 나무의 최대 체력이 정한다. 몇 대에 쓰러뜨렸는지와 무관하다
         MasteryManager.GainByHealth(MasteryType.Logging, maxHealth);
 
+        // 쓰러지는 연출 — ★ 그루터기로 바꾸기 전에 불러야 한다.
+        //   지금 나무 그림을 복사해서 넘어뜨리기 때문
+        float fallTime = _motion != null ? _motion.Fall(ctx.userPosition.x) : 0f;
+
         if (!Respawns)
         {
-            Destroy(gameObject);
+            if (fallTime > 0f)
+            {
+                // 넘어가는 연출이 끝날 때까지는 오브젝트를 살려둔다. 그동안 안 보이고 판정도 없다
+                HideForever();
+                Destroy(gameObject, fallTime + 0.05f);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
             return true;
         }
 
@@ -193,7 +213,8 @@ public class TreeNode : MonoBehaviour, IChoppable
 
         SetStumpVisual(false);
 
-        if (_shaker != null) _shaker.Shake();    // 다시 자랐다는 신호
+        if (_motion != null) _motion.PlayRegrow();       // 자라나듯 나타난다
+        else if (_shaker != null) _shaker.Shake();       // 다시 자랐다는 신호
     }
 
     private void SetStumpVisual(bool stump)
@@ -257,6 +278,26 @@ public class TreeNode : MonoBehaviour, IChoppable
     {
         // 최대가 최소보다 작으면 최소에 맞춘다 (= 고정 일수)
         if (maxRespawnDays < minRespawnDays) maxRespawnDays = minRespawnDays;
+    }
+
+    /// <summary>칠 때 연출. TreeMotion 이 있으면 휘청이고, 없으면 Shaker 로 흔든다</summary>
+    private void PlayHitMotion(in ToolUseContext ctx)
+    {
+        if (_motion != null) _motion.Sway(ctx.userPosition.x);
+        else if (_shaker != null) _shaker.Shake();
+    }
+
+    /// <summary>다시 안 자라는 나무 — 쓰러지는 연출이 끝날 때까지 안 보이게 하고 판정도 끈다</summary>
+    private void HideForever()
+    {
+        if (bodyRenderer != null) bodyRenderer.enabled = false;
+
+        if (hideWhenStump != null)
+            foreach (Renderer r in hideWhenStump)
+                if (r != null) r.enabled = false;
+
+        foreach (Collider2D c in GetComponents<Collider2D>())
+            c.enabled = false;
     }
 
     private void GiveLoot(LootTableSO table, int rolls)

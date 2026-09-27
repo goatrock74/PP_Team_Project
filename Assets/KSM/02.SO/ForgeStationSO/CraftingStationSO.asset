@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eecf3f6a96164ce9839083e0a53ffa98, type: 3}
   m_Name: CraftingStationSO
   m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingStationSO
-  stationName: HAHA
+  stationName: Tools
   icon: {fileID: -2524474611125963301, guid: 1c06702e3e302ac4b95bf37a14009349, type: 3}
   recipes:
-  - {fileID: 11400000, guid: a78e6ca29d76db949a53b2212cc6390b, type: 2}
-  - {fileID: 11400000, guid: 8fba4c2cf5854a34bb7b148c7785e552, type: 2}
-  - {fileID: 11400000, guid: 1137ea11c7906494a96798a2181c2dbc, type: 2}
-  - {fileID: 11400000, guid: d8435d95808cae04b99ae2c15164a91a, type: 2}
+  - {fileID: 11400000, guid: c5914c3a21e249f4a86bb23459f33f61, type: 2}
+  - {fileID: 11400000, guid: 4a2378d973e58084da2bc0686e9db8c6, type: 2}
+  - {fileID: 11400000, guid: ffd2cc00fb7858041ad825e094fc8b1d, type: 2}
+  - {fileID: 11400000, guid: c38be5ddd947a7344bcaaac92dd0806b, type: 2}
+  - {fileID: 11400000, guid: 3aa423a7d94453544bbc2edfb46e67ed, type: 2}
+  - {fileID: 11400000, guid: b7fd549c9a1a49749a793f0233db9e6b, type: 2}
+  - {fileID: 11400000, guid: 8439f87d84a141846a6a4f3fe831794e, type: 2}
+  - {fileID: 11400000, guid: ce0e45e4bfdcb2a4688b3f7c3a1296ed, type: 2}

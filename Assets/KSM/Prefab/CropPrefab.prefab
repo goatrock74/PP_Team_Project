@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8393704996158680236}
   - component: {fileID: 3965660307780481687}
   - component: {fileID: 5104389267148513763}
+  - component: {fileID: 5419313084075356054}
   m_Layer: 6
   m_Name: CropPrefab
   m_TagString: Untagged
@@ -48,6 +49,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crop.GrowCrop
   cropSO: {fileID: 11400000, guid: 7cdae23c0f7e5054886b04e78cdff4ae, type: 2}
+  positionJitter: 0.06
+  scaleRange: {x: 1, y: 1.15}
+  randomFlipX: 0
   <NowGrowthStage>k__BackingField: 0
   <CurrentTimeStage>k__BackingField: 0
   <IsGrowFinished>k__BackingField: 0
@@ -193,3 +197,43 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.5, y: 1}
   m_Direction: 0
+--- !u!114 &5419313084075356054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559243324586954988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cb66625fbcf4f0caed55b11f42feb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CropFX
+  wind: 1
+  windAngle: 2.5
+  windSpeed: 1.8
+  windWave: 0.8
+  windFromStage: 1
+  stagePop: 1
+  popOnPlant: 1
+  popStrength: 0.25
+  popTime: 0.45
+  growParticle: {fileID: 0}
+  growSound: {fileID: 0}
+  readySparkle: 1
+  sparkleSprite: {fileID: 0}
+  sparkleColor: {r: 1, g: 1, b: 1, a: 1}
+  sparkleSize: 0.22
+  sparkleInterval: {x: 0.8, y: 2.2}
+  sparkleTime: 0.45
+  readyBreath: 0.03
+  harvestFly: 1
+  flyIconSize: 0.55
+  maxFlyIcons: 3
+  popUpHeight: 0.7
+  popUpTime: 0.28
+  flyTime: 0.3
+  flyTargetOffset: {x: 0, y: 0.7}
+  harvestParticle: {fileID: 0}
+  harvestSound: {fileID: 0}
+  soundVolume: 0.8

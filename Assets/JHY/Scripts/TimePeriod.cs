@@ -34,7 +34,10 @@ public class TimePeriod : MonoBehaviour
         {
             case TimeManager.TimePeriod.Morning:
                 Debug.Log("sun");
-                SoundManager.Instance.PlayBGM(morning);
+                if (!OceanTeleporter.IsInOcean && SoundManager.Instance != null)
+                {
+                    SoundManager.Instance.PlayBGM(morning);
+                }
                 sun.alpha = 1;
                 afternoon.alpha = 0;
                 night.alpha = 0;
@@ -50,7 +53,10 @@ public class TimePeriod : MonoBehaviour
                 break;
             case TimeManager.TimePeriod.Night:
                 Debug.Log("night");
-                SoundManager.Instance.PlayBGM(Night);
+                if (!OceanTeleporter.IsInOcean && SoundManager.Instance != null)
+                {
+                    SoundManager.Instance.PlayBGM(Night);
+                }
 
                 sun.alpha = 0;
                 afternoon.alpha = 0;
