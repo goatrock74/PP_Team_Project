@@ -295,5 +295,20 @@ namespace PJH.Scripts
         }
  
         #endregion
+        
+        
+        public void CancelFishingImmediately()
+        {
+            isFishing = false;
+            canClick = true;
+
+            if (fishingController != null)
+                fishingController.CancelFishing();
+
+            if (animator != null)
+                animator.Play(_hashIdle, BaseLayer, 0f);
+
+            ReleaseLock();
+        }
     }
 }
