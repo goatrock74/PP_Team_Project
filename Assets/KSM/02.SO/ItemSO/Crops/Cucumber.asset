@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Cucumber
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 1
-  displayName: Item_Cucumber
+  displayName: "\uC624\uC774"
   icon: {fileID: 9040882896716678609, guid: 673dad0995760804683237669eab9824, type: 3}
   description: "\uC624\uC774\uB2E4 \uC815\uB9D0 \uBA4B"
   itemType: 0
   maxStack: 99
   sellPrice: 85
+  season: 0

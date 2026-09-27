@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
   m_Name: Sweetpotato
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: SweetPotato
+  cropName: "\uACE0\uAD6C\uB9C8"
   icon: {fileID: 2819145520907352866, guid: ab7d8742b39e7464ca8f0385d184e1f8, type: 3}
   harvestType: 0
   growthStages:

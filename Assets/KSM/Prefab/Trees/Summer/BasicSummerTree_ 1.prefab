@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627c47fab2a8488f8645bf77121e0246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreeNode
+  sfx: {fileID: 8300000, guid: b1004bb1c39d5214ba23dbb0f81b11d3, type: 3}
   maxHealth: 6
   requiredTier: 0
   dropTable: {fileID: 11400000, guid: 2dc056e03fa5be540b379d724bf362b5, type: 2}

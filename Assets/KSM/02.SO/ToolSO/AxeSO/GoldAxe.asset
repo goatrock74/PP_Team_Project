@@ -13,12 +13,15 @@ MonoBehaviour:
   m_Name: GoldAxe
   m_EditorClassIdentifier: Assembly-CSharp::AxeSO
   itemId: 
-  displayName: Gold Axe
+  displayName: "\uAE08\uB3C4\uB07C"
   icon: {fileID: 8693822467775562720, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
-  description: 
+  description: "\uB098\uBB34\uB97C \uBC8C\uBAA9\uD560\uC218\uC788\uB2E4 \uAC70\uB300\uB098\uBB34\uB3C4
+    \uBC8C\uBAA9\uAC00\uB2A5\uD558\uB2E4\n\uB370\uBBF8\uC9C0 4\n\uCD94\uAC00\uBCF4\uC0C1
+    +2"
   itemType: 5
   maxStack: 1
   sellPrice: 0
+  season: 0
   tier: 1
   areaSize: {x: 1, y: 1}
   hitBoxSize: {x: 1.2, y: 1.2}
@@ -28,10 +31,11 @@ MonoBehaviour:
   animationTrigger: Chop
   baseClip: {fileID: 7400000, guid: 96709a1e4eae0144faafd06b417f9ac8, type: 2}
   tierClip: {fileID: 7400000, guid: 10d792076ac46a8428bd9b760ca17ce5, type: 2}
+  extraClips: []
   heldSpriteLibrary: {fileID: 7108339969198208228, guid: 51abb2056f26871449130a28a9923ff6, type: 3}
   impactDelay: 0.15
   useCooldown: 0.5
   lockMovementWhileUsing: 1
   movementLockDuration: 0
   power: 4
-  extraDropRolls: 0
+  extraDropRolls: 2

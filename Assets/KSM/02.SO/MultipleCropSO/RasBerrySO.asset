@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
   m_Name: RasBerrySO
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: Rasberry
+  cropName: "\uB77C\uC988\uBCA0\uB9AC"
   icon: {fileID: 0}
   harvestType: 1
   growthStages:

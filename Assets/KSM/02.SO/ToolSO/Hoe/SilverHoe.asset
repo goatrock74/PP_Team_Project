@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: SilverHoe
   m_EditorClassIdentifier: Assembly-CSharp::HoeSO
   itemId: 
-  displayName: Hoe Silver
-  icon: {fileID: 4917790942070779115, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
-  description: 
+  displayName: "\uC740 \uAD2D\uC774"
+  icon: {fileID: -4321329478863361561, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
+  description: "1*2\uB97C \uAC08\uC218\uC788\uB294 \uC88B\uC740 \uAD2D\uC774\uB2E4"
   itemType: 5
   maxStack: 1
   sellPrice: 0
@@ -29,6 +29,7 @@ MonoBehaviour:
   animationTrigger: Hoe
   baseClip: {fileID: 7400000, guid: 817d3581ecf9f5c4d86b0a51f0f00035, type: 2}
   tierClip: {fileID: 7400000, guid: fbb159b8fdcb34a4785b2039a79ee0cf, type: 2}
+  extraClips: []
   heldSpriteLibrary: {fileID: 0}
   impactDelay: 0.15
   useCooldown: 0.4

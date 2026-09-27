@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: YanBaeChu
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 2
-  displayName: YangBaeChue
+  displayName: "\uC591\uBC30\uCD94"
   icon: {fileID: 5102928882488456478, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
-  description: YangBae
+  description: "\uC591\uBC30\uCD94\uB2E4 \uC815\uB9D0 \uB9DB\uC788\uC74C"
   itemType: 0
   maxStack: 99
   sellPrice: 320
+  season: 0

@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: SilverScythe
   m_EditorClassIdentifier: Assembly-CSharp::ScytheSO
   itemId: 
-  displayName: Scyyhe Wood
+  displayName: "\uC740 \uB0AB"
   icon: {fileID: 4889830541789696881, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
-  description: 
+  description: "\uCC44\uC9D1\uC744\uD560\uC218\uC788\uB2E4 \uB098\uBB34 \uB0AB\uBCF4\uB2E4\n
+    \uB9CE\uC740\uBCF4\uC0C1\uC744 \uC5BB\uC744\uC218\uC788\uB2E4"
   itemType: 5
   maxStack: 1
   sellPrice: 0
+  season: 0
   tier: 0
   areaSize: {x: 1, y: 1}
   hitBoxSize: {x: 1.66, y: 1.26}
@@ -28,6 +30,7 @@ MonoBehaviour:
   animationTrigger: Scythe
   baseClip: {fileID: 7400000, guid: 1897bae474eeb194a9668d239984edad, type: 2}
   tierClip: {fileID: 7400000, guid: d10107c039aeb024980d4d73735a9f0b, type: 2}
+  extraClips: []
   heldSpriteLibrary: {fileID: 7108339969198208228, guid: 9ed1562efada2ad4c9589307c397a16e, type: 3}
   impactDelay: 0.15
   useCooldown: 0.4

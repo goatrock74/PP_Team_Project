@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: StarFruit
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 4
-  displayName: StarFruit
+  displayName: "\uC2A4\uD0C0\uD478\uB974\uCE20"
   icon: {fileID: -6794951881440583090, guid: b9292d3bdd7ac304cb53b3ef9d6b4029, type: 3}
   description: "\uC544\uC8FC \uBA4B\uC788\uB294\uBCC4"
   itemType: 0
   maxStack: 99
   sellPrice: 650
+  season: 0
