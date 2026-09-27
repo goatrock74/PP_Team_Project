@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using KSM._00.Scripts.Effects;
 using KSM._00.Scripts.Items;
 using PJH._01.Scripts;
 
@@ -285,20 +286,31 @@ namespace KSM._00.Scripts.Crop
 
             if (toolAnimator == null)
             {
-                tool.Use(ctx);
+                UseTool(tool, ctx);
                 return;
             }
 
             float delay = toolAnimator.PlayUse(tool);
 
-            if (delay <= 0f) tool.Use(ctx);
+            if (delay <= 0f) UseTool(tool, ctx);
             else StartCoroutine(UseAfterDelay(tool, ctx, delay));
         }
 
         private IEnumerator UseAfterDelay(ToolSO tool, ToolUseContext ctx, float delay)
         {
             yield return new WaitForSeconds(delay);
-            tool.Use(ctx);
+            UseTool(tool, ctx);
+        }
+
+        /// <summary>
+        /// 도구를 실제로 쓰고, 결과에 맞는 파티클을 튀긴다 (흙·물방울·나뭇조각·풀잎).
+        /// 쓰기 전 상태를 먼저 기억해 둬야 '어느 칸이 새로 갈렸는지', '어느 나무를 쳤는지' 를 알 수 있다
+        /// </summary>
+        private static void UseTool(ToolSO tool, ToolUseContext ctx)
+        {
+            ToolFX.Shot shot = ToolFX.BeforeUse(tool, in ctx);
+            bool used = tool.Use(ctx);
+            ToolFX.AfterUse(shot, used);
         }
 
         private ToolUseContext BuildToolContext(CropManager mgr, Vector3Int cell)
@@ -448,9 +460,14 @@ namespace KSM._00.Scripts.Crop
             CropManager mgr = CropManager.Instance;
             if (mgr == null) return;
 
+            // 파티클 위치는 뽑기 전에 기억해 둔다 (뽑으면 작물이 사라지니까)
+            GrowCrop crop = mgr.GetOccupant(cell);
+            Vector3 fxPos = crop != null ? crop.transform.position : mgr.CellToWorldCenter(cell);
+
             // 휘두르는 사이에 작물이 다 자랐거나 이미 없어졌으면 RemoveCropAt 이 false 를 준다
             if (mgr.RemoveCropAt(cell, protectMatureCrops))
             {
+                ToolFX.CropRemoved(fxPos);
                 if (verboseLog) Debug.Log($"[제거] {cell} 작물을 뽑았습니다");
                 return;
             }
@@ -500,6 +517,10 @@ namespace KSM._00.Scripts.Crop
             }
 
             PlayerInventory.Instance.ConsumeHeld(1);
+
+            // 심은 자리에 흙이 살짝 튄다
+            GrowCrop planted = mgr.GetOccupant(cell);
+            ToolFX.Planted(planted != null ? planted.transform.position : mgr.CellToWorldCenter(cell));
 
             if (verboseLog) Debug.Log($"[심기] {seed.crop.cropName} 심음 @ {cell}");
         }

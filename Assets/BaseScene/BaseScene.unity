@@ -381758,6 +381758,85 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134975455}
   m_CullTransparentMesh: 1
+--- !u!1 &1140816198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1140816199}
+  - component: {fileID: 1140816200}
+  m_Layer: 5
+  m_Name: ControlsGuide
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1140816199
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140816198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2050472866}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1140816200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1140816198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7df5c454cec46aa8286eff0d549f6a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.UI.ControlsGuideUI
+  entries:
+  - key: WASD
+    action: "\uC774\uB3D9"
+  - key: "\uC88C\uD074\uB9AD"
+    action: "\uB3C4\uAD6C \uC0AC\uC6A9 \xB7 \uC2EC\uAE30 \xB7 \uC218\uD655"
+  - key: "\uC6B0\uD074\uB9AD"
+    action: "\uB4E4\uACE0 \uC788\uB294 \uAC83 \uB0B4\uB824\uB193\uAE30"
+  - key: "1~9 / \uD720"
+    action: "\uD56B\uBC14 \uC120\uD0DD"
+  - key: Tab
+    action: "\uC778\uBCA4\uD1A0\uB9AC"
+  - key: E
+    action: "\uC81C\uC791\uB300 \uC0AC\uC6A9 (\uAC00\uAE4C\uC774\uC11C)"
+  - key: X
+    action: "\uC791\uBB3C \uC81C\uAC70 \uBAA8\uB4DC (\uAD2D\uC774 \uB4E4\uACE0)"
+  - key: "\uB9C8\uC6B0\uC2A4 \uC62C\uB9AC\uAE30"
+    action: "\uC791\uBB3C \uC815\uBCF4 \uBCF4\uAE30"
+  toggleKey: 22
+  startExpanded: 1
+  showHeldHint: 1
+  corner: 0
+  margin: {x: 16, y: 16}
+  font: {fileID: 11400000, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
+  fontSize: 22
+  keyColumnWidth: 150
+  background: {r: 0, g: 0, b: 0, a: 0.55}
+  textColor: {r: 1, g: 1, b: 1, a: 1}
+  keyColor: {r: 1, g: 0.85, b: 0.4, a: 1}
+  hintColor: {r: 0.6, g: 0.9, b: 1, a: 1}
+  dimColor: {r: 0.7, g: 0.7, b: 0.7, a: 1}
+  padding: {x: 14, y: 10}
 --- !u!1 &1157149119
 GameObject:
   m_ObjectHideFlags: 0
@@ -429281,6 +429360,7 @@ RectTransform:
   - {fileID: 1249450960}
   - {fileID: 675973689}
   - {fileID: 356383301}
+  - {fileID: 1140816199}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

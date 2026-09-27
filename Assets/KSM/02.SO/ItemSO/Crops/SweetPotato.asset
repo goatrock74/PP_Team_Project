@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: SweetPotato
   m_EditorClassIdentifier: Assembly-CSharp::ItemSO
   itemId: 3
-  displayName: SweetPotato
+  displayName: "\uACE0\uAD6C\uB9C8"
   icon: {fileID: 2819145520907352866, guid: ab7d8742b39e7464ca8f0385d184e1f8, type: 3}
   description: potato sweet?
   itemType: 0
   maxStack: 99
   sellPrice: 180
+  season: 0

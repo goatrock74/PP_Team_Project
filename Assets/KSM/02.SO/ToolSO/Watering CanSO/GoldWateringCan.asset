@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: GoldWateringCan
   m_EditorClassIdentifier: Assembly-CSharp::WateringCanSO
   itemId: 
-  displayName: Watering Can Gold
+  displayName: "\uAE08 \uBB3C\uBFCC\uB9AC\uAC1C"
   icon: {fileID: -4901811203898126652, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
-  description: 
+  description: "\uC791\uBB3C\uC758 \uC131\uC7A5\uC744 \uB3C4\uC640\uC900\uB2E4 3*3\uC73C\uB85C
+    \uBFCC\uB9B4\uC218\uC788\uB2E4"
   itemType: 5
   maxStack: 1
   sellPrice: 0

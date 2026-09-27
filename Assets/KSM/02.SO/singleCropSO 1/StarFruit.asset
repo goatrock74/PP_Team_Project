@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
   m_Name: StarFruit
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: StarFruit
+  cropName: "\uC2A4\uD0C0\uD6C4\uB974\uCE20"
   icon: {fileID: 0}
   harvestType: 0
   growthStages:

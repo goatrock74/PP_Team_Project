@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47e336f99a34b1a4bb5fc643fe83a730, type: 3}
   m_Name: WaterMelonSO
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
-  cropName: Watermelon
+  cropName: "\uC218\uBC15"
   icon: {fileID: -2161011309740578784, guid: b19222d54095e714dbbf9c817bfeb0c1, type: 3}
   harvestType: 0
   growthStages:
