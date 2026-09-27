@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 namespace KSM._00.Scripts.Crop
@@ -12,6 +13,9 @@ namespace KSM._00.Scripts.Crop
         [Tooltip("칸 중앙에서 상하좌우로 어긋나는 최대 거리. 칸 크기 대비 비율이다.\n" +
                  "0.06 이면 한 칸의 6% 안에서 흔들린다. 0 이면 정확히 중앙")]
         [SerializeField, Range(0f, 0.3f)] private float positionJitter = 0.06f;
+        
+        [SerializeField] private AudioClip sfx;
+
 
         [Tooltip("작물 크기 배수 범위. x=최소, y=최대")]
         [SerializeField] private Vector2 scaleRange = new Vector2(1f, 1.15f);
@@ -19,15 +23,44 @@ namespace KSM._00.Scripts.Crop
         [Tooltip("가끔 좌우를 뒤집는다. 좌우 대칭이 아닌 그림에서만 켤 것")]
         [SerializeField] private bool randomFlipX;
 
+        [Header("제철이 지나면 — 시들기")]
+        [Tooltip("CropSO 의 Plantable Seasons 에 없는 계절이 되면 시든다.\n" +
+                 "시든 작물은 더 안 자라고 수확도 안 된다. 괭이 + X 로 뽑아야 한다.\n" +
+                 "Plantable Seasons 가 All 이면 절대 안 시든다")]
+        [SerializeField] private bool wiltOutOfSeason = true;
+
+        [Tooltip("다 자란 작물은 제철이 지나도 안 시든다 (수확할 기회를 준다)")]
+        [SerializeField] private bool matureSurvives = true;
+
+        [Tooltip("시든 작물 그림 (선택). 비우면 지금 그림에 색만 입힌다")]
+        [SerializeField] private Sprite wiltedSprite;
+
+        [Tooltip("시든 작물 색. 원래 색에 곱해진다")]
+        [SerializeField] private Color wiltedColor = new Color(0.62f, 0.5f, 0.36f, 1f);
+
+        [Tooltip("색이 바뀌는 데 걸리는 시간(초)")]
+        [SerializeField, Min(0f)] private float wiltFadeTime = 0.8f;
+
+        [Tooltip("시들 때 화면 아래에 띄울 문구. 비우면 안 띄운다 (여러 개가 한꺼번에 시들어도 한 번만 뜬다)")]
+        [SerializeField] private string wiltMessage = "제철이 지나 작물이 시들었습니다";
+
         private SpriteRenderer _renderer;
         private bool _lookApplied;
         private CropManager _manager;
         private bool _initialized;
         private bool _harvested;   // 1회용 작물이 흔들리는 동안 두 번 캐이는 걸 막는다
 
+        private static float s_lastWiltMessageTime = -999f;
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics() => s_lastWiltMessageTime = -999f;
+
         [field: SerializeField] public int NowGrowthStage { get; private set; }
         [field: SerializeField] public float CurrentTimeStage { get; private set; }
         [field: SerializeField] public bool IsGrowFinished { get; private set; }
+
+        /// <summary>제철이 지나 시들었는가. 시든 작물은 더 안 자라고 수확도 안 된다</summary>
+        public bool IsWilted { get; private set; }
 
         /// <summary>이 작물이 차지한 영역의 좌하단 칸</summary>
         public Vector3Int OriginCell { get; private set; }
@@ -43,18 +76,57 @@ namespace KSM._00.Scripts.Crop
         /// </summary>
         public event Action<int, ItemQuality> Harvested;
 
+        /// <summary>시들었을 때</summary>
+        public event Action OnWilted;
+
         // ── IHarvestable ────────────────────────────────────────────────
-        public bool CanHarvest => _initialized && IsGrowFinished && !_harvested;
+        public bool CanHarvest => _initialized && IsGrowFinished && !_harvested && !IsWilted;
 
         public string HarvestPrompt
         {
             get
             {
                 if (!_initialized) return string.Empty;
+                if (IsWilted) return $"{cropSO.cropName} (시들었음)";
                 return IsGrowFinished ? $"{cropSO.cropName} 수확" : $"{cropSO.cropName} (자라는 중)";
             }
         }
         // ────────────────────────────────────────────────────────────────
+
+        /// <summary>
+        /// 수확까지 남은 성장량. 단위는 인게임 일수이고, 계절·물 보정은 곱하기 <b>전</b> 값이다.
+        /// 다 자랐으면 0
+        /// </summary>
+        public float RemainingDays
+        {
+            get
+            {
+                if (!_initialized || IsGrowFinished) return 0f;
+
+                float left = cropSO.growthStages[NowGrowthStage].durationTime - CurrentTimeStage;
+
+                for (int i = NowGrowthStage + 1; i < cropSO.harvestStageIndex; i++)
+                    left += cropSO.growthStages[i].durationTime;
+
+                return Mathf.Max(0f, left);
+            }
+        }
+
+        /// <summary>0 = 막 심음, 1 = 다 자람</summary>
+        public float GrowthProgress
+        {
+            get
+            {
+                if (!_initialized) return 0f;
+                if (IsGrowFinished) return 1f;
+
+                float total = 0f;
+                for (int i = 0; i < cropSO.harvestStageIndex; i++)
+                    total += cropSO.growthStages[i].durationTime;
+
+                return total > 0f ? Mathf.Clamp01(1f - RemainingDays / total) : 1f;
+            }
+        }
 
         private void Awake()
         {
@@ -173,7 +245,16 @@ namespace KSM._00.Scripts.Crop
 
         public void Tick(float delta)
         {
-            if (!_initialized || IsGrowFinished) return;
+            if (!_initialized || IsWilted) return;
+
+            // 제철이 지났는지 먼저 본다. 계절 때문에 성장 속도가 0 이어도 이 검사는 매번 돈다
+            if (ShouldWilt())
+            {
+                Wilt();
+                return;
+            }
+
+            if (IsGrowFinished) return;
 
             CurrentTimeStage += delta;
 
@@ -201,6 +282,73 @@ namespace KSM._00.Scripts.Crop
             _renderer.sprite = cropSO.growthStages[NowGrowthStage].sprite;
             OnStageChanged?.Invoke(NowGrowthStage);
         }
+
+        // ════════════════════════════════════════════════════════════
+        //  시들기
+        // ════════════════════════════════════════════════════════════
+
+        /// <summary>
+        /// 지금 계절이 이 작물의 제철인가는 CropManager.CanPlantNow 로 묻는다.
+        /// (심을 수 있는 계절 = 자랄 수 있는 계절. 판정은 SeasonGrowthAdapter 가 한다)
+        /// 계절 시스템이 씬에 없으면 항상 제철로 나오므로 절대 안 시든다
+        /// </summary>
+        private bool ShouldWilt()
+        {
+            if (!wiltOutOfSeason) return false;
+            if (matureSurvives && IsGrowFinished) return false;
+
+            CropManager mgr = _manager != null ? _manager : CropManager.Instance;
+            return mgr != null && !mgr.CanPlantNow(cropSO);
+        }
+
+        /// <summary>작물을 시들게 한다. 한 번 시들면 되돌아오지 않는다</summary>
+        public void Wilt()
+        {
+            if (!_initialized || IsWilted) return;
+
+            IsWilted = true;
+
+            // 시든 작물은 '다 자란' 게 아니다. 그래서 반짝이·숨쉬기 같은 수확 연출도 같이 꺼진다
+            IsGrowFinished = false;
+
+            if (wiltedSprite != null) _renderer.sprite = wiltedSprite;
+
+            Color from = _renderer.color;
+            Color to = from * wiltedColor;
+
+            if (wiltFadeTime > 0f && isActiveAndEnabled) StartCoroutine(FadeColor(from, to));
+            else _renderer.color = to;
+
+            if (!string.IsNullOrEmpty(wiltMessage) && Time.unscaledTime - s_lastWiltMessageTime > 3f)
+            {
+                s_lastWiltMessageTime = Time.unscaledTime;
+                ScreenMessageUI.Show(wiltMessage, new Color(1f, 0.72f, 0.38f));
+            }
+
+            OnWilted?.Invoke();
+        }
+
+        private IEnumerator FadeColor(Color from, Color to)
+        {
+            float t = 0f;
+
+            while (t < wiltFadeTime)
+            {
+                t += Time.deltaTime;
+                _renderer.color = Color.Lerp(from, to, Mathf.Clamp01(t / wiltFadeTime));
+                yield return null;
+            }
+
+            _renderer.color = to;
+        }
+
+        /// <summary>계절이 바뀔 때까지 기다리지 않고 바로 확인해 보는 용도</summary>
+        [ContextMenu("테스트: 시들게 하기")]
+        private void DebugWilt() => Wilt();
+
+        // ════════════════════════════════════════════════════════════
+        //  수확
+        // ════════════════════════════════════════════════════════════
 
         public bool TryHarvest()
         {
@@ -246,6 +394,7 @@ namespace KSM._00.Scripts.Crop
 
             // 연출용 (튀어오르는 아이콘, 품질 반짝이 등). 파괴되기 '전에' 알려야 위치와 그림을 쓸 수 있다
             Harvested?.Invoke(amount, quality);
+            SoundManager.Instance.PlaySFX(sfx);
 
             switch (cropSO.harvestType)
             {
@@ -275,7 +424,7 @@ namespace KSM._00.Scripts.Crop
         /// </summary>
         public bool AddGrowth(float days)
         {
-            if (!_initialized || IsGrowFinished || days <= 0f) return false;
+            if (!_initialized || IsGrowFinished || IsWilted || days <= 0f) return false;
 
             Tick(days);
             return true;

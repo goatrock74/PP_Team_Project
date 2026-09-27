@@ -3,23 +3,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
+using KSM._00.Scripts.Effects;
 using KSM._00.Scripts.Items;
 using PJH._01.Scripts;
 
 namespace KSM._00.Scripts.Crop
 {
-    /// <summary>
-    /// 마우스 클릭으로 심기·수확·도구 사용·뽑기 팩 열기를 처리한다.
-    ///
-    /// ── 작물 제거 모드 ──
-    ///   괭이를 핫바에 들고 X → 제거 모드 켜짐 (화면에 안내가 뜬다)
-    ///   이 상태에서 작물을 좌클릭 → 그 작물 하나만 뽑힌다 (밭은 갈리지 않는다)
-    ///   X 를 다시 누르거나, 괭이가 아닌 걸 들면 → 제거 모드 꺼짐
-    /// </summary>
+    
+    
     public class PlayerInteractor : MonoBehaviour
     {
-        /// <summary>지금 작물 제거 모드인가. UI 가 이걸 보고 안내를 띄운다</summary>
         public static bool IsRemoveMode { get; private set; }
+        [SerializeField] private AudioClip sfx;
 
         /// <summary>제거 모드가 켜지거나 꺼질 때 (켜짐 = true)</summary>
         public static event System.Action<bool> RemoveModeChanged;
@@ -285,20 +280,31 @@ namespace KSM._00.Scripts.Crop
 
             if (toolAnimator == null)
             {
-                tool.Use(ctx);
+                UseTool(tool, ctx);
                 return;
             }
 
             float delay = toolAnimator.PlayUse(tool);
 
-            if (delay <= 0f) tool.Use(ctx);
+            if (delay <= 0f) UseTool(tool, ctx);
             else StartCoroutine(UseAfterDelay(tool, ctx, delay));
         }
 
         private IEnumerator UseAfterDelay(ToolSO tool, ToolUseContext ctx, float delay)
         {
             yield return new WaitForSeconds(delay);
-            tool.Use(ctx);
+            UseTool(tool, ctx);
+        }
+
+        /// <summary>
+        /// 도구를 실제로 쓰고, 결과에 맞는 파티클을 튀긴다 (흙·물방울·나뭇조각·풀잎).
+        /// 쓰기 전 상태를 먼저 기억해 둬야 '어느 칸이 새로 갈렸는지', '어느 나무를 쳤는지' 를 알 수 있다
+        /// </summary>
+        private static void UseTool(ToolSO tool, ToolUseContext ctx)
+        {
+            ToolFX.Shot shot = ToolFX.BeforeUse(tool, in ctx);
+            bool used = tool.Use(ctx);
+            ToolFX.AfterUse(shot, used);
         }
 
         private ToolUseContext BuildToolContext(CropManager mgr, Vector3Int cell)
@@ -448,9 +454,14 @@ namespace KSM._00.Scripts.Crop
             CropManager mgr = CropManager.Instance;
             if (mgr == null) return;
 
+            // 파티클 위치는 뽑기 전에 기억해 둔다 (뽑으면 작물이 사라지니까)
+            GrowCrop crop = mgr.GetOccupant(cell);
+            Vector3 fxPos = crop != null ? crop.transform.position : mgr.CellToWorldCenter(cell);
+
             // 휘두르는 사이에 작물이 다 자랐거나 이미 없어졌으면 RemoveCropAt 이 false 를 준다
             if (mgr.RemoveCropAt(cell, protectMatureCrops))
             {
+                ToolFX.CropRemoved(fxPos);
                 if (verboseLog) Debug.Log($"[제거] {cell} 작물을 뽑았습니다");
                 return;
             }
@@ -500,6 +511,11 @@ namespace KSM._00.Scripts.Crop
             }
 
             PlayerInventory.Instance.ConsumeHeld(1);
+
+            // 심은 자리에 흙이 살짝 튄다
+            GrowCrop planted = mgr.GetOccupant(cell);
+            ToolFX.Planted(planted != null ? planted.transform.position : mgr.CellToWorldCenter(cell));
+            SoundManager.Instance.PlaySFX(sfx);
 
             if (verboseLog) Debug.Log($"[심기] {seed.crop.cropName} 심음 @ {cell}");
         }

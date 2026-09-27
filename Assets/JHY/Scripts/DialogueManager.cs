@@ -1,4 +1,5 @@
 using DG.Tweening;
+using KSM._00.Scripts;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -25,9 +26,17 @@ public class DialogueManager : MonoBehaviour
     public float textSpeed = 0.05f;
 
     [Header("씬 전환 페이드 연출")]
-    [SerializeField] private Image fadePanelImage; // 페이드에 사용할 검은색 UI Image
-    [SerializeField] private float fadeDuration = 1.0f; // 암전되는 시간
-    [SerializeField] private GameObject shoppanel;
+    [SerializeField] private Image fadePanelImage;
+    [SerializeField] private float fadeDuration = 1.0f;
+
+    [Header("물고기 상점 설정")]
+    [SerializeField] private GameObject fishShopPanel;
+    [SerializeField] private AudioClip fishShopBGM;
+
+    [Header("식물 상점 설정")]
+    [SerializeField] private GameObject plantShopPanel;
+    [SerializeField] private AudioClip plantShopBGM;
+
     private DialogueData currentDialogue;
     private int currentIndex = 0;
 
@@ -35,8 +44,8 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping = false;
 
     public bool isChat { get; set; } = false;
-
     [SerializeField] private AudioClip clickSound;
+
     public void StartDialogue(DialogueData data)
     {
         currentDialogue = data;
@@ -47,21 +56,55 @@ public class DialogueManager : MonoBehaviour
 
         DisplayNextSentence();
     }
-    public void OpenShopPanel()
+
+    public void OpenFishShopPanel()
     {
-        if (shoppanel == null) return;
-        EndDialogue();
-        UIManger shop = shoppanel.GetComponentInChildren<UIManger>(true);
-        if (shop != null) shop.OpenShop();
-        else shoppanel.SetActive(true);
+        OpenShop(fishShopPanel, fishShopBGM);
     }
+
+    public void OpenPlantShopPanel()
+    {
+        OpenShop(plantShopPanel, plantShopBGM);
+    }
+
+    // 공통 상점 열기 로직
+    private void OpenShop(GameObject panel, AudioClip shopBGM)
+    {
+        if (panel == null) return;
+        EndDialogue();
+
+        UIManger shop = panel.GetComponentInChildren<UIManger>(true);
+        if (shop != null) shop.OpenShop();
+        else panel.SetActive(true);
+
+        // 상점 BGM 덮어쓰기
+        if (SoundManager.Instance != null && shopBGM != null)
+        {
+            SoundManager.Instance.OverrideBGM(shopBGM);
+        }
+    }
+
     public void CloseShopPanel()
     {
-        if (shoppanel == null) return;
-        UIManger shop = shoppanel.GetComponentInChildren<UIManger>(true);
-        if (shop != null) shop.CloseShop();
-        else shoppanel.SetActive(false);
+        CloseShop(fishShopPanel);
+        CloseShop(plantShopPanel);
+
+        // 원래 BGM으로 원복
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.RestoreBGM();
+        }
     }
+
+    private void CloseShop(GameObject panel)
+    {
+        if (panel == null) return;
+
+        UIManger shop = panel.GetComponentInChildren<UIManger>(true);
+        if (shop != null) shop.CloseShop();
+        else panel.SetActive(false);
+    }
+
     public void DisplayNextSentence()
     {
         if (currentDialogue == null) return;
@@ -69,9 +112,7 @@ public class DialogueManager : MonoBehaviour
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
-
             dialogueText.text = currentDialogue.sentences[currentIndex - 1];
-
             isTyping = false;
             return;
         }
@@ -97,7 +138,6 @@ public class DialogueManager : MonoBehaviour
         foreach (char letter in sentence)
         {
             dialogueText.text += letter;
-
             yield return new WaitForSeconds(textSpeed);
         }
 
@@ -130,6 +170,7 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator FadeAndLoadSceneRoutine(int scenenumber)
     {
         EndDialogue();
+        
 
         if (fadePanelImage != null)
         {
@@ -144,6 +185,6 @@ public class DialogueManager : MonoBehaviour
 
         SceneManager.LoadScene(scenenumber);
     }
-    
-    
+
+
 }

@@ -18,6 +18,7 @@ namespace KSM._00.Scripts.Crafting
     /// </summary>
     public class CraftingOverlay : MonoBehaviour
     {
+        public AudioClip hammerSfx;
         [Header("참조")]
         [Tooltip("켜고 끌 루트. 비우면 이 오브젝트")]
         [SerializeField] private GameObject root;
@@ -157,10 +158,19 @@ namespace KSM._00.Scripts.Crafting
             }
 
             float t = 0f;
-            while (t < time)
+            int hits = 0;
+            while (t < holdTime)
             {
-                t += Time.unscaledDeltaTime;      // 시간을 멈춰도 연출은 흐른다
-                group.alpha = Mathf.Lerp(from, to, Mathf.Clamp01(t / time));
+                t += Time.unscaledDeltaTime;
+                SwingIcon(t);
+
+                // 아이콘이 한쪽 끝에 닿을 때마다 한 번씩 '깡'
+                int now = Mathf.FloorToInt(t / iconSwingPeriod + 0.75f);
+                if (now > hits)
+                {
+                    hits = now;
+                    if (hammerSfx != null) SoundManager.Instance.PlaySFX(hammerSfx);
+                }
 
                 yield return null;
             }

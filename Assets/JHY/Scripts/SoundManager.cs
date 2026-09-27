@@ -19,7 +19,10 @@ public class SoundManager : MonoBehaviour
     public float MasterVolume => soundSettings.masterVolume;
     public float BgmVolume => soundSettings.bgmVolume;
     public float SfxVolume => soundSettings.sfxVolume;
-
+    private AudioClip previousBGM;        // 이전 BGM 백업용
+    private bool isBGMOverridden = false;
+    public bool IsInsideShop { get; private set; }
+    private AudioClip outdoorBGM;
     private void Awake()
     {
         if (Instance == null)
@@ -44,7 +47,61 @@ public class SoundManager : MonoBehaviour
         SetBGMVolume(soundSettings.bgmVolume);
         SetSFXVolume(soundSettings.sfxVolume);
     }
+    public void OverrideBGM(AudioClip newClip)
+    {
+        if (newClip == null || bgmSource == null) return;
 
+        if (!isBGMOverridden)
+        {
+            previousBGM = bgmSource.clip; // 지금 재생 중인 노래 백업
+            isBGMOverridden = true;
+        }
+
+        bgmSource.clip = newClip;
+        bgmSource.loop = true;
+        bgmSource.Play();
+    }
+
+    // 2. 상점 퇴장 시: 아까 백업해 둔 원래 노래로 복구
+    public void RestoreBGM()
+    {
+        if (!isBGMOverridden) return;
+        AudioClip clip = previousBGM;
+        isBGMOverridden = false;
+        previousBGM = null;
+        if (IsInsideShop) StopBGM();
+        else if (clip != null) PlayBGM(clip);
+        else StopBGM();
+    }
+    public void EnterShop()
+    {
+        if (IsInsideShop) return;
+        IsInsideShop = true;
+        outdoorBGM = isBGMOverridden ? previousBGM : bgmSource != null ? bgmSource.clip : null;
+        if (!isBGMOverridden) StopBGM();
+    }
+
+    public void ResetOutdoorSceneAudio()
+    {
+        IsInsideShop = false;
+        isBGMOverridden = false;
+        previousBGM = null;
+        outdoorBGM = null;
+        StopBGM();
+        StopSFX();
+    }
+
+    public void ExitShop()
+    {
+        if (!IsInsideShop) return;
+        IsInsideShop = false;
+        isBGMOverridden = false;
+        previousBGM = null;
+        AudioClip clip = outdoorBGM;
+        outdoorBGM = null;
+        if (clip != null) PlayBGM(clip);
+        else StopBGM();
+    }
     public void SetMasterVolume(float value)
     {
         soundSettings.masterVolume = value;
@@ -75,6 +132,16 @@ public class SoundManager : MonoBehaviour
     public void PlayBGM(AudioClip clip)
     {
         if (clip == null || bgmSource == null) return;
+        if (IsInsideShop)
+        {
+            outdoorBGM = clip;
+            return;
+        }
+        if (isBGMOverridden)
+        {
+            previousBGM = clip;
+            return;
+        }
         if (bgmSource.clip == clip && bgmSource.isPlaying) return;
 
         bgmSource.clip = clip;
@@ -88,6 +155,14 @@ public class SoundManager : MonoBehaviour
         {
             bgmSource.Stop();
             bgmSource.clip = null;
+        }
+    }
+
+    public void StopSFX()
+    {
+        if (sfxSource != null && sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
         }
     }
 }

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: GoldHoe
   m_EditorClassIdentifier: Assembly-CSharp::HoeSO
   itemId: 
-  displayName: Hoe Gold
+  displayName: "\uACE8\uB4DC\uAD2D\uC774"
   icon: {fileID: 8961495933827196106, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
-  description: 
+  description: "3*3\uC744 \uAC08\uC218\uC788\uB294 \uC815\uB9D0\uC88B\uC740 \uAD2D\uC774\uB2E4"
   itemType: 5
   maxStack: 1
   sellPrice: 0
@@ -29,6 +29,7 @@ MonoBehaviour:
   animationTrigger: Hoe
   baseClip: {fileID: 7400000, guid: 817d3581ecf9f5c4d86b0a51f0f00035, type: 2}
   tierClip: {fileID: 7400000, guid: 3f7d83214dc7e62409b5f10e5de76407, type: 2}
+  extraClips: []
   heldSpriteLibrary: {fileID: 0}
   impactDelay: 0.15
   useCooldown: 0.4

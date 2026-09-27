@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -18,9 +18,9 @@ public class OceanTeleporter : MonoBehaviour
     [SerializeField] private float fadeDuration = 1.0f;
 
     [Header("BGM 설정")]
-    [SerializeField] private AudioClip oceanBGM;               // 바다 맵 BGM
-    [SerializeField] private AudioClip mainMapDayBGM;          // 메인 맵 낮(아침/점심) BGM
-    [SerializeField] private AudioClip mainMapNightBGM;        // 메인 맵 밤 BGM
+    [SerializeField] private AudioClip oceanBGM;
+    [SerializeField] private AudioClip mainMapDayBGM;
+    [SerializeField] private AudioClip mainMapNightBGM;
 
     [Header("갈매기 소리 설정")]
     [SerializeField] private AudioClip seagullSFX;
@@ -31,22 +31,69 @@ public class OceanTeleporter : MonoBehaviour
     private Coroutine seagullCoroutine;
     public static bool IsInOcean { get; private set; } = false;
 
+    public static OceanTeleporter Instance;
+    private bool isSeagullPaused = false; // 상점 때문에 일시정지되었는지 체크용
+
+    private void Awake()
+    {
+        if (Instance == null) { Instance = this; IsInOcean = false; }
+        else Destroy(gameObject);
+    }
+
+    private void Start()
+    {
+        // A new base scene starts on the main map; never reuse the previous scene's region.
+        if (SoundManager.Instance != null) SoundManager.Instance.ResetOutdoorSceneAudio();
+        ResumeOutdoorBGM();
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance != this) return;
+        Instance = null;
+        IsInOcean = false;
+    }
+    public void PauseSeagullsForShop()
+    {
+        isSeagullPaused = true;
+        if (seagullCoroutine != null)
+        {
+            StopCoroutine(seagullCoroutine);
+            seagullCoroutine = null;
+        }
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.StopSFX(); 
+        }
+    }
+
+    public void ResumeSeagullsForShop()
+    {
+        if (IsInOcean && isSeagullPaused)
+        {
+            isSeagullPaused = false;
+            if (seagullCoroutine == null && seagullSFX != null)
+            {
+                seagullCoroutine = StartCoroutine(SeagullRoutine());
+            }
+        }
+    }
     public void TeleportToOcean()
     {
         if (isTeleporting) return;
         StartCoroutine(TeleportRoutine(true));
     }
-
     public void TeleportToMainMap()
     {
         if (isTeleporting) return;
         StartCoroutine(TeleportRoutine(false));
     }
-
     private IEnumerator TeleportRoutine(bool isGoingToOcean)
     {
         isTeleporting = true;
-        IsInOcean = isGoingToOcean;
+
+        isSeagullPaused = false; // 맵 이동 시 초기화
 
         if (!isGoingToOcean && seagullCoroutine != null)
         {
@@ -54,7 +101,18 @@ public class OceanTeleporter : MonoBehaviour
             seagullCoroutine = null;
         }
 
+        Transform targetDestination = isGoingToOcean ? oceanDestination : mainMapDestination;
+        if (targetDestination == null || playerTransform == null || darkPanel == null)
+        {
+            isTeleporting = false;
+            yield break;
+        }
         Image panelImage = darkPanel.GetComponent<Image>();
+        if (panelImage == null)
+        {
+            isTeleporting = false;
+            yield break;
+        }
         panelImage.DOKill();
         darkPanel.SetActive(true);
 
@@ -62,10 +120,10 @@ public class OceanTeleporter : MonoBehaviour
 
         yield return panelImage.DOFade(1f, fadeDuration).SetEase(Ease.Linear).WaitForCompletion();
 
-        Transform targetDestination = isGoingToOcean ? oceanDestination : mainMapDestination;
-
         if (targetDestination != null && playerTransform != null)
         {
+            IsInOcean = isGoingToOcean;
+            if (!IsInOcean && SoundManager.Instance != null) SoundManager.Instance.StopSFX();
             playerTransform.position = new Vector3(
                 targetDestination.position.x,
                 targetDestination.position.y,
@@ -107,20 +165,47 @@ public class OceanTeleporter : MonoBehaviour
         darkPanel.SetActive(false);
         isTeleporting = false;
     }
-
     private IEnumerator SeagullRoutine()
     {
-        while (IsInOcean)
+        while (IsInOcean && !isSeagullPaused)
         {
             float waitTime = Random.Range(minSeagullInterval, maxSeagullInterval);
             yield return new WaitForSeconds(waitTime);
 
-            if (IsInOcean && SoundManager.Instance != null && seagullSFX != null)
+            if (IsInOcean && !isSeagullPaused && SoundManager.Instance != null && seagullSFX != null)
             {
                 SoundManager.Instance.PlaySFX(seagullSFX);
             }
         }
 
         seagullCoroutine = null;
+    }
+    private void OnDisable()
+    {
+        StopSeagullSound();
+    }
+    public void ResumeOceanBGM()
+    {
+        if (IsInOcean && SoundManager.Instance != null && oceanBGM != null)
+        {
+            SoundManager.Instance.PlayBGM(oceanBGM);
+        }
+    }
+    public void ResumeOutdoorBGM()
+    {
+        if (SoundManager.Instance == null) return;
+        AudioClip clip = IsInOcean ? oceanBGM :
+            TimeManager.Instance != null && TimeManager.Instance.CurrentPeriod == TimeManager.TimePeriod.Night
+                ? mainMapNightBGM : mainMapDayBGM;
+        if (clip != null) SoundManager.Instance.PlayBGM(clip);
+    }
+
+    public void StopSeagullSound()
+    {
+        if (seagullCoroutine != null)
+        {
+            StopCoroutine(seagullCoroutine);
+            seagullCoroutine = null;
+        }
     }
 }
