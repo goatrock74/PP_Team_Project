@@ -19,6 +19,7 @@ MonoBehaviour:
   itemType: 5
   maxStack: 1
   sellPrice: 0
+  season: 0
   tier: 0
   areaSize: {x: 1, y: 1}
   hitBoxSize: {x: 1.2, y: 1.2}
@@ -28,6 +29,7 @@ MonoBehaviour:
   animationTrigger: Water
   baseClip: {fileID: 7400000, guid: 9508077c652559741b08b696f253de86, type: 2}
   tierClip: {fileID: 0}
+  extraClips: []
   heldSpriteLibrary: {fileID: 7108339969198208228, guid: 4e2386eb5c7253e44952013e179cb542, type: 3}
   impactDelay: 0.15
   useCooldown: 0.4
@@ -37,5 +39,5 @@ MonoBehaviour:
   wettableTiles:
   - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}
   wetDurationDays: 1
-  growthDays: 0.25
+  growthDays: 0
   waterMatureCrops: 0

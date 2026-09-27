@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3965660307780481687}
   - component: {fileID: 5104389267148513763}
   - component: {fileID: 5419313084075356054}
+  - component: {fileID: 3412506000442847963}
   m_Layer: 6
   m_Name: CropPrefab
   m_TagString: Untagged
@@ -52,6 +53,12 @@ MonoBehaviour:
   positionJitter: 0.06
   scaleRange: {x: 1, y: 1.15}
   randomFlipX: 0
+  wiltOutOfSeason: 0
+  matureSurvives: 1
+  wiltedSprite: {fileID: 0}
+  wiltedColor: {r: 0.62, g: 0.5, b: 0.36, a: 1}
+  wiltFadeTime: 0.8
+  wiltMessage: "\uC81C\uCCA0\uC774 \uC9C0\uB098 \uC791\uBB3C\uC774 \uC2DC\uB4E4\uC5C8\uC2B5\uB2C8\uB2E4"
   <NowGrowthStage>k__BackingField: 0
   <CurrentTimeStage>k__BackingField: 0
   <IsGrowFinished>k__BackingField: 0
@@ -237,3 +244,23 @@ MonoBehaviour:
   harvestParticle: {fileID: 0}
   harvestSound: {fileID: 0}
   soundVolume: 0.8
+--- !u!114 &3412506000442847963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5559243324586954988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26edba8c524c4c3690df38aa195d67ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CropWaterIcon
+  icon: {fileID: 0}
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  size: 0.3
+  height: 0.08
+  bob: 0.05
+  bobSpeed: 3.2
+  popTime: 0.2
+  onlyWhileHoldingCan: 0
