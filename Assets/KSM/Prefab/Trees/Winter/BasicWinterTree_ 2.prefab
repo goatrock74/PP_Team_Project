@@ -116,6 +116,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5961510509932411944}
   - component: {fileID: 8012857626988240260}
+  - component: {fileID: 6508505695833491485}
+  - component: {fileID: 39493698203616020}
   m_Layer: 0
   m_Name: Visual
   m_TagString: Untagged
@@ -187,7 +189,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 70
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -5726596290418475617, guid: 95bcb30b61731b342918dc74c5d411e1, type: 3}
+  m_Sprite: {fileID: 1009435822, guid: eba76fb99245a724c87356063ee67797, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -197,3 +199,53 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 1
+--- !u!114 &6508505695833491485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869041262254123574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c8e0cf0e3942428db14fb984b1726c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TreeMotion
+  body: {fileID: 8012857626988240260}
+  swayAngle: 7
+  swayDuration: 0.45
+  swayCount: 2
+  fallAngle: 88
+  fallTime: 0.6
+  bounceAngle: 6
+  bounceTime: 0.18
+  lieTime: 0.25
+  fadeTime: 0.6
+  fadeInOnRegrow: 1
+  regrowTime: 0.5
+  regrowStartScale: 0.85
+--- !u!114 &39493698203616020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6869041262254123574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c8e0cf0e3942428db14fb984b1726c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TreeMotion
+  body: {fileID: 8012857626988240260}
+  swayAngle: 7
+  swayDuration: 0.45
+  swayCount: 2
+  fallAngle: 88
+  fallTime: 0.6
+  bounceAngle: 6
+  bounceTime: 0.18
+  lieTime: 0.25
+  fadeTime: 0.6
+  fadeInOnRegrow: 1
+  regrowTime: 0.5
+  regrowStartScale: 0.85
