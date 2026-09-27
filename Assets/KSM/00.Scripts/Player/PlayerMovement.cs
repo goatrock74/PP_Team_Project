@@ -10,7 +10,9 @@ namespace KSM._00.Scripts
         [Tooltip("발이 묶여 있는 동안 바라보는 방향도 고정한다.\n" +
                  "끄면 제자리에서 좌우 입력만으로 몸이 돌아간다")]
         [SerializeField] private bool freezeFacingWhileLocked = true;
- 
+
+        public static Vector3 savedPosition;
+        public static bool hasSavedPosition = false;
         private Vector2 dir;
         private Rigidbody2D _rb;
         private float _lockUntil;
@@ -31,7 +33,16 @@ namespace KSM._00.Scripts
         {
             _rb = GetComponent<Rigidbody2D>();
         }
- 
+
+        private void Start()
+        {
+            if (hasSavedPosition)
+            {
+                transform.position = savedPosition;
+
+                hasSavedPosition = false;
+            }
+        }
         private void Update()
         {
             UpdateFacing();

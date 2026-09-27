@@ -1,4 +1,5 @@
 using DG.Tweening;
+using KSM._00.Scripts;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -35,8 +36,9 @@ public class DialogueManager : MonoBehaviour
     private bool isTyping = false;
 
     public bool isChat { get; set; } = false;
-
+    [SerializeField] private Transform playerTransform;
     [SerializeField] private AudioClip clickSound;
+    private PlayerMovement playerMovement;
     public void StartDialogue(DialogueData data)
     {
         currentDialogue = data;
@@ -124,6 +126,12 @@ public class DialogueManager : MonoBehaviour
     {
         EndDialogue();
 
+        if (playerTransform != null)
+        {
+            PlayerMovement.savedPosition = playerTransform.position;
+            PlayerMovement.hasSavedPosition = true;
+        }
+
         if (fadePanelImage != null)
         {
             fadePanelImage.gameObject.SetActive(true);
@@ -137,6 +145,6 @@ public class DialogueManager : MonoBehaviour
 
         SceneManager.LoadScene(scenenumber);
     }
-    
-    
+
+
 }

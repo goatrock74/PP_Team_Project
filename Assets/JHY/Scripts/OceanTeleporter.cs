@@ -30,7 +30,18 @@ public class OceanTeleporter : MonoBehaviour
     private bool isTeleporting = false;
     private Coroutine seagullCoroutine;
     public static bool IsInOcean { get; private set; } = false;
+    private void Start()
+    {
+        if (IsInOcean && SoundManager.Instance != null && oceanBGM != null)
+        {
+            SoundManager.Instance.PlayBGM(oceanBGM);
 
+            if (seagullSFX != null && seagullCoroutine == null)
+            {
+                seagullCoroutine = StartCoroutine(SeagullRoutine());
+            }
+        }
+    }
     public void TeleportToOcean()
     {
         if (isTeleporting) return;
@@ -122,5 +133,18 @@ public class OceanTeleporter : MonoBehaviour
         }
 
         seagullCoroutine = null;
+    }
+    private void OnDisable()
+    {
+        StopSeagullSound();
+    }
+
+    public void StopSeagullSound()
+    {
+        if (seagullCoroutine != null)
+        {
+            StopCoroutine(seagullCoroutine);
+            seagullCoroutine = null;
+        }
     }
 }
