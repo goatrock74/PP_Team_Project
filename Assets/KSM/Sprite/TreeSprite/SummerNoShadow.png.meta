@@ -1,0 +1,633 @@
+fileFormatVersion: 2
+guid: df0ff12c2e8de8c4fa3d4855fcba1f1d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1386045372390410991
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_0
+  - first:
+      213: 7252506672600220234
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_1
+  - first:
+      213: -2854068472582230245
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_2
+  - first:
+      213: 8206876771877491373
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_3
+  - first:
+      213: -7691321588690027632
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_4
+  - first:
+      213: 4591790935992353153
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_5
+  - first:
+      213: -4081799854581460709
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_6
+  - first:
+      213: 7268722802026515249
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_7
+  - first:
+      213: -2244262100758785924
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_8
+  - first:
+      213: 7242460163133454792
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_9
+  - first:
+      213: -5517683514607074921
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_10
+  - first:
+      213: -1739669278671498613
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_11
+  - first:
+      213: -3300945182347620842
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_12
+  - first:
+      213: -5044063797982330140
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_13
+  - first:
+      213: 5153649297326683635
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_14
+  - first:
+      213: -4133814659654867987
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_15
+  - first:
+      213: 3914495747397926463
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_16
+  - first:
+      213: -9186851883968871383
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_17
+  - first:
+      213: -3070268701502095584
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_18
+  - first:
+      213: -3181056786483928884
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_19
+  - first:
+      213: 1426686610785082625
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_20
+  - first:
+      213: -8395699135789809568
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_21
+  - first:
+      213: -7544263701981635564
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_22
+  - first:
+      213: 6118454289984630049
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_23
+  - first:
+      213: 2864170995946582386
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_24
+  - first:
+      213: -8678172324379277420
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_25
+  - first:
+      213: 7647469161709644357
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_26
+  - first:
+      213: -3915956444920231902
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_27
+  - first:
+      213: -8459846521946914530
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_28
+  - first:
+      213: -297109411765770421
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_29
+  - first:
+      213: 1324837725453498657
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_30
+  - first:
+      213: -6062583938926711735
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_31
+  - first:
+      213: 8286558228928272184
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_32
+  - first:
+      213: 8059103812300603273
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_33
+  - first:
+      213: 7523513939225090039
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_34
+  - first:
+      213: -8091960934738038502
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_35
+  - first:
+      213: 4676333095468990297
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_36
+  - first:
+      213: -8617851323561869719
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_37
+  - first:
+      213: 8201554796654727487
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_38
+  - first:
+      213: -950706684755832788
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_39
+  - first:
+      213: 6802898344574719798
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_40
+  - first:
+      213: 5641595978205007301
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_41
+  - first:
+      213: 1362937329232896413
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_42
+  - first:
+      213: -1986353993958656709
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_43
+  - first:
+      213: -351693087651917299
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_44
+  - first:
+      213: 7818893128537197546
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_45
+  - first:
+      213: -1575970233306926650
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_46
+  - first:
+      213: 6474756808285150935
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_47
+  - first:
+      213: 8373660219088928833
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_48
+  - first:
+      213: 3767938288669847970
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_49
+  - first:
+      213: -8603711069728846051
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_50
+  - first:
+      213: 7168998216066863307
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_51
+  - first:
+      213: -3528024262637411067
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_52
+  - first:
+      213: 7481812656680595949
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_53
+  - first:
+      213: 4040188531698704407
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_54
+  - first:
+      213: 8312431827624311850
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_55
+  - first:
+      213: -8959497680766228669
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_56
+  - first:
+      213: 6652281742340230431
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_57
+  - first:
+      213: 2731138033993014667
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_58
+  - first:
+      213: -3594339658968028695
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_59
+  - first:
+      213: 1988763123136264267
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_60
+  - first:
+      213: 8745039321869791636
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_61
+  - first:
+      213: 4995065164607977371
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_62
+  - first:
+      213: -2056147062737619843
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_63
+  - first:
+      213: -3467773197056143844
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_64
+  - first:
+      213: -3195776890390921630
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_65
+  - first:
+      213: 6688140551331822987
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_66
+  - first:
+      213: -3120141059384875264
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_67
+  - first:
+      213: -8384471819496035617
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_68
+  - first:
+      213: -5593119065167980756
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_69
+  - first:
+      213: -8468109585284714009
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_70
+  - first:
+      213: 6410378308091297610
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_71
+  - first:
+      213: 396505360891602181
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_72
+  - first:
+      213: -3771745481366163379
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_73
+  - first:
+      213: -3365517438603083397
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_74
+  - first:
+      213: 4284041241161823502
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_75
+  - first:
+      213: 7259024687154527523
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_76
+  - first:
+      213: 124761683339508472
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_77
+  - first:
+      213: -4060962693512082578
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_78
+  - first:
+      213: 5766047865981554728
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_79
+  - first:
+      213: -640733896702072923
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_80
+  - first:
+      213: 1454494770759547801
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_81
+  - first:
+      213: -401809381545390445
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_82
+  - first:
+      213: 6764647032465113142
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_83
+  - first:
+      213: 7864765374713277328
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_84
+  - first:
+      213: 5398282814251372918
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_85
+  - first:
+      213: -4048173615932327925
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_86
+  - first:
+      213: -4813418988348682262
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_87
+  - first:
+      213: 9204007790395801989
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_88
+  - first:
+      213: 6480229331059222012
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_89
+  - first:
+      213: -4701287679864806166
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_90
+  - first:
+      213: 5047147726882005727
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_91
+  - first:
+      213: -966393618640985109
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_92
+  - first:
+      213: -5876321095535471242
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_93
+  - first:
+      213: 4371029686807374077
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_94
+  - first:
+      213: 6313381650452342307
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_95
+  - first:
+      213: 2497145667383308273
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_96
+  - first:
+      213: 5874612883564870981
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_97
+  - first:
+      213: 7908994886157485715
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_98
+  - first:
+      213: 641230219935262908
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_99
+  - first:
+      213: -9014575334360433027
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_100
+  - first:
+      213: -310030672930409111
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_101
+  - first:
+      213: -3640626175734768898
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_102
+  - first:
+      213: -5680363407995654789
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_103
+  - first:
+      213: -5917102706893607457
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_104
+  - first:
+      213: -5304391129758838792
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_105
+  - first:
+      213: -8873164069894354176
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_106
+  - first:
+      213: -4739275889681782139
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_107
+  - first:
+      213: 3058683442561434145
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_108
+  - first:
+      213: 8977485521018769074
+    second: Basic Tiles 4 (Trees & Bushes, no shadow) 1_109
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 10
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SummerNoShadow_0
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 359
+        width: 31
+        height: 41
+      alignment: 9
+      pivot: {x: 0.51276916, y: 0.16086486}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a113fb7b30a48624a92badf308eba631
+      internalID: -206681509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SummerNoShadow_1
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 231
+        width: 32
+        height: 41
+      alignment: 9
+      pivot: {x: 0.49171162, y: 0.13927738}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db3eb129781499444844c347a637bd12
+      internalID: 1322273008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SummerNoShadow_2
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 295
+        width: 24
+        height: 53
+      alignment: 9
+      pivot: {x: 0.49385706, y: 0.11472191}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21a8dc5d47a5914fb3d96d788c78642
+      internalID: 500386397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SummerNoShadow_3
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 167
+        width: 24
+        height: 52
+      alignment: 9
+      pivot: {x: 0.49999872, y: 0.1108642}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d89c6ca849097b468226b7c2e16eed9
+      internalID: 1721171844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SummerNoShadow_4
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 87
+        width: 46
+        height: 75
+      alignment: 9
+      pivot: {x: 0.5018921, y: 0.09272838}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7396f6a1978d2c547845a03236fb17a3
+      internalID: 1638581322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SummerNoShadow_5
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 8
+        width: 46
+        height: 73
+      alignment: 9
+      pivot: {x: 0.49999967, y: 0.08089848}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9db47614dc3d3844bf35592448c583d
+      internalID: 561088246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SummerNoShadow_6
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 167
+        width: 44
+        height: 42
+      alignment: 9
+      pivot: {x: 0.4927604, y: 0.15619187}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8e1c864a30928458d1d7b2c57ec58b
+      internalID: -1114677362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SummerNoShadow_7
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 296
+        width: 44
+        height: 42
+      alignment: 9
+      pivot: {x: 0.4893015, y: 0.13575236}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f1d31ee8ce7a05409191eba8f4272fe
+      internalID: -1539136033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b7c29f92c9185ac4492c864c0fe70708
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":400.0,"y":400.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      SummerNoShadow_0: -206681509
+      SummerNoShadow_1: 1322273008
+      SummerNoShadow_2: 500386397
+      SummerNoShadow_3: 1721171844
+      SummerNoShadow_4: 1638581322
+      SummerNoShadow_5: 561088246
+      SummerNoShadow_6: -1114677362
+      SummerNoShadow_7: -1539136033
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
