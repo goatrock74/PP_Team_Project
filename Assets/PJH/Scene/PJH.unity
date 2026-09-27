@@ -785,6 +785,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: InnerHouse
       objectReference: {fileID: 0}
+    - target: {fileID: 3018796973558968543, guid: 87bcd94bcc2efe642b3fda362e151f80, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.91
+      objectReference: {fileID: 0}
     - target: {fileID: 3448793271157346590, guid: 87bcd94bcc2efe642b3fda362e151f80, type: 3}
       propertyPath: m_LocalPosition.x
       value: -29.019161
