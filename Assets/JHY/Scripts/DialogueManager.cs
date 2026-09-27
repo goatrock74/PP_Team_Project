@@ -51,11 +51,18 @@ public class DialogueManager : MonoBehaviour
     }
     public void OpenShopPanel()
     {
-        shoppanel.SetActive(true);
+        if (shoppanel == null) return;
+        EndDialogue();
+        UIManger shop = shoppanel.GetComponentInChildren<UIManger>(true);
+        if (shop != null) shop.OpenShop();
+        else shoppanel.SetActive(true);
     }
     public void CloseShopPanel()
     {
-        shoppanel.SetActive(false);
+        if (shoppanel == null) return;
+        UIManger shop = shoppanel.GetComponentInChildren<UIManger>(true);
+        if (shop != null) shop.CloseShop();
+        else shoppanel.SetActive(false);
     }
     public void DisplayNextSentence()
     {

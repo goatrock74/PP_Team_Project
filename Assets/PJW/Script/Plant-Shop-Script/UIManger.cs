@@ -14,46 +14,87 @@ public class UIManger : MonoBehaviour
     [SerializeField] GameObject buyPanel;
     [SerializeField] GameObject sellPanel;
     [SerializeField] private AudioClip clickaudio;
+    [Header("씬 안에서 사용하는 상점 UI")]
+    [SerializeField] private GameObject shopRoot;
+    [SerializeField] private bool buyOnly;
 
-    private void Awake()
+    private void OnEnable()
     {
         if (menuPanel == null && buyPanel == null && sellPanel == null) return;
-        BackToMenu();
+        ShowInitialPanel();
+    }
+
+    private void ShowInitialPanel()
+    {
+        SetPanels(!buyOnly, buyOnly, false);
+    }
+
+    private void SetPanels(bool menu, bool buy, bool sell)
+    {
+        if (menuPanel != null) menuPanel.SetActive(menu);
+        if (buyPanel != null) buyPanel.SetActive(buy);
+        if (sellPanel != null) sellPanel.SetActive(sell);
+    }
+
+    public void OpenShop()
+    {
+        if (shopRoot != null) shopRoot.SetActive(true);
+        ShowInitialPanel();
+    }
+
+    public void CloseShop()
+    {
+        SetPanels(false, false, false);
+        if (shopRoot != null) shopRoot.SetActive(false);
+    }
+
+    public void BackOrClose()
+    {
+        if (buyOnly || (menuPanel != null && menuPanel.activeSelf)) CloseShop();
+        else BackToMenu();
     }
 
 
     // BUY 버튼에 연결
     public void OpenBuyPanel()
     {
-        menuPanel.SetActive(false);
-        buyPanel.SetActive(true);
-        sellPanel.SetActive(false);
+        SetPanels(false, true, false);
     }
 
     // SELL 버튼에 연결
     public void OpenSellPanel()
     {
-        menuPanel.SetActive(false);
-        buyPanel.SetActive(false);
-        sellPanel.SetActive(true);
+        if (buyOnly || sellPanel == null) return;
+        SetPanels(false, false, true);
     }
 
     // 다시 메뉴로 돌아가고 싶을 때
     public void BackToMenu()
     {
-        menuPanel.SetActive(true);
-        buyPanel.SetActive(false);
-        sellPanel.SetActive(false);
+        if (buyOnly) CloseShop();
+        else SetPanels(true, false, false);
+    }
+
+    public void OpenOnlyBuyPanel()
+    {
+        OpenBuyPanel();
+    }
+
+    public void CloseBuyPaenl()
+    {
+        CloseShop();
     }
 
     public void InShop(int sceneNum)
     {
-        SceneManager.LoadScene(sceneNum);
+        if (shopRoot != null) OpenShop();
+        else SceneManager.LoadScene(sceneNum);
     }
 
     public void OutShop(int sceneNum)
     {
-        SceneManager.LoadScene(sceneNum);
+        if (shopRoot != null) CloseShop();
+        else SceneManager.LoadScene(sceneNum);
     }
 
     public void ClickSound()

@@ -41582,7 +41582,7 @@ GameObject:
   - component: {fileID: 6497337384237969512}
   - component: {fileID: 1493057536348806337}
   - component: {fileID: 3462523748103516313}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Sea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78377,13 +78377,12 @@ PrefabInstance:
       propertyPath: boxSize.y
       value: 2.5
       objectReference: {fileID: 0}
-    - target: {fileID: 7851754487298149597, guid: 532f5dea2a8179246a1efc98b8d73071, type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 1024
+    - target: {fileID: 8728814353871003970, guid: 532f5dea2a8179246a1efc98b8d73071, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 299971859855957685, guid: 532f5dea2a8179246a1efc98b8d73071, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 532f5dea2a8179246a1efc98b8d73071, type: 3}
