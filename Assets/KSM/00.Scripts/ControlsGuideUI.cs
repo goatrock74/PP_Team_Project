@@ -9,24 +9,7 @@ using KSM._00.Scripts.Crafting;
 using KSM._00.Scripts.Crop;
 using KSM._00.Scripts.Items;
 
-namespace KSM._00.Scripts.UI
-{
-    /// <summary>
-    /// 화면 구석에 조작법을 띄운다. H 로 접었다 폈다 한다.
-    /// 맨 아래 줄에는 <b>지금 들고 있는 것</b>으로 뭘 할 수 있는지가 바뀌어 가며 뜬다.
-    ///
-    ///   조작법  H 접기
-    ///   WASD        이동
-    ///   좌클릭      도구 사용 · 심기 · 수확
-    ///   ...
-    ///   괭이 — 좌클릭 땅 갈기 · X 작물 제거 모드
-    ///
-    /// 붙이는 법: Canvas 우클릭 → Create Empty → 이 컴포넌트 추가. 끝.
-    ///   배경·글자는 플레이하면 코드가 만든다.
-    ///   한글 폰트는 씬에 있는 다른 글자에서 찾아 쓴다. □□ 로 나오면 Font 칸에 직접 넣을 것
-    ///
-    /// ★ 클릭은 통과시킨다. 안내창 밑에 있는 땅도 그대로 클릭된다
-    /// </summary>
+
     public class ControlsGuideUI : MonoBehaviour
     {
         [Serializable]
@@ -146,10 +129,6 @@ namespace KSM._00.Scripts.UI
             Refresh(false);
         }
 
-        // ════════════════════════════════════════════════════════════
-        //  내용
-        // ════════════════════════════════════════════════════════════
-
         private void Refresh(bool force)
         {
             if (_text == null) return;
@@ -192,12 +171,8 @@ namespace KSM._00.Scripts.UI
 
             _lastText = text;
             _text.text = text;
-
-            // 쓸 글자가 하나도 없으면 배경도 숨긴다
             _panel.gameObject.SetActive(text.Length > 0);
         }
-
-        /// <summary>지금 들고 있는 것으로 할 수 있는 일</summary>
         private static string HeldHint()
         {
             if (PlayerInteractor.IsRemoveMode) return "제거 모드 — 작물 클릭하면 뽑힘 · X 끄기";
@@ -221,7 +196,6 @@ namespace KSM._00.Scripts.UI
                 case ItemPackSO _:    return $"{name} — 좌클릭 뽑기 팩 열기";
             }
 
-            // 친구 쪽 스크립트는 이름으로 확인한다 (이름이 바뀌어도 컴파일은 안 깨진다)
             switch (held.GetType().Name)
             {
                 case "FishingRodSO":      return $"{name} — 물가에서 좌클릭 · 입질 오면 바로 클릭";
@@ -231,13 +205,9 @@ namespace KSM._00.Scripts.UI
             return $"{name} — 우클릭 내려놓기";
         }
 
-        // ════════════════════════════════════════════════════════════
-        //  화면에 만들기
-        // ════════════════════════════════════════════════════════════
 
         private void Build()
         {
-            // 이 오브젝트를 Canvas 전체 크기로 펴서, 그 구석에 안내창을 붙인다
             if (!(transform is RectTransform root))
             {
                 Debug.LogError("[조작 안내] Canvas 우클릭 → Create Empty 로 만든 오브젝트에 붙여주세요.", this);
@@ -257,7 +227,6 @@ namespace KSM._00.Scripts.UI
                 _ => new Vector2(1f, 0f),
             };
 
-            // ── 배경 ──
             var panelGo = new GameObject("GuidePanel", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
             _panel = (RectTransform)panelGo.transform;
             _panel.SetParent(transform, false);
@@ -276,7 +245,6 @@ namespace KSM._00.Scripts.UI
             _group.interactable = false;
             _group.blocksRaycasts = false;
 
-            // 글자 양에 맞춰 배경 크기가 저절로 바뀌게
             var layout = panelGo.AddComponent<VerticalLayoutGroup>();
             layout.padding = new RectOffset(
                 Mathf.RoundToInt(padding.x), Mathf.RoundToInt(padding.x),
@@ -290,7 +258,6 @@ namespace KSM._00.Scripts.UI
             fitter.horizontalFit = ContentSizeFitter.FitMode.PreferredSize;
             fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
 
-            // ── 글자 ──
             var textGo = new GameObject("GuideText", typeof(RectTransform));
             textGo.transform.SetParent(_panel, false);
 
@@ -303,7 +270,6 @@ namespace KSM._00.Scripts.UI
             _text.alignment = TextAlignmentOptions.TopLeft;
         }
 
-        /// <summary>씬에 있는 글자들 중에서 한글이 들어 있는 폰트를 찾는다</summary>
         private static TMP_FontAsset FindKoreanFont()
         {
             TMP_Text[] all = FindObjectsByType<TMP_Text>(FindObjectsInactive.Include, FindObjectsSortMode.None);
@@ -317,4 +283,3 @@ namespace KSM._00.Scripts.UI
             return null;
         }
     }
-}
