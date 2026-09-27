@@ -1,249 +1,213 @@
-using System;
 using System.Collections;
 using UnityEngine;
-                        
+
 public class SeasonPassive : MonoBehaviour
 {
     [SerializeField] private GameObject snowEffect;
     [SerializeField] private GameObject rainEffect;
     [SerializeField] private GameObject flowerEffect;
     [SerializeField] private GameObject leavesEffect;
-
     [SerializeField] private AudioClip rain;
-    private bool isInsideShop = false;
-    private GameObject currentActiveEffect = null;
-    private bool isEffectPaused = false;
-
-    // 🌟 추가: 현재 재생 중인 AudioSource를 직접 기억하고 멈추기 위한 변수
-    private AudioSource currentAudioSource = null;
 
     public static SeasonPassive Instance;
+    private bool isInsideShop;
+    private Coroutine weatherRoutine;
+    private GameObject currentActiveEffect;
+    private AudioSource currentAudioSource;
+    private ParticleSystem[] activeParticles;
+    private float[] originalRates;
+    private ParticleSystemRenderer[] activeRenderers;
+    private bool[] originalRendererVisibility;
+    private bool isDraining;
 
     private void Awake()
     {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
+        if (Instance != null && Instance != this) { Destroy(gameObject); return; }
+        Instance = this;
+    }
+
+    private void OnDisable()
+    {
+        CancelWeather();
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     public void HideActiveEffectForShop()
     {
-        if (isInsideShop) return; // 이미 상점 안이면 중복 실행 방지
+        if (isInsideShop) return;
         isInsideShop = true;
-
-        if (rainEffect != null && rainEffect.activeSelf) { rainEffect.SetActive(false); currentActiveEffect = rainEffect; isEffectPaused = true; }
-        if (snowEffect != null && snowEffect.activeSelf) { snowEffect.SetActive(false); currentActiveEffect = snowEffect; isEffectPaused = true; }
-        if (flowerEffect != null && flowerEffect.activeSelf) { flowerEffect.SetActive(false); currentActiveEffect = flowerEffect; isEffectPaused = true; }
-        if (leavesEffect != null && leavesEffect.activeSelf) { leavesEffect.SetActive(false); currentActiveEffect = leavesEffect; isEffectPaused = true; }
-
-        if (currentAudioSource != null && currentAudioSource.isPlaying)
-        {
-            currentAudioSource.Stop();
-        }
-
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.StopSFX(); // 갈매기 및 비 소리 중지
-        }
-
-        Debug.Log("실내 진입: 파티클 숨김 및 소리 중지 완료");
+        if (activeParticles != null)
+            foreach (var particle in activeParticles) particle.Pause(false);
+        if (activeRenderers != null)
+            foreach (var renderer in activeRenderers) renderer.forceRenderingOff = true;
+        if (currentAudioSource != null) currentAudioSource.Pause();
     }
 
     public void RestoreEffectAfterShop()
     {
-        if (!isInsideShop) return; // 상점 안에 있던 게 아니면 무시
-        isInsideShop = false;      // 바깥으로 나왔으므로 해제
-
-        if (isEffectPaused && currentActiveEffect != null)
-        {
-            currentActiveEffect.SetActive(true);
-            isEffectPaused = false;
-        }
+        if (!isInsideShop) return;
+        isInsideShop = false;
+        if (activeRenderers != null)
+            for (int i = 0; i < activeRenderers.Length; i++)
+                activeRenderers[i].forceRenderingOff = originalRendererVisibility[i];
+        if (activeParticles != null)
+            foreach (var particle in activeParticles)
+            {
+                particle.Play(false);
+                if (isDraining) particle.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+            }
+        if (currentAudioSource != null && !isDraining) currentAudioSource.UnPause();
     }
 
     public void ApplySeasonPassive(TimeManager.SeasonPeriod season)
     {
+        // A new day replaces pending weather as well, so an old season cannot start after leaving a shop.
+        CancelWeather();
         switch (season)
         {
-            case TimeManager.SeasonPeriod.Spring:
-                StartCoroutine(ApplyFlower());
-                break;
-            case TimeManager.SeasonPeriod.Summer:
-                StartCoroutine(ApplyRain());
-                break;
-            case TimeManager.SeasonPeriod.Autumn:
-                StartCoroutine(ApplyLeaves());
-                break;
-            case TimeManager.SeasonPeriod.Winter:
-                StartCoroutine(ApplySnow());
-                break;
+            case TimeManager.SeasonPeriod.Spring: weatherRoutine = StartCoroutine(ApplyFlower()); break;
+            case TimeManager.SeasonPeriod.Summer: weatherRoutine = StartCoroutine(ApplyRain()); break;
+            case TimeManager.SeasonPeriod.Autumn: weatherRoutine = StartCoroutine(ApplyLeaves()); break;
+            case TimeManager.SeasonPeriod.Winter: weatherRoutine = StartCoroutine(ApplySnow()); break;
         }
     }
 
-    private IEnumerator ApplyRain()
+    private IEnumerator ApplyRain() => TryWeather(rainEffect, rain);
+    private IEnumerator ApplySnow() => TryWeather(snowEffect);
+    private IEnumerator ApplyLeaves() => TryWeather(leavesEffect);
+    private IEnumerator ApplyFlower() => TryWeather(flowerEffect);
+
+    private IEnumerator TryWeather(GameObject effect, AudioClip clip = null)
     {
-        if (UnityEngine.Random.Range(0, 3) != 0)
-            yield break;
-
-        float start = UnityEngine.Random.Range(1.5f, 2f);
-        yield return new WaitForSeconds(start);
-
-        Debug.Log("Rain");
-
-        yield return StartCoroutine(PlayEffect(rainEffect, rain));
+        if (Random.Range(0, 2) != 0) yield break;
+        yield return new WaitForSeconds(Random.Range(1.5f, 2f));
+        yield return PlayEffect(effect, clip);
     }
-
-
-    private IEnumerator ApplySnow()
-    {
-        if (UnityEngine.Random.Range(0, 3) != 0)
-            yield break;
-
-        float start = UnityEngine.Random.Range(1.5f, 2f);
-        yield return new WaitForSeconds(start);
-
-        Debug.Log("Snow");
-        yield return StartCoroutine(PlayEffect(snowEffect));
-    }
-
-
-    private IEnumerator ApplyLeaves()
-    {
-        if (UnityEngine.Random.Range(0, 3) != 0)
-            yield break;
-
-        float start = UnityEngine.Random.Range(1.5f, 2f);
-        yield return new WaitForSeconds(start);
-
-        Debug.Log("Leaves");
-        yield return StartCoroutine(PlayEffect(leavesEffect));
-    }
-
-
-    private IEnumerator ApplyFlower()
-    {
-        if (UnityEngine.Random.Range(0, 3) != 0)
-            yield break;
-
-        float start = UnityEngine.Random.Range(1.5f, 2f);
-        yield return new WaitForSeconds(start);
-
-        Debug.Log("Flower");
-        yield return StartCoroutine(PlayEffect(flowerEffect));
-    }
-
 
     private IEnumerator PlayEffect(GameObject effect, AudioClip clip = null)
     {
-        if (effect == null)
-            yield break;
-
-        if (effect.activeSelf) yield break;
-
+        if (effect == null) yield break;
+        while (isInsideShop) yield return null;
         currentActiveEffect = effect;
-        isEffectPaused = false;
+        activeParticles = effect.GetComponentsInChildren<ParticleSystem>(true);
+        activeRenderers = effect.GetComponentsInChildren<ParticleSystemRenderer>(true);
+        originalRates = new float[activeParticles.Length];
+        originalRendererVisibility = new bool[activeRenderers.Length];
+        for (int i = 0; i < activeRenderers.Length; i++)
+            originalRendererVisibility[i] = activeRenderers[i].forceRenderingOff;
+        for (int i = 0; i < activeParticles.Length; i++)
+            originalRates[i] = activeParticles[i].emission.rateOverTimeMultiplier;
 
-        AudioSource audioSource = null;
+        effect.SetActive(true);
+        foreach (var particle in activeParticles)
+        {
+            particle.Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+            particle.Play(false);
+        }
         if (clip != null)
         {
-            audioSource = gameObject.GetComponent<AudioSource>();
-            if (audioSource == null)
-            {
-                audioSource = gameObject.AddComponent<AudioSource>();
-            }
-
-            audioSource.clip = clip;
-            audioSource.loop = false; // 음원이 길므로 루프 안 함!
-            audioSource.volume = 1f;
-            audioSource.Play();
-
-            currentAudioSource = audioSource;
+            currentAudioSource = GetComponent<AudioSource>();
+            if (currentAudioSource == null) currentAudioSource = gameObject.AddComponent<AudioSource>();
+            currentAudioSource.clip = clip;
+            currentAudioSource.loop = false;
+            currentAudioSource.volume = 1f;
+            currentAudioSource.Play();
         }
 
-        ParticleSystem[] particles = effect.GetComponentsInChildren<ParticleSystem>(true);
-        effect.SetActive(true);
-
-        float[] originalRates = new float[particles.Length];
-
-        for (int i = 0; i < particles.Length; i++)
+        float elapsed = 0f;
+        while (elapsed < 8f)
         {
-            var emission = particles[i].emission;
-            originalRates[i] = emission.rateOverTime.constant;
+            if (!isInsideShop) elapsed += Time.deltaTime;
+            yield return null;
         }
-
-        yield return new WaitForSeconds(8f);
-
         float fadeDuration = GetFadeDuration(effect);
-        float time = 0f;
-
-        while (time < fadeDuration)
+        elapsed = 0f;
+        while (elapsed < fadeDuration)
         {
-            time += Time.deltaTime;
-            float t = time / fadeDuration;
-
-            float rateMultiplier = Mathf.Lerp(1f, 0f, t);
-
-            for (int i = 0; i < particles.Length; i++)
+            while (isInsideShop) yield return null;
+            elapsed += Time.deltaTime;
+            float multiplier = Mathf.Clamp01(1f - elapsed / fadeDuration);
+            for (int i = 0; i < activeParticles.Length; i++)
             {
-                var emission = particles[i].emission;
-                emission.rateOverTime = originalRates[i] * rateMultiplier;
+                var emission = activeParticles[i].emission;
+                emission.rateOverTimeMultiplier = originalRates[i] * multiplier;
             }
-
-            if (audioSource != null)
-            {
-                audioSource.volume = rateMultiplier;
-            }
-
+            if (currentAudioSource != null) currentAudioSource.volume = multiplier;
             yield return null;
         }
 
-        for (int i = 0; i < particles.Length; i++)
-        {
-            var emission = particles[i].emission;
-            emission.rateOverTime = 0f;
-        }
+        // Rate zero alone leaves a looping system running: stop emission before waiting for survivors.
+        while (isInsideShop) yield return null;
+        isDraining = true;
+        foreach (var particle in activeParticles)
+            particle.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+        if (currentAudioSource != null) currentAudioSource.Stop();
+        while (HasLiveParticles()) yield return null;
+        ResetEffect();
+        weatherRoutine = null;
+    }
 
-        if (audioSource != null && audioSource.isPlaying)
-        {
-            audioSource.Stop();
-        }
+    private bool HasLiveParticles()
+    {
+        foreach (var particle in activeParticles)
+            if (particle.IsAlive(false)) return true;
+        return false;
+    }
 
-        bool isAlive = true;
-        while (isAlive)
-        {
-            isAlive = false;
-            for (int i = 0; i < particles.Length; i++)
+    private void CancelWeather()
+    {
+        if (weatherRoutine != null) StopCoroutine(weatherRoutine);
+        weatherRoutine = null;
+        ResetEffect();
+    }
+
+    private void ResetEffect()
+    {
+        if (activeParticles != null)
+            for (int i = 0; i < activeParticles.Length; i++)
             {
-                if (particles[i].IsAlive(true))
-                {
-                    isAlive = true;
-                    break;
-                }
+                if (activeParticles[i] == null) continue;
+                activeParticles[i].Stop(false, ParticleSystemStopBehavior.StopEmittingAndClear);
+                var emission = activeParticles[i].emission;
+                emission.rateOverTimeMultiplier = originalRates[i];
             }
-            yield return null;
-        }
-
-        effect.SetActive(false);
-
-        for (int i = 0; i < particles.Length; i++)
-        {
-            var emission = particles[i].emission;
-            emission.rateOverTime = originalRates[i];
-        }
-
+        if (activeRenderers != null)
+            for (int i = 0; i < activeRenderers.Length; i++)
+                if (activeRenderers[i] != null) activeRenderers[i].forceRenderingOff = originalRendererVisibility[i];
+        if (currentActiveEffect != null) currentActiveEffect.SetActive(false);
+        if (currentAudioSource != null) currentAudioSource.Stop();
         currentActiveEffect = null;
         currentAudioSource = null;
+        activeParticles = null;
+        activeRenderers = null;
+        originalRates = null;
+        originalRendererVisibility = null;
+        isDraining = false;
     }
+
     private float GetFadeDuration(GameObject effect)
     {
-        if (effect == flowerEffect || effect == leavesEffect)
-            return 1f;
+        if (effect == flowerEffect || effect == leavesEffect) return 1f;
+        return effect == rainEffect ? 2.5f : 2f;
+    }
 
-        if (effect == snowEffect)
-            return 2f;
-
-        if (effect == rainEffect)
-            return 2.5f;
-
-        return 2f;
+    // Deterministic previews during Play Mode; normal daily weather still uses a 50% chance.
+    [ContextMenu("Preview Weather/Rain")]
+    private void PreviewRain() => Preview(rainEffect, rain);
+    [ContextMenu("Preview Weather/Snow")]
+    private void PreviewSnow() => Preview(snowEffect);
+    [ContextMenu("Preview Weather/Flowers")]
+    private void PreviewFlowers() => Preview(flowerEffect);
+    [ContextMenu("Preview Weather/Leaves")]
+    private void PreviewLeaves() => Preview(leavesEffect);
+    private void Preview(GameObject effect, AudioClip clip = null)
+    {
+        if (!Application.isPlaying || !isActiveAndEnabled) return;
+        CancelWeather();
+        weatherRoutine = StartCoroutine(PlayEffect(effect, clip));
     }
 }

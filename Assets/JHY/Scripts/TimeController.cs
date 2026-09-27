@@ -6,6 +6,7 @@ public class TimeController : MonoBehaviour
     private TimePeriod timePeriod;
     private SeasonPeriod seasonPeriod;
     private SeasonPassive seasonPassive;
+    private TimeManager subscribedManager;
 
     [SerializeField] private LightManager lightManager;
     private void Awake()
@@ -16,7 +17,8 @@ public class TimeController : MonoBehaviour
     }
     private void Update()
     {
-        if (Keyboard.current.tKey.wasPressedThisFrame)
+        if (subscribedManager != TimeManager.Instance) Subscribe();
+        if (Keyboard.current != null && Keyboard.current.tKey.wasPressedThisFrame)
         {
             if (timePeriod.IsFading || seasonPeriod.IsTransitioning)
                 return;
@@ -26,6 +28,8 @@ public class TimeController : MonoBehaviour
     }
     private void Start()
     {
+        // Start runs after the scene's Awake calls, unlike OnEnable across different objects.
+        Subscribe();
         if (TimeManager.Instance != null)
         {
             HandleTimePeriod(TimeManager.Instance.CurrentPeriod);
@@ -37,27 +41,37 @@ public class TimeController : MonoBehaviour
     }
     private void OnEnable()
     {
-        if (TimeManager.Instance != null)
-        {
-            TimeManager.Instance.OnTimePeriodChange += HandleTimePeriod;
-            TimeManager.Instance.OnTimePeriodChange += HandleLight;
-            TimeManager.Instance.OnSeasonChange += HandleSeasonPeriod;
-            TimeManager.Instance.OnDayChange += HandleSeasonPassive;
-        }
+        Subscribe();
     }
     private void OnDisable()
     {
-        if (TimeManager.Instance != null)
+        Unsubscribe();
+    }
+    private void Subscribe()
+    {
+        if (subscribedManager == TimeManager.Instance) return;
+        Unsubscribe();
+        subscribedManager = TimeManager.Instance;
+        if (subscribedManager == null) return;
+        subscribedManager.OnTimePeriodChange += HandleTimePeriod;
+        subscribedManager.OnTimePeriodChange += HandleLight;
+        subscribedManager.OnSeasonChange += HandleSeasonPeriod;
+        subscribedManager.OnDayChange += HandleSeasonPassive;
+    }
+    private void Unsubscribe()
+    {
+        if (subscribedManager != null)
         {
-            TimeManager.Instance.OnTimePeriodChange -= HandleTimePeriod;
-            TimeManager.Instance.OnTimePeriodChange -= HandleLight;
-            TimeManager.Instance.OnSeasonChange -= HandleSeasonPeriod;
-            TimeManager.Instance.OnDayChange -= HandleSeasonPassive;
+            subscribedManager.OnTimePeriodChange -= HandleTimePeriod;
+            subscribedManager.OnTimePeriodChange -= HandleLight;
+            subscribedManager.OnSeasonChange -= HandleSeasonPeriod;
+            subscribedManager.OnDayChange -= HandleSeasonPassive;
         }
+        subscribedManager = null;
     }
     private void HandleLight(TimeManager.TimePeriod currentPeriod)
     {
-        lightManager.LightChangeTimePeriod(currentPeriod);
+        if (lightManager != null) lightManager.LightChangeTimePeriod(currentPeriod);
     }
     private void HandleSeasonPassive(TimeManager.SeasonPeriod currentSeason)
     {

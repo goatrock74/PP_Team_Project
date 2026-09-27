@@ -20,7 +20,10 @@ public class UIManger : MonoBehaviour
     [SerializeField] private bool buyOnly;
     [SerializeField] private GameObject[] shopVisuals;
     [SerializeField] private Transform shopViewAnchor;
+    [SerializeField] private GameObject hotbarPanel;
     private Camera shopCamera;
+    private bool environmentHidden;
+    private bool hotbarWasActive;
     // Reserved for ShopVisual in ProjectSettings/TagManager.asset.
     private const int ShopVisualLayerIndex = 30;
 
@@ -37,7 +40,27 @@ public class UIManger : MonoBehaviour
 
     private void OnDisable()
     {
+        if (environmentHidden) SetControlsGuideHidden(false);
         SetShopVisuals(false);
+        SetShopEnvironment(false);
+    }
+
+    private void SetShopEnvironment(bool inside)
+    {
+        // Standalone shop scenes keep their existing scene transition behavior.
+        if (shopRoot == null || environmentHidden == inside) return;
+        environmentHidden = inside;
+        if (hotbarPanel != null)
+        {
+            if (inside)
+            {
+                hotbarWasActive = hotbarPanel.activeSelf;
+                hotbarPanel.SetActive(false);
+            }
+            else hotbarPanel.SetActive(hotbarWasActive);
+        }
+        if (inside) ShopEntrance.EnterShop();
+        else ShopExit.ExitShop();
     }
 
     private void SetShopVisuals(bool visible)
@@ -96,6 +119,8 @@ public class UIManger : MonoBehaviour
 
     private void SetPanels(bool menu, bool buy, bool sell)
     {
+        SetControlsGuideHidden(menu || buy || sell);
+        SetShopEnvironment(menu || buy || sell);
         if (menuPanel != null) menuPanel.SetActive(menu);
         if (buyPanel != null) buyPanel.SetActive(buy);
         if (sellPanel != null) sellPanel.SetActive(sell);
@@ -106,6 +131,12 @@ public class UIManger : MonoBehaviour
     {
         if (shopRoot != null) shopRoot.SetActive(true);
         ShowInitialPanel();
+    }
+
+    // Public instance method so Button.onClick can set the static guide flag.
+    public void SetControlsGuideHidden(bool hidden)
+    {
+        ControlsGuideUI.Hidden = hidden;
     }
 
     public void CloseShop()

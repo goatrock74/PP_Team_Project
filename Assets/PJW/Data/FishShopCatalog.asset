@@ -16,33 +16,33 @@ MonoBehaviour:
   products:
   - item: {fileID: 11400000, guid: 3d5379a990bd6814d995c773141eed31, type: 2}
     title: 기본 낚싯대
-    description: "낚시를 시작할 때 사용하는 기본 낚싯대입니다."
+    description: "입질 감소 없음, 행운 없음"
     icon: {fileID: -4575912806389501571, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
-    price: 100
+    price: 500
     purchaseLimit: 1
   - item: {fileID: 11400000, guid: 9e2066d1202cbc74db2f0e5d0d4b1d22, type: 2}
     title: 고급 낚싯대
-    description: "희귀한 물고기를 낚을 확률을 높여 주는 고급 낚싯대입니다."
+    description: "입질 시간 15% 감소, 행운 +25%"
     icon: {fileID: -6646212337641880122, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
-    price: 200
+    price: 12000
     purchaseLimit: 1
   - item: {fileID: 11400000, guid: 3cbaccd8ed4d14e47aba71b6f854d89b, type: 2}
     title: 전설 낚싯대
-    description: "희귀한 물고기를 노리는 낚시꾼을 위한 전설 낚싯대입니다."
+    description: "입질 시간 30% 감소, 행운 +50%"
     icon: {fileID: -5675188256746831236, guid: b584b2ecbbf01f34aa627fd9b7d70da5, type: 3}
-    price: 300
+    price: 35000
     purchaseLimit: 1
   - item: {fileID: 11400000, guid: e653977d3a183cf4f8ff93a903752406, type: 2}
-    title: 기본 미끼
-    description: "낚시에 사용하는 기본 미끼입니다. 사용하면 미끼 효과가 적용됩니다."
-    icon: {fileID: -4344197728952066872, guid: 8bf358f90772ea941a3d29a9e573eb7a, type: 3}
-    price: 100
+    title: 일반 미끼
+    description: "다음 낚시 1회 행운 +25%"
+    icon: {fileID: 6038393624000712129, guid: 36425019ee5fa744e88a01baf17ad8c3, type: 3}
+    price: 25
     purchaseLimit: 0
   - item: {fileID: 11400000, guid: 2bdebba6a9dc3a240a78d9d7cfcfb214, type: 2}
-    title: 고급 미끼
-    description: "희귀한 물고기를 노릴 때 사용하는 고급 미끼입니다."
-    icon: {fileID: -377568045944316717, guid: c7bd014f54403504bacce9c051eff7bf, type: 3}
-    price: 200
+    title: 황금 미끼
+    description: "다음 낚시 1회 행운 +35%"
+    icon: {fileID: 3407669330557871135, guid: d360110b974c1de4eb79b6e48539fdc4, type: 3}
+    price: 50
     purchaseLimit: 0
   fish:
   - {fileID: 11400000, guid: 3a03a2c885be165b579bbc90ee1d767b, type: 2}

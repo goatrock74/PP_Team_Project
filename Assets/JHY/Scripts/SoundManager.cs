@@ -21,6 +21,8 @@ public class SoundManager : MonoBehaviour
     public float SfxVolume => soundSettings.sfxVolume;
     private AudioClip previousBGM;        // 이전 BGM 백업용
     private bool isBGMOverridden = false;
+    public bool IsInsideShop { get; private set; }
+    private AudioClip outdoorBGM;
     private void Awake()
     {
         if (Instance == null)
@@ -63,12 +65,42 @@ public class SoundManager : MonoBehaviour
     // 2. 상점 퇴장 시: 아까 백업해 둔 원래 노래로 복구
     public void RestoreBGM()
     {
-        if (isBGMOverridden && previousBGM != null)
-        {
-            PlayBGM(previousBGM); // 원래 노래 재생
-            isBGMOverridden = false;
-            previousBGM = null;
-        }
+        if (!isBGMOverridden) return;
+        AudioClip clip = previousBGM;
+        isBGMOverridden = false;
+        previousBGM = null;
+        if (IsInsideShop) StopBGM();
+        else if (clip != null) PlayBGM(clip);
+        else StopBGM();
+    }
+    public void EnterShop()
+    {
+        if (IsInsideShop) return;
+        IsInsideShop = true;
+        outdoorBGM = isBGMOverridden ? previousBGM : bgmSource != null ? bgmSource.clip : null;
+        if (!isBGMOverridden) StopBGM();
+    }
+
+    public void ResetOutdoorSceneAudio()
+    {
+        IsInsideShop = false;
+        isBGMOverridden = false;
+        previousBGM = null;
+        outdoorBGM = null;
+        StopBGM();
+        StopSFX();
+    }
+
+    public void ExitShop()
+    {
+        if (!IsInsideShop) return;
+        IsInsideShop = false;
+        isBGMOverridden = false;
+        previousBGM = null;
+        AudioClip clip = outdoorBGM;
+        outdoorBGM = null;
+        if (clip != null) PlayBGM(clip);
+        else StopBGM();
     }
     public void SetMasterVolume(float value)
     {
@@ -100,6 +132,16 @@ public class SoundManager : MonoBehaviour
     public void PlayBGM(AudioClip clip)
     {
         if (clip == null || bgmSource == null) return;
+        if (IsInsideShop)
+        {
+            outdoorBGM = clip;
+            return;
+        }
+        if (isBGMOverridden)
+        {
+            previousBGM = clip;
+            return;
+        }
         if (bgmSource.clip == clip && bgmSource.isPlaying) return;
 
         bgmSource.clip = clip;
