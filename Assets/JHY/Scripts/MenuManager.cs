@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("Camera Preview ø¨√‚")]
-    [SerializeField] private MultiMapPreview mapPreview; // ƒ´∏ﬁ∂Û ø¨√‚ Ω∫≈©∏≥∆Æ ø¨∞·
+    [Header("Camera Preview Ïó∞Ï∂ú")]
+    [SerializeField] private MultiMapPreview mapPreview; // Ïπ¥Î©îÎùº Ïó∞Ï∂ú Ïä§ÌÅ¨Î¶ΩÌä∏ Ïó∞Í≤∞
 
     [Header("Canvas Groups")]
     [SerializeField] private CanvasGroup startScreen;
@@ -25,11 +25,22 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private AudioClip MainBGM;
 
     private bool isStartScreen = true;
+    [SerializeField] private bool startAtMainMenu;
     private bool isTransitioning = false;
 
     private void Start()
     {
         SoundManager.Instance.PlayBGM(MainBGM);
+        if (startAtMainMenu)
+        {
+            isStartScreen = false;
+            startScreen.alpha = 0f;
+            startScreen.interactable = false;
+            startScreen.blocksRaycasts = false;
+            fadePanel.alpha = 0f;
+            StartCoroutine(OpenMainMenuOnStart());
+            return;
+        }
         startScreen.alpha = 1f;
         startScreen.interactable = true;
         startScreen.blocksRaycasts = true;
@@ -110,6 +121,25 @@ public class MenuManager : MonoBehaviour
     }
 
     public void NextScene()
+    {
+        var slots = GetComponent<SaveSlotMenu>();
+        if (slots != null) slots.Open();
+        else BeginLegacyScene();
+    }
+
+    private System.Collections.IEnumerator OpenMainMenuOnStart()
+    {
+        // Wait for the preview camera's Start before stopping its coroutine.
+        yield return null;
+        if (mapPreview != null) mapPreview.StopPreview();
+        mainMenu.alpha = 1f;
+        mainMenu.interactable = true;
+        mainMenu.blocksRaycasts = true;
+        background.SetActive(true);
+        mainMenuAnimation.PlayAnimation();
+    }
+
+    public void BeginLegacyScene()
     {
         if (isTransitioning)
             return;

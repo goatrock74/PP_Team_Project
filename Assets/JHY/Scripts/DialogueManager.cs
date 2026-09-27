@@ -183,7 +183,7 @@ public class DialogueManager : MonoBehaviour
             yield return fadePanelImage.DOFade(1f, fadeDuration).SetEase(Ease.Linear).WaitForCompletion();
         }
 
-        SceneManager.LoadScene(scenenumber);
+        SaveGameSession.LoadScene(scenenumber);
     }
 
 

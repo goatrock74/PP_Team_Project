@@ -48,6 +48,6 @@ public class InGameUIManager : MonoBehaviour
     public void GoMain()
     {
         SoundManager.Instance.PlaySFX(closeSoundl);
-        SceneManager.LoadScene(0);
+        SaveGameSession.LoadScene(0);
     }
 }

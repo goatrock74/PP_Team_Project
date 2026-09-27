@@ -185,13 +185,13 @@ public class UIManger : MonoBehaviour
     public void InShop(int sceneNum)
     {
         if (shopRoot != null) OpenShop();
-        else SceneManager.LoadScene(sceneNum);
+        else SaveGameSession.LoadScene(sceneNum);
     }
 
     public void OutShop(int sceneNum)
     {
         if (shopRoot != null) CloseShop();
-        else SceneManager.LoadScene(sceneNum);
+        else SaveGameSession.LoadScene(sceneNum);
     }
 
     public void ClickSound()

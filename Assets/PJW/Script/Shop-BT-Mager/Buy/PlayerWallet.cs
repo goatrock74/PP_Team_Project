@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerWallet : MonoBehaviour
 {
     private const string SaveKey = "TotalMoney";
-    private const int StartingMoney = 10000;
+    private const int StartingMoney = 0;
     private static PlayerWallet instance;
 
     public static PlayerWallet Instance
@@ -20,6 +20,11 @@ public class PlayerWallet : MonoBehaviour
     }
 
     private int currentMoney;
+    public void RestoreSave(int money)
+    {
+        currentMoney = Mathf.Max(0, money);
+        OnMoneyChanged?.Invoke(currentMoney);
+    }
     public int CurrentMoney => instance == this ? currentMoney : Instance.CurrentMoney;
     public event System.Action<int> OnMoneyChanged;
 
@@ -50,7 +55,7 @@ public class PlayerWallet : MonoBehaviour
             return;
         }
         instance = this;
-        currentMoney = Mathf.Max(0, PlayerPrefs.GetInt(SaveKey, StartingMoney));
+        currentMoney = Mathf.Max(0, SaveSlotStore.GetInt(SaveKey, StartingMoney));
         DontDestroyOnLoad(gameObject);
     }
 
@@ -80,9 +85,10 @@ public class PlayerWallet : MonoBehaviour
 
     private void Save()
     {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "0.0MainMenu_F") return;
         if (instance != this) return;
-        PlayerPrefs.SetInt(SaveKey, currentMoney);
-        PlayerPrefs.Save();
+        SaveSlotStore.SetInt(SaveKey, currentMoney);
+        SaveSlotStore.Save();
     }
 
     private void OnApplicationPause(bool paused) { if (paused) Save(); }
