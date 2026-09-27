@@ -36,6 +36,7 @@ public sealed class ResolutionGate : MonoBehaviour
         rect.anchorMax = new Vector2(0.92f, 0.9f);
         rect.offsetMin = rect.offsetMax = Vector2.zero;
         message = textObject.GetComponent<Text>();
+        message.horizontalOverflow = HorizontalWrapMode.Overflow;
         message.font = messageFont;
         message.color = Color.red;
         message.alignment = TextAnchor.MiddleCenter;

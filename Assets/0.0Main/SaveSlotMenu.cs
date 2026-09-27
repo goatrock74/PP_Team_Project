@@ -91,6 +91,7 @@ public class SaveSlotMenu : MonoBehaviour
     {
         var go = new GameObject(name, typeof(RectTransform), typeof(Image)); go.transform.SetParent(parent, false);
         var rt = (RectTransform)go.transform; rt.anchorMin = min; rt.anchorMax = max; rt.offsetMin = rt.offsetMax = Vector2.zero;
+        go.GetComponent<TextMeshProUGUI>().textWrappingMode = TextWrappingModes.NoWrap;
         go.GetComponent<Image>().color = color; return rt;
     }
     private TMP_Text Label(Transform parent, string text, Vector2 min, Vector2 max, int size)

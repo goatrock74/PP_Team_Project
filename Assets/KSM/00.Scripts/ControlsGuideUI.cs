@@ -385,6 +385,7 @@ using KSM._00.Scripts.Items;
             textGo.transform.SetParent(_panel, false);
 
             _text = textGo.AddComponent<TextMeshProUGUI>();
+            _text.textWrappingMode = TextWrappingModes.NoWrap;
             if (font != null) _text.font = font;
             _text.fontSize = fontSize;
             _text.color = textColor;
