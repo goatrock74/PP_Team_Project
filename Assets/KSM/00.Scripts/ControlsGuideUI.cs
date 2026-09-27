@@ -12,6 +12,11 @@ using KSM._00.Scripts.Items;
 
     public class ControlsGuideUI : MonoBehaviour
     {
+        public static bool Hidden { get; set; }
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetHidden() => Hidden = false;
+
         [Serializable]
         public struct Entry
         {
@@ -118,7 +123,7 @@ using KSM._00.Scripts.Items;
             }
 
             // 제작창이나 뽑기 연출 중에는 가린다
-            bool hide = CraftingUI.IsOpen || GachaUI.IsSpinning;
+            bool hide = Hidden || CraftingUI.IsOpen || GachaUI.IsSpinning;
             if (_group != null) _group.alpha = hide ? 0f : 1f;
 
             // 들고 있는 게 바뀌었을 수 있으니 가끔 다시 쓴다

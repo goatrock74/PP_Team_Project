@@ -38,6 +38,7 @@ public class UIManger : MonoBehaviour
 
     private void OnDisable()
     {
+        if (environmentHidden) SetControlsGuideHidden(false);
         SetShopVisuals(false);
         SetShopEnvironment(false);
     }
@@ -107,6 +108,7 @@ public class UIManger : MonoBehaviour
 
     private void SetPanels(bool menu, bool buy, bool sell)
     {
+        SetControlsGuideHidden(menu || buy || sell);
         SetShopEnvironment(menu || buy || sell);
         if (menuPanel != null) menuPanel.SetActive(menu);
         if (buyPanel != null) buyPanel.SetActive(buy);
@@ -118,6 +120,12 @@ public class UIManger : MonoBehaviour
     {
         if (shopRoot != null) shopRoot.SetActive(true);
         ShowInitialPanel();
+    }
+
+    // Public instance method so Button.onClick can set the static guide flag.
+    public void SetControlsGuideHidden(bool hidden)
+    {
+        ControlsGuideUI.Hidden = hidden;
     }
 
     public void CloseShop()
