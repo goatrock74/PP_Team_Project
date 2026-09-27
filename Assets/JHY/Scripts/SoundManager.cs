@@ -19,7 +19,8 @@ public class SoundManager : MonoBehaviour
     public float MasterVolume => soundSettings.masterVolume;
     public float BgmVolume => soundSettings.bgmVolume;
     public float SfxVolume => soundSettings.sfxVolume;
-
+    private AudioClip previousBGM;        // 이전 BGM 백업용
+    private bool isBGMOverridden = false;
     private void Awake()
     {
         if (Instance == null)
@@ -44,7 +45,31 @@ public class SoundManager : MonoBehaviour
         SetBGMVolume(soundSettings.bgmVolume);
         SetSFXVolume(soundSettings.sfxVolume);
     }
+    public void OverrideBGM(AudioClip newClip)
+    {
+        if (newClip == null || bgmSource == null) return;
 
+        if (!isBGMOverridden)
+        {
+            previousBGM = bgmSource.clip; // 지금 재생 중인 노래 백업
+            isBGMOverridden = true;
+        }
+
+        bgmSource.clip = newClip;
+        bgmSource.loop = true;
+        bgmSource.Play();
+    }
+
+    // 2. 상점 퇴장 시: 아까 백업해 둔 원래 노래로 복구
+    public void RestoreBGM()
+    {
+        if (isBGMOverridden && previousBGM != null)
+        {
+            PlayBGM(previousBGM); // 원래 노래 재생
+            isBGMOverridden = false;
+            previousBGM = null;
+        }
+    }
     public void SetMasterVolume(float value)
     {
         soundSettings.masterVolume = value;
@@ -88,6 +113,14 @@ public class SoundManager : MonoBehaviour
         {
             bgmSource.Stop();
             bgmSource.clip = null;
+        }
+    }
+
+    public void StopSFX()
+    {
+        if (sfxSource != null && sfxSource.isPlaying)
+        {
+            sfxSource.Stop();
         }
     }
 }

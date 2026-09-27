@@ -10,6 +10,55 @@ public class SeasonPassive : MonoBehaviour
     [SerializeField] private GameObject leavesEffect;
 
     [SerializeField] private AudioClip rain;
+    private bool isInsideShop = false;
+    private GameObject currentActiveEffect = null;
+    private bool isEffectPaused = false;
+
+    // 🌟 추가: 현재 재생 중인 AudioSource를 직접 기억하고 멈추기 위한 변수
+    private AudioSource currentAudioSource = null;
+
+    public static SeasonPassive Instance;
+
+    private void Awake()
+    {
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
+    }
+
+    public void HideActiveEffectForShop()
+    {
+        if (isInsideShop) return; // 이미 상점 안이면 중복 실행 방지
+        isInsideShop = true;
+
+        if (rainEffect != null && rainEffect.activeSelf) { rainEffect.SetActive(false); currentActiveEffect = rainEffect; isEffectPaused = true; }
+        if (snowEffect != null && snowEffect.activeSelf) { snowEffect.SetActive(false); currentActiveEffect = snowEffect; isEffectPaused = true; }
+        if (flowerEffect != null && flowerEffect.activeSelf) { flowerEffect.SetActive(false); currentActiveEffect = flowerEffect; isEffectPaused = true; }
+        if (leavesEffect != null && leavesEffect.activeSelf) { leavesEffect.SetActive(false); currentActiveEffect = leavesEffect; isEffectPaused = true; }
+
+        if (currentAudioSource != null && currentAudioSource.isPlaying)
+        {
+            currentAudioSource.Stop();
+        }
+
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.StopSFX(); // 갈매기 및 비 소리 중지
+        }
+
+        Debug.Log("실내 진입: 파티클 숨김 및 소리 중지 완료");
+    }
+
+    public void RestoreEffectAfterShop()
+    {
+        if (!isInsideShop) return; // 상점 안에 있던 게 아니면 무시
+        isInsideShop = false;      // 바깥으로 나왔으므로 해제
+
+        if (isEffectPaused && currentActiveEffect != null)
+        {
+            currentActiveEffect.SetActive(true);
+            isEffectPaused = false;
+        }
+    }
 
     public void ApplySeasonPassive(TimeManager.SeasonPeriod season)
     {
@@ -43,6 +92,7 @@ public class SeasonPassive : MonoBehaviour
         yield return StartCoroutine(PlayEffect(rainEffect, rain));
     }
 
+
     private IEnumerator ApplySnow()
     {
         if (UnityEngine.Random.Range(0, 3) != 0)
@@ -54,6 +104,7 @@ public class SeasonPassive : MonoBehaviour
         Debug.Log("Snow");
         yield return StartCoroutine(PlayEffect(snowEffect));
     }
+
 
     private IEnumerator ApplyLeaves()
     {
@@ -67,6 +118,7 @@ public class SeasonPassive : MonoBehaviour
         yield return StartCoroutine(PlayEffect(leavesEffect));
     }
 
+
     private IEnumerator ApplyFlower()
     {
         if (UnityEngine.Random.Range(0, 3) != 0)
@@ -79,12 +131,16 @@ public class SeasonPassive : MonoBehaviour
         yield return StartCoroutine(PlayEffect(flowerEffect));
     }
 
+
     private IEnumerator PlayEffect(GameObject effect, AudioClip clip = null)
     {
         if (effect == null)
             yield break;
 
         if (effect.activeSelf) yield break;
+
+        currentActiveEffect = effect;
+        isEffectPaused = false;
 
         AudioSource audioSource = null;
         if (clip != null)
@@ -95,14 +151,12 @@ public class SeasonPassive : MonoBehaviour
                 audioSource = gameObject.AddComponent<AudioSource>();
             }
 
-            if (SoundManager.Instance != null)
-            {
-            }
-
             audioSource.clip = clip;
             audioSource.loop = false; // 음원이 길므로 루프 안 함!
             audioSource.volume = 1f;
             audioSource.Play();
+
+            currentAudioSource = audioSource;
         }
 
         ParticleSystem[] particles = effect.GetComponentsInChildren<ParticleSystem>(true);
@@ -175,8 +229,10 @@ public class SeasonPassive : MonoBehaviour
             var emission = particles[i].emission;
             emission.rateOverTime = originalRates[i];
         }
-    }
 
+        currentActiveEffect = null;
+        currentAudioSource = null;
+    }
     private float GetFadeDuration(GameObject effect)
     {
         if (effect == flowerEffect || effect == leavesEffect)
