@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CucumberSO
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
   cropName: "\uC624\uC774"
-  icon: {fileID: 0}
+  icon: {fileID: -3513379549867885781, guid: 673dad0995760804683237669eab9824, type: 3}
   harvestType: 1
   growthStages:
   - sprite: {fileID: -3513379549867885781, guid: 673dad0995760804683237669eab9824, type: 3}

@@ -53,7 +53,7 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: f10371de528d32e48a3c5b75655ec30d, type: 2}
     weight: 10
     minCount: 1
-    maxCount: 3
+    maxCount: 10
     quality: 0
     rarity: 3
   - item: {fileID: 11400000, guid: ff46c33820788b54180694e3f2a09992, type: 2}

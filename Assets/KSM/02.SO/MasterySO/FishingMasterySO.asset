@@ -15,10 +15,10 @@ MonoBehaviour:
   type: 3
   displayName: Fishing
   icon: {fileID: 499921086759859872, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  description: fishing
+  description: "\uB09A\uC2DC\uB97C\uD558\uBA70 \uB819\uC5C5\uD558\uC790"
   maxLevel: 20
-  baseExp: 100
-  expGrowth: 1.25
+  baseExp: 300
+  expGrowth: 1.4
   statsPerLevel:
   - stat: 4
     perLevel: 0.02

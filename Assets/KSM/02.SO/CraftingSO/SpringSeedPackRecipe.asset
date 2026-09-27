@@ -10,12 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ec6549a3d9440d5a4739ee0c82107e1, type: 3}
-  m_Name: CraftingRecipeSO
+  m_Name: SpringSeedPackRecipe
   m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingRecipeSO
-  result: {fileID: 0}
+  result: {fileID: 11400000, guid: d818a80b8500f3849ba2349446eb942c, type: 2}
   resultCount: 1
   materials:
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: e72e969c514de2647b3afd8840965c47, type: 2}
     count: 1
+  - item: {fileID: 11400000, guid: 0224c39d0343acb44b1bdcbb131c64e8, type: 2}
+    count: 5
   maxBatch: 1
-  description: 
+  description: "\uBD04 \uC791\uBB3C\uC528\uC557\uC744 \uC5BB\uC744\uC218\uC788\uB294
+    \uBF51\uAE30\uD329\uC774\uB2E4"

@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d6f09d5f542a4e95ab92d1a9cb35d24d, type: 3}
-  m_Name: Seed_Cucumber
+  m_Name: Seed_Meal
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
-  itemId: cucumber_seed
-  displayName: "\uC624\uC774\uC528\uC557\uD329"
-  icon: {fileID: 8558203965515749781, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
-  description: "\uBA4B\uC7C1\uC774 \uC624\uC774\uB97C \uC2EC\uC744\uC218\uC788\uB2E4"
+  itemId: meal_seed
+  displayName: "\uBC00 \uC528\uC557"
+  icon: {fileID: -8406927684780180729, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
+  description: "\uC591\uBC30\uCD94\uC528\uC557\uC744 \uC2EC\uC744\uC218\uC788\uB2E4"
   itemType: 1
   maxStack: 99
-  sellPrice: 15
+  sellPrice: 0
   season: 0
-  crop: {fileID: 11400000, guid: 8b6aeee2fbb27984380516b7e69f36c5, type: 2}
+  crop: {fileID: 11400000, guid: aa7c58c2037b5ca47820df5302a017cf, type: 2}

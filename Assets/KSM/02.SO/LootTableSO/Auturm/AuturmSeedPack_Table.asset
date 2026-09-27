@@ -27,7 +27,7 @@ MonoBehaviour:
     quality: 0
     rarity: 0
   - item: {fileID: 11400000, guid: 26436520f3d21b44dbaf9d8fd80ec3cb, type: 2}
-    weight: 24
+    weight: 12
     minCount: 1
     maxCount: 3
     quality: 0
@@ -36,5 +36,17 @@ MonoBehaviour:
     weight: 12
     minCount: 1
     maxCount: 3
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: 3dcf1fdaea5a99641b4052dd6bf276c3, type: 2}
+    weight: 6
+    minCount: 1
+    maxCount: 25
+    quality: 0
+    rarity: 3
+  - item: {fileID: 11400000, guid: fba1d618ff374794dbd8a45661edde8c, type: 2}
+    weight: 6
+    minCount: 1
+    maxCount: 20
     quality: 0
     rarity: 3

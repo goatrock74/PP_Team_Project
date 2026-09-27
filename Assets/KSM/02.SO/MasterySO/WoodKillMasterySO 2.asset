@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MasterySO
   type: 2
   displayName: Logging
-  icon: {fileID: -330047534944454618, guid: 2e2ea28bbd2794c41a647152bc30dc77, type: 3}
-  description: haha
+  icon: {fileID: 7889334590475501162, guid: 51ad87ffae4d4e041b7f33b03c5894bf, type: 3}
+  description: "\uBC8C\uBAA9\uC744\uD558\uBA70 \uB819\uC5C5\uD55C\uB2E4"
   maxLevel: 20
-  baseExp: 100
-  expGrowth: 1.25
+  baseExp: 250
+  expGrowth: 1.3
   statsPerLevel:
   - stat: 3
     perLevel: 0.05

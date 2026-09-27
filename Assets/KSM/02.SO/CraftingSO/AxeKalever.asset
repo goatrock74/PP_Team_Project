@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec6549a3d9440d5a4739ee0c82107e1, type: 3}
+  m_Name: AxeKalever
+  m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crafting.CraftingRecipeSO
+  result: {fileID: 11400000, guid: f9723b57716f2b045a64ed80cb87a658, type: 2}
+  resultCount: 1
+  materials:
+  - item: {fileID: 11400000, guid: 301a6cc0f1dc6344985e3f71d7f9ea47, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 995b5194c14c2634399b63d6d4d7d7d9, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: 5939d7c62e4cd7c47bc9167408596f66, type: 2}
+    count: 1
+  - item: {fileID: 11400000, guid: dfe01056a2db9b54a834cd597a16c16a, type: 2}
+    count: 1
+  maxBatch: 1
+  description: "\uB2FF\uC744\uC218 \uC5C6\uB294 \uC774\uCE58\uC758 \uAC80 \n\uB9CC\uB4E0\uB2E4\uBA74
+    DM\uC744 \uBCF4\uB0B4\uB77C"
