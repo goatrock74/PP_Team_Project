@@ -38,11 +38,14 @@ namespace PJH._01.Scripts
 
         private void Awake()
         {
+            Debug.Log(gameObject.name);
+           
             playerBody = GetComponent<Rigidbody2D>();
             playerInput = GetComponent<PlayerInput>();
 
             if (doorLinks == null || doorLinks.Length == 0)
             {
+
                 Debug.LogError("[FishShopDoorTransition] 문 연결 목록이 비어 있습니다.", this);
                 enabled = false;
                 return;
