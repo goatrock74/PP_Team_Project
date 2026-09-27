@@ -78377,6 +78377,10 @@ PrefabInstance:
       propertyPath: boxSize.y
       value: 2.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8728814353871003970, guid: 532f5dea2a8179246a1efc98b8d73071, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
