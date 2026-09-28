@@ -17,8 +17,8 @@ MonoBehaviour:
   icon: {fileID: -4361023292821057525, guid: 1d4fb122d56c6c74097027c330bdef09, type: 3}
   description: "\uC791\uBB3C\uC744 \uCC44\uC9D1\uD558\uBA70 \uB819\uC5C5\uD55C\uB2E4"
   maxLevel: 20
-  baseExp: 250
-  expGrowth: 1.25
+  baseExp: 340
+  expGrowth: 1.7
   statsPerLevel:
   - stat: 0
     perLevel: 0.02
@@ -26,10 +26,10 @@ MonoBehaviour:
   - level: 10
     perk: 2
     title: "\uC911\uAE09 \uCC44\uC9D1\uAC00"
-    description: 
+    description: "\uCC44\uC9D1\uB864 1\uD68C\uCD94\uAC00"
     value: 1
   - level: 20
     perk: 2
     title: "\uACE0\uAE09 \uCC44\uC9D1\uAC00"
-    description: 
+    description: "\uCC44\uC9D1\uB864 2\uD68C\uCD94\uAC00"
     value: 2

@@ -421147,7 +421147,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.1
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -421171,8 +421171,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774133398}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.039882056, y: 0.014983008, z: 0.0005980963, w: 0.9990919}
-  m_LocalPosition: {x: -28.61441, y: 43.5, z: -10}
+  m_LocalRotation: {x: 0.0000000037223231, y: -0.000000029954705, z: 1.1150109e-16, w: 1}
+  m_LocalPosition: {x: -38.34, y: -0.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428397,7 +428397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolFX
   hoeSfx: {fileID: 8300000, guid: b069477cf5a038043bd8b2642ab0e703, type: 3}
-  waterSfx: {fileID: 8300000, guid: 39a7ea82e9d59d246878f68cf72a0cdb, type: 3}
+  waterSfx: {fileID: 8300000, guid: b7b661e6e6df0fe47b995d6ef3b434ad, type: 3}
   chopSfx: {fileID: 8300000, guid: 2a43ec3f749c2d042a8f99d769334118, type: 3}
   fellSfx: {fileID: 8300000, guid: b1004bb1c39d5214ba23dbb0f81b11d3, type: 3}
   scytheSfx: {fileID: 8300000, guid: 2a43ec3f749c2d042a8f99d769334118, type: 3}

@@ -17,8 +17,8 @@ MonoBehaviour:
   icon: {fileID: -888257036514282291, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
   description: "\uC791\uBB3C\uC744 \uC5BB\uC73C\uBA70 \uB819\uC5C5\uD558\uC790"
   maxLevel: 20
-  baseExp: 300
-  expGrowth: 1.4
+  baseExp: 450
+  expGrowth: 1.6
   statsPerLevel:
   - stat: 2
     perLevel: 0.01
