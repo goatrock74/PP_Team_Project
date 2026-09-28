@@ -37,7 +37,7 @@ using KSM._00.Scripts.Items;
     ///   On Gold Reward 칸의 + 를 누르고, 골드 스크립트가 붙은 오브젝트를 끌어다 넣은 뒤
     ///   골드를 더하는 함수(int 하나 받는 것)를 고른다. 연결 전에는 골드만 안 들어간다.
     ///   코드로 받을 거면:  QuestBoard.GoldRewarded += amount => { /* 골드 += amount */ };
-    /// ★ 진행 상황은 PlayerPrefs 에 저장된다. 처음부터 다시: 컴포넌트 ⋮ → "진행 초기화"
+    /// ★ 진행 상황은 선택한 저장 슬롯에 저장된다. 처음부터 다시: 컴포넌트 ⋮ → "진행 초기화"
     /// ★ 나무·풀숲을 세려면 나무·풀숲 저장 때 보낸 TreeNode / ForageNode 가 들어가 있어야 한다
     /// </summary>
     [DefaultExecutionOrder(200)]
@@ -280,6 +280,8 @@ using KSM._00.Scripts.Items;
         private CropManager _mgr;
         private int _lastCropCount = -1;     // -1 = 아직 기준을 안 잡음 (밭 불러오기가 끝난 뒤에 잡는다)
         private bool _dirty;
+        private bool _saveLoaded;
+        private string _saveSlotId;
         private float _saveAt;
         private float _pollAt;
         private bool _allDoneFired;
@@ -1044,14 +1046,18 @@ using KSM._00.Scripts.Items;
 
         private void Load()
         {
+            _saveSlotId = SaveSlotStore.Active?.id;
+            _saveLoaded = true;
+            _dirty = false;
             _progress.Clear();
             _claimed.Clear();
+            _notified.Clear();
             ClearDaily();
             _dailyDay = -1;
 
             if (!saveProgress) return;
 
-            string json = PlayerPrefs.GetString(SaveKey, string.Empty);
+            string json = SaveSlotStore.GetString(SaveKey, string.Empty);
             if (string.IsNullOrEmpty(json)) return;
 
             SaveData data;
@@ -1108,10 +1114,13 @@ using KSM._00.Scripts.Items;
             }
         }
 
+        // Called before the session writes its complete snapshot, including pending progress.
+        public void CaptureSave() => Save();
+
         private void Save()
         {
-            _dirty = false;
-            if (!saveProgress) return;
+            // A board being destroyed must never write into the next slot or legacy data.
+            if (!_saveLoaded || !saveProgress || _saveSlotId != SaveSlotStore.Active?.id) return;
 
             var data = new SaveData();
             var written = new HashSet<string>();
@@ -1130,15 +1139,17 @@ using KSM._00.Scripts.Items;
             for (int i = 0; i < _daily.Count; i++)
                 data.daily.Add(new DailySave { template = _dailyTemplate[i], count = _daily[i].count });
 
-            PlayerPrefs.SetString(SaveKey, JsonUtility.ToJson(data));
-            PlayerPrefs.Save();
+            SaveSlotStore.SetString(SaveKey, JsonUtility.ToJson(data));
+            SaveSlotStore.Save();
+            _dirty = false;
         }
 
         [ContextMenu("진행 초기화 (의뢰 처음부터)")]
         private void ResetProgress()
         {
-            PlayerPrefs.DeleteKey(SaveKey);
-            PlayerPrefs.Save();
+            if (Application.isPlaying && (!_saveLoaded || _saveSlotId != SaveSlotStore.Active?.id)) return;
+            SaveSlotStore.DeleteKey(SaveKey);
+            SaveSlotStore.Save();
 
             _progress.Clear();
             _claimed.Clear();
@@ -1150,9 +1161,13 @@ using KSM._00.Scripts.Items;
 
             if (!Application.isPlaying) return;
 
+            _lastCropCount = _mgr != null ? _mgr.Crops.Count : -1;
+            _toastUntil = 0f;
             RefreshActive();
             EnsureDaily();
             if (IsOpen) RefreshView();
+            Save();
+            SaveGameSession.SaveNow();
 
             Debug.Log("[의뢰] 진행 상황을 지웠습니다. 첫 의뢰부터 다시 시작합니다.", this);
         }
