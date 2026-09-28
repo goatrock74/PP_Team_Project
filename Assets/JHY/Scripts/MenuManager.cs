@@ -114,6 +114,14 @@ public class MenuManager : MonoBehaviour
         if (isTransitioning)
             return;
 
+        // Select a save slot before entering gameplay from the main menu.
+        if (TryGetComponent<SaveSlotMenu>(out var saveSlots))
+        {
+            SoundManager.Instance.PlaySFX(clickMain);
+            saveSlots.Open();
+            return;
+        }
+
         isTransitioning = true;
 
         SoundManager.Instance.PlaySFX(clickMain);
