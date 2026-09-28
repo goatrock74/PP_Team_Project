@@ -15459,12 +15459,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.HorizontalLayoutGroup
   m_Padding:
-    m_Left: 50
-    m_Right: 50
+    m_Left: 0
+    m_Right: 0
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 50
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -44124,6 +44124,7 @@ MonoBehaviour:
   rainEffect: {fileID: 0}
   flowerEffect: {fileID: 0}
   leavesEffect: {fileID: 0}
+  rain: {fileID: 0}
 --- !u!114 &227905864
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44918,6 +44919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 324991066}
   - component: {fileID: 324991065}
+  - component: {fileID: 324991067}
   m_Layer: 0
   m_Name: CropManager
   m_TagString: Untagged
@@ -44959,6 +44961,51 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &324991067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324991064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d144a87f1f54062a39fe46dd6c751bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KSM._00.Scripts.Crop.FarmSaveManager
+  autoSaveInterval: 5
+  loadOnStart: 1
+  verboseLog: 1
+  crops:
+  - {fileID: 11400000, guid: bd55b96902a2d7b48ae4460c997c8151, type: 2}
+  - {fileID: 11400000, guid: 7cdae23c0f7e5054886b04e78cdff4ae, type: 2}
+  - {fileID: 11400000, guid: 1bd38575ab77e0e4b9ea466e7035b862, type: 2}
+  - {fileID: 11400000, guid: 34e644548c8e5a140b2f026a182fbf56, type: 2}
+  - {fileID: 11400000, guid: 8b6aeee2fbb27984380516b7e69f36c5, type: 2}
+  - {fileID: 11400000, guid: ccd744cda4a4fed43a1fe4d17772a40b, type: 2}
+  - {fileID: 11400000, guid: 5021d7c0c961fdd48afcc5f91897039a, type: 2}
+  - {fileID: 11400000, guid: ee9c09bcd9fa1fd4a97ad378ba575823, type: 2}
+  - {fileID: 11400000, guid: e4c615ceb220cbe42bb4567ac48ad85a, type: 2}
+  - {fileID: 11400000, guid: 7ee773a0870eda246bd00f5149acec44, type: 2}
+  - {fileID: 11400000, guid: 9130f68ea2865e1459369372329edb60, type: 2}
+  - {fileID: 11400000, guid: 6e973c943209e8545913458a2f86f472, type: 2}
+  - {fileID: 11400000, guid: 4dca27a259c49cf4dba97a1b07cb2fb4, type: 2}
+  - {fileID: 11400000, guid: b973a62d1906c6a4089af82e3f6216a8, type: 2}
+  - {fileID: 11400000, guid: 806f0ffaf71669744820c693f9033ef1, type: 2}
+  - {fileID: 11400000, guid: 360ea63e0882d434ab7b45828c697a32, type: 2}
+  - {fileID: 11400000, guid: aa7c58c2037b5ca47820df5302a017cf, type: 2}
+  - {fileID: 11400000, guid: 58630a0b96bf1d14296013c434d6571e, type: 2}
+  - {fileID: 11400000, guid: eb299c54e2f7e6143af7802049bfaac4, type: 2}
+  - {fileID: 11400000, guid: a966ec7240231dc4bafe9676896aa257, type: 2}
+  - {fileID: 11400000, guid: 6da3c0b7f581b5249ab1c383e68f4077, type: 2}
+  - {fileID: 11400000, guid: e6535c8d29caded40a9b537cb2c2c227, type: 2}
+  - {fileID: 11400000, guid: 47fad67f8b75604418caaf05c5747906, type: 2}
+  - {fileID: 11400000, guid: ddd93f710cae73d4d83bb182e102f168, type: 2}
+  - {fileID: 11400000, guid: c7cd0afdbd932c841b4b369b6a87610f, type: 2}
+  - {fileID: 11400000, guid: 630d567480a2bbf429716745dc68a1ad, type: 2}
+  tiles:
+  - {fileID: 11400000, guid: 2b720a96fec8b9f4098260da164e7118, type: 2}
+  - {fileID: 11400000, guid: 3202142844fe58e409e9ae3a99045145, type: 2}
 --- !u!1 &332191952
 GameObject:
   m_ObjectHideFlags: 0
@@ -230947,8 +230994,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.000015259}
-  m_SizeDelta: {x: 1200, y: 350}
+  m_AnchoredPosition: {x: -0.000019073, y: 0.000015259}
+  m_SizeDelta: {x: 1261.5, y: 350}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705116279
 MonoBehaviour:
@@ -230963,7 +231010,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.4627451}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -241162,6 +241209,18 @@ MonoBehaviour:
     count: 10
     quality: 0
   - item: {fileID: 11400000, guid: cad8daf0889875043bbb9330f244b001, type: 2}
+    count: 10
+    quality: 0
+  - item: {fileID: 11400000, guid: 05ebebe5c8890744f89afe3b27e11478, type: 2}
+    count: 10
+    quality: 0
+  - item: {fileID: 11400000, guid: 1433ac6d4e9291f42a905073a8a33186, type: 2}
+    count: 10
+    quality: 0
+  - item: {fileID: 11400000, guid: d818a80b8500f3849ba2349446eb942c, type: 2}
+    count: 10
+    quality: 0
+  - item: {fileID: 11400000, guid: 36c60e6684068e64b84ca2ff6ad42b82, type: 2}
     count: 10
     quality: 0
   startingHotbarItems:
@@ -381348,8 +381407,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8b7efe336da018c4eadb51e59fa05856, type: 2}
+  m_sharedMaterial: {fileID: 7006141837762246084, guid: 8b7efe336da018c4eadb51e59fa05856, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -394314,8 +394373,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: -2981535108423174539, guid: 4d060ab0398c1cd40a351f0fe2ac5434, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -421088,7 +421147,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.1
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -421112,8 +421171,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1774133398}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.039882056, y: 0.014983008, z: 0.0005980963, w: 0.9990919}
-  m_LocalPosition: {x: 28.55, y: 43.5, z: -10}
+  m_LocalRotation: {x: 0.0000000037223231, y: -0.000000029954705, z: 1.1150109e-16, w: 1}
+  m_LocalPosition: {x: -38.34, y: -0.87, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -428338,7 +428397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ToolFX
   hoeSfx: {fileID: 8300000, guid: b069477cf5a038043bd8b2642ab0e703, type: 3}
-  waterSfx: {fileID: 8300000, guid: 39a7ea82e9d59d246878f68cf72a0cdb, type: 3}
+  waterSfx: {fileID: 8300000, guid: b7b661e6e6df0fe47b995d6ef3b434ad, type: 3}
   chopSfx: {fileID: 8300000, guid: 2a43ec3f749c2d042a8f99d769334118, type: 3}
   fellSfx: {fileID: 8300000, guid: b1004bb1c39d5214ba23dbb0f81b11d3, type: 3}
   scytheSfx: {fileID: 8300000, guid: 2a43ec3f749c2d042a8f99d769334118, type: 3}

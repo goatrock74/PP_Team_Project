@@ -92,7 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 627c47fab2a8488f8645bf77121e0246, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TreeNode
-  sfx: {fileID: 8300000, guid: b1004bb1c39d5214ba23dbb0f81b11d3, type: 3}
   maxHealth: 6
   requiredTier: 0
   dropTable: {fileID: 11400000, guid: 900c6f0aef24738409bb12d766081505, type: 2}
@@ -189,7 +188,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 70
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -3452709029700240318, guid: 96449cd0530a8ba4188cffece735b1fd, type: 3}
+  m_Sprite: {fileID: -206681509, guid: df0ff12c2e8de8c4fa3d4855fcba1f1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

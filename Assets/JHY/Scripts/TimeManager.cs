@@ -27,6 +27,14 @@ public class TimeManager : MonoBehaviour
     private float currentTimeInSeconds = 0;
 
     public int CurrentDay => currentDay;
+    public float DayFraction => currentTimeInSeconds / dayDuration;
+    public void RestoreSave(int day, float fraction)
+    {
+        currentDay = Mathf.Max(1, day);
+        currentTimeInSeconds = Mathf.Clamp01(fraction) * dayDuration;
+        UpdateSeasonPeriod();
+        UpdateTimePeriod();
+    }
     public TimePeriod CurrentPeriod => currentPeriod;
     public SeasonPeriod CurrentSeason => currentSeason;
     public int CurrentHour => Mathf.FloorToInt((currentTimeInSeconds / dayDuration) * 24f);
@@ -59,6 +67,7 @@ public class TimeManager : MonoBehaviour
     }
     private void Update()
     {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "0.0MainMenu_F") return;
         currentTimeInSeconds += Time.deltaTime;
 
         if (currentTimeInSeconds >= dayDuration)

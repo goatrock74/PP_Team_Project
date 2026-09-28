@@ -15,11 +15,21 @@ MonoBehaviour:
   type: 3
   displayName: Fishing
   icon: {fileID: 499921086759859872, guid: d6be9c6295c832d4bab48f70b33c27a9, type: 3}
-  description: fishing
+  description: "\uB09A\uC2DC\uB97C\uD558\uBA70 \uB819\uC5C5\uD558\uC790"
   maxLevel: 20
-  baseExp: 100
-  expGrowth: 1.25
+  baseExp: 300
+  expGrowth: 1.4
   statsPerLevel:
   - stat: 4
-    perLevel: 0.02
-  unlocks: []
+    perLevel: 0.05
+  unlocks:
+  - level: 10
+    perk: 0
+    title: "\uB099\uC2DC\uAFBC"
+    description: "\uC544\uC9C1\uC740 \uD558\uCC2C\uB2E4"
+    value: 1
+  - level: 20
+    perk: 0
+    title: "\uC138\uC6D4\uC744 \uB09A\uB294\uC790"
+    description: "\uC9C4\uC815\uD55C \uB09A\uC2DC\uC758\uC81C\uC655"
+    value: 1

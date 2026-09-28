@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beac1bf669fe4bfcb57f5ac3b2e5f2a5, type: 3}
+  m_Name: SummerSeedPack
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPackSO
+  itemId: summerseedpack
+  displayName: "\uC5EC\uB984\uC2DC\uB4DC\uD329"
+  icon: {fileID: 7173869028476421117, guid: 70343c344239e1b40a3b2882c3e43cfd, type: 3}
+  description: 
+  itemType: 6
+  maxStack: 99
+  sellPrice: 0
+  season: 1
+  lootTable: {fileID: 11400000, guid: 1b0f8c364bdea604cbecc47e4a150767, type: 2}
+  rollCount: 1

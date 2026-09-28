@@ -26,7 +26,7 @@ public class Inventorysavemanger : MonoBehaviour
     public int SaveCount { get; private set; }
 
     [Header("설정")]
-    [Tooltip("저장을 이 간격보다 자주 하지 않는다. PlayerPrefs.Save() 는 디스크에 바로 쓰기 때문에 " +
+    [Tooltip("저장을 이 간격보다 자주 하지 않는다. SaveSlotStore.Save() 는 디스크에 바로 쓰기 때문에 " +
              "수확처럼 한꺼번에 여러 번 바뀔 때 매번 저장하면 렉이 걸린다")]
     [SerializeField, Min(0f)] private float saveInterval = 1f;
 
@@ -58,6 +58,8 @@ public class Inventorysavemanger : MonoBehaviour
         public int version = 2;
         public SlotData[] bag;
         public SlotData[] hotbar;
+        public SlotArea heldArea;
+        public int heldSlot = -1;
     }
 
     // ════════════════════════════════════════════════════════════
@@ -84,6 +86,7 @@ public class Inventorysavemanger : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "0.0MainMenu_F") return;
         PlayerInventory current = PlayerInventory.Instance;
 
         if (current != player || (bag == null && current != null))
@@ -109,12 +112,21 @@ public class Inventorysavemanger : MonoBehaviour
             }
         }
 
-        // ★ 매 프레임 저장하지 않는다. PlayerPrefs.Save() 는 즉시 디스크에 쓰는 동기 작업이라
+        // ★ 매 프레임 저장하지 않는다. SaveSlotStore.Save() 는 즉시 디스크에 쓰는 동기 작업이라
         //   수확처럼 한 프레임에 여러 칸이 바뀌면 그대로 렉이 된다
         if (dirty && Time.unscaledTime >= nextSaveTime) SaveInventory();
     }
 
     private void MarkDirty() => dirty = true;
+    public void DetachForSlotChange()
+    {
+        Unsubscribe();
+        player = null;
+        bag = null;
+        hotbar = null;
+        canSave = false;
+        dirty = false;
+    }
 
     private void Unsubscribe()
     {
@@ -150,10 +162,10 @@ public class Inventorysavemanger : MonoBehaviour
 
         try
         {
-            var data = new SaveData { bag = Capture(bag), hotbar = Capture(hotbar) };
+            var data = new SaveData { bag = Capture(bag), hotbar = Capture(hotbar), heldArea = player.HeldArea, heldSlot = player.HeldSlotIndex };
 
-            PlayerPrefs.SetString(storageKey, JsonUtility.ToJson(data));
-            PlayerPrefs.Save();
+            SaveSlotStore.SetString(storageKey, JsonUtility.ToJson(data));
+            SaveSlotStore.Save();
 
             dirty = false;
             nextSaveTime = Time.unscaledTime + saveInterval;
@@ -214,9 +226,9 @@ public class Inventorysavemanger : MonoBehaviour
         {
             if (!BuildCatalog()) return;         // 카탈로그가 깨졌으면 기존 저장을 건드리지 않는다
 
-            if (PlayerPrefs.HasKey(storageKey))
+            if (SaveSlotStore.HasKey(storageKey))
             {
-                SaveData data = JsonUtility.FromJson<SaveData>(PlayerPrefs.GetString(storageKey));
+                SaveData data = JsonUtility.FromJson<SaveData>(SaveSlotStore.GetString(storageKey));
 
                 if (data == null || data.version != 2)
                     throw new InvalidOperationException("지원하지 않는 저장 형식");
@@ -226,6 +238,7 @@ public class Inventorysavemanger : MonoBehaviour
 
                 bag.Restore(savedBag);
                 hotbar.Restore(savedHotbar);
+                if (data.heldSlot >= 0 && Enum.IsDefined(typeof(SlotArea), data.heldArea)) player.HoldSlot(data.heldArea, data.heldSlot);
 
                 ShopInventoryBridge.SyncCounts();
 
@@ -357,8 +370,8 @@ public class Inventorysavemanger : MonoBehaviour
     [ContextMenu("저장 지우기")]
     public void ClearSave()
     {
-        PlayerPrefs.DeleteKey(storageKey);
-        PlayerPrefs.Save();
+        SaveSlotStore.DeleteKey(storageKey);
+        SaveSlotStore.Save();
 
         dirty = false;
         Status = "저장 삭제 완료 (다음 수량 변경 시 다시 저장)";
@@ -375,7 +388,7 @@ public class Inventorysavemanger : MonoBehaviour
         sb.AppendLine($"  Status : {Status}");
         sb.AppendLine($"  저장 가능 : {canSave}   저장 횟수 : {SaveCount}");
         sb.AppendLine($"  카탈로그 등록 수 : {items.Count}");
-        sb.AppendLine($"  저장본 있음 : {PlayerPrefs.HasKey(storageKey)}");
+        sb.AppendLine($"  저장본 있음 : {SaveSlotStore.HasKey(storageKey)}");
         sb.Append($"  PlayerInventory : {(player == null ? "못 찾음" : player.name)}");
 
         Debug.Log(sb.ToString(), this);

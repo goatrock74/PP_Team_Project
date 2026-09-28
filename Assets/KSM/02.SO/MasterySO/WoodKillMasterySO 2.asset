@@ -14,12 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MasterySO
   type: 2
   displayName: Logging
-  icon: {fileID: -330047534944454618, guid: 2e2ea28bbd2794c41a647152bc30dc77, type: 3}
-  description: haha
+  icon: {fileID: 7889334590475501162, guid: 51ad87ffae4d4e041b7f33b03c5894bf, type: 3}
+  description: "\uBC8C\uBAA9\uC744\uD558\uBA70 \uB819\uC5C5\uD55C\uB2E4"
   maxLevel: 20
-  baseExp: 100
-  expGrowth: 1.25
+  baseExp: 320
+  expGrowth: 1.7
   statsPerLevel:
   - stat: 3
     perLevel: 0.05
-  unlocks: []
+  unlocks:
+  - level: 10
+    perk: 0
+    title: "\uC911\uAE09\uBC8C\uBAA9\uC790"
+    description: "\uCD08\uBCF4\uC5D0\uC11C \uBC97\uC5B4\uB098\uC168\uAD70\uC694"
+    value: 1
+  - level: 10
+    perk: 0
+    title: "\uACE0\uAE09\uBC8C\uBAA9\uC790"
+    description: "\uCD5C\uAC15\uC758 \uBC8C\uBAA9\uC0AC\uB098\uC774"
+    value: 1

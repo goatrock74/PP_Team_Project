@@ -15,6 +15,32 @@ namespace PJH._01.Scripts
         
         public int RemainingCatchCount => remainingCatchCount;
 
+        private void Awake()
+        {
+            if (SaveSlotStore.Active == null) return;
+            var catalog = Resources.Load<InventoryItemCatalog>("InventoryItemCatalog");
+            string id = SaveSlotStore.GetString("ActiveBait");
+            if (catalog == null || catalog.items == null) return;
+            foreach (var entry in catalog.items)
+                if (entry != null && entry.id == id && entry.item is FishingBaitDataSO bait)
+                {
+                    activeBait = bait;
+                    remainingCatchCount = Mathf.Clamp(SaveSlotStore.GetInt("BaitUses"), 0, bait.EffectiveCatchCount);
+                    break;
+                }
+        }
+        private void StageSave()
+        {
+            if (SaveSlotStore.Active == null) return;
+            string id = "";
+            var catalog = Resources.Load<InventoryItemCatalog>("InventoryItemCatalog");
+            if (HasActiveBait && catalog != null && catalog.items != null)
+                foreach (var entry in catalog.items)
+                    if (entry != null && entry.item == activeBait) { id = entry.id; break; }
+            SaveSlotStore.SetString("ActiveBait", id);
+            SaveSlotStore.SetInt("BaitUses", remainingCatchCount);
+        }
+
         public void ActivateBait(FishingBaitDataSO bait)
         {
             if (bait == null)
@@ -24,6 +50,7 @@ namespace PJH._01.Scripts
             
             activeBait = bait;
             remainingCatchCount = bait.EffectiveCatchCount;
+            StageSave();
 
             Debug.Log(
                 $"{bait.name} 사용: " +
@@ -40,6 +67,7 @@ namespace PJH._01.Scripts
             }
             
             remainingCatchCount--;
+            StageSave();
 
             if (remainingCatchCount <= 0)
             {
@@ -51,6 +79,7 @@ namespace PJH._01.Scripts
         {
             activeBait = null;
             remainingCatchCount = 0;
+            StageSave();
 
             Debug.Log("미끼 효과가 종료되었습니다.");
         }

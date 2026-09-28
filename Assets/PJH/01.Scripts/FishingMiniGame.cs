@@ -79,12 +79,12 @@ namespace PJH.Scripts
  
         private void OnEnable()
         {
-            fishingMiniGameUI.OnShowComplete += StartFishingMiniGame;
+            if (fishingMiniGameUI != null) fishingMiniGameUI.OnShowComplete += StartFishingMiniGame;
         }
  
         private void OnDisable()
         {
-            fishingMiniGameUI.OnShowComplete -= StartFishingMiniGame;
+            if (fishingMiniGameUI != null) fishingMiniGameUI.OnShowComplete -= StartFishingMiniGame;
  
             StopMiniGame();
         }
@@ -179,7 +179,7 @@ namespace PJH.Scripts
  
         public void StopMiniGame()
         {
-            fishingAudio?.StopReel();
+            if (fishingAudio != null) fishingAudio.StopReel();
  
             if (biteCoroutine != null)
             {
@@ -197,7 +197,7 @@ namespace PJH.Scripts
                 animationController.StopFishingShake();
             }
  
-            fishingMiniGameUI.ClosePanel();
+            if (fishingMiniGameUI != null) fishingMiniGameUI.ClosePanel();
         }
  
         #endregion

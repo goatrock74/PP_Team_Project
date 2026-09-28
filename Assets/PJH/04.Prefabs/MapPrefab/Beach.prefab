@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 2054394290324738825}
   - component: {fileID: 5671810961640893914}
   - component: {fileID: 7542186007443345905}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38030,7 +38030,7 @@ GameObject:
   - component: {fileID: 3607795319942539698}
   - component: {fileID: 4209901489166422235}
   - component: {fileID: 5204504083421350959}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39681,7 +39681,7 @@ GameObject:
   - component: {fileID: 3054407441828215110}
   - component: {fileID: 333227221031179544}
   - component: {fileID: 7684470705838808511}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ObjectTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -15,21 +15,21 @@ MonoBehaviour:
   type: 1
   displayName: FarmMastery
   icon: {fileID: -888257036514282291, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
-  description: 
+  description: "\uC791\uBB3C\uC744 \uC5BB\uC73C\uBA70 \uB819\uC5C5\uD558\uC790"
   maxLevel: 20
-  baseExp: 100
-  expGrowth: 1.25
+  baseExp: 450
+  expGrowth: 1.6
   statsPerLevel:
   - stat: 2
     perLevel: 0.01
   unlocks:
-  - level: 10
+  - level: 15
     perk: 3
     title: 
-    description: u can get best Quallity
+    description: "best\uB4F1\uAE09\uC758 \uC791\uBB3C\uC744 \uC218\uD655\uAC00\uB2A5\uD558\uB2E4"
     value: 1
-  - level: 15
+  - level: 20
     perk: 4
     title: 
-    description: u can harvest *1.5
+    description: "\uC218\uD655\uB7C9\uC774 1.5\uBC30\uC99D\uAC00\uD55C\uB2E4"
     value: 1.5

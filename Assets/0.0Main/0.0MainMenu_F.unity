@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.474, y: -209}
+  m_AnchoredPosition: {x: 0, y: -220}
   m_SizeDelta: {x: 379.22, y: 157.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &3550206
@@ -9351,7 +9351,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.474, y: -406}
+  m_AnchoredPosition: {x: 460, y: -220}
   m_SizeDelta: {x: 379.22, y: 157.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &238653029
@@ -135618,6 +135618,7 @@ GameObject:
   m_Component:
   - component: {fileID: 597374888}
   - component: {fileID: 597374889}
+  - component: {fileID: 597374890}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -135640,6 +135641,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &597374890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597374887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd187028c93f4492bd8d215ed53739cc, type: 3}
+  m_Name:
+  m_EditorClassIdentifier: Assembly-CSharp::SaveSlotMenu
+  font: {fileID: 11400000, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
+  shopPanelSprite: {fileID: -7798825729853458681, guid: 8ef4700c812bc774fb97b5b9977335d6, type: 3}
+  shopButtonSprite: {fileID: -7359542516750346836, guid: 8ef4700c812bc774fb97b5b9977335d6, type: 3}
 --- !u!114 &597374889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204916,7 +204932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.474, y: -13}
+  m_AnchoredPosition: {x: -460, y: -220}
   m_SizeDelta: {x: 379.22, y: 157.34}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1514371719
@@ -404653,8 +404669,8 @@ MonoBehaviour:
   - {fileID: 1514371722}
   - {fileID: 3550206}
   - {fileID: 238653029}
-  buttonFadeDuration: 0.2
-  buttonDelay: 0.1
+  buttonFadeDuration: 0.35
+  buttonDelay: 0.2
 --- !u!4 &2036870906
 Transform:
   m_ObjectHideFlags: 0

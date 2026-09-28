@@ -17,15 +17,15 @@ MonoBehaviour:
   harvestType: 0
   growthStages:
   - sprite: {fileID: -4297261512917885968, guid: b84ae9bd49ed25b489a831ad20d36ed1, type: 3}
-    durationTime: 0.02
+    durationTime: 0.4
   - sprite: {fileID: -4521616884001384307, guid: b84ae9bd49ed25b489a831ad20d36ed1, type: 3}
-    durationTime: 0.02
+    durationTime: 0.4
   - sprite: {fileID: 2994428399269229797, guid: b84ae9bd49ed25b489a831ad20d36ed1, type: 3}
-    durationTime: 0.02
+    durationTime: 0.4
   - sprite: {fileID: 8047847076552067276, guid: b84ae9bd49ed25b489a831ad20d36ed1, type: 3}
-    durationTime: 0.02
+    durationTime: 0.4
   - sprite: {fileID: 5560587591116531781, guid: b84ae9bd49ed25b489a831ad20d36ed1, type: 3}
-    durationTime: 0.02
+    durationTime: 0.2
   harvestStageIndex: 4
   regrowStageIndex: 0
   harvestItem: {fileID: 11400000, guid: d078a7d81d632c348bc3c68fc89ee38c, type: 2}

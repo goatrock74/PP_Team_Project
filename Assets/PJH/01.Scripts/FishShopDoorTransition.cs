@@ -21,6 +21,8 @@ namespace PJH._01.Scripts
 
             [Tooltip("도착 위치에서 추가로 이동할 거리")]
             public Vector2 destinationOffset;
+            [Tooltip("목적지가 집이나 상점 실내이면 켭니다")]
+            public bool destinationIsIndoors;
         }
 
         [Header("문 연결 목록")]
@@ -78,12 +80,12 @@ namespace PJH._01.Scripts
                     continue;
 
                 Vector2 destination = (Vector2)link.destination.position + link.destinationOffset;
-                StartCoroutine(TeleportRoutine(destination));
+                StartCoroutine(TeleportRoutine(destination, link.destinationIsIndoors));
                 return;
             }
         }
 
-        private IEnumerator TeleportRoutine(Vector2 destination)
+        private IEnumerator TeleportRoutine(Vector2 destination, bool indoors)
         {
             isTransitioning = true;
 
@@ -95,6 +97,9 @@ namespace PJH._01.Scripts
             playerBody.angularVelocity = 0f;
 
             yield return FadeTo(1f);
+
+            if (SeasonPassive.Instance != null)
+                SeasonPassive.Instance.SetInsideBuilding(indoors);
 
             playerBody.position = destination;
             playerBody.linearVelocity = Vector2.zero;
