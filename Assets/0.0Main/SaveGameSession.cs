@@ -71,6 +71,8 @@ public class SaveGameSession : MonoBehaviour
             if (Inventorysavemanger.Instance != null && !Inventorysavemanger.Instance.IsReady)
                 throw new InvalidOperationException("인벤토리 저장 실패로 기존 파일을 보호합니다.");
             FarmSaveManager.SaveNow();
+            foreach (var board in FindObjectsByType<QuestBoard>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                board.CaptureSave();
             var slot = SaveSlotStore.Active;
             slot.money = PlayerWallet.Instance.CurrentMoney;
             if (TimeManager.Instance != null) { slot.day = TimeManager.Instance.CurrentDay; slot.dayFraction = TimeManager.Instance.DayFraction; }
