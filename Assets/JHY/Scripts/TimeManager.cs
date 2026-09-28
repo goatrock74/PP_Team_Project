@@ -119,16 +119,4 @@ public class TimeManager : MonoBehaviour
             OnTimePeriodChange?.Invoke(currentPeriod);
         }
     }
-    public void SkipToNextDay()
-    {
-        currentTimeInSeconds = 0f;
-        currentDay++;
-
-        UpdateSeasonPeriod();
-        UpdateTimePeriod();
-
-        OnDayChange?.Invoke(currentSeason);
-
-        Debug.Log("Day: " + currentDay);
-    }
 }

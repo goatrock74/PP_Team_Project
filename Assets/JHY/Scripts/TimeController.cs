@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class TimeController : MonoBehaviour
 {
@@ -18,13 +17,6 @@ public class TimeController : MonoBehaviour
     private void Update()
     {
         if (subscribedManager != TimeManager.Instance) Subscribe();
-        if (Keyboard.current != null && Keyboard.current.tKey.wasPressedThisFrame)
-        {
-            if (timePeriod.IsFading || seasonPeriod.IsTransitioning)
-                return;
-
-            timePeriod.TriggerNextDay();
-        }
     }
     private void Start()
     {

@@ -51,6 +51,12 @@ namespace KSM._00.Scripts.Items
 
         private void Start()
         {
+            if (infoText != null)
+            {
+                infoText.textWrappingMode = TextWrappingModes.Normal;
+                infoText.overflowMode = TextOverflowModes.Ellipsis;
+            }
+
             _player = PlayerInventory.Instance;
             if (_player == null)
             {

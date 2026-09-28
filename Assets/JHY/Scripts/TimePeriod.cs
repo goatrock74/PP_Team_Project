@@ -1,28 +1,17 @@
-using DG.Tweening;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
-using UnityEngine.UI;
 
 public class TimePeriod : MonoBehaviour
 {
     [SerializeField] private CanvasGroup sun;
     [SerializeField] private CanvasGroup afternoon;
     [SerializeField] private CanvasGroup night;
-    [SerializeField] private GameObject DarkPannel;
 
     [SerializeField] private GameObject nightNpc;
     [SerializeField] private int percent = 3;
-    public bool IsFading { get; private set; } = false;
     private Coroutine npcSpawnCoroutine;
     [SerializeField] private AudioClip morning;
     [SerializeField] private AudioClip Night;
-    public void TriggerNextDay()
-    {
-        if (IsFading) return;
-
-        StartCoroutine(StartNextDay());
-    }
     public void ChangeTimePeriod(TimeManager.TimePeriod newPeriod) 
     {
         if (npcSpawnCoroutine != null)
@@ -80,33 +69,5 @@ public class TimePeriod : MonoBehaviour
         {
             Debug.Log("NPCµÓ¿Â");
         }
-    }
-    private IEnumerator StartNextDay()
-    {
-        IsFading = true;
-
-        Image panelImage = DarkPannel.GetComponent<Image>();
-        panelImage.DOKill();
-        panelImage.color = new Color(
-            panelImage.color.r,
-            panelImage.color.g,
-            panelImage.color.b,
-            0f
-        );
-        DarkPannel.SetActive(true);
-
-        yield return panelImage.DOFade(1f, 1.5f)
-            .SetEase(Ease.Linear)
-            .WaitForCompletion();
-
-        TimeManager.Instance.SkipToNextDay();
-
-        yield return panelImage.DOFade(0f, 1.5f)
-            .SetEase(Ease.Linear)
-            .WaitForCompletion();
-
-        DarkPannel.SetActive(false);
-
-        IsFading = false;
     }
 }

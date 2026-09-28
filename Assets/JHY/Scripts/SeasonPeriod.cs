@@ -14,14 +14,9 @@ public class SeasonPeriod : MonoBehaviour
     [SerializeField] private GameObject DarkPannel;
 
     public bool IsTransitioning { get; private set; } = false;
-    private TimePeriod timePeriod;
 
     private bool isInitialized = false;
 
-    private void Awake()
-    {
-        timePeriod = GetComponent<TimePeriod>();
-    }
 
     private void Start()
     {
@@ -65,11 +60,6 @@ public class SeasonPeriod : MonoBehaviour
             return;
         }
 
-        if (timePeriod != null && timePeriod.IsFading)
-        {
-            SetSeason(newSeason);
-            return;
-        }
 
         StartCoroutine(FadeInOut(newSeason));
     }
