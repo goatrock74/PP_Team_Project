@@ -65,7 +65,6 @@ public class SeasonPassive : MonoBehaviour
 
     public void ApplySeasonPassive(TimeManager.SeasonPeriod season)
     {
-        // A new day replaces pending weather as well, so an old season cannot start after leaving a shop.
         CancelWeather();
         switch (season)
         {
@@ -140,7 +139,6 @@ public class SeasonPassive : MonoBehaviour
             yield return null;
         }
 
-        // Rate zero alone leaves a looping system running: stop emission before waiting for survivors.
         while (isInsideShop) yield return null;
         isDraining = true;
         foreach (var particle in activeParticles)
@@ -195,7 +193,6 @@ public class SeasonPassive : MonoBehaviour
         return effect == rainEffect ? 2.5f : 2f;
     }
 
-    // Deterministic previews during Play Mode; normal daily weather still uses a 50% chance.
     [ContextMenu("Preview Weather/Rain")]
     private void PreviewRain() => Preview(rainEffect, rain);
     [ContextMenu("Preview Weather/Snow")]

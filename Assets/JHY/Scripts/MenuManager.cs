@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     [Header("Camera Preview 연출")]
-    [SerializeField] private MultiMapPreview mapPreview; // 카메라 연출 스크립트 연결
+    [SerializeField] private MultiMapPreview mapPreview; 
 
     [Header("Canvas Groups")]
     [SerializeField] private CanvasGroup startScreen;
