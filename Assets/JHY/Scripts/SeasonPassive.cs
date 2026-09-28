@@ -108,8 +108,8 @@ public class SeasonPassive : MonoBehaviour
 
     private IEnumerator TryWeather(GameObject effect, AudioClip clip = null)
     {
-        if (Random.Range(0, 2) != 0) yield break;
-        yield return new WaitForSeconds(Random.Range(1.5f, 2f));
+        if (Random.Range(0, 3) != 0) yield break;
+        yield return new WaitForSeconds(Random.Range(2f, 60f));
         yield return PlayEffect(effect, clip);
     }
 
@@ -144,7 +144,8 @@ public class SeasonPassive : MonoBehaviour
         }
 
         float elapsed = 0f;
-        while (elapsed < 8f)
+        float targetDuration = Random.Range(120f, 181f);
+        while (elapsed < targetDuration)
         {
             if (!isInsideShop) elapsed += Time.deltaTime;
             yield return null;

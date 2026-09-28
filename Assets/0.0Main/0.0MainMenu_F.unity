@@ -135641,21 +135641,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &597374890
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 597374887}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd187028c93f4492bd8d215ed53739cc, type: 3}
-  m_Name:
-  m_EditorClassIdentifier: Assembly-CSharp::SaveSlotMenu
-  font: {fileID: 11400000, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
-  shopPanelSprite: {fileID: -7798825729853458681, guid: 8ef4700c812bc774fb97b5b9977335d6, type: 3}
-  shopButtonSprite: {fileID: -7359542516750346836, guid: 8ef4700c812bc774fb97b5b9977335d6, type: 3}
 --- !u!114 &597374889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135679,6 +135664,21 @@ MonoBehaviour:
   fadeDuration: 2
   clickMain: {fileID: 8300000, guid: de2ce0d1d59dcce41add94bbc522793f, type: 3}
   MainBGM: {fileID: 8300000, guid: e8e0e94a092994522aaa9d0ac85ca134, type: 3}
+--- !u!114 &597374890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 597374887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd187028c93f4492bd8d215ed53739cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SaveSlotMenu
+  font: {fileID: 11400000, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
+  shopPanelSprite: {fileID: -7798825729853458681, guid: 8ef4700c812bc774fb97b5b9977335d6, type: 3}
+  shopButtonSprite: {fileID: -7359542516750346836, guid: 8ef4700c812bc774fb97b5b9977335d6, type: 3}
 --- !u!1001 &598257628
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -149231,7 +149231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -451, y: 89}
+  m_AnchoredPosition: {x: -414.99994, y: 101}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &608172364
@@ -149254,7 +149254,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do you want to finish?
+  m_text: "\uC815\uB9D0\uB85C \uC885\uB8CC\uD558\uC2DC\uACA0\uC2B5\uB2C8\uAE4C?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
   m_sharedMaterial: {fileID: -8396427149083634700, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
@@ -149281,8 +149281,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 90
+  m_fontSizeBase: 90
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -158827,9 +158827,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'START
-
-'
+  m_text: "\uD50C\uB808\uC774"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
   m_sharedMaterial: {fileID: -8396427149083634700, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
@@ -183448,7 +183446,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SETTING
+  m_text: "\uC124\uC815"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
   m_sharedMaterial: {fileID: -8396427149083634700, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
@@ -203875,7 +203873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: EXIT
+  m_text: "\uB098\uAC00\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
   m_sharedMaterial: {fileID: -8396427149083634700, guid: aef6659ecb733b34fab0518abbf574a6, type: 2}
