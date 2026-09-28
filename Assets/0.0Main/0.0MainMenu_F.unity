@@ -135671,7 +135671,6 @@ MonoBehaviour:
   mapPreview: {fileID: 1445131381}
   startScreen: {fileID: 422964748}
   mainMenu: {fileID: 900954358}
-  startAtMainMenu: 1
   fadePanel: {fileID: 757601723}
   particle: {fileID: 2014662437}
   background: {fileID: 1030974049}

@@ -25,32 +25,29 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private AudioClip MainBGM;
 
     private bool isStartScreen = true;
-    [SerializeField] private bool startAtMainMenu;
     private bool isTransitioning = false;
+
+    private void Awake()
+    {
+        // Keep the existing title and click prompt over the preview until the first click.
+        isStartScreen = true;
+        startScreen.gameObject.SetActive(true);
+        startScreen.alpha = 1f;
+        startScreen.interactable = true;
+        startScreen.blocksRaycasts = true;
+        mainMenu.alpha = 0f;
+        mainMenu.interactable = false;
+        mainMenu.blocksRaycasts = false;
+        background.SetActive(false);
+        if (settingPanel != null) settingPanel.SetActive(false);
+        if (particle != null) particle.SetActive(false);
+        fadePanel.alpha = 1f;
+        if (mapPreview != null) mapPreview.enabled = true;
+    }
 
     private void Start()
     {
         SoundManager.Instance.PlayBGM(MainBGM);
-        if (startAtMainMenu)
-        {
-            isStartScreen = false;
-            startScreen.alpha = 0f;
-            startScreen.interactable = false;
-            startScreen.blocksRaycasts = false;
-            fadePanel.alpha = 0f;
-            StartCoroutine(OpenMainMenuOnStart());
-            return;
-        }
-        startScreen.alpha = 1f;
-        startScreen.interactable = true;
-        startScreen.blocksRaycasts = true;
-
-        mainMenu.alpha = 0f;
-        mainMenu.interactable = false;
-        mainMenu.blocksRaycasts = false;
-
-        fadePanel.alpha = 1f;
-
         fadePanel
             .DOFade(0f, fadeDuration)
             .SetEase(Ease.InOutQuad);
@@ -75,6 +72,8 @@ public class MenuManager : MonoBehaviour
     private void ShowMainMenu()
     {
         isTransitioning = true;
+        if (mapPreview != null) mapPreview.PausePreview();
+        fadePanel.DOKill();
 
         fadePanel
             .DOFade(1f, fadeDuration)
@@ -125,18 +124,6 @@ public class MenuManager : MonoBehaviour
         var slots = GetComponent<SaveSlotMenu>();
         if (slots != null) slots.Open();
         else BeginLegacyScene();
-    }
-
-    private System.Collections.IEnumerator OpenMainMenuOnStart()
-    {
-        // Wait for the preview camera's Start before stopping its coroutine.
-        yield return null;
-        if (mapPreview != null) mapPreview.StopPreview();
-        mainMenu.alpha = 1f;
-        mainMenu.interactable = true;
-        mainMenu.blocksRaycasts = true;
-        background.SetActive(true);
-        mainMenuAnimation.PlayAnimation();
     }
 
     public void BeginLegacyScene()

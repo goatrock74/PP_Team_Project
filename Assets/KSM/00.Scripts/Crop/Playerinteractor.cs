@@ -275,6 +275,12 @@ namespace KSM._00.Scripts.Crop
                 return;
             }
 
+            if ((tool is HoeSO || tool is WateringCanSO) && movement != null)
+            {
+                movement.FacePoint(ctx.aimPoint, Mathf.Max(tool.useCooldown, tool.LockSeconds));
+                ctx.facing = movement.FacingDirection;
+            }
+
             if (tool.lockMovementWhileUsing && movement != null)
                 movement.LockFor(tool.LockSeconds);
 
