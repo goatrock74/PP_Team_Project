@@ -1514,6 +1514,7 @@ using KSM._00.Scripts.Items;
         {
             RectTransform rt = NewRect(name, parent);
             var t = rt.gameObject.AddComponent<TextMeshProUGUI>();
+            t.textWrappingMode = TextWrappingModes.NoWrap;
             if (font != null) t.font = font;
             t.fontSize = size;
             t.color = color;

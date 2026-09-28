@@ -14,6 +14,7 @@ namespace KSM._00.Scripts
         private Vector2 dir;
         private Rigidbody2D _rb;
         private float _lockUntil;
+        private float _facingLockUntil;
  
         public Vector2 MoveInput => dir;
  
@@ -45,6 +46,7 @@ namespace KSM._00.Scripts
  
         private void UpdateFacing()
         {
+            if (Time.time < _facingLockUntil) return;
             if (freezeFacingWhileLocked && IsLocked) return;
             if (Mathf.Abs(dir.x) > 0.01f) FacingX = Mathf.Sign(dir.x);
         }
@@ -63,8 +65,16 @@ namespace KSM._00.Scripts
         }
         public void Unlock()
         {
+            _facingLockUntil = 0f;
             _lockUntil = 0f;
             HoldLocked = false;
+        }
+
+        public void FacePoint(Vector3 point, float duration)
+        {
+            float dx = point.x - transform.position.x;
+            if (Mathf.Abs(dx) > 0.01f) FacingX = Mathf.Sign(dx);
+            _facingLockUntil = Time.time + Mathf.Max(0f, duration);
         }
     }
 }

@@ -170,6 +170,7 @@ namespace PJH.Editor
             rect.sizeDelta = size;
 
             TextMeshProUGUI text = GetOrAddComponent<TextMeshProUGUI>(target);
+            text.textWrappingMode = TextWrappingModes.NoWrap;
             text.alignment = TextAlignmentOptions.Center;
             text.fontSize = fontSize;
             text.color = Color.white;

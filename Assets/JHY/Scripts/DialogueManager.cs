@@ -67,7 +67,6 @@ public class DialogueManager : MonoBehaviour
         OpenShop(plantShopPanel, plantShopBGM);
     }
 
-    // 공통 상점 열기 로직
     private void OpenShop(GameObject panel, AudioClip shopBGM)
     {
         if (panel == null) return;
@@ -77,7 +76,6 @@ public class DialogueManager : MonoBehaviour
         if (shop != null) shop.OpenShop();
         else panel.SetActive(true);
 
-        // 상점 BGM 덮어쓰기
         if (SoundManager.Instance != null && shopBGM != null)
         {
             SoundManager.Instance.OverrideBGM(shopBGM);
@@ -89,7 +87,6 @@ public class DialogueManager : MonoBehaviour
         CloseShop(fishShopPanel);
         CloseShop(plantShopPanel);
 
-        // 원래 BGM으로 원복
         if (SoundManager.Instance != null)
         {
             SoundManager.Instance.RestoreBGM();

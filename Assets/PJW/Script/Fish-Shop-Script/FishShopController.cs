@@ -58,6 +58,7 @@ public class FishShopController : MonoBehaviour
     }
 
     private void MarkDirty() => needsRefresh = true;
+    private void OnEnable() => MarkDirty();
     private void OnMoneyChanged(int amount) => MarkDirty();
     private void OnDestroy()
     {
@@ -110,7 +111,7 @@ public class FishShopController : MonoBehaviour
     private void RefreshSellSlots()
     {
         int index = 0;
-        foreach (var fish in catalog.fish)
+        foreach (var fish in OwnedFish())
         foreach (var quality in new[] { ItemQuality.Normal, ItemQuality.Good, ItemQuality.Best })
         {
             if (Count(fish, quality) == 0) continue;
@@ -124,6 +125,20 @@ public class FishShopController : MonoBehaviour
         }
         for (; index < sellPool.Count; index++) sellPool[index].gameObject.SetActive(false);
         if (selectedFish != null && Count(selectedFish, selectedQuality) == 0) ClearSelection();
+    }
+
+    private IEnumerable<FishDataSO> OwnedFish()
+    {
+        if (!Ready) yield break;
+        var seen = new HashSet<FishDataSO>();
+        var player = PlayerInventory.Instance;
+        foreach (var inventory in new[] { player.Bag, player.Hotbar })
+            for (int i = 0; i < inventory.Capacity; i++)
+            {
+                var stack = inventory.GetSlot(i);
+                if (stack != null && !stack.IsEmpty && stack.item is FishDataSO fish && seen.Add(fish))
+                    yield return fish;
+            }
     }
 
     private void RefreshDetail()
@@ -188,7 +203,7 @@ public class FishShopController : MonoBehaviour
 
     public bool Sell(FishDataSO fish, ItemQuality quality)
     {
-        if (!Ready || fish == null || System.Array.IndexOf(catalog.fish, fish) < 0) return false;
+        if (!Ready || fish == null) return false;
         int price = catalog.SellPrice(fish, quality);
         if (price <= 0 || wallet.CurrentMoney > int.MaxValue - price) return false;
         if (PlayerInventory.Instance.Remove(fish, quality, 1) != 1) return false;

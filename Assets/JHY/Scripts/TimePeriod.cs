@@ -76,7 +76,6 @@ public class TimePeriod : MonoBehaviour
 
         nightNpc.SetActive(shouldSpawn);
 
-        // 진짜로 켜졌을 때만 로그 출력
         if (shouldSpawn)
         {
             Debug.Log("NPC등장");

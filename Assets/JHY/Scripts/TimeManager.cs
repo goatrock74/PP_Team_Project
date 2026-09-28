@@ -47,7 +47,6 @@ public class TimeManager : MonoBehaviour
     public event Action<TimePeriod> OnTimePeriodChange;
     private void Awake()
     {
-        // 이미 인스턴스가 존재한다면 새로 생성된 중복 오브젝트 파괴
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -55,7 +54,6 @@ public class TimeManager : MonoBehaviour
         }
 
         Instance = this;
-        // [핵심] 씬이 전환되어도 이 오브젝트가 파괴되지 않고 유지됨
         DontDestroyOnLoad(gameObject);
     }
     private void Start()

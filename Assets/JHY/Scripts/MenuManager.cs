@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    [Header("Camera Preview 연출")]
-    [SerializeField] private MultiMapPreview mapPreview; // 카메라 연출 스크립트 연결
+    [Header("Camera Preview ����")]
+    [SerializeField] private MultiMapPreview mapPreview; 
 
     [Header("Canvas Groups")]
     [SerializeField] private CanvasGroup startScreen;
@@ -25,22 +25,11 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private AudioClip MainBGM;
 
     private bool isStartScreen = true;
-    [SerializeField] private bool startAtMainMenu;
     private bool isTransitioning = false;
 
     private void Start()
     {
         SoundManager.Instance.PlayBGM(MainBGM);
-        if (startAtMainMenu)
-        {
-            isStartScreen = false;
-            startScreen.alpha = 0f;
-            startScreen.interactable = false;
-            startScreen.blocksRaycasts = false;
-            fadePanel.alpha = 0f;
-            StartCoroutine(OpenMainMenuOnStart());
-            return;
-        }
         startScreen.alpha = 1f;
         startScreen.interactable = true;
         startScreen.blocksRaycasts = true;
@@ -122,27 +111,16 @@ public class MenuManager : MonoBehaviour
 
     public void NextScene()
     {
-        var slots = GetComponent<SaveSlotMenu>();
-        if (slots != null) slots.Open();
-        else BeginLegacyScene();
-    }
-
-    private System.Collections.IEnumerator OpenMainMenuOnStart()
-    {
-        // Wait for the preview camera's Start before stopping its coroutine.
-        yield return null;
-        if (mapPreview != null) mapPreview.StopPreview();
-        mainMenu.alpha = 1f;
-        mainMenu.interactable = true;
-        mainMenu.blocksRaycasts = true;
-        background.SetActive(true);
-        mainMenuAnimation.PlayAnimation();
-    }
-
-    public void BeginLegacyScene()
-    {
         if (isTransitioning)
             return;
+
+        // Select a save slot before entering gameplay from the main menu.
+        if (TryGetComponent<SaveSlotMenu>(out var saveSlots))
+        {
+            SoundManager.Instance.PlaySFX(clickMain);
+            saveSlots.Open();
+            return;
+        }
 
         isTransitioning = true;
 

@@ -32,7 +32,7 @@ public class OceanTeleporter : MonoBehaviour
     public static bool IsInOcean { get; private set; } = false;
 
     public static OceanTeleporter Instance;
-    private bool isSeagullPaused = false; // 상점 때문에 일시정지되었는지 체크용
+    private bool isSeagullPaused = false; 
 
     private void Awake()
     {
@@ -42,7 +42,6 @@ public class OceanTeleporter : MonoBehaviour
 
     private void Start()
     {
-        // A new base scene starts on the main map; never reuse the previous scene's region.
         if (SoundManager.Instance != null) SoundManager.Instance.ResetOutdoorSceneAudio();
         ResumeOutdoorBGM();
     }
@@ -93,7 +92,7 @@ public class OceanTeleporter : MonoBehaviour
     {
         isTeleporting = true;
 
-        isSeagullPaused = false; // 맵 이동 시 초기화
+        isSeagullPaused = false; 
 
         if (!isGoingToOcean && seagullCoroutine != null)
         {

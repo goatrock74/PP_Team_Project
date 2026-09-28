@@ -32,15 +32,22 @@ public class MultiMapPreview : MonoBehaviour
     private Vector3 originCameraPosition;
     private float originCameraSize;
     private Camera cam;
+    private bool initialized;
 
-    void Start()
+    private void InitializeCamera()
     {
+        if (initialized) return;
+        initialized = true;
         cam = GetComponent<Camera>();
         if (cam == null) cam = Camera.main;
 
         originCameraPosition = transform.position;
         originCameraSize = cam.orthographicSize;
+    }
 
+    void Start()
+    {
+        InitializeCamera();
         if (mapGroups != null && mapGroups.Length > 0)
         {
             UpdateMapVisibility(0);
@@ -152,9 +159,16 @@ public class MultiMapPreview : MonoBehaviour
         }
     }
 
-    public void StopPreview()
+    public void PausePreview()
     {
         StopAllCoroutines();
+        if (fadeCanvasGroup != null) fadeCanvasGroup.DOKill();
+    }
+
+    public void StopPreview()
+    {
+        InitializeCamera();
+        PausePreview();
 
         if (mapGroups != null)
         {
