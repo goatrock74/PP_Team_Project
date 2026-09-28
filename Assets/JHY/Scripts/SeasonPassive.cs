@@ -11,6 +11,8 @@ public class SeasonPassive : MonoBehaviour
 
     public static SeasonPassive Instance;
     private bool isInsideShop;
+    private bool shopOpen;
+    private bool insideBuilding;
     private Coroutine weatherRoutine;
     private GameObject currentActiveEffect;
     private AudioSource currentAudioSource;
@@ -38,6 +40,30 @@ public class SeasonPassive : MonoBehaviour
 
     public void HideActiveEffectForShop()
     {
+        shopOpen = true;
+        UpdateIndoorVisibility();
+    }
+
+    public void RestoreEffectAfterShop()
+    {
+        shopOpen = false;
+        UpdateIndoorVisibility();
+    }
+
+    public void SetInsideBuilding(bool inside)
+    {
+        insideBuilding = inside;
+        UpdateIndoorVisibility();
+    }
+
+    private void UpdateIndoorVisibility()
+    {
+        if (shopOpen || insideBuilding) HideWeather();
+        else RestoreWeather();
+    }
+
+    private void HideWeather()
+    {
         if (isInsideShop) return;
         isInsideShop = true;
         if (activeParticles != null)
@@ -47,7 +73,7 @@ public class SeasonPassive : MonoBehaviour
         if (currentAudioSource != null) currentAudioSource.Pause();
     }
 
-    public void RestoreEffectAfterShop()
+    private void RestoreWeather()
     {
         if (!isInsideShop) return;
         isInsideShop = false;
