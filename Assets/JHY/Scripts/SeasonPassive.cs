@@ -11,6 +11,8 @@ public class SeasonPassive : MonoBehaviour
 
     public static SeasonPassive Instance;
     private bool isInsideShop;
+    private bool shopOpen;
+    private bool insideBuilding;
     private Coroutine weatherRoutine;
     private GameObject currentActiveEffect;
     private AudioSource currentAudioSource;
@@ -38,6 +40,30 @@ public class SeasonPassive : MonoBehaviour
 
     public void HideActiveEffectForShop()
     {
+        shopOpen = true;
+        UpdateIndoorVisibility();
+    }
+
+    public void RestoreEffectAfterShop()
+    {
+        shopOpen = false;
+        UpdateIndoorVisibility();
+    }
+
+    public void SetInsideBuilding(bool inside)
+    {
+        insideBuilding = inside;
+        UpdateIndoorVisibility();
+    }
+
+    private void UpdateIndoorVisibility()
+    {
+        if (shopOpen || insideBuilding) HideWeather();
+        else RestoreWeather();
+    }
+
+    private void HideWeather()
+    {
         if (isInsideShop) return;
         isInsideShop = true;
         if (activeParticles != null)
@@ -47,7 +73,7 @@ public class SeasonPassive : MonoBehaviour
         if (currentAudioSource != null) currentAudioSource.Pause();
     }
 
-    public void RestoreEffectAfterShop()
+    private void RestoreWeather()
     {
         if (!isInsideShop) return;
         isInsideShop = false;
@@ -65,7 +91,6 @@ public class SeasonPassive : MonoBehaviour
 
     public void ApplySeasonPassive(TimeManager.SeasonPeriod season)
     {
-        // A new day replaces pending weather as well, so an old season cannot start after leaving a shop.
         CancelWeather();
         switch (season)
         {
@@ -83,8 +108,8 @@ public class SeasonPassive : MonoBehaviour
 
     private IEnumerator TryWeather(GameObject effect, AudioClip clip = null)
     {
-        if (Random.Range(0, 2) != 0) yield break;
-        yield return new WaitForSeconds(Random.Range(1.5f, 2f));
+        if (Random.Range(0, 3) != 0) yield break;
+        yield return new WaitForSeconds(Random.Range(2f, 60f));
         yield return PlayEffect(effect, clip);
     }
 
@@ -119,7 +144,8 @@ public class SeasonPassive : MonoBehaviour
         }
 
         float elapsed = 0f;
-        while (elapsed < 8f)
+        float targetDuration = Random.Range(120f, 181f);
+        while (elapsed < targetDuration)
         {
             if (!isInsideShop) elapsed += Time.deltaTime;
             yield return null;
@@ -140,7 +166,6 @@ public class SeasonPassive : MonoBehaviour
             yield return null;
         }
 
-        // Rate zero alone leaves a looping system running: stop emission before waiting for survivors.
         while (isInsideShop) yield return null;
         isDraining = true;
         foreach (var particle in activeParticles)
@@ -195,7 +220,6 @@ public class SeasonPassive : MonoBehaviour
         return effect == rainEffect ? 2.5f : 2f;
     }
 
-    // Deterministic previews during Play Mode; normal daily weather still uses a 50% chance.
     [ContextMenu("Preview Weather/Rain")]
     private void PreviewRain() => Preview(rainEffect, rain);
     [ContextMenu("Preview Weather/Snow")]

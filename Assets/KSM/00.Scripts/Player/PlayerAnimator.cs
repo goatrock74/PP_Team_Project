@@ -5,7 +5,7 @@ namespace KSM._00.Scripts
     /// <summary>
     /// 이동·대기 애니메이션과 좌우 반전을 담당한다.
     ///
-    /// 방향은 <b>이동 입력의 좌우</b>만 본다 (PlayerMovement.FacingX).
+    /// 이동 및 도구 사용 시 저장한 좌우 방향을 따른다 (PlayerMovement.FacingX).
     ///
     /// ★ 좌우 반전 방식이 두 가지다. 낚시가 있으면 반드시 Scale Root 를 써야 한다.
     ///
@@ -81,7 +81,12 @@ namespace KSM._00.Scripts
             SetFloatIfExists(speedParam, moving ? 1f : 0f);
             SetFloatIfExists(dirXParam, movement.FacingX);
  
-            ApplyFacing(movement.FacingX < 0f);
+        }
+
+        private void LateUpdate()
+        {
+            // Apply after input and animation so the click direction is visible on the first frame.
+            if (movement != null) ApplyFacing(movement.FacingX < 0f);
         }
  
         // ════════════════════════════════════════════════════════════

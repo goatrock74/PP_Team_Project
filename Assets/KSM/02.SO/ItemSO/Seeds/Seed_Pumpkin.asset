@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
   itemId: Pumpkin_seed
   displayName: "\uD638\uBC15\uC528\uC557\uD329"
-  icon: {fileID: -8102348181575854170, guid: 6b4c68cfe261ee7409c84dfe08828080, type: 3}
+  icon: {fileID: 1876094971, guid: e84011e7a92fefd4b84057a461a000ba, type: 3}
   description: "\uD638\uBC15\uC528\uC557\uC744 \uC2EC\uC744\uC218\uC788\uB2E4"
   itemType: 1
   maxStack: 99

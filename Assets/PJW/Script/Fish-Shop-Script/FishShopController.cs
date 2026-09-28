@@ -58,6 +58,7 @@ public class FishShopController : MonoBehaviour
     }
 
     private void MarkDirty() => needsRefresh = true;
+    private void OnEnable() => MarkDirty();
     private void OnMoneyChanged(int amount) => MarkDirty();
     private void OnDestroy()
     {
@@ -110,7 +111,7 @@ public class FishShopController : MonoBehaviour
     private void RefreshSellSlots()
     {
         int index = 0;
-        foreach (var fish in catalog.fish)
+        foreach (var fish in OwnedFish())
         foreach (var quality in new[] { ItemQuality.Normal, ItemQuality.Good, ItemQuality.Best })
         {
             if (Count(fish, quality) == 0) continue;
@@ -126,13 +127,27 @@ public class FishShopController : MonoBehaviour
         if (selectedFish != null && Count(selectedFish, selectedQuality) == 0) ClearSelection();
     }
 
+    private IEnumerable<FishDataSO> OwnedFish()
+    {
+        if (!Ready) yield break;
+        var seen = new HashSet<FishDataSO>();
+        var player = PlayerInventory.Instance;
+        foreach (var inventory in new[] { player.Bag, player.Hotbar })
+            for (int i = 0; i < inventory.Capacity; i++)
+            {
+                var stack = inventory.GetSlot(i);
+                if (stack != null && !stack.IsEmpty && stack.item is FishDataSO fish && seen.Add(fish))
+                    yield return fish;
+            }
+    }
+
     private void RefreshDetail()
     {
         if (selectedProduct != null)
         {
             var product = selectedProduct;
             bool owned = product.purchaseLimit == FishShopPurchaseLimit.Once &&
-                (PlayerPrefs.GetInt(product.PurchaseKey, 0) != 0 || (Ready && PlayerInventory.Instance.CountOf(product.item) > 0));
+                (SaveSlotStore.GetInt(product.PurchaseKey, 0) != 0 || (Ready && PlayerInventory.Instance.CountOf(product.item) > 0));
             bool room = Ready && PlayerInventory.Instance.CanAccept(product.item, 1);
             bool affordable = wallet.CurrentMoney >= product.price;
             string description = string.IsNullOrWhiteSpace(product.description) ? product.item.description : product.description;
@@ -171,7 +186,7 @@ public class FishShopController : MonoBehaviour
         if (!Ready || product == null || product.item == null || product.price < 0) return false;
         var inventory = PlayerInventory.Instance;
         if (product.purchaseLimit == FishShopPurchaseLimit.Once &&
-            (PlayerPrefs.GetInt(product.PurchaseKey, 0) != 0 || inventory.CountOf(product.item) > 0))
+            (SaveSlotStore.GetInt(product.PurchaseKey, 0) != 0 || inventory.CountOf(product.item) > 0))
             return false;
         if (!inventory.CanAccept(product.item, 1)) return false;
         if (!wallet.TrySpendMoney(product.price)) return false;
@@ -180,15 +195,15 @@ public class FishShopController : MonoBehaviour
             wallet.AddMoney(product.price);
             return false;
         }
-        if (product.purchaseLimit == FishShopPurchaseLimit.Once) PlayerPrefs.SetInt(product.PurchaseKey, 1);
+        if (product.purchaseLimit == FishShopPurchaseLimit.Once) SaveSlotStore.SetInt(product.PurchaseKey, 1);
         Inventorysavemanger.Instance.SaveInventory();
-        PlayerPrefs.Save();
+        SaveSlotStore.Save();
         return true;
     }
 
     public bool Sell(FishDataSO fish, ItemQuality quality)
     {
-        if (!Ready || fish == null || System.Array.IndexOf(catalog.fish, fish) < 0) return false;
+        if (!Ready || fish == null) return false;
         int price = catalog.SellPrice(fish, quality);
         if (price <= 0 || wallet.CurrentMoney > int.MaxValue - price) return false;
         if (PlayerInventory.Instance.Remove(fish, quality, 1) != 1) return false;

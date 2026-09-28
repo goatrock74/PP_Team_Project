@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: beac1bf669fe4bfcb57f5ac3b2e5f2a5, type: 3}
+  m_Name: WinterSeedPack
+  m_EditorClassIdentifier: Assembly-CSharp::ItemPackSO
+  itemId: winterseedpack
+  displayName: "\uACA8\uC6B8\uC2DC\uB4DC\uD329"
+  icon: {fileID: -8599107534270818777, guid: 70343c344239e1b40a3b2882c3e43cfd, type: 3}
+  description: 
+  itemType: 6
+  maxStack: 99
+  sellPrice: 0
+  season: 3
+  lootTable: {fileID: 11400000, guid: 3177991cf9a1cd149b6e3a8d67de3cca, type: 2}
+  rollCount: 1

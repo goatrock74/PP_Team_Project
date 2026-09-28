@@ -13,21 +13,21 @@ MonoBehaviour:
   m_Name: CucumberSO
   m_EditorClassIdentifier: Assembly-CSharp::CropSO
   cropName: "\uC624\uC774"
-  icon: {fileID: 0}
+  icon: {fileID: -3513379549867885781, guid: 673dad0995760804683237669eab9824, type: 3}
   harvestType: 1
   growthStages:
   - sprite: {fileID: -3513379549867885781, guid: 673dad0995760804683237669eab9824, type: 3}
-    durationTime: 0.02
+    durationTime: 0.3
   - sprite: {fileID: 669492167673851439, guid: 673dad0995760804683237669eab9824, type: 3}
-    durationTime: 0.02
+    durationTime: 0.3
   - sprite: {fileID: -5607939481280983574, guid: 673dad0995760804683237669eab9824, type: 3}
-    durationTime: 0.02
+    durationTime: 0.3
   - sprite: {fileID: 5005312502218828524, guid: 673dad0995760804683237669eab9824, type: 3}
-    durationTime: 0.02
+    durationTime: 0.3
   - sprite: {fileID: 3230612733744362600, guid: 673dad0995760804683237669eab9824, type: 3}
-    durationTime: 0.02
+    durationTime: 0.3
   - sprite: {fileID: -6230029378516168075, guid: 673dad0995760804683237669eab9824, type: 3}
-    durationTime: 0.02
+    durationTime: 2
   harvestStageIndex: 5
   regrowStageIndex: 3
   harvestItem: {fileID: 11400000, guid: a20aefdce20259e48a28a0af021b178c, type: 2}

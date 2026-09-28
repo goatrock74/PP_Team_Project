@@ -5,6 +5,15 @@ using UnityEngine.Rendering;
 [CreateAssetMenu(fileName = "new ItemSO", menuName = "PJW/Item/ItemSO")]
 public class Item : ScriptableObject
 {
+    public Item InventorySource { get; private set; }
+
+    public Item CreateOffer(int price)
+    {
+        Item offer = Instantiate(this);
+        offer.InventorySource = this;
+        offer.Item_price = price;
+        return offer;
+    }
     //[field: SerializeField] public SeasonType Season { get; private set; }
 
     [field: SerializeField] public Sprite Item_icon { get; private set; }

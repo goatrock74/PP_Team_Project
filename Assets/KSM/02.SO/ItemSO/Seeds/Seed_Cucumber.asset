@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Seed_Cucumber
   m_EditorClassIdentifier: Assembly-CSharp::SeedSO
   itemId: cucumber_seed
-  displayName: "\uC624\uC774\uC528\uC557"
-  icon: {fileID: -3513379549867885781, guid: 673dad0995760804683237669eab9824, type: 3}
+  displayName: "\uC624\uC774\uC528\uC557\uD329"
+  icon: {fileID: 8558203965515749781, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
   description: "\uBA4B\uC7C1\uC774 \uC624\uC774\uB97C \uC2EC\uC744\uC218\uC788\uB2E4"
   itemType: 1
   maxStack: 99
   sellPrice: 15
+  season: 0
   crop: {fileID: 11400000, guid: 8b6aeee2fbb27984380516b7e69f36c5, type: 2}

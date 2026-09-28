@@ -6,6 +6,40 @@ public class Input_SO_Data : MonoBehaviour
 {
     [Header("계절별 ItemListSO (순서 무관, SO의 Target Type 기준)")]
     [SerializeField] private ItemListSO[] itemListSO;
+    [Header("계절과 관계없이 판매할 목록 (연결하면 계절 목록 대신 사용)")]
+    [SerializeField] private ItemListSO allSeasonItems;
+    [Header("암상인: 고정 상품 + 매일 무작위 상품")]
+    [SerializeField] private Item guaranteedItem;
+    [SerializeField] private int guaranteedPrice = 9999;
+    [SerializeField, Min(0)] private int randomItemCount = 5;
+    private Item guaranteedOffer;
+
+    private Item[] GetDailyStock(Item[] pool)
+    {
+        if (guaranteedItem == null) return pool;
+        if (guaranteedOffer == null) guaranteedOffer = guaranteedItem.CreateOffer(guaranteedPrice);
+        var candidates = new List<Item>();
+        if (pool != null)
+            foreach (Item item in pool)
+                if (item != null && item != guaranteedItem && !candidates.Contains(item)) candidates.Add(item);
+        // Stable across reopening and loading the same save; do not alter Unity's global RNG.
+        int seed = timeManager != null ? timeManager.CurrentDay : 1;
+        foreach (char c in SaveSlotStore.Active?.id ?? "default") seed = unchecked(seed * 31 + c);
+        var random = new System.Random(seed);
+        for (int i = candidates.Count - 1; i > 0; i--)
+        {
+            int j = random.Next(i + 1);
+            Item temp = candidates[i]; candidates[i] = candidates[j]; candidates[j] = temp;
+        }
+        var stock = new List<Item> { guaranteedOffer };
+        stock.AddRange(candidates.GetRange(0, Mathf.Min(Mathf.Max(0, randomItemCount), candidates.Count)));
+        return stock.ToArray();
+    }
+
+    private void OnDestroy()
+    {
+        if (guaranteedOffer != null) Destroy(guaranteedOffer);
+    }
 
     [Header("UI 연결")]
     [SerializeField] private List<Plant_Shop_BT> shopButtons;
@@ -90,7 +124,7 @@ public class Input_SO_Data : MonoBehaviour
 
     public void RefreshShopUI(int seasonIndex)
     {
-        if (itemListSO == null || itemListSO.Length == 0)
+        if (allSeasonItems == null && (itemListSO == null || itemListSO.Length == 0))
         {
             Debug.LogError("[Input_SO_Data] itemListSO 배열이 할당되지 않았습니다!");
             return;
@@ -105,7 +139,7 @@ public class Input_SO_Data : MonoBehaviour
         // ★ 이 줄이 주석 처리되어 있어서 계절 전환이 안 먹었다
         currentSeasonIndex = seasonIndex;
 
-        ItemListSO seasonList = GetSeasonList(seasonIndex);
+        ItemListSO seasonList = allSeasonItems != null ? allSeasonItems : GetSeasonList(seasonIndex);
         if (seasonList == null)
         {
             Debug.LogWarning($"[Input_SO_Data] {currentSeasonIndex}번 계절의 SO가 없습니다. 목록을 비웁니다.");
@@ -117,7 +151,19 @@ public class Input_SO_Data : MonoBehaviour
             return;
         }
 
-        Item[] currentItems = seasonList != null ? seasonList.ItemList : null;
+        Item[] currentItems = GetDailyStock(seasonList != null ? seasonList.ItemList : null);
+        // Clone the configured slot so its icon, selection border and click event stay connected.
+        if (allSeasonItems != null && currentItems != null)
+        {
+            Plant_Shop_BT template = shopButtons.Find(button => button != null);
+            if (template != null)
+                while (shopButtons.Count < currentItems.Length)
+                {
+                    Plant_Shop_BT slot = Instantiate(template, template.transform.parent);
+                    slot.name = "Seed Slot " + (shopButtons.Count + 1);
+                    shopButtons.Add(slot);
+                }
+        }
 
         if (currentItems == null || currentItems.Length == 0)
             Debug.LogWarning($"[Input_SO_Data] {currentSeasonIndex}번 계절의 ItemList가 비어있습니다.");

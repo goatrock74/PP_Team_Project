@@ -27,6 +27,14 @@ public class TimeManager : MonoBehaviour
     private float currentTimeInSeconds = 0;
 
     public int CurrentDay => currentDay;
+    public float DayFraction => currentTimeInSeconds / dayDuration;
+    public void RestoreSave(int day, float fraction)
+    {
+        currentDay = Mathf.Max(1, day);
+        currentTimeInSeconds = Mathf.Clamp01(fraction) * dayDuration;
+        UpdateSeasonPeriod();
+        UpdateTimePeriod();
+    }
     public TimePeriod CurrentPeriod => currentPeriod;
     public SeasonPeriod CurrentSeason => currentSeason;
     public int CurrentHour => Mathf.FloorToInt((currentTimeInSeconds / dayDuration) * 24f);
@@ -39,7 +47,6 @@ public class TimeManager : MonoBehaviour
     public event Action<TimePeriod> OnTimePeriodChange;
     private void Awake()
     {
-        // 이미 인스턴스가 존재한다면 새로 생성된 중복 오브젝트 파괴
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -47,7 +54,6 @@ public class TimeManager : MonoBehaviour
         }
 
         Instance = this;
-        // [핵심] 씬이 전환되어도 이 오브젝트가 파괴되지 않고 유지됨
         DontDestroyOnLoad(gameObject);
     }
     private void Start()
@@ -59,6 +65,7 @@ public class TimeManager : MonoBehaviour
     }
     private void Update()
     {
+        if (UnityEngine.SceneManagement.SceneManager.GetActiveScene().name == "0.0MainMenu_F") return;
         currentTimeInSeconds += Time.deltaTime;
 
         if (currentTimeInSeconds >= dayDuration)

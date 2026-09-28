@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2b2d6aece3f99941a609e051e495b86, type: 3}
+  m_Name: Seed_StarFruit
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  <Item_icon>k__BackingField: {fileID: 226861689, guid: 8545cde07834f5249a731efc0605eb77, type: 3}
+  <Item_price>k__BackingField: 200
+  item_sellPrice: 0
+  <Item_name>k__BackingField: "\uC2A4\uD0C0\uD504\uB8E8\uD2B8 \uC528\uC557"
+  <item_explanation>k__BackingField: "\uC2A4\uD0C0\uD504\uB8E8\uD2B8\uB97C \uC2EC\uC744\uC218\uC788\uB2E4
+    \uBC18\uC9DD\uBC18\uC9DD!"
+  Item_count: 0

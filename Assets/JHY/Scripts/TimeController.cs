@@ -28,7 +28,6 @@ public class TimeController : MonoBehaviour
     }
     private void Start()
     {
-        // Start runs after the scene's Awake calls, unlike OnEnable across different objects.
         Subscribe();
         if (TimeManager.Instance != null)
         {

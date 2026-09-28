@@ -89,7 +89,7 @@ public class ShopInventoryBridge : MonoBehaviour
     {
         if (_instance == null || _instance.map == null || shopItem == null) return null;
 
-        ItemSO so = _instance.map.ToInventory(shopItem);
+        ItemSO so = _instance.map.ToInventory(shopItem.InventorySource != null ? shopItem.InventorySource : shopItem);
 
         if (so == null && _instance.warnUnmapped)
             Debug.LogWarning($"[상점연동] '{shopItem.name}' 에 짝지어진 ItemSO 가 없습니다. " +

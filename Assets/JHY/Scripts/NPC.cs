@@ -29,7 +29,6 @@ public class NPC : MonoBehaviour
     private void Update()
     {
 
-        // Check every overlap so the NPC or terrain cannot hide the player.
         Physics2D.OverlapBox(transform.position, boxSize, 0f,
             new ContactFilter2D().NoFilter(), detectionResults);
         bool isDetected = false;
@@ -42,10 +41,8 @@ public class NPC : MonoBehaviour
             }
         }
 
-        // UI 켜고 끄기
         if (ui != null) ui.SetActive(isDetected);
 
-        // 감지 중 E키 입력 시 씬 이동
         if (isDetected && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
         {
             TriggerDialogue();

@@ -23,34 +23,34 @@ namespace PJH._01.Scripts
         
         public void PlayCast()
         {
-            sfxSource.PlayOneShot(castClip, 0.65f);
+            if (sfxSource != null && castClip != null) sfxSource.PlayOneShot(castClip, 0.65f);
         }
 
         public void PlaySplash()
         {
-            sfxSource.PlayOneShot(splashClip, 0.55f);
+            if (sfxSource != null && splashClip != null) sfxSource.PlayOneShot(splashClip, 0.55f);
         }
 
         public void PlayBite()
         {
-            sfxSource.PlayOneShot(biteClip, 0.75f);
+            if (sfxSource != null && biteClip != null) sfxSource.PlayOneShot(biteClip, 0.75f);
         }
 
         public void PlayCatch()
         {
-            sfxSource.PlayOneShot(catchClip, 0.85f);
+            if (sfxSource != null && catchClip != null) sfxSource.PlayOneShot(catchClip, 0.85f);
         }
         
 
         public void StartReel()
         {
-            if (!reelLoopSource.isPlaying)
+            if (reelLoopSource != null && !reelLoopSource.isPlaying)
                 reelLoopSource.Play();
         }
 
         public void StopReel()
         {
-            reelLoopSource.Stop();
+            if (reelLoopSource != null) reelLoopSource.Stop();
         }
         public void PlayRetrieve()
         {
